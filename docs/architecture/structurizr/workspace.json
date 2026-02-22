@@ -1,0 +1,991 @@
+{
+  "configuration" : { },
+  "description" : "Reference architecture for local Docker + Azure Container Apps.",
+  "documentation" : { },
+  "id" : 1,
+  "lastModifiedAgent" : "structurizr-ui",
+  "lastModifiedDate" : "2026-02-19T07:58:01Z",
+  "model" : {
+    "deploymentNodes" : [ {
+      "children" : [ {
+        "children" : [ {
+          "children" : [ {
+            "containerInstances" : [ {
+              "containerId" : "4",
+              "deploymentGroups" : [ "Default" ],
+              "environment" : "Azure",
+              "id" : "19",
+              "instanceId" : 1,
+              "properties" : {
+                "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.webApp.6d62d5d4-2691-4131-a464-d48452c1f413"
+              },
+              "tags" : "Container Instance"
+            } ],
+            "description" : "Azure Container App",
+            "environment" : "Azure",
+            "id" : "18",
+            "instances" : "1",
+            "name" : "Web Frontend App",
+            "properties" : {
+              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.webApp"
+            },
+            "tags" : "Element,Deployment Node"
+          }, {
+            "containerInstances" : [ {
+              "containerId" : "5",
+              "deploymentGroups" : [ "Default" ],
+              "environment" : "Azure",
+              "id" : "21",
+              "instanceId" : 1,
+              "properties" : {
+                "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.gatewayApp.c2a6221b-4c59-4c95-a9e0-101d43fc9e9b"
+              },
+              "tags" : "Container Instance"
+            } ],
+            "description" : "Azure Container App",
+            "environment" : "Azure",
+            "id" : "20",
+            "instances" : "1",
+            "name" : "API Gateway / BFF App",
+            "properties" : {
+              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.gatewayApp"
+            },
+            "tags" : "Element,Deployment Node"
+          }, {
+            "containerInstances" : [ {
+              "containerId" : "6",
+              "deploymentGroups" : [ "Default" ],
+              "environment" : "Azure",
+              "id" : "23",
+              "instanceId" : 1,
+              "properties" : {
+                "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.orderApp.cd8f2451-1953-47c9-8ac5-917dfbd61c34"
+              },
+              "tags" : "Container Instance"
+            } ],
+            "description" : "Azure Container App",
+            "environment" : "Azure",
+            "id" : "22",
+            "instances" : "1",
+            "name" : "Order Service App",
+            "properties" : {
+              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.orderApp"
+            },
+            "tags" : "Element,Deployment Node"
+          }, {
+            "containerInstances" : [ {
+              "containerId" : "7",
+              "deploymentGroups" : [ "Default" ],
+              "environment" : "Azure",
+              "id" : "25",
+              "instanceId" : 1,
+              "properties" : {
+                "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.catalogApp.ee304278-b1dc-4d14-b9ab-342991903fca"
+              },
+              "tags" : "Container Instance"
+            } ],
+            "description" : "Azure Container App",
+            "environment" : "Azure",
+            "id" : "24",
+            "instances" : "1",
+            "name" : "Catalog Service App",
+            "properties" : {
+              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.catalogApp"
+            },
+            "tags" : "Element,Deployment Node"
+          }, {
+            "containerInstances" : [ {
+              "containerId" : "8",
+              "deploymentGroups" : [ "Default" ],
+              "environment" : "Azure",
+              "id" : "27",
+              "instanceId" : 1,
+              "properties" : {
+                "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.paymentApp.0e28f248-751c-4d5f-b7ac-2392618dad77"
+              },
+              "tags" : "Container Instance"
+            } ],
+            "description" : "Azure Container App",
+            "environment" : "Azure",
+            "id" : "26",
+            "instances" : "1",
+            "name" : "Payment Service App",
+            "properties" : {
+              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.paymentApp"
+            },
+            "tags" : "Element,Deployment Node"
+          } ],
+          "description" : "Azure Container Apps Environment",
+          "environment" : "Azure",
+          "id" : "17",
+          "instances" : "1",
+          "name" : "Container Apps Environment",
+          "properties" : {
+            "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv"
+          },
+          "tags" : "Element,Deployment Node"
+        }, {
+          "containerInstances" : [ {
+            "containerId" : "9",
+            "deploymentGroups" : [ "Default" ],
+            "environment" : "Azure",
+            "id" : "29",
+            "instanceId" : 1,
+            "properties" : {
+              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.messaging.fd384b29-232c-476b-bc5c-c4808f0bd7a8"
+            },
+            "tags" : "Container Instance"
+          } ],
+          "description" : "Managed messaging services",
+          "environment" : "Azure",
+          "id" : "28",
+          "instances" : "1",
+          "name" : "Messaging",
+          "properties" : {
+            "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.messaging"
+          },
+          "tags" : "Element,Deployment Node"
+        }, {
+          "containerInstances" : [ {
+            "containerId" : "10",
+            "deploymentGroups" : [ "Default" ],
+            "environment" : "Azure",
+            "id" : "31",
+            "instanceId" : 1,
+            "properties" : {
+              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.data.7fa6c20a-fac9-403f-b9ec-d1241eb39bd0"
+            },
+            "tags" : "Container Instance"
+          }, {
+            "containerId" : "11",
+            "deploymentGroups" : [ "Default" ],
+            "environment" : "Azure",
+            "id" : "32",
+            "instanceId" : 1,
+            "properties" : {
+              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.data.13f94bf7-0260-4b3b-9f6a-ba079955402b"
+            },
+            "tags" : "Container Instance"
+          }, {
+            "containerId" : "12",
+            "deploymentGroups" : [ "Default" ],
+            "environment" : "Azure",
+            "id" : "33",
+            "instanceId" : 1,
+            "properties" : {
+              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.data.d27693ea-ca45-432c-b33f-cc328c15e8a0"
+            },
+            "tags" : "Container Instance"
+          } ],
+          "description" : "Managed databases",
+          "environment" : "Azure",
+          "id" : "30",
+          "instances" : "1",
+          "name" : "Data",
+          "properties" : {
+            "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.data"
+          },
+          "tags" : "Element,Deployment Node"
+        } ],
+        "description" : "All resources for this environment",
+        "environment" : "Azure",
+        "id" : "16",
+        "instances" : "1",
+        "name" : "Resource Group",
+        "properties" : {
+          "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg"
+        },
+        "tags" : "Element,Deployment Node"
+      } ],
+      "description" : "Azure subscription boundary",
+      "environment" : "Azure",
+      "id" : "15",
+      "instances" : "1",
+      "name" : "Microsoft Azure",
+      "properties" : {
+        "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure"
+      },
+      "tags" : "Element,Deployment Node"
+    } ],
+    "people" : [ {
+      "description" : "Uses the system via web or mobile.",
+      "id" : "1",
+      "name" : "Customer",
+      "properties" : {
+        "structurizr.dsl.identifier" : "customer"
+      },
+      "relationships" : [ {
+        "description" : "Uses",
+        "destinationId" : "4",
+        "id" : "34",
+        "sourceId" : "1",
+        "tags" : "Relationship",
+        "technology" : "HTTPS"
+      }, {
+        "description" : "Uses",
+        "destinationId" : "3",
+        "id" : "35",
+        "linkedRelationshipId" : "34",
+        "sourceId" : "1",
+        "technology" : "HTTPS"
+      } ],
+      "tags" : "Element,Person"
+    }, {
+      "description" : "Monitors and operates the platform.",
+      "id" : "2",
+      "name" : "Operations",
+      "properties" : {
+        "structurizr.dsl.identifier" : "ops"
+      },
+      "tags" : "Element,Person"
+    } ],
+    "softwareSystems" : [ {
+      "containers" : [ {
+        "description" : "Browser-based UI.",
+        "documentation" : { },
+        "id" : "4",
+        "name" : "Web Frontend",
+        "properties" : {
+          "structurizr.dsl.identifier" : "platform.web"
+        },
+        "relationships" : [ {
+          "description" : "Calls",
+          "destinationId" : "5",
+          "id" : "36",
+          "sourceId" : "4",
+          "tags" : "Relationship",
+          "technology" : "HTTPS/JSON"
+        } ],
+        "tags" : "Element,Container,Web",
+        "technology" : "Angular"
+      }, {
+        "description" : "Single entry point for clients; routes to services.",
+        "documentation" : { },
+        "id" : "5",
+        "name" : "API Gateway / BFF",
+        "properties" : {
+          "structurizr.dsl.identifier" : "platform.apiGateway"
+        },
+        "relationships" : [ {
+          "description" : "Authenticates",
+          "destinationId" : "13",
+          "id" : "37",
+          "sourceId" : "5",
+          "tags" : "Relationship",
+          "technology" : "OIDC"
+        }, {
+          "description" : "Routes",
+          "destinationId" : "6",
+          "id" : "39",
+          "sourceId" : "5",
+          "tags" : "Relationship",
+          "technology" : "HTTPS/JSON"
+        }, {
+          "description" : "Routes",
+          "destinationId" : "7",
+          "id" : "40",
+          "sourceId" : "5",
+          "tags" : "Relationship",
+          "technology" : "HTTPS/JSON"
+        }, {
+          "description" : "Routes",
+          "destinationId" : "8",
+          "id" : "41",
+          "sourceId" : "5",
+          "tags" : "Relationship",
+          "technology" : "HTTPS/JSON"
+        } ],
+        "tags" : "Element,Container,Gateway",
+        "technology" : "YARP / APIM (logical)"
+      }, {
+        "description" : "Manages orders (create/cancel/status).",
+        "documentation" : { },
+        "id" : "6",
+        "name" : "Order Service",
+        "properties" : {
+          "structurizr.dsl.identifier" : "platform.orderApi"
+        },
+        "relationships" : [ {
+          "description" : "Reads/Writes",
+          "destinationId" : "10",
+          "id" : "42",
+          "sourceId" : "6",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Publishes OrderCreated",
+          "destinationId" : "9",
+          "id" : "45",
+          "sourceId" : "6",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container,Service",
+        "technology" : ".NET Web API"
+      }, {
+        "description" : "Products and pricing.",
+        "documentation" : { },
+        "id" : "7",
+        "name" : "Catalog Service",
+        "properties" : {
+          "structurizr.dsl.identifier" : "platform.catalogApi"
+        },
+        "relationships" : [ {
+          "description" : "Reads/Writes",
+          "destinationId" : "11",
+          "id" : "43",
+          "sourceId" : "7",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container,Service",
+        "technology" : ".NET Web API"
+      }, {
+        "description" : "Payment workflow + integration to provider.",
+        "documentation" : { },
+        "id" : "8",
+        "name" : "Payment Service",
+        "properties" : {
+          "structurizr.dsl.identifier" : "platform.paymentApi"
+        },
+        "relationships" : [ {
+          "description" : "Reads/Writes",
+          "destinationId" : "12",
+          "id" : "44",
+          "sourceId" : "8",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Consumes OrderCreated",
+          "destinationId" : "9",
+          "id" : "46",
+          "sourceId" : "8",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Charges",
+          "destinationId" : "14",
+          "id" : "47",
+          "sourceId" : "8",
+          "tags" : "Relationship",
+          "technology" : "HTTPS"
+        } ],
+        "tags" : "Element,Container,Service",
+        "technology" : ".NET Worker/Web API"
+      }, {
+        "description" : "Async messaging between services.",
+        "documentation" : { },
+        "id" : "9",
+        "name" : "Message Broker",
+        "properties" : {
+          "structurizr.dsl.identifier" : "platform.serviceBus"
+        },
+        "tags" : "Element,Container,Infra,Messaging",
+        "technology" : "Azure Service Bus"
+      }, {
+        "description" : "Stores orders.",
+        "documentation" : { },
+        "id" : "10",
+        "name" : "Orders DB",
+        "properties" : {
+          "structurizr.dsl.identifier" : "platform.ordersDb"
+        },
+        "tags" : "Element,Container,Database,Infra",
+        "technology" : "Azure SQL"
+      }, {
+        "description" : "Stores catalog data.",
+        "documentation" : { },
+        "id" : "11",
+        "name" : "Catalog DB",
+        "properties" : {
+          "structurizr.dsl.identifier" : "platform.catalogDb"
+        },
+        "tags" : "Element,Container,Database,Infra",
+        "technology" : "Azure SQL"
+      }, {
+        "description" : "Stores payment records.",
+        "documentation" : { },
+        "id" : "12",
+        "name" : "Payments DB",
+        "properties" : {
+          "structurizr.dsl.identifier" : "platform.paymentsDb"
+        },
+        "tags" : "Element,Container,Database,Infra",
+        "technology" : "Azure SQL"
+      } ],
+      "description" : "3 microservices hosted on Azure Container Apps.",
+      "documentation" : { },
+      "id" : "3",
+      "name" : "Reference Platform",
+      "properties" : {
+        "structurizr.dsl.identifier" : "platform"
+      },
+      "relationships" : [ {
+        "description" : "Authenticates",
+        "destinationId" : "13",
+        "id" : "38",
+        "linkedRelationshipId" : "37",
+        "sourceId" : "3",
+        "technology" : "OIDC"
+      }, {
+        "description" : "Charges",
+        "destinationId" : "14",
+        "id" : "48",
+        "linkedRelationshipId" : "47",
+        "sourceId" : "3",
+        "technology" : "HTTPS"
+      } ],
+      "tags" : "Element,Software System,System"
+    }, {
+      "description" : "OAuth2/OIDC identity provider.",
+      "documentation" : { },
+      "id" : "13",
+      "name" : "Microsoft Entra ID",
+      "properties" : {
+        "structurizr.dsl.identifier" : "entraId"
+      },
+      "tags" : "Element,Software System,External,Identity"
+    }, {
+      "description" : "External payment processor.",
+      "documentation" : { },
+      "id" : "14",
+      "name" : "Payment Provider",
+      "properties" : {
+        "structurizr.dsl.identifier" : "paymentProvider"
+      },
+      "tags" : "Element,Software System,External"
+    } ]
+  },
+  "name" : "Azure Container Apps - 3 Microservices",
+  "properties" : {
+    "structurizr.inspection.info" : "0",
+    "structurizr.inspection.ignore" : "0",
+    "structurizr.inspection.error" : "31",
+    "structurizr.inspection.warning" : "0"
+  },
+  "views" : {
+    "configuration" : {
+      "branding" : { },
+      "lastSavedView" : "BrowseToOrder",
+      "metadataSymbols" : "SquareBrackets",
+      "styles" : {
+        "elements" : [ {
+          "shape" : "Cylinder",
+          "tag" : "Database"
+        }, {
+          "border" : "Dashed",
+          "tag" : "External"
+        }, {
+          "shape" : "RoundedBox",
+          "tag" : "Gateway"
+        }, {
+          "shape" : "RoundedBox",
+          "tag" : "Infra"
+        }, {
+          "shape" : "Pipe",
+          "tag" : "Messaging"
+        }, {
+          "shape" : "Person",
+          "tag" : "Person"
+        }, {
+          "shape" : "RoundedBox",
+          "tag" : "Service"
+        }, {
+          "shape" : "RoundedBox",
+          "tag" : "System"
+        }, {
+          "shape" : "RoundedBox",
+          "tag" : "Web"
+        } ]
+      },
+      "terminology" : { }
+    },
+    "containerViews" : [ {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "dimensions" : {
+        "height" : 3120,
+        "width" : 3820
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 199,
+        "y" : 1883
+      }, {
+        "id" : "4",
+        "x" : 899,
+        "y" : 1933
+      }, {
+        "id" : "5",
+        "x" : 1649,
+        "y" : 1933
+      }, {
+        "id" : "6",
+        "x" : 2399,
+        "y" : 1354
+      }, {
+        "id" : "7",
+        "x" : 2399,
+        "y" : 454
+      }, {
+        "id" : "8",
+        "x" : 2399,
+        "y" : 1954
+      }, {
+        "id" : "9",
+        "x" : 3149,
+        "y" : 1379
+      }, {
+        "id" : "10",
+        "x" : 3149,
+        "y" : 779
+      }, {
+        "id" : "11",
+        "x" : 3149,
+        "y" : 179
+      }, {
+        "id" : "12",
+        "x" : 3149,
+        "y" : 1979
+      }, {
+        "id" : "13",
+        "x" : 2399,
+        "y" : 2554
+      }, {
+        "id" : "14",
+        "x" : 3149,
+        "y" : 2579
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "Containers",
+      "name" : "Container View: Reference Platform",
+      "order" : 2,
+      "relationships" : [ {
+        "id" : "34"
+      }, {
+        "id" : "36"
+      }, {
+        "id" : "37"
+      }, {
+        "id" : "39"
+      }, {
+        "id" : "40"
+      }, {
+        "id" : "41"
+      }, {
+        "id" : "42"
+      }, {
+        "id" : "43"
+      }, {
+        "id" : "44"
+      }, {
+        "id" : "45"
+      }, {
+        "id" : "46"
+      }, {
+        "id" : "47"
+      } ],
+      "softwareSystemId" : "3",
+      "title" : "Container View - 3 Microservices on Azure"
+    } ],
+    "deploymentViews" : [ {
+      "dimensions" : {
+        "height" : 1176,
+        "width" : 7169
+      },
+      "elements" : [ {
+        "id" : "15",
+        "x" : 350,
+        "y" : 350
+      }, {
+        "id" : "16",
+        "x" : 350,
+        "y" : 350
+      }, {
+        "id" : "17",
+        "x" : 350,
+        "y" : 350
+      }, {
+        "id" : "18",
+        "x" : 350,
+        "y" : 350
+      }, {
+        "id" : "19",
+        "x" : 6439,
+        "y" : 239
+      }, {
+        "id" : "20",
+        "x" : 350,
+        "y" : 350
+      }, {
+        "id" : "21",
+        "x" : 5677,
+        "y" : 239
+      }, {
+        "id" : "22",
+        "x" : 350,
+        "y" : 350
+      }, {
+        "id" : "23",
+        "x" : 4914,
+        "y" : 239
+      }, {
+        "id" : "24",
+        "x" : 350,
+        "y" : 350
+      }, {
+        "id" : "25",
+        "x" : 4152,
+        "y" : 239
+      }, {
+        "id" : "26",
+        "x" : 350,
+        "y" : 350
+      }, {
+        "id" : "27",
+        "x" : 3389,
+        "y" : 239
+      }, {
+        "id" : "28",
+        "x" : 350,
+        "y" : 350
+      }, {
+        "id" : "29",
+        "x" : 2523,
+        "y" : 239
+      }, {
+        "id" : "30",
+        "x" : 350,
+        "y" : 350
+      }, {
+        "id" : "31",
+        "x" : 1760,
+        "y" : 239
+      }, {
+        "id" : "32",
+        "x" : 1010,
+        "y" : 239
+      }, {
+        "id" : "33",
+        "x" : 260,
+        "y" : 239
+      } ],
+      "environment" : "Azure",
+      "generatedKey" : true,
+      "key" : "Deployment-001",
+      "name" : "Deployment View: Reference Platform - Azure",
+      "order" : 6,
+      "softwareSystemId" : "3",
+      "title" : "Deployment - Azure Container Apps"
+    } ],
+    "dynamicViews" : [ {
+      "dimensions" : {
+        "height" : 1748,
+        "width" : 2480
+      },
+      "elementId" : "3",
+      "elements" : [ {
+        "id" : "1",
+        "x" : 85,
+        "y" : 90
+      }, {
+        "id" : "4",
+        "x" : 700,
+        "y" : 150
+      }, {
+        "id" : "5",
+        "x" : 705,
+        "y" : 585
+      }, {
+        "id" : "6",
+        "x" : 720,
+        "y" : 1000
+      }, {
+        "id" : "8",
+        "x" : 1945,
+        "y" : 955
+      }, {
+        "id" : "9",
+        "x" : 1325,
+        "y" : 1020
+      }, {
+        "id" : "10",
+        "x" : 720,
+        "y" : 1380
+      }, {
+        "id" : "12",
+        "x" : 1940,
+        "y" : 1380
+      }, {
+        "id" : "14",
+        "x" : 1930,
+        "y" : 475
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "OrderFlow",
+      "name" : "Dynamic View: Reference Platform",
+      "order" : 3,
+      "paperSize" : "A5_Landscape",
+      "relationships" : [ {
+        "description" : "1. Uses",
+        "id" : "34",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "2. Create order",
+        "id" : "36",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "3. POST /orders",
+        "id" : "39",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "4. Save order",
+        "id" : "42",
+        "order" : "4",
+        "response" : false
+      }, {
+        "description" : "5. Publish OrderCreated",
+        "id" : "45",
+        "order" : "5",
+        "response" : false
+      }, {
+        "description" : "6. Consume OrderCreated",
+        "id" : "46",
+        "order" : "6",
+        "response" : false
+      }, {
+        "description" : "7. Charge",
+        "id" : "47",
+        "order" : "7",
+        "response" : false
+      }, {
+        "description" : "8. Persist payment",
+        "id" : "44",
+        "order" : "8",
+        "response" : false
+      } ],
+      "title" : "Dynamic - Order → Payment flow"
+    }, {
+      "dimensions" : {
+        "height" : 1748,
+        "width" : 2480
+      },
+      "elementId" : "3",
+      "elements" : [ {
+        "id" : "1",
+        "x" : 60,
+        "y" : 40
+      }, {
+        "id" : "4",
+        "x" : 790,
+        "y" : 80
+      }, {
+        "id" : "5",
+        "x" : 800,
+        "y" : 505
+      }, {
+        "id" : "6",
+        "x" : 795,
+        "y" : 940
+      }, {
+        "id" : "7",
+        "x" : 1400,
+        "y" : 510
+      }, {
+        "id" : "9",
+        "x" : 1500,
+        "y" : 985
+      }, {
+        "id" : "10",
+        "x" : 795,
+        "y" : 1330
+      }, {
+        "id" : "11",
+        "x" : 1975,
+        "y" : 510
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "BrowseToOrder",
+      "name" : "Dynamic View: Reference Platform",
+      "order" : 4,
+      "paperSize" : "A5_Landscape",
+      "relationships" : [ {
+        "description" : "1. Opens app",
+        "id" : "34",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "2. Browse catalog",
+        "id" : "36",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "3. GET /products",
+        "id" : "40",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "4. Read products",
+        "id" : "43",
+        "order" : "4",
+        "response" : false
+      }, {
+        "description" : "5. POST /orders",
+        "id" : "39",
+        "order" : "5",
+        "response" : false
+      }, {
+        "description" : "6. Save order",
+        "id" : "42",
+        "order" : "6",
+        "response" : false
+      }, {
+        "description" : "7. Publish OrderCreated",
+        "id" : "45",
+        "order" : "7",
+        "response" : false
+      } ],
+      "title" : "Dynamic - Browse catalog → place order"
+    }, {
+      "dimensions" : {
+        "height" : 1748,
+        "width" : 2480
+      },
+      "elementId" : "3",
+      "elements" : [ {
+        "id" : "1",
+        "x" : 85,
+        "y" : 90
+      }, {
+        "id" : "4",
+        "x" : 700,
+        "y" : 150
+      }, {
+        "id" : "5",
+        "x" : 705,
+        "y" : 585
+      }, {
+        "id" : "6",
+        "x" : 720,
+        "y" : 1000
+      }, {
+        "id" : "8",
+        "x" : 1945,
+        "y" : 955
+      }, {
+        "id" : "9",
+        "x" : 1325,
+        "y" : 1020
+      }, {
+        "id" : "10",
+        "x" : 720,
+        "y" : 1380
+      }, {
+        "id" : "12",
+        "x" : 1940,
+        "y" : 1380
+      }, {
+        "id" : "14",
+        "x" : 1930,
+        "y" : 475
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "CancelToRefund",
+      "name" : "Dynamic View: Reference Platform",
+      "order" : 5,
+      "paperSize" : "A5_Landscape",
+      "relationships" : [ {
+        "description" : "1. Requests cancellation",
+        "id" : "34",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "2. Cancel order",
+        "id" : "36",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "3. POST /orders/{id}/cancel",
+        "id" : "39",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "4. Mark order as Cancelled",
+        "id" : "42",
+        "order" : "4",
+        "response" : false
+      }, {
+        "description" : "5. Publish OrderCancelled",
+        "id" : "45",
+        "order" : "5",
+        "response" : false
+      }, {
+        "description" : "6. Consume OrderCancelled",
+        "id" : "46",
+        "order" : "6",
+        "response" : false
+      }, {
+        "description" : "7. Refund",
+        "id" : "47",
+        "order" : "7",
+        "response" : false
+      }, {
+        "description" : "8. Persist refund result",
+        "id" : "44",
+        "order" : "8",
+        "response" : false
+      } ],
+      "title" : "Dynamic - Cancel order → refund"
+    } ],
+    "systemContextViews" : [ {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "dimensions" : {
+        "height" : 1300,
+        "width" : 2300
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 200,
+        "y" : 409
+      }, {
+        "id" : "3",
+        "x" : 900,
+        "y" : 459
+      }, {
+        "id" : "13",
+        "x" : 1650,
+        "y" : 159
+      }, {
+        "id" : "14",
+        "x" : 1650,
+        "y" : 759
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "SystemContext",
+      "name" : "System Context View: Reference Platform",
+      "order" : 1,
+      "relationships" : [ {
+        "id" : "35"
+      }, {
+        "id" : "38"
+      }, {
+        "id" : "48"
+      } ],
+      "softwareSystemId" : "3",
+      "title" : "System Context - Reference Platform"
+    } ]
+  }
+}
