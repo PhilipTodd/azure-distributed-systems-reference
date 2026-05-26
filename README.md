@@ -34,6 +34,17 @@ docs/ → Architecture documentation and C4 models
 
 
 ---
+## Structurizr
+
+Structurizr is a "diagrams-as-code" tool used by software developers and architects to visualize, document, and maintain software architecture. It is built specifically to implement the C4 model—a hierarchical mapping method that breaks down systems into Context, Containers, Components, and Code.
+
+The files relevent for this project are in the following folder:
+
+docs/architecture/structurizr
+
+The following command can be run in Powershell to run Structurizr in a docker container displaying the reference project. Alter the path to suit your local environment:
+
+  `docker run -it --rm -p 8080:8080 -v "C:\Git\azure-distributed-systems-reference\docs\architecture\structurizr:/usr/local/structurizr" structurizr/lite`
 
 
 ---
