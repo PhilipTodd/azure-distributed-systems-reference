@@ -4,7 +4,7 @@
   "documentation" : { },
   "id" : 1,
   "lastModifiedAgent" : "structurizr-ui",
-  "lastModifiedDate" : "2026-02-19T07:58:01Z",
+  "lastModifiedDate" : "2026-05-26T01:49:02Z",
   "model" : {
     "deploymentNodes" : [ {
       "children" : [ {
@@ -17,7 +17,7 @@
               "id" : "19",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.webApp.6d62d5d4-2691-4131-a464-d48452c1f413"
+                "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg.acaEnv.webApp.ad92a487-0d2e-46c8-a61f-1a1bf11a87a3"
               },
               "tags" : "Container Instance"
             } ],
@@ -27,7 +27,7 @@
             "instances" : "1",
             "name" : "Web Frontend App",
             "properties" : {
-              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.webApp"
+              "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg.acaEnv.webApp"
             },
             "tags" : "Element,Deployment Node"
           }, {
@@ -38,7 +38,7 @@
               "id" : "21",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.gatewayApp.c2a6221b-4c59-4c95-a9e0-101d43fc9e9b"
+                "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg.acaEnv.gatewayApp.5ac66dbb-6dd5-46b1-b03b-3a7e8c84e16f"
               },
               "tags" : "Container Instance"
             } ],
@@ -48,7 +48,7 @@
             "instances" : "1",
             "name" : "API Gateway / BFF App",
             "properties" : {
-              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.gatewayApp"
+              "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg.acaEnv.gatewayApp"
             },
             "tags" : "Element,Deployment Node"
           }, {
@@ -59,7 +59,7 @@
               "id" : "23",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.orderApp.cd8f2451-1953-47c9-8ac5-917dfbd61c34"
+                "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg.acaEnv.orderApp.5e96443c-43fd-431e-a3ab-76fa2746cb32"
               },
               "tags" : "Container Instance"
             } ],
@@ -69,7 +69,7 @@
             "instances" : "1",
             "name" : "Order Service App",
             "properties" : {
-              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.orderApp"
+              "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg.acaEnv.orderApp"
             },
             "tags" : "Element,Deployment Node"
           }, {
@@ -80,7 +80,7 @@
               "id" : "25",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.catalogApp.ee304278-b1dc-4d14-b9ab-342991903fca"
+                "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg.acaEnv.catalogApp.39a5664e-b898-4938-a673-cf2d377a30fc"
               },
               "tags" : "Container Instance"
             } ],
@@ -90,7 +90,7 @@
             "instances" : "1",
             "name" : "Catalog Service App",
             "properties" : {
-              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.catalogApp"
+              "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg.acaEnv.catalogApp"
             },
             "tags" : "Element,Deployment Node"
           }, {
@@ -101,7 +101,7 @@
               "id" : "27",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.paymentApp.0e28f248-751c-4d5f-b7ac-2392618dad77"
+                "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg.acaEnv.paymentApp.9fadbcf1-b8ef-4729-94cc-f0a871182f0c"
               },
               "tags" : "Container Instance"
             } ],
@@ -111,7 +111,7 @@
             "instances" : "1",
             "name" : "Payment Service App",
             "properties" : {
-              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv.paymentApp"
+              "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg.acaEnv.paymentApp"
             },
             "tags" : "Element,Deployment Node"
           } ],
@@ -121,7 +121,7 @@
           "instances" : "1",
           "name" : "Container Apps Environment",
           "properties" : {
-            "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.acaEnv"
+            "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg.acaEnv"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -132,7 +132,7 @@
             "id" : "29",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.messaging.fd384b29-232c-476b-bc5c-c4808f0bd7a8"
+              "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg.messaging.d31bd70c-0cf9-4b53-8dfb-f6a31fc640bb"
             },
             "tags" : "Container Instance"
           } ],
@@ -142,7 +142,7 @@
           "instances" : "1",
           "name" : "Messaging",
           "properties" : {
-            "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.messaging"
+            "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg.messaging"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -153,7 +153,7 @@
             "id" : "31",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.data.7fa6c20a-fac9-403f-b9ec-d1241eb39bd0"
+              "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg.data.d76b1e0e-2b01-4317-b6c2-6b7b79b45170"
             },
             "tags" : "Container Instance"
           }, {
@@ -163,7 +163,7 @@
             "id" : "32",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.data.13f94bf7-0260-4b3b-9f6a-ba079955402b"
+              "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg.data.f4a3dbd4-266a-4830-b6c7-e96684512aaa"
             },
             "tags" : "Container Instance"
           }, {
@@ -173,7 +173,7 @@
             "id" : "33",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.data.d27693ea-ca45-432c-b33f-cc328c15e8a0"
+              "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg.data.43837945-fd88-493d-99f2-3dccdce7c716"
             },
             "tags" : "Container Instance"
           } ],
@@ -183,7 +183,7 @@
           "instances" : "1",
           "name" : "Data",
           "properties" : {
-            "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg.data"
+            "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg.data"
           },
           "tags" : "Element,Deployment Node"
         } ],
@@ -193,7 +193,7 @@
         "instances" : "1",
         "name" : "Resource Group",
         "properties" : {
-          "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure.rg"
+          "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure.rg"
         },
         "tags" : "Element,Deployment Node"
       } ],
@@ -203,7 +203,7 @@
       "instances" : "1",
       "name" : "Microsoft Azure",
       "properties" : {
-        "structurizr.dsl.identifier" : "5f17a60c-eade-4953-ad70-4ef6f374d33f.azure"
+        "structurizr.dsl.identifier" : "34dca49e-19de-413b-9857-3531ecd422d1.azure"
       },
       "tags" : "Element,Deployment Node"
     } ],
@@ -461,7 +461,7 @@
   "views" : {
     "configuration" : {
       "branding" : { },
-      "lastSavedView" : "BrowseToOrder",
+      "lastSavedView" : "Containers",
       "metadataSymbols" : "SquareBrackets",
       "styles" : {
         "elements" : [ {
