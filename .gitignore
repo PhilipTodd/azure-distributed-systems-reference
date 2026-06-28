@@ -8,6 +8,16 @@ appsettings.Development.json
 appsettings.Local.json
 PersonApi/appsettings.Development.json
 
+# Jekyll
+docs/_site/
+docs/.jekyll-cache/
+docs/.jekyll-metadata
+docs/.sass-cache/
+
+# Ruby
+docs/vendor/
+.bundle/
+
 # User-specific files
 *.rsuser
 *.suo

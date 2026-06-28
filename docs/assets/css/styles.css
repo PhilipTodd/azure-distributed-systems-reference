@@ -1,0 +1,281 @@
+/* ==========================================================================
+   Distributed systems Reference Platform
+   styles.css
+   ========================================================================== */
+
+:root {
+    --primary: #0063B1;
+    --primary-dark: #004E8C;
+    --background: #F5F7FA;
+    --surface: #FFFFFF;
+    --text: #222222;
+    --text-light: #666666;
+    --border: #D8DDE6;
+    --success: #107C10;
+    --warning: #FFB900;
+    --danger: #D13438;
+    --content-width: 1100px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+header {
+    background: var(--primary);
+    color: white;
+    padding: 24px 32px;
+}
+
+    header h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    header a {
+        color: white;
+        text-decoration: none;
+    }
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+/* ==========================================================================
+   Main Content
+   ========================================================================== */
+
+main {
+    max-width: var(--content-width);
+    margin: 40px auto;
+    padding: 0 32px;
+}
+
+    main > * {
+        margin-bottom: 24px;
+    }
+
+/* ==========================================================================
+   Headings
+   ========================================================================== */
+
+h1 {
+    font-size: 2.3rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+h3 {
+    margin-top: 28px;
+    margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   Paragraphs
+   ========================================================================== */
+
+p {
+    margin-bottom: 18px;
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+ul,
+ol {
+    margin-left: 24px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+a {
+    color: var(--primary);
+}
+
+    a:hover {
+        color: var(--primary-dark);
+    }
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    background: white;
+}
+
+th {
+    background: var(--primary);
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border: 1px solid var(--border);
+}
+
+tr:nth-child(even) {
+    background: #F8F9FB;
+}
+
+/* ==========================================================================
+   Code
+   ========================================================================== */
+
+code {
+    background: #EEF2F7;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: Consolas, monospace;
+}
+
+pre {
+    background: #1E1E1E;
+    color: #EAEAEA;
+    padding: 20px;
+    overflow-x: auto;
+    border-radius: 6px;
+    margin: 24px 0;
+}
+
+    pre code {
+        background: transparent;
+        color: inherit;
+        padding: 0;
+    }
+
+/* ==========================================================================
+   Block Quotes
+   ========================================================================== */
+
+blockquote {
+    border-left: 5px solid var(--primary);
+    background: #EDF5FC;
+    padding: 18px;
+    margin: 25px 0;
+}
+
+/* ==========================================================================
+   Horizontal Rule
+   ========================================================================== */
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 40px 0;
+}
+
+/* ==========================================================================
+   Images
+   ========================================================================== */
+
+img {
+    max-width: 100%;
+    display: block;
+    margin: 30px auto;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+    margin-top: 80px;
+    padding: 30px;
+    text-align: center;
+    color: var(--text-light);
+    border-top: 1px solid var(--border);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+    body {
+        font-size: 16px;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+.note {
+    background: #EDF5FC;
+    border-left: 5px solid #0063B1;
+    padding: 16px;
+    margin: 20px 0;
+}
+
+.warning {
+    background: #FFF8E6;
+    border-left: 5px solid #FFB900;
+    padding: 16px;
+    margin: 20px 0;
+}
