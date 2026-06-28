@@ -1,0 +1,18 @@
+title: Distributed Systems Reference Platform
+description: Cloud-native distributed-system reference implementation built with .NET 10 and Azure.
+
+theme: minima
+
+markdown: kramdown
+
+plugins:
+  - jekyll-seo-tag
+
+collections: {}
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: default
