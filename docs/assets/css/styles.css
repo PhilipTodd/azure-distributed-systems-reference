@@ -1,20 +1,27 @@
 /* ==========================================================================
-   Distributed systems Reference Platform
-   styles.css
+   Event Sourcing Reference Platform
+   styles.css - Documentation Engine Layout
    ========================================================================== */
 
 :root {
-    --primary: #0063B1;
-    --primary-dark: #004E8C;
-    --background: #F5F7FA;
+    /* Color Palette - Professional Engineering Focus */
+    --primary: #005A9E;           /* Tightened Azure/Microsoft corporate blue */
+    --primary-dark: #004578;
+    --background: #F8FAFC;         /* Clean, bright off-white body canvas */
     --surface: #FFFFFF;
-    --text: #222222;
-    --text-light: #666666;
-    --border: #D8DDE6;
+    --text: #0F172A;              /* High-contrast dark charcoal text */
+    --text-light: #475569;        /* Secondary slate for subheadings and body copy */
+    --text-muted: #64748B;
+    --border: #E2E8F0;            /* Muted subtle gray borders */
+    
     --success: #107C10;
-    --warning: #FFB900;
-    --danger: #D13438;
-    --content-width: 1100px;
+    --warning: #D83B01;
+    --danger: #A80000;
+    
+    /* Document Width Dimensions */
+    --max-container-width: 1280px;
+    --content-width: 760px;       /* Constrained for optimal line length scannability */
+    --sidebar-width: 260px;
 }
 
 * {
@@ -24,203 +31,303 @@
 }
 
 body {
-    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background: var(--background);
     color: var(--text);
-    font-size: 17px;
-    line-height: 1.7;
-}
-
-/* ==========================================================================
-   Header
-   ========================================================================== */
-
-header {
-    background: var(--primary);
-    color: white;
-    padding: 24px 32px;
-}
-
-    header h1 {
-        font-size: 2rem;
-        margin-bottom: 10px;
-    }
-
-    header a {
-        color: white;
-        text-decoration: none;
-    }
-
-/* ==========================================================================
-   Navigation
-   ========================================================================== */
-
-nav {
+    font-size: 16px;
+    line-height: 1.625;
+    -webkit-font-smoothing: antialiased;
     display: flex;
-    flex-wrap: wrap;
-    gap: 18px;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-    nav a {
-        color: white;
-        text-decoration: none;
-        font-weight: 500;
-    }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
 /* ==========================================================================
-   Main Content
+   Header Utility Bar
    ========================================================================== */
 
-main {
-    max-width: var(--content-width);
-    margin: 40px auto;
-    padding: 0 32px;
+.site-header {
+    background: #0F172A;          /* Deep dark navy to frame the product workspace */
+    color: white;
+    padding: 14px 24px;
+    border-bottom: 1px solid #1E293B;
 }
 
-    main > * {
-        margin-bottom: 24px;
-    }
+.header-container {
+    max-width: var(--max-container-width);
+    margin: 0 auto;
+    width: 100%;
+}
+
+.site-header h1 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 0;
+}
+
+.site-header a {
+    color: #F8FAFC;
+    text-decoration: none;
+}
+
+.site-header a:hover {
+    color: #FFFFFF;
+}
 
 /* ==========================================================================
-   Headings
+   Structural Grid Layout (Sidebar + Content)
+   ========================================================================== */
+
+.layout-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: var(--max-container-width);
+    width: 100%;
+    margin: 0 auto;
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    .layout-wrapper {
+        grid-template-columns: var(--sidebar-width) 1fr;
+    }
+}
+
+/* Sidebar Elements Navigation */
+.sidebar-nav {
+    background: var(--background);
+    padding: 32px 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+@media (min-width: 768px) {
+    .sidebar-nav {
+        border-bottom: none;
+        border-right: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        height: calc(100vh - 50px);
+        overflow-y: auto;
+    }
+}
+
+.sidebar-nav nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.925rem;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+}
+
+.sidebar-nav a:hover {
+    color: var(--primary);
+    background: #EDF2F7;
+}
+
+.sidebar-nav a.external-link {
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+    padding-top: 12px;
+    border-radius: 0;
+}
+
+/* Main Content Column Placement */
+main {
+    background: var(--surface);
+    padding: 40px 24px;
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    main {
+        padding: 40px 48px;
+        max-width: calc(var(--max-container-width) - var(--sidebar-width));
+    }
+}
+
+/* Restricts plain elements to optimized reading widths within the broad layout */
+main > p, main > ul, main > ol, main > table, main > pre, main > blockquote, main > .note, main > .warning {
+    max-width: var(--content-width);
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   Document Typography Hierarchy
    ========================================================================== */
 
 h1 {
-    font-size: 2.3rem;
-    margin-bottom: 20px;
+    font-size: 2.1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 24px;
+    margin-top: 0;
 }
 
 h2 {
-    margin-top: 40px;
-    margin-bottom: 15px;
-    color: var(--primary);
+    font-size: 1.45rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-top: 36px;
+    margin-bottom: 14px;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
 }
 
 h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
     margin-top: 28px;
     margin-bottom: 10px;
+    color: var(--text);
 }
-
-/* ==========================================================================
-   Paragraphs
-   ========================================================================== */
 
 p {
-    margin-bottom: 18px;
+    color: var(--text-light);
 }
 
 /* ==========================================================================
-   Lists
+   Lists & Technical Subcomponents
    ========================================================================== */
 
-ul,
-ol {
-    margin-left: 24px;
-    margin-bottom: 20px;
+ul, ol {
+    margin-left: 20px;
 }
 
 li {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    color: var(--text-light);
 }
-
-/* ==========================================================================
-   Links
-   ========================================================================== */
 
 a {
     color: var(--primary);
+    text-decoration: none;
 }
 
-    a:hover {
-        color: var(--primary-dark);
-    }
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
 
-/* ==========================================================================
-   Tables
-   ========================================================================== */
-
+/* Modern Documentation Data Tables */
 table {
     width: 100%;
-    border-collapse: collapse;
-    margin: 25px 0;
-    background: white;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 24px 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 th {
-    background: var(--primary);
-    color: white;
-    padding: 12px;
-    text-align: left;
+    background: #F1F5F9;           /* Neutral documentation gray header */
+    color: var(--text);
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border);
 }
 
 td {
-    padding: 12px;
-    border: 1px solid var(--border);
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.925rem;
+    color: var(--text-light);
 }
 
-tr:nth-child(even) {
-    background: #F8F9FB;
+tr:last-child td {
+    border-bottom: none;
 }
 
-/* ==========================================================================
-   Code
-   ========================================================================== */
+tr:nth-child(even) td {
+    background: #F8FAFC;
+}
 
+/* Technical Code Syntax Formatting */
 code {
-    background: #EEF2F7;
-    padding: 2px 6px;
+    background: #F1F5F9;
+    padding: 3px 6px;
     border-radius: 4px;
-    font-family: Consolas, monospace;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.875rem;
+    color: #0F172A;
 }
 
 pre {
-    background: #1E1E1E;
-    color: #EAEAEA;
-    padding: 20px;
+    background: #0F172A;
+    color: #E2E8F0;
+    padding: 18px;
     overflow-x: auto;
     border-radius: 6px;
     margin: 24px 0;
+    border: 1px solid #1E293B;
 }
 
-    pre code {
-        background: transparent;
-        color: inherit;
-        padding: 0;
-    }
-
-/* ==========================================================================
-   Block Quotes
-   ========================================================================== */
-
-blockquote {
-    border-left: 5px solid var(--primary);
-    background: #EDF5FC;
-    padding: 18px;
-    margin: 25px 0;
+pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    font-size: 0.85rem;
 }
 
 /* ==========================================================================
-   Horizontal Rule
+   Documentation Alerts & Quotes
    ========================================================================== */
+
+blockquote, .note {
+    background: #F0F7FF;          /* Soft slate blue alert background */
+    border-left: 4px solid var(--primary);
+    padding: 14px 18px;
+    border-radius: 0 6px 6px 0;
+    margin: 20px 0;
+}
+
+blockquote p, .note p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    color: #1E40AF;
+}
+
+.warning {
+    background: #FFFBEB;
+    border-left: 4px solid #D97706;
+    padding: 14px 18px;
+    border-radius: 0 6px 6px 0;
+    margin: 20px 0;
+}
+
+.warning p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    color: #92400E;
+}
 
 hr {
     border: none;
     border-top: 1px solid var(--border);
     margin: 40px 0;
+    max-width: var(--content-width);
 }
-
-/* ==========================================================================
-   Images
-   ========================================================================== */
 
 img {
     max-width: 100%;
+    height: auto;
     display: block;
-    margin: 30px auto;
+    margin: 24px 0;
     border: 1px solid var(--border);
     border-radius: 6px;
 }
@@ -230,52 +337,11 @@ img {
    ========================================================================== */
 
 footer {
-    margin-top: 80px;
-    padding: 30px;
+    margin-top: auto;
+    padding: 32px 24px;
     text-align: center;
-    color: var(--text-light);
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    background: var(--background);
     border-top: 1px solid var(--border);
-}
-
-/* ==========================================================================
-   Responsive
-   ========================================================================== */
-
-@media (max-width: 768px) {
-
-    body {
-        font-size: 16px;
-    }
-
-    header {
-        padding: 20px;
-    }
-
-    main {
-        padding: 20px;
-    }
-
-    nav {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    table {
-        display: block;
-        overflow-x: auto;
-    }
-}
-
-.note {
-    background: #EDF5FC;
-    border-left: 5px solid #0063B1;
-    padding: 16px;
-    margin: 20px 0;
-}
-
-.warning {
-    background: #FFF8E6;
-    border-left: 5px solid #FFB900;
-    padding: 16px;
-    margin: 20px 0;
 }

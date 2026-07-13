@@ -34,30 +34,36 @@
 
 <body>
 
-    <header>
+    <header class="site-header">
+        <div class="header-container">
+            <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+        </div>
+    </header>
+
+    <!-- <header>
         <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
 
         <nav>
             <a href="{{ '/' | relative_url }}">Home</a>
-            <!-- <a href="{{ '/architecture' | relative_url }}">Architecture</a>
-    <a href="{{ '/technology' | relative_url }}">Technology</a>
-    <a href="{{ '/event-sourcing' | relative_url }}">Event Sourcing</a>
-    <a href="{{ '/cqrs' | relative_url }}">CQRS</a>
-    <a href="{{ '/domain-model' | relative_url }}">Domain Model</a>
-    <a href="{{ '/deployment' | relative_url }}">Deployment</a>
-    <a href="{{ '/roadmap' | relative_url }}">Roadmap</a> -->
             <a href="https://github.com/PhilipTodd/azure-distributed-systems-reference" target="_blank">GitHub</a>
-        </nav>
+        </nav> -->
     </header>
 
-    <main>
+    <div class="layout-wrapper">
+        <aside class="sidebar-nav">
+            <nav aria-label="Documentation Navigation">
+                <a href="{{ '/' | relative_url }}">Home</a>
+                <a href="https://github.com/philiptodd/mining-event-sourcing-reference" target="_blank" class="external-link">GitHub ↗</a>
+            </nav>
+        </aside>
 
-        {{ content }}
-
-    </main>
+        <main>
+            {{ content }}
+        </main>
+    </div>
 
     <footer>
-        <p>� {{ site.time | date: "%Y" }} Philip Todd</p>
+        <p>© {{ site.time | date: "%Y" }} Philip Todd</p>
     </footer>
 
 </body>
