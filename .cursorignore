@@ -1,0 +1,67 @@
+# =========================================================================
+# .cursorignore - Optimized for .NET, Bicep, YAML, and Angular
+# =========================================================================
+
+# Structurizr temporary files, local server cache, and thumbnails
+.structurizr/
+
+# Jekyll
+docs/_site/
+docs/.jekyll-cache/
+docs/.jekyll-metadata
+docs/.sass-cache/
+
+# Ruby
+docs/vendor/
+.bundle/
+
+# --- Angular & Frontend Noise ---
+**/node_modules/
+**/.angular/
+**/dist/
+**/.sass-cache/
+**/npm-debug.log*
+**/yarn-error.log*
+**/src/environments/
+
+# --- .NET Build & Runtime Outputs ---
+**/bin/
+**/obj/
+**/.vs/
+**/.vscode/
+**/*.user
+**/*.userosscache
+**/*.suo
+**/App_Data/
+
+# --- Bicep & Azure Deployment Outputs ---
+**/*.azure
+**/azure-pipelines.json
+**/main.json
+
+# --- Secrets, Environment Variables & Configs ---
+**/*.env
+**/*.env.*
+**/appsettings.Development.json
+**/appsettings.local.json
+**/secrets.json
+
+# --- CI/CD & DevOps (YAML Artifacts) ---
+**/.github/workflows/artifacts/
+**/.azure-pipelines/artifacts/
+
+# --- Operating System & Temp Files ---
+**/.DS_Store
+**/Thumbs.db
+**/tmp/
+**/*.log
+**/*.tmp
+
+# Exclude local publishing profiles and certs
+**/*.pubxml
+**/*.pem
+**/*.pfx
+
+# Exclude local Bicep param files
+main.dev.local.bicepparam
+dev.local.bicepparam
