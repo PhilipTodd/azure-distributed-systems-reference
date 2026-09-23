@@ -1,56 +1,66 @@
-systemContext platform "SystemContext" {
+systemContext parameterPilot "SystemContext" {
   include *
   autoLayout lr
-  title "System Context - Reference Platform"
+  title "System Context - Parameter Pilot"
 }
 
-container platform "Containers" {
+container parameterPilot "Containers" {
   include *
   autoLayout lr
-  title "Container View - 3 Microservices on Azure"
+  title "Container View - Parameter Pilot"
 }
 
-dynamic platform "OrderFlow" {
-  title "Dynamic - Order → Payment flow"
+dynamic parameterPilot "RecordParameter" {
+  title "Dynamic - Record aquarium parameter"
 
-  customer -> platform.web "1. Uses"
-  platform.web -> platform.apiGateway "2. Create order"
-  platform.apiGateway -> platform.orderApi "3. POST /orders"
-  platform.orderApi -> platform.ordersDb "4. Save order"
-  platform.orderApi -> platform.serviceBus "5. Publish OrderCreated"
-  platform.paymentApi -> platform.serviceBus "6. Consume OrderCreated"
-  platform.paymentApi -> paymentProvider "7. Charge"
-  platform.paymentApi -> platform.paymentsDb "8. Persist payment"
+  aquariumOwner -> parameterPilot.web "1. Records a parameter measurement"
+  parameterPilot.web -> parameterPilot.apiGateway "2. POST measurement"
+  parameterPilot.apiGateway -> parameterPilot.trackingService "3. Submit measurement"
+  parameterPilot.trackingService -> parameterPilot.cosmosDb "4. Store measurement"
+  parameterPilot.trackingService -> parameterPilot.serviceBus "5. Publish ParameterRecorded"
+  parameterPilot.serviceBus -> parameterPilot.eventProcessor "6. Consume event"
+  parameterPilot.eventProcessor -> parameterPilot.appInsights "7. Record telemetry"
 }
 
-dynamic platform "BrowseToOrder" {
-  title "Dynamic - Browse catalog → place order"
+dynamic parameterPilot "TrendAnalysis" {
+  title "Dynamic - View parameter trends"
 
-  customer -> platform.web "1. Opens app"
-  platform.web -> platform.apiGateway "2. Browse catalog"
-  platform.apiGateway -> platform.catalogApi "3. GET /products"
-  platform.catalogApi -> platform.catalogDb "4. Read products"
-  platform.apiGateway -> platform.orderApi "5. POST /orders"
-  platform.orderApi -> platform.ordersDb "6. Save order"
-  platform.orderApi -> platform.serviceBus "7. Publish OrderCreated"
+  aquariumOwner -> parameterPilot.web "1. Opens trend view"
+  parameterPilot.web -> parameterPilot.apiGateway "2. Request historical measurements"
+  parameterPilot.apiGateway -> parameterPilot.trackingService "3. Query measurements"
+  parameterPilot.trackingService -> parameterPilot.cosmosDb "4. Read historical data"
+  parameterPilot.cosmosDb -> parameterPilot.trackingService "5. Return measurements"
+  parameterPilot.trackingService -> parameterPilot.apiGateway "6. Return trend data"
+  parameterPilot.apiGateway -> parameterPilot.web "7. Return trend data"
 }
 
-dynamic platform "CancelToRefund" {
-  title "Dynamic - Cancel order → refund"
+dynamic parameterPilot "MaintenanceAdvice" {
+  title "Dynamic - Generate maintenance advice"
 
-  customer -> platform.web "1. Requests cancellation"
-  platform.web -> platform.apiGateway "2. Cancel order"
-  platform.apiGateway -> platform.orderApi "3. POST /orders/{id}/cancel"
-  platform.orderApi -> platform.ordersDb "4. Mark order as Cancelled"
-  platform.orderApi -> platform.serviceBus "5. Publish OrderCancelled"
-
-  platform.paymentApi -> platform.serviceBus "6. Consume OrderCancelled"
-  platform.paymentApi -> paymentProvider "7. Refund"
-  platform.paymentApi -> platform.paymentsDb "8. Persist refund result"
+  aquariumOwner -> parameterPilot.web "1. Requests maintenance advice"
+  parameterPilot.web -> parameterPilot.apiGateway "2. Request advice"
+  parameterPilot.apiGateway -> parameterPilot.advisorService "3. Generate advice"
+  parameterPilot.advisorService -> parameterPilot.cosmosDb "4. Read recent measurements"
+  parameterPilot.advisorService -> parameterPilot.aiSearch "5. Retrieve relevant reference knowledge"
+  parameterPilot.aiSearch -> parameterPilot.advisorService "6. Return grounded knowledge"
+  parameterPilot.advisorService -> parameterPilot.apiGateway "7. Return maintenance advice"
+  parameterPilot.apiGateway -> parameterPilot.web "8. Return maintenance advice"
 }
 
-deployment platform "Azure" {
+dynamic parameterPilot "PhotoUpload" {
+  title "Dynamic - Upload aquarium photo"
+
+  aquariumOwner -> parameterPilot.web "1. Selects aquarium photo"
+  parameterPilot.web -> parameterPilot.blobStorage "2. Upload photo"
+  parameterPilot.web -> parameterPilot.apiGateway "3. Record photo metadata"
+  parameterPilot.apiGateway -> parameterPilot.aquariumService "4. Save metadata"
+  parameterPilot.aquariumService -> parameterPilot.sqlDb "5. Persist metadata"
+  parameterPilot.aquariumService -> parameterPilot.serviceBus "6. Publish PhotoUploaded"
+  parameterPilot.serviceBus -> parameterPilot.eventProcessor "7. Process event"
+}
+
+deployment parameterPilot "Azure" {
   include *
-  // autoLayout lr
-  title "Deployment - Azure Container Apps"
+  autoLayout lr
+  title "Deployment - Azure"
 }

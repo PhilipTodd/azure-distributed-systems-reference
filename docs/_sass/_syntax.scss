@@ -1,0 +1,16 @@
+.highlight {
+  background: $color-navy;
+  border-radius: $radius;
+  margin: 0 0 1.25rem;
+}
+
+.highlight pre {
+  margin: 0;
+}
+
+.highlight .c, .highlight .c1 { color: #94a3b8; }
+.highlight .k, .highlight .kd { color: #7dd3fc; }
+.highlight .s, .highlight .s1, .highlight .s2 { color: #86efac; }
+.highlight .n, .highlight .na, .highlight .nx { color: #e2e8f0; }
+.highlight .mi, .highlight .mf { color: #fdba74; }
+.highlight .p { color: #cbd5e1; }

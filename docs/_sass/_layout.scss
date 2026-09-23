@@ -1,0 +1,56 @@
+.layout {
+  min-height: 100vh;
+}
+
+.shell {
+  display: flex;
+  align-items: stretch;
+  min-height: calc(100vh - #{$header-h});
+}
+
+.main-wrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: $color-white;
+}
+
+.main {
+  flex: 1;
+}
+
+.layout:not(.layout--home) .main {
+  padding: 2rem 1.25rem 3rem;
+}
+
+.doc {
+  max-width: $content-w;
+  margin: 0 auto;
+}
+
+.doc__header {
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid $color-line;
+}
+
+.home-sections {
+  max-width: $home-w;
+  margin: 0 auto;
+  padding: 0 1.25rem 3.5rem;
+}
+
+.home-sections h2:first-child {
+  margin-top: 0;
+}
+
+@media (min-width: $bp-lg) {
+  .layout:not(.layout--home) .main {
+    padding: 2.4rem 2.5rem 4rem;
+  }
+
+  .home-sections {
+    padding: 0 2rem 4rem;
+  }
+}

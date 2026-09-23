@@ -1,0 +1,17 @@
+# Deployment pipeline stages. Rendered as a flowchart on /deployment/.
+stages:
+  - id: lint
+    name: Linting
+    detail: Format, analyzers, and policy checks
+  - id: unit
+    name: Unit tests
+    detail: Fast, isolated coverage gate
+  - id: integration
+    name: Integration
+    detail: API, data, and contract tests
+  - id: staging
+    name: Staging
+    detail: Deploy to a production-like slot
+  - id: prod
+    name: Production
+    detail: Gated release with rollback

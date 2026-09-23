@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+# github-pages pins Jekyll and safe plugins to match GitHub Pages.
+# https://pages.github.com/versions/
 gem "github-pages", group: :jekyll_plugins
-gem "csv"
-gem "bigdecimal"
+gem "webrick", "~> 1.8"
+gem "wdm", "~> 0.1", :install_if => Gem.win_platform?

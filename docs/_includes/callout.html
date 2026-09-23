@@ -1,0 +1,6 @@
+<div class="callout callout--{{ include.type | default: 'info' }}">
+  {% if include.title %}
+    <p class="callout__title">{{ include.title }}</p>
+  {% endif %}
+  <div class="callout__body">{{ include.content | markdownify }}</div>
+</div>

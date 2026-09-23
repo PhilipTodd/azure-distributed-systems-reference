@@ -1,0 +1,297 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-body;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: $color-text;
+  background: $color-white;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: $color-azure-ink;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: $color-azure-hover;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $font-display;
+  color: $color-navy;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  letter-spacing: -0.03em;
+  margin: 0 0 0.6rem;
+}
+
+h2 {
+  font-size: 1.45rem;
+  margin: 2.2rem 0 0.7rem;
+  padding-top: 0.4rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  margin: 1.6rem 0 0.5rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+ul,
+ol {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+}
+
+code,
+kbd {
+  font-family: $font-mono;
+  font-size: 0.86em;
+  background: $color-surface;
+  border: 1px solid $color-line;
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+pre {
+  font-family: $font-mono;
+  font-size: 0.85rem;
+  background: $color-navy;
+  color: #e2e8f0;
+  padding: 1rem 1.1rem;
+  border-radius: $radius;
+  overflow-x: auto;
+  margin: 0 0 1.25rem;
+}
+
+.lede {
+  font-size: 1.15rem;
+  color: $color-muted;
+  max-width: 42rem;
+}
+
+.eyebrow {
+  font-family: $font-display;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-azure;
+  margin: 0 0 0.55rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  background: $color-azure;
+  color: $color-white;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 3px solid $color-azure;
+  outline-offset: 2px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 0 0 1.25rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.7rem 0.8rem;
+  border-bottom: 1px solid $color-line;
+  vertical-align: top;
+}
+
+th {
+  font-family: $font-display;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $color-muted;
+  background: $color-surface;
+}
+
+.table-note {
+  color: $color-muted;
+  font-size: 0.95rem;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid $color-line;
+  margin: 2rem 0;
+}
+
+.diagram {
+  margin: 0;
+}
+
+.diagram figcaption {
+  color: $color-muted;
+  font-size: 0.92rem;
+  margin-top: 0.6rem;
+}
+
+.diagram img {
+  border: 1px solid $color-line;
+  border-radius: $radius;
+  background: $color-white;
+}
+
+.diagram__zoom {
+  display: block;
+  cursor: zoom-in;
+  text-decoration: none;
+}
+
+.diagram__zoom:hover,
+.diagram__zoom:focus-visible {
+  text-decoration: none;
+}
+
+.diagram__zoom:hover img,
+.diagram__zoom:focus-visible img {
+  border-color: $color-azure;
+  box-shadow: $shadow-soft;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.lightbox:not([hidden]) {
+  display: flex;
+}
+
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 18, 32, 0.78);
+}
+
+.lightbox__dialog {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.65rem;
+  width: min(96vw, 1600px);
+  max-height: 92vh;
+}
+
+.lightbox__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(92vh - 3.25rem);
+  object-fit: contain;
+  background: $color-white;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+.lightbox__caption {
+  margin: 0;
+  color: $color-white;
+  font-size: 0.95rem;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: 0.92rem;
+  line-height: 1;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  background: $color-navy;
+  color: $color-white;
+  cursor: pointer;
+}
+
+.lightbox__close:hover {
+  background: $color-slate;
+}
+
+body.lightbox-open {
+  overflow: hidden;
+}

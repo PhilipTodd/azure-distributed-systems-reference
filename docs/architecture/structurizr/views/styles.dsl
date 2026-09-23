@@ -1,5 +1,4 @@
 styles {
-
   element "Person" {
     shape person
   }
@@ -10,29 +9,19 @@ styles {
 
   element "System" {
     shape roundedBox
+    background #106ebe
+    color #ffffff
   }
 
   element "Web" {
     shape roundedBox
-  }
-
-  element "Gateway" {
-    shape roundedBox
+    background #277da8
+    color #ffffff
   }
 
   element "Service" {
     shape roundedBox
-  }
-
-  element "Database" {
-    shape cylinder
-  }
-
-  element "Messaging" {
-    shape pipe
-  }
-
-  element "Infra" {
-    shape roundedBox
+    background #176b87
+    color #ffffff
   }
 }

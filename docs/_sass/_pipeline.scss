@@ -1,0 +1,90 @@
+.pipeline {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.pipeline__stage {
+  position: relative;
+  background: $color-surface;
+  border: 1px solid $color-line;
+  border-radius: $radius;
+  padding: 0.9rem 1rem 0.9rem 3.1rem;
+}
+
+.pipeline__stage--prod {
+  background: $color-info-bg;
+  border-color: #b9d8f2;
+}
+
+.pipeline__index {
+  position: absolute;
+  left: 0.85rem;
+  top: 0.95rem;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 50%;
+  background: $color-azure;
+  color: $color-white;
+  font-family: $font-display;
+  font-size: 0.8rem;
+  font-weight: 650;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pipeline__name {
+  display: block;
+  font-family: $font-display;
+  font-weight: 650;
+  color: $color-navy;
+}
+
+.pipeline__detail {
+  color: $color-muted;
+  font-size: 0.92rem;
+}
+
+@media (min-width: $bp-lg) {
+  .pipeline {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .pipeline__stage {
+    padding: 1rem 0.85rem 1rem;
+    text-align: center;
+    border-radius: 0;
+  }
+
+  .pipeline__stage:first-child {
+    border-radius: $radius 0 0 $radius;
+  }
+
+  .pipeline__stage:last-child {
+    border-radius: 0 $radius $radius 0;
+  }
+
+  .pipeline__stage:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -7px;
+    width: 14px;
+    height: 14px;
+    border-top: 2px solid $color-azure;
+    border-right: 2px solid $color-azure;
+    transform: translateY(-50%) rotate(45deg);
+    background: transparent;
+    z-index: 1;
+  }
+
+  .pipeline__index {
+    position: static;
+    margin: 0 auto 0.45rem;
+  }
+}

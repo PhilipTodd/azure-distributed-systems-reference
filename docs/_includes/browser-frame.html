@@ -1,0 +1,14 @@
+<figure class="browser-frame">
+  <div class="browser-frame__chrome" aria-hidden="true">
+    <span></span><span></span><span></span>
+    <div class="browser-frame__url">parameterpilot.com</div>
+  </div>
+  <picture>
+    <source media="(max-width: 719px)" srcset="{{ site.project.images.portrait | relative_url }}">
+    <img
+      src="{{ site.project.images.landscape | relative_url }}"
+      alt="{{ site.project.images.alt | default: site.project.name }}"
+      width="1700"
+      height="900">
+  </picture>
+</figure>

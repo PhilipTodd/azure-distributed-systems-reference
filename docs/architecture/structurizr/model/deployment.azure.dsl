@@ -1,40 +1,54 @@
 deploymentEnvironment "Azure" {
+  azure = deploymentNode "Microsoft Azure" "Azure subscription" {
+    resourceGroup = deploymentNode "Parameter Pilot Resource Group" "Azure resources for Parameter Pilot" {
 
-  azure = deploymentNode "Microsoft Azure" "Azure subscription boundary" {
-
-    rg = deploymentNode "Resource Group" "All resources for this environment" {
-
-      acaEnv = deploymentNode "Container Apps Environment" "Azure Container Apps Environment" {
-
-        webApp = deploymentNode "Web Frontend App" "Azure Container App" {
-          containerInstance platform.web
+      appServices = deploymentNode "Azure App Service" "Managed Linux App Service hosting" {
+        tags "Microsoft Azure - App Services"
+        webApp = deploymentNode "Web Application" "Azure App Service" {
+          containerInstance parameterPilot.web
         }
 
-        gatewayApp = deploymentNode "API Gateway / BFF App" "Azure Container App" {
-          containerInstance platform.apiGateway
+        apiGateway = deploymentNode "API Gateway" "Azure API Management" {
+          tags "Microsoft Azure - API Management Services"
+          containerInstance parameterPilot.apiGateway
         }
 
-        orderApp = deploymentNode "Order Service App" "Azure Container App" {
-          containerInstance platform.orderApi
+        aquariumApp = deploymentNode "Aquarium Service" "Azure App Service" {
+          containerInstance parameterPilot.aquariumService
         }
 
-        catalogApp = deploymentNode "Catalog Service App" "Azure Container App" {
-          containerInstance platform.catalogApi
+        trackingApp = deploymentNode "Tracking Service" "Azure App Service" {
+          containerInstance parameterPilot.trackingService
         }
 
-        paymentApp = deploymentNode "Payment Service App" "Azure Container App" {
-          containerInstance platform.paymentApi
+        advisorApp = deploymentNode "Advisor Service" "Azure App Service" {
+          containerInstance parameterPilot.advisorService
         }
       }
 
-      messaging = deploymentNode "Messaging" "Managed messaging services" {
-        containerInstance platform.serviceBus
+      functions = deploymentNode "Azure Functions" "Serverless background processing" {
+        tags "Microsoft Azure - Function Apps"
+        processor = deploymentNode "Event Processor" "Azure Functions isolated worker" {
+          containerInstance parameterPilot.eventProcessor
+        }
       }
 
-      data = deploymentNode "Data" "Managed databases" {
-        containerInstance platform.ordersDb
-        containerInstance platform.catalogDb
-        containerInstance platform.paymentsDb
+      data = deploymentNode "Data Services" "Managed Azure data services" {
+        containerInstance parameterPilot.sqlDb
+        containerInstance parameterPilot.cosmosDb
+        containerInstance parameterPilot.blobStorage
+      }
+
+      messaging = deploymentNode "Messaging" "Managed messaging" {
+        containerInstance parameterPilot.serviceBus
+      }
+
+      ai = deploymentNode "AI Services" "Managed AI services" {
+        containerInstance parameterPilot.aiSearch
+      }
+
+      observability = deploymentNode "Observability" "Azure Monitor" {
+        containerInstance parameterPilot.appInsights
       }
     }
   }
