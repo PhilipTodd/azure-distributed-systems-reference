@@ -1,0 +1,25 @@
+<table class="adr-log">
+  <caption class="visually-hidden">Architecture decision records</caption>
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Status</th>
+      <th scope="col">Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for adr in site.data.adrs.items %}
+      <tr>
+        <td><time datetime="{{ adr.date }}">{{ adr.date }}</time></td>
+        <td>{% include status-badge.html status=adr.status %}</td>
+        <td>
+          {% if adr.url and adr.url != "" %}
+            <a href="{{ adr.url | relative_url }}">{{ adr.title }}</a>
+          {% else %}
+            {{ adr.title }}
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

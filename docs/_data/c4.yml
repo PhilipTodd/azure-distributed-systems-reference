@@ -1,0 +1,27 @@
+# Paths to Structurizr-exported diagrams (SVG or PNG).
+# Drop files into assets/diagrams/ and update the paths.
+levels:
+  - id: context
+    label: System Context
+    src: /assets/diagrams/structurizr-1-SystemContext.svg
+    caption: People and systems that interact with the application.
+  - id: container
+    label: Container
+    src: /assets/diagrams/structurizr-1-Containers.svg
+    caption: Deployable units, data stores, and how they talk.
+  - id: component
+    label: Maintenance advice
+    src: /assets/diagrams/structurizr-1-MaintenanceAdvice.svg
+    caption: 
+  - id: component
+    label: Photo upload
+    src: /assets/diagrams/structurizr-1-PhotoUpload.svg
+    caption: 
+  - id: component
+    label: Record parameter
+    src: /assets/diagrams/structurizr-1-RecordParameter.svg
+    caption: 
+  - id: component
+    label: Trend analysis
+    src: /assets/diagrams/structurizr-1-TrendAnalysis.svg
+    caption: 

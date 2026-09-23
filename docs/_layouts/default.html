@@ -1,70 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta name="description" content="A production-inspired distributed systems reference implementation using .NET 10, Azure, microservices, Azure Service Bus, Azure SQL, Azure Entra ID and modern DevOps practices.">
-    <meta name="keywords" content="Distributed Systems,Microservices,.NET 10,C#,Azure,Cloud Architecture,Azure Service Bus,Azure SQL,Azure Entra ID,Azure App Service,API Gateway,YARP,CQRS,Domain Driven Design,DevOps,Azure DevOps,Bicep,Docker,Cloud Native,Reference Architecture">
-
-    <!--Open Graph (LinkedIn/Facebook)-->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Distributed Systems Reference Project">
-    <meta property="og:description" content="Production-inspired distributed systems architecture built with .NET 10 and Azure. Demonstrates microservices, cloud-native design, messaging, security and DevOps best practices.">
-    <meta property="og:url" content="https://distributed-systems.ausdatatech.com.au/">
-    <meta property="og:image" content="https://distributed-systems.ausdatatech.com.au/assets/images/social-preview.png">
-    <meta property="og:site_name" content="Aus Data Tech">
-
-    <!--Twitter/X Card-->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Distributed Systems Reference Project">
-    <meta name="twitter:description" content="Production-inspired distributed systems built with .NET 10 and Azure.">
-    <meta name="twitter:image" content="https://distributed-systems.ausdatatech.com.au/assets/images/social-preview.png">
-
-    <!--Canonical URL-->
-    <link rel="canonical" href="https://distributed-systems.ausdatatech.com.au/">
-
-    <!--Author-->
-    <meta name="author" content="Philip Todd">
-
-    <title>{{ page.title }} | {{ site.title }}</title>
-
-    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
-</head>
-
-<body>
-
-    <header class="site-header">
-        <div class="header-container">
-            <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-        </div>
-    </header>
-
-    <!-- <header>
-        <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-
-        <nav>
-            <a href="{{ '/' | relative_url }}">Home</a>
-            <a href="https://github.com/PhilipTodd/azure-distributed-systems-reference" target="_blank">GitHub</a>
-        </nav> -->
-    </header>
-
-    <div class="layout-wrapper">
-        <aside class="sidebar-nav">
-            <nav aria-label="Documentation Navigation">
-                <a href="{{ '/' | relative_url }}">Home</a>
-                <a href="https://github.com/philiptodd/mining-event-sourcing-reference" target="_blank" class="external-link">GitHub ↗</a>
-            </nav>
-        </aside>
-
-        <main>
-            {{ content }}
+<html lang="{{ site.lang | default: 'en' }}">
+  <head>
+    {% include head.html %}
+  </head>
+  <body class="layout{% if page.layout == 'home' or page.hide_sidebar %} layout--home{% endif %}">
+    <a class="skip-link" href="#main">Skip to content</a>
+    {% include header.html %}
+    <div class="shell">
+      {% include sidebar.html %}
+      <div class="main-wrap">
+        <main id="main" class="main" tabindex="-1">
+          {{ content }}
         </main>
+        {% include footer.html %}
+      </div>
     </div>
-
-    <footer>
-        <p>© {{ site.time | date: "%Y" }} Philip Todd</p>
-    </footer>
-
-</body>
+    {% include lightbox.html %}
+    <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+  </body>
 </html>

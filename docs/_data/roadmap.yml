@@ -1,0 +1,10 @@
+items:
+  - status: now
+    title: Shared documentation template
+    detail: Layout, colour, navigation, and component set accepted once.
+  - status: next
+    title: Project-specific documentation sites
+    detail: Pitch, demo, C4 exports, ADRs, and Azure inventory per reference app.
+  - status: later
+    title: Production hardening notes
+    detail: DR, rollback, and alerting filled from each project's real operations plan.

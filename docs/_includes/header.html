@@ -1,0 +1,35 @@
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__text">
+        <span class="brand__name">{{ site.project.short_name | default: site.title }}</span>
+        <span class="brand__tag">Docs</span>
+      </span>
+    </a>
+
+    <nav class="site-header__nav" aria-label="Primary">
+      <ul class="site-header__links">
+        <li><a href="{{ '/architecture/' | relative_url }}">Architecture</a></li>
+        <li><a href="{{ '/decisions/' | relative_url }}">Decisions</a></li>
+        <!--<li><a href="{{ '/deployment/' | relative_url }}">Deploy</a></li>-->
+        <!--<li><a href="{{ '/azure/' | relative_url }}">Azure</a></li>-->
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      {% if site.project.demo.url %}
+        <a class="btn btn--primary btn--header" href="{{ site.project.demo.url }}" target="_blank" rel="noopener noreferrer">
+          {{ site.project.demo.label | default: 'Live demo' }}
+          {% include icon-external.html %}
+        </a>
+      {% endif %}
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-sidebar" data-nav-toggle>
+        <span class="visually-hidden">Menu</span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,27 @@
+# Primary documentation nav. Order is employer-scan order, not alphabetical.
+primary:
+  - title: Overview
+    url: /
+  - title: Architecture
+    url: /architecture/
+  - title: Decisions
+    url: /decisions/
+  # - title: Deployment
+  #   url: /deployment/
+  - title: Observability
+    url: /observability/
+  # - title: Azure
+  #   url: /azure/
+  # - title: Production
+  #   url: /production/
+  # - title: Development
+  #   url: /development/
+  # - title: Scalability
+  #   url: /scalability/
+  # - title: Roadmap
+  #   url: /roadmap/
+
+# Template-only. Hide or delete this entry when cloning for a real project.
+# template:
+#   - title: Style guide
+#     url: /style-guide/

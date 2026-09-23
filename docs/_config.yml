@@ -1,18 +1,81 @@
-title: Distributed Systems Reference Platform
-description: Cloud-native distributed-system reference implementation built with .NET 10 and Azure.
+title: Reference Project
+description: Concise technical documentation for a reference application - architecture, decisions, operations, and a live demo.
+lang: en
+encoding: utf-8
 
-theme: minima
+# Set these per repository when publishing to GitHub Pages.
+# Project site example: url: "https://username.github.io"  baseurl: "/repo-name"
+url: ""
+baseurl: ""
 
 markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: "highlight"
 
+permalink: pretty
+highlighter: rouge
+
+# Custom layouts in this repo override Minima. Do not set `theme:`.
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
 
-collections: {}
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - node_modules
+  - .gitignore
+  - .github
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
     values:
-      layout: default
+      layout: page
+      hide_sidebar: false
+
+# ---------------------------------------------------------------------------
+# Per-project settings. Copy this file into each documentation site and edit.
+# ---------------------------------------------------------------------------
+project:
+  name: Azure Distributed Systems Reference Project
+  short_name: Parameter Pilot
+  tagline: Production-shaped software, documented for a hiring conversation.
+  # The Pitch: 2-3 sentences on the "Why."
+  pitch: >
+      Parameter Pilot — an Azure-native, AI-assisted aquarium management platform demonstrating modern distributed application architecture using .NET, Angular, containers, event-driven integration and Microsoft Foundry.
+
+  demo:
+    url: "https://parameterpilot.com"
+    label: Open live demo
+  credentials:
+    enabled: true
+    username: demo.user
+    password: ChangeMe!
+    notes: Read-only sample account. Do not enter real data.
+  github:
+    repo: "https://github.com/PhilipTodd/azure-distributed-systems-reference"
+    issues: "https://github.com/PhilipTodd/azure-distributed-systems-reference/issues"
+    project: "https://github.com/users/PhilipTodd/projects/3"
+  images:
+    landscape: /assets/images/distributed systems-social-media-Horizontal.png
+    portrait: /assets/images/distributed systems-social-media-Vertical.png
+    alt: Product screenshot placeholder
+  facts:
+    - label: Platform
+      value: Azure
+    - label: IaC
+      value: Bicep
+    - label: CI/CD
+      value: GitHub Actions
+    - label: Branching
+      value: Trunk based
+
+author:
+  name: Philip
+  url: "https://ausdatatech.com.au/"

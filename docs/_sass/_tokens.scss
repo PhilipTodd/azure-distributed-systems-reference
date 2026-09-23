@@ -1,0 +1,38 @@
+// Design tokens. Keep these stable across all three documentation sites.
+
+$font-display: "Outfit", "Segoe UI", sans-serif;
+$font-body: "Source Sans 3", "Segoe UI", sans-serif;
+$font-mono: "IBM Plex Mono", "Cascadia Code", Consolas, monospace;
+
+$color-azure: #0078d4;
+$color-azure-hover: #106ebe;
+$color-azure-ink: #005a9e;
+$color-navy: #0b1220;
+$color-navy-mid: #151c2c;
+$color-slate: #1e293b;
+$color-text: #1a2332;
+$color-muted: #5b677a;
+$color-line: #d9e2ec;
+$color-surface: #f4f7fb;
+$color-white: #ffffff;
+$color-success: #0e7c3a;
+$color-success-bg: #e8f6ee;
+$color-warning: #9a6700;
+$color-warning-bg: #fff6dd;
+$color-danger: #c02a2a;
+$color-danger-bg: #fdecec;
+$color-info-bg: #e8f3fc;
+$color-note-bg: #f3eefc;
+$color-note: #5b21b6;
+
+$radius: 10px;
+$radius-lg: 16px;
+$header-h: 64px;
+$sidebar-w: 260px;
+$content-w: 760px;
+$home-w: 1120px;
+$shadow: 0 18px 40px rgba(11, 18, 32, 0.12);
+$shadow-soft: 0 1px 2px rgba(11, 18, 32, 0.06);
+
+$bp-md: 720px;
+$bp-lg: 1024px;

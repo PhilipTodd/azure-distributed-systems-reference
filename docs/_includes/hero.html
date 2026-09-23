@@ -1,0 +1,37 @@
+<section class="hero">
+  <div class="hero__copy">
+    <p class="eyebrow">{{ site.project.short_name }} / Reference documentation</p>
+    <h1>{{ site.project.name }}</h1>
+    <p class="lede">{{ site.project.pitch }}</p>
+    <div class="hero__actions">
+      {% if site.project.demo.url %}
+        <a class="btn btn--primary btn--lg" href="{{ site.project.demo.url }}" target="_blank" rel="noopener noreferrer">
+          {{ site.project.demo.label | default: 'Open live demo' }}
+          {% include icon-external.html %}
+        </a>
+      {% endif %}
+      {% if site.project.github.repo %}
+        <a class="btn btn--ghost btn--lg" href="{{ site.project.github.repo }}" target="_blank" rel="noopener noreferrer">
+          View source
+        </a>
+      {% endif %}
+    </div>
+    {% if site.project.credentials.enabled %}
+      {% include credentials.html %}
+    {% endif %}
+  </div>
+  <div class="hero__media">
+    {% include browser-frame.html %}
+  </div>
+</section>
+
+{% if site.project.facts %}
+  <ul class="fact-strip" aria-label="Project facts">
+    {% for fact in site.project.facts %}
+      <li>
+        <span class="fact-strip__label">{{ fact.label }}</span>
+        <span class="fact-strip__value">{{ fact.value }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

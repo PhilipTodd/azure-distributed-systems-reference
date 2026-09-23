@@ -1,0 +1,319 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.7rem 1.05rem;
+  text-decoration: none;
+  cursor: pointer;
+  background: $color-white;
+  color: $color-navy;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn__icon {
+  flex-shrink: 0;
+  display: block;
+}
+
+.btn--primary {
+  background: $color-azure;
+  border-color: $color-azure;
+  color: $color-white;
+}
+
+.btn--primary:hover {
+  background: $color-azure-hover;
+  border-color: $color-azure-hover;
+  color: $color-white;
+}
+
+.btn--secondary {
+  background: $color-navy;
+  border-color: $color-navy;
+  color: $color-white;
+}
+
+.btn--secondary:hover {
+  background: $color-slate;
+  color: $color-white;
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: $color-line;
+  color: $color-navy;
+}
+
+.btn--ghost:hover {
+  border-color: $color-navy;
+  color: $color-navy;
+}
+
+.btn--danger {
+  background: $color-danger;
+  border-color: $color-danger;
+  color: $color-white;
+}
+
+.btn--lg {
+  padding: 0.9rem 1.25rem;
+  font-size: 1.02rem;
+}
+
+.btn--tiny {
+  padding: 0.22rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: $color-white;
+  border-color: $color-line;
+  color: $color-slate;
+}
+
+.btn--tiny:hover,
+.btn--tiny.is-copied {
+  border-color: $color-azure;
+  color: $color-azure-ink;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 1.25rem;
+}
+
+.callout {
+  border-radius: $radius;
+  padding: 0.9rem 1rem 0.35rem;
+  margin: 0 0 1.25rem;
+  border: 1px solid $color-line;
+  border-left-width: 4px;
+}
+
+.callout__title {
+  font-family: $font-display;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+}
+
+.callout--info {
+  background: $color-info-bg;
+  border-left-color: $color-azure;
+}
+
+.callout--success {
+  background: $color-success-bg;
+  border-left-color: $color-success;
+}
+
+.callout--warning {
+  background: $color-warning-bg;
+  border-left-color: $color-warning;
+}
+
+.callout--danger {
+  background: $color-danger-bg;
+  border-left-color: $color-danger;
+}
+
+.callout--note {
+  background: $color-note-bg;
+  border-left-color: $color-note;
+}
+
+.panel {
+  border: 1px solid $color-line;
+  border-radius: $radius;
+  background: $color-white;
+  margin: 0 0 1.25rem;
+  box-shadow: $shadow-soft;
+}
+
+.panel__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid $color-line;
+  background: $color-surface;
+  border-radius: $radius $radius 0 0;
+}
+
+.panel__title {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.panel__meta {
+  color: $color-muted;
+  font-size: 0.85rem;
+}
+
+.panel__body {
+  padding: 0.9rem 1rem 0.3rem;
+}
+
+.panel-grid {
+  display: grid;
+  gap: 1rem;
+  margin: 0 0 1.25rem;
+}
+
+@media (min-width: $bp-md) {
+  .panel-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.tabs {
+  margin: 0 0 1.4rem;
+}
+
+.tabs__list {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid $color-line;
+  overflow-x: auto;
+}
+
+.tabs__tab {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: 0.92rem;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  padding: 0.7rem 0.9rem;
+  color: $color-muted;
+  cursor: pointer;
+  margin-bottom: -1px;
+  white-space: nowrap;
+}
+
+.tabs__tab:hover {
+  color: $color-navy;
+}
+
+.tabs__tab[aria-selected="true"] {
+  color: $color-azure-ink;
+  border-bottom-color: $color-azure;
+}
+
+.tabs__panel {
+  padding: 1rem 0 0;
+}
+
+.badge {
+  display: inline-block;
+  font-family: $font-display;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.45rem;
+  border-radius: 999px;
+  background: $color-surface;
+  color: $color-slate;
+}
+
+.badge--proposed {
+  background: $color-info-bg;
+  color: $color-azure-ink;
+}
+
+.badge--accepted {
+  background: $color-success-bg;
+  color: $color-success;
+}
+
+.badge--deprecated,
+.badge--superseded {
+  background: $color-danger-bg;
+  color: $color-danger;
+}
+
+.badge--tier {
+  background: #eef2ff;
+  color: #3730a3;
+}
+
+.adr-log td:first-child {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  color: $color-muted;
+}
+
+.jump-cards {
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+.jump-cards a {
+  display: block;
+  border: 1px solid $color-line;
+  border-radius: $radius;
+  padding: 0.95rem 1rem;
+  text-decoration: none;
+  color: $color-text;
+  background: $color-white;
+  height: 100%;
+}
+
+.jump-cards a:hover {
+  border-color: $color-azure;
+  box-shadow: $shadow-soft;
+}
+
+.jump-cards strong {
+  display: block;
+  font-family: $font-display;
+  color: $color-navy;
+  margin-bottom: 0.2rem;
+}
+
+.jump-cards span {
+  color: $color-muted;
+  font-size: 0.95rem;
+}
+
+@media (min-width: $bp-md) {
+  .jump-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.font-sample {
+  border: 1px solid $color-line;
+  border-radius: $radius;
+  padding: 1rem;
+  margin: 0 0 1rem;
+}
+
+.font-sample--display {
+  font-family: $font-display;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.font-sample--body {
+  font-family: $font-body;
+}
+
+.font-sample--mono {
+  font-family: $font-mono;
+  font-size: 0.95rem;
+}

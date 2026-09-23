@@ -1,0 +1,9 @@
+<div class="panel">
+  {% if include.title %}
+    <div class="panel__header">
+      <h3 class="panel__title">{{ include.title }}</h3>
+      {% if include.meta %}<span class="panel__meta">{{ include.meta }}</span>{% endif %}
+    </div>
+  {% endif %}
+  <div class="panel__body">{{ include.content | markdownify }}</div>
+</div>

@@ -1,0 +1,9 @@
+<ol class="pipeline" aria-label="Deployment pipeline">
+  {% for stage in site.data.pipeline.stages %}
+    <li class="pipeline__stage{% if forloop.last %} pipeline__stage--prod{% endif %}">
+      <span class="pipeline__index">{{ forloop.index }}</span>
+      <span class="pipeline__name">{{ stage.name }}</span>
+      <span class="pipeline__detail">{{ stage.detail }}</span>
+    </li>
+  {% endfor %}
+</ol>

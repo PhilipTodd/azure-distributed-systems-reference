@@ -1,0 +1,97 @@
+.sidebar {
+  display: none;
+  width: $sidebar-w;
+  flex-shrink: 0;
+  background: $color-surface;
+  border-right: 1px solid $color-line;
+  padding: 1.4rem 0.9rem 2rem;
+}
+
+.sidebar__label {
+  font-family: $font-display;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-muted;
+  margin: 1.1rem 0.7rem 0.45rem;
+}
+
+.sidebar__label:first-child {
+  margin-top: 0;
+}
+
+.sidebar__nav ul {
+  list-style: none;
+  margin: 0 0 0.5rem;
+  padding: 0;
+}
+
+.sidebar__nav a {
+  display: block;
+  padding: 0.42rem 0.7rem;
+  border-radius: 8px;
+  color: $color-slate;
+  text-decoration: none;
+  font-size: 0.97rem;
+}
+
+.sidebar__nav a:hover {
+  background: rgba(0, 120, 212, 0.08);
+  color: $color-azure-ink;
+}
+
+.sidebar__nav a[aria-current="page"] {
+  background: $color-white;
+  color: $color-azure-ink;
+  font-weight: 600;
+  box-shadow: $shadow-soft;
+  border: 1px solid $color-line;
+  border-left: 3px solid $color-azure;
+}
+
+.sidebar-backdrop {
+  display: none;
+}
+
+.nav-open {
+  overflow: hidden;
+}
+
+.nav-open .sidebar {
+  display: block;
+  position: fixed;
+  top: $header-h;
+  left: 0;
+  bottom: 0;
+  z-index: 50;
+  overflow-y: auto;
+  box-shadow: $shadow;
+}
+
+.nav-open .sidebar-backdrop {
+  display: block;
+  position: fixed;
+  inset: $header-h 0 0;
+  background: rgba(11, 18, 32, 0.45);
+  z-index: 45;
+}
+
+@media (min-width: $bp-lg) {
+  .layout:not(.layout--home) .sidebar {
+    display: block;
+    position: sticky;
+    top: $header-h;
+    height: calc(100vh - #{$header-h});
+    overflow-y: auto;
+  }
+
+  .layout:not(.layout--home).nav-open .sidebar {
+    position: sticky;
+    box-shadow: none;
+  }
+
+  .layout:not(.layout--home) .sidebar-backdrop,
+  .layout:not(.layout--home).nav-open .sidebar-backdrop {
+    display: none;
+  }
+}

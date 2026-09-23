@@ -1,0 +1,41 @@
+<div class="tabs" data-tabs>
+  <div class="tabs__list" role="tablist" aria-label="{{ include.label | default: 'Sections' }}">
+    {% for tab in include.tabs %}
+      <button
+        class="tabs__tab"
+        type="button"
+        role="tab"
+        id="tab-{{ include.id | default: 'tabs' }}-{{ forloop.index }}"
+        aria-controls="panel-{{ include.id | default: 'tabs' }}-{{ forloop.index }}"
+        aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+        {% unless forloop.first %}tabindex="-1"{% endunless %}>
+        {{ tab.label }}
+      </button>
+    {% endfor %}
+  </div>
+  {% for tab in include.tabs %}
+    <div
+      class="tabs__panel"
+      role="tabpanel"
+      id="panel-{{ include.id | default: 'tabs' }}-{{ forloop.index }}"
+      aria-labelledby="tab-{{ include.id | default: 'tabs' }}-{{ forloop.index }}"
+      {% unless forloop.first %}hidden{% endunless %}>
+      {% if tab.src %}
+        <figure class="diagram">
+          <a
+            class="diagram__zoom"
+            href="{{ tab.src | relative_url }}"
+            data-lightbox
+            target="_blank"
+            rel="noopener noreferrer">
+            <img src="{{ tab.src | relative_url }}" alt="{{ tab.label }}">
+            <span class="visually-hidden">Open {{ tab.label }} diagram full size</span>
+          </a>
+          {% if tab.caption %}<figcaption>{{ tab.caption }}</figcaption>{% endif %}
+        </figure>
+      {% else %}
+        {{ tab.content | markdownify }}
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>

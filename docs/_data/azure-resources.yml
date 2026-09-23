@@ -1,0 +1,25 @@
+# Azure resource inventory. Tier examples: F1, B1, S1, Standard, Basic.
+# Mention the IaC source (Bicep/Terraform module) in `iac` when known.
+iac: Bicep
+iac_path: infra/
+items:
+  - service: App Service
+    tier: B1
+    purpose: Hosts the web application
+    iac: modules/appService.bicep
+  - service: Azure SQL Database
+    tier: Basic
+    purpose: Primary relational store
+    iac: modules/sql.bicep
+  - service: Application Insights
+    tier: Pay-as-you-go
+    purpose: Traces, metrics, and custom events
+    iac: modules/monitor.bicep
+  - service: Key Vault
+    tier: Standard
+    purpose: Secrets, certificates, and connection strings
+    iac: modules/keyVault.bicep
+  - service: Storage Account
+    tier: Standard LRS
+    purpose: Static assets and diagnostic logs
+    iac: modules/storage.bicep
