@@ -1,40 +1,41 @@
 <footer class="site-footer">
-  <div class="site-footer__inner">
-    <div>
-      <p class="site-footer__brand">{{ site.project.name }}</p>
-      <p class="site-footer__muted">{{ site.project.tagline }}</p>
+    <div class="site-footer__inner">
+        <div>
+            <p class="site-footer__brand">{{ site.project.name }}</p>
+            <p class="site-footer__muted">{{ site.project.tagline }}</p>
+        </div>
+        <nav aria-label="Footer">
+            <p class="site-footer__heading">Documentation</p>
+            <ul>
+                <li><a href="{{ '/architecture/' | relative_url }}">Architecture</a></li>
+                <li><a href="{{ '/decisions/' | relative_url }}">Decision log</a></li>
+                <li><a href="{{ '/development/' | Development }}">Production readiness</a></li>
+                <!--<li><a href="{{ '/production/' | relative_url }}">Production readiness</a></li>
+                <li><a href="{{ '/roadmap/' | relative_url }}">Roadmap</a></li>-->
+            </ul>
+        </nav>
+        <nav aria-label="Project links">
+            <p class="site-footer__heading">Project</p>
+            <ul>
+                {% if site.project.demo.url %}
+                <li><a href="{{ site.project.demo.url }}" target="_blank" rel="noopener noreferrer">Live demo</a></li>
+                {% endif %}
+                {% if site.project.github.repo %}
+                <li><a href="{{ site.project.github.repo }}" target="_blank" rel="noopener noreferrer">Source repository</a></li>
+                {% endif %}
+                {% if site.project.github.issues %}
+                <li><a href="{{ site.project.github.issues }}" target="_blank" rel="noopener noreferrer">Current issues</a></li>
+                {% endif %}
+                {% if site.project.github.project %}
+                <li><a href="{{ site.project.github.project }}" target="_blank" rel="noopener noreferrer">Kanban project</a></li>
+                {% endif %}
+            </ul>
+        </nav>
     </div>
-    <nav aria-label="Footer">
-      <p class="site-footer__heading">Documentation</p>
-      <ul>
-        <li><a href="{{ '/architecture/' | relative_url }}">Architecture</a></li>
-        <li><a href="{{ '/decisions/' | relative_url }}">Decision log</a></li>
-        <!--<li><a href="{{ '/production/' | relative_url }}">Production readiness</a></li>
-        <li><a href="{{ '/roadmap/' | relative_url }}">Roadmap</a></li>-->
-      </ul>
-    </nav>
-    <nav aria-label="Project links">
-      <p class="site-footer__heading">Project</p>
-      <ul>
-        {% if site.project.demo.url %}
-          <li><a href="{{ site.project.demo.url }}" target="_blank" rel="noopener noreferrer">Live demo</a></li>
+    <p class="site-footer__legal">
+        Built with Jekyll. Compatible with GitHub Pages.
+        {% if site.author.name %}
+        - {{ site.author.name }}
         {% endif %}
-        {% if site.project.github.repo %}
-          <li><a href="{{ site.project.github.repo }}" target="_blank" rel="noopener noreferrer">Source repository</a></li>
-        {% endif %}
-        {% if site.project.github.issues %}
-          <li><a href="{{ site.project.github.issues }}" target="_blank" rel="noopener noreferrer">Current issues</a></li>
-        {% endif %}
-        {% if site.project.github.project %}
-          <li><a href="{{ site.project.github.project }}" target="_blank" rel="noopener noreferrer">Kanban project</a></li>
-        {% endif %}
-      </ul>
-    </nav>
-  </div>
-  <p class="site-footer__legal">
-    Built with Jekyll. Compatible with GitHub Pages.
-    {% if site.author.name %}
-      - {{ site.author.name }}
-    {% endif %}
-  </p>
+    </p>
 </footer>

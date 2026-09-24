@@ -6,6 +6,8 @@ primary:
     url: /architecture/
   - title: Decisions
     url: /decisions/
+  - title: Development
+    url: /development/
   # - title: Deployment
   #   url: /deployment/
   - title: Observability
@@ -14,8 +16,6 @@ primary:
   #   url: /azure/
   # - title: Production
   #   url: /production/
-  # - title: Development
-  #   url: /development/
   # - title: Scalability
   #   url: /scalability/
   # - title: Roadmap
