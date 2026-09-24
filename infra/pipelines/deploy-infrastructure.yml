@@ -8,7 +8,6 @@ pool:
 
 variables:
   azureServiceConnection: 'sc-parameterpilot-dev'
-  resourceGroupName: 'rg-parameterpilot-dev'
   resourceGroupLocation: 'australiaeast'
   templateFile: 'infra/bicep/main.bicep'
   parametersFile: 'infra/bicep/environments/dev/dev.bicepparam'
@@ -16,11 +15,14 @@ variables:
 stages:
   - stage: ValidateAndDeploy
     displayName: Validate and deploy development infrastructure
+
     jobs:
       - job: Deploy
         displayName: Deploy Static Web App
+
         steps:
           - checkout: self
+
           - task: AzureCLI@2
             displayName: Validate, preview, and deploy Bicep
             inputs:
@@ -31,27 +33,30 @@ stages:
                 set -euo pipefail
 
                 az bicep install
-                az bicep build-params --file "$(parametersFile)" --stdout > /dev/null
 
-                az group create \
-                  --name "$(resourceGroupName)" \
+                az bicep build-params \
+                  --file "$(parametersFile)" \
+                  --stdout > /dev/null
+
+                echo "Validating subscription deployment..."
+                az deployment sub validate \
+                  --name "parameterpilot-dev-validate" \
                   --location "$(resourceGroupLocation)" \
-                  --output none
-
-                az deployment group validate \
-                  --resource-group "$(resourceGroupName)" \
                   --template-file "$(templateFile)" \
                   --parameters "$(parametersFile)" \
                   --output none
 
-                az deployment group what-if \
-                  --resource-group "$(resourceGroupName)" \
+                echo "Running what-if..."
+                az deployment sub what-if \
+                  --name "parameterpilot-dev-whatif" \
+                  --location "$(resourceGroupLocation)" \
                   --template-file "$(templateFile)" \
                   --parameters "$(parametersFile)"
 
-                az deployment group create \
+                echo "Deploying infrastructure..."
+                az deployment sub create \
                   --name "parameterpilot-dev-infrastructure" \
-                  --resource-group "$(resourceGroupName)" \
+                  --location "$(resourceGroupLocation)" \
                   --template-file "$(templateFile)" \
                   --parameters "$(parametersFile)" \
                   --output table
