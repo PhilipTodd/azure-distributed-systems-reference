@@ -1,0 +1,57 @@
+# Create an Azure DevOps ARM service connection with resource-group creation
+# rights and set its name in azureServiceConnection below.
+trigger: none
+pr: none
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  azureServiceConnection: 'sc-parameterpilot-dev'
+  resourceGroupName: 'rg-parameterpilot-dev'
+  resourceGroupLocation: 'australiaeast'
+  templateFile: 'infra/bicep/main.bicep'
+  parametersFile: 'infra/bicep/environments/dev.bicepparam'
+
+stages:
+  - stage: ValidateAndDeploy
+    displayName: Validate and deploy development infrastructure
+    jobs:
+      - job: Deploy
+        displayName: Deploy Static Web App
+        steps:
+          - checkout: self
+          - task: AzureCLI@2
+            displayName: Validate, preview, and deploy Bicep
+            inputs:
+              azureSubscription: '$(azureServiceConnection)'
+              scriptType: bash
+              scriptLocation: inlineScript
+              inlineScript: |
+                set -euo pipefail
+
+                az bicep install
+                az bicep build-params --file "$(parametersFile)" --stdout > /dev/null
+
+                az group create \
+                  --name "$(resourceGroupName)" \
+                  --location "$(resourceGroupLocation)" \
+                  --output none
+
+                az deployment group validate \
+                  --resource-group "$(resourceGroupName)" \
+                  --template-file "$(templateFile)" \
+                  --parameters "$(parametersFile)" \
+                  --output none
+
+                az deployment group what-if \
+                  --resource-group "$(resourceGroupName)" \
+                  --template-file "$(templateFile)" \
+                  --parameters "$(parametersFile)"
+
+                az deployment group create \
+                  --name "parameterpilot-dev-infrastructure" \
+                  --resource-group "$(resourceGroupName)" \
+                  --template-file "$(templateFile)" \
+                  --parameters "$(parametersFile)" \
+                  --output table

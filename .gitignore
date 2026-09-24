@@ -8,6 +8,7 @@ appsettings.Development.json
 appsettings.Local.json
 PersonApi/appsettings.Development.json
 main.dev.local.bicepparam
+dev.local.bicepparam
 local.settings.json
 
 # Structurizr temporary files, local server cache, and thumbnails
