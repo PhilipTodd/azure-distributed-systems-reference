@@ -11,7 +11,7 @@ variables:
   resourceGroupName: 'rg-parameterpilot-dev'
   resourceGroupLocation: 'australiaeast'
   templateFile: 'infra/bicep/main.bicep'
-  parametersFile: 'infra/bicep/environments/dev.bicepparam'
+  parametersFile: 'infra/bicep/environments/dev/dev.bicepparam'
 
 stages:
   - stage: ValidateAndDeploy
