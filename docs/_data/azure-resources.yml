@@ -1,25 +1,89 @@
-# Azure resource inventory. Tier examples: F1, B1, S1, Standard, Basic.
-# Mention the IaC source (Bicep/Terraform module) in `iac` when known.
+# Azure inventory for /azure/. Paths are relative to infra/bicep/.
 iac: Bicep
-iac_path: infra/
-items:
-  - service: App Service
-    tier: B1
-    purpose: Hosts the web application
-    iac: modules/appService.bicep
-  - service: Azure SQL Database
-    tier: Basic
-    purpose: Primary relational store
-    iac: modules/sql.bicep
+iac_path: infra/bicep
+entrypoint: infra/bicep/environments/dev/main.bicep
+parameters: infra/bicep/environments/dev/main.dev.bicepparam
+
+created:
+  - service: Resource group
+    name: rg-parameterpilot-dev
+    tier: Subscription
+    purpose: Application-owned resources
+    iac: environments/dev/main.bicep
+  # - service: App Service (API)
+  #   name: api-adt-blastplanning-dev
+  #   tier: Shared Linux plan
+  #   purpose: Blast Planning API (.NET 10)
+  #   iac: modules/appservice.bicep
+  - service: Static web app (UI)
+    name: web-adt-parameterpilot-dev
+    tier: Free
+    purpose: Angular UI (Node 22)
+    iac: modules/static-web-app.bicep
+  # - service: Function App
+  #   name: func-adt-blastplanning-dev
+  #   tier: Shared Linux plan
+  #   purpose: Projection worker (.NET isolated 10)
+  #   iac: modules/appservice.bicep
+  - service: Storage account
+    name: stadtparameterpilotdev
+    tier: Standard_LRS
+    purpose: Photo storage
+    iac: modules/storage-account.bicep
+  # - service: Cosmos DB container
+  #   name: parameterpilot-tracking
+  #   tier: Shared account
+  #   purpose: Event store, partition key /streamId
+  #   iac: modules/cosmos-container.bicep
+  - service: Service Bus topic
+    name: parameterpilot-events
+    tier: Shared namespace
+    purpose: Domain events for parameter pilot
+    iac: modules/servicebus.bicep
+  # - service: Service Bus subscription
+  #   name: blast-plan-projections
+  #   tier: Shared namespace
+  #   purpose: Projection consumer on domain-events
+  #   iac: modules/servicebus.bicep
+
+referenced:
+  - service: Resource group
+    name: rg-platform-dev
+    tier: Shared
+    purpose: Shared platform resource group
+    iac: environments/dev/main.bicep
+  - service: App Service Plan
+    name: asp-platform-dev
+    tier: Shared
+    purpose: Linux plan hosting the API, UI, and Function
+    iac: environments/dev/main.bicep
   - service: Application Insights
-    tier: Pay-as-you-go
-    purpose: Traces, metrics, and custom events
-    iac: modules/monitor.bicep
-  - service: Key Vault
-    tier: Standard
-    purpose: Secrets, certificates, and connection strings
-    iac: modules/keyVault.bicep
-  - service: Storage Account
-    tier: Standard LRS
-    purpose: Static assets and diagnostic logs
-    iac: modules/storage.bicep
+    name: appi-platform-dev
+    tier: Shared
+    purpose: Traces, metrics, and exceptions
+    iac: environments/dev/main.bicep
+  - service: Azure SQL server
+    name: sql-adt-platform-dev
+    tier: Shared
+    purpose: Logical server for the read-model database
+    iac: environments/dev/main.bicep
+  - service: Azure SQL database
+    name: ReferenceProjectsDb
+    tier: Shared
+    purpose: Blast-plan projections
+    iac: environments/dev/main.bicep
+  - service: Cosmos DB account
+    name: cosmos-adt-platform-dev
+    tier: Shared
+    purpose: Event-store account
+    iac: environments/dev/main.bicep
+  - service: Cosmos DB database
+    name: ReferenceProjects
+    tier: Shared
+    purpose: Event-store database
+    iac: environments/dev/main.bicep
+  - service: Service Bus namespace
+    name: sb-adt-platform-dev
+    tier: Shared
+    purpose: Namespace for domain-events
+    iac: environments/dev/main.bicep
