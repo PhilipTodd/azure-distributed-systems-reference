@@ -20,7 +20,7 @@
     
     /* Document Width Dimensions */
     --max-container-width: 1280px;
-    --content-width: 760px;       /* Constrained for optimal line length scannability */
+    --content-width: 800px;       /* Constrained for optimal line length scannability */
     --sidebar-width: 260px;
 }
 
