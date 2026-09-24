@@ -54,7 +54,7 @@ project:
     url: "https://parameterpilot.com"
     label: Open live demo
   credentials:
-    enabled: true
+    enabled: false
     username: demo.user
     password: ChangeMe!
     notes: Read-only sample account. Do not enter real data.
