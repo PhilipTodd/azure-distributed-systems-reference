@@ -32,7 +32,9 @@ resource customDomainResources 'Microsoft.Web/staticSites/customDomains@2023-12-
   for domainName in customDomains: {
     parent: staticWebApp
     name: domainName
-    properties: {}
+    properties: {
+      validationMethod: 'dns-txt-token'
+    }
   }
 ]
 
