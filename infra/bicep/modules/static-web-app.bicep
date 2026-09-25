@@ -7,6 +7,9 @@ param location string
 @description('Deployment environment label.')
 param environment string
 
+@description('Custom domain associated with the Static Web App.')
+param customDomainName string
+
 resource staticWebApp 'Microsoft.Web/staticSites@2023-12-01' = {
   name: name
   location: location
@@ -25,6 +28,12 @@ resource staticWebApp 'Microsoft.Web/staticSites@2023-12-01' = {
     application: 'parameterpilot'
     environment: environment
   }
+}
+
+resource customDomain 'Microsoft.Web/staticSites/customDomains@2023-12-01' = {
+  parent: staticWebApp
+  name: customDomainName
+  properties: {}
 }
 
 output name string = staticWebApp.name
