@@ -32,8 +32,10 @@ stages:
               inlineScript: |
                 set -euo pipefail
 
+                echo "Installing Bicep..."
                 az bicep install
 
+                echo "Validating Bicep parameter file..."
                 az bicep build-params \
                   --file "$(parametersFile)" \
                   --stdout > /dev/null
