@@ -32,17 +32,19 @@ stages:
               inlineScript: |
                 set -euo pipefail
 
+                TIMESTAMP=$(date -u +%Y%m%d-%H%M%S)
+
                 echo "Installing Bicep..."
                 az bicep install
 
-                echo "Validating Bicep parameter file..."
+                echo "Building parameter file..."
                 az bicep build-params \
                   --file "$(parametersFile)" \
                   --stdout > /dev/null
 
                 echo "Validating subscription deployment..."
                 az deployment sub validate \
-                  --name "parameterpilot-dev-validate" \
+                  --name "parameterpilot-dev-validate-$TIMESTAMP" \
                   --location "$(resourceGroupLocation)" \
                   --template-file "$(templateFile)" \
                   --parameters "$(parametersFile)" \
@@ -50,14 +52,14 @@ stages:
 
                 echo "Running what-if..."
                 az deployment sub what-if \
-                  --name "parameterpilot-dev-whatif" \
+                  --name "parameterpilot-dev-whatif-$TIMESTAMP" \
                   --location "$(resourceGroupLocation)" \
                   --template-file "$(templateFile)" \
                   --parameters "$(parametersFile)"
 
                 echo "Deploying infrastructure..."
                 az deployment sub create \
-                  --name "parameterpilot-dev-infrastructure" \
+                  --name "parameterpilot-dev-$TIMESTAMP" \
                   --location "$(resourceGroupLocation)" \
                   --template-file "$(templateFile)" \
                   --parameters "$(parametersFile)" \
