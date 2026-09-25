@@ -16,8 +16,8 @@ param staticWebAppLocation string
 @description('Name of the Parameter Pilot Static Web App.')
 param staticWebAppName string
 
-@description('Custom domain for the Parameter Pilot web application.')
-param staticWebAppCustomDomainName string
+@description('Custom domains for the Parameter Pilot Static Web App.')
+param staticWebAppCustomDomains array = []
 
 resource applicationResourceGroup 'Microsoft.Resources/resourceGroups@2024-03-01' = {
   name: resourceGroupName
@@ -31,7 +31,7 @@ module web 'modules/static-web-app.bicep' = {
     name: staticWebAppName
     location: staticWebAppLocation
     environment: environment
-    customDomainName: staticWebAppCustomDomainName
+    customDomains: staticWebAppCustomDomains
   }
 }
 

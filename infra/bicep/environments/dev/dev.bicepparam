@@ -5,4 +5,7 @@ param primaryLocation = 'australiaeast'
 param resourceGroupName = 'rg-parameterpilot-dev'
 param staticWebAppLocation = 'eastasia'
 param staticWebAppName = 'stapp-adt-parameterpilot-dev'
-param staticWebAppCustomDomainName = 'parameterpilot.com'
+param staticWebAppCustomDomains = [
+  'parameterpilot.com'
+  'www.parameterpilot.com'
+]

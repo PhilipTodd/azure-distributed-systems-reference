@@ -7,8 +7,8 @@ param location string
 @description('Deployment environment label.')
 param environment string
 
-@description('Custom domain associated with the Static Web App.')
-param customDomainName string
+@description('Custom domains associated with the Static Web App.')
+param customDomains array = []
 
 resource staticWebApp 'Microsoft.Web/staticSites@2023-12-01' = {
   name: name
@@ -18,8 +18,6 @@ resource staticWebApp 'Microsoft.Web/staticSites@2023-12-01' = {
     tier: 'Free'
   }
   properties: {
-    // The site is deployed separately using its deployment token.
-    // Do not link a repository here: doing so can create an unwanted workflow.
     buildProperties: {
       skipGithubActionWorkflowGeneration: true
     }
@@ -30,11 +28,13 @@ resource staticWebApp 'Microsoft.Web/staticSites@2023-12-01' = {
   }
 }
 
-resource customDomain 'Microsoft.Web/staticSites/customDomains@2023-12-01' = {
-  parent: staticWebApp
-  name: customDomainName
-  properties: {}
-}
+resource customDomainResources 'Microsoft.Web/staticSites/customDomains@2023-12-01' = [
+  for domainName in customDomains: {
+    parent: staticWebApp
+    name: domainName
+    properties: {}
+  }
+]
 
 output name string = staticWebApp.name
 output defaultHostname string = staticWebApp.properties.defaultHostname
