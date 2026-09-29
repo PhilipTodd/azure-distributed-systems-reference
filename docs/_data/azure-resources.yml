@@ -16,7 +16,7 @@ created:
   #   purpose: Blast Planning API (.NET 10)
   #   iac: modules/appservice.bicep
   - service: Static web app (UI)
-    name: web-adt-parameterpilot-dev
+    name: stapp-adt-parameterpilot-dev
     tier: Free
     purpose: Angular UI (Node 22)
     iac: modules/static-web-app.bicep

@@ -1,0 +1,66 @@
+# Create an Azure DevOps ARM service connection with resource-group creation
+# rights and set its name in azureServiceConnection below.
+trigger: none
+pr: none
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  azureServiceConnection: 'sc-parameterpilot-dev'
+  resourceGroupLocation: 'australiaeast'
+  templateFile: 'infra/bicep/main.bicep'
+  parametersFile: 'infra/bicep/environments/dev/dev.bicepparam'
+
+stages:
+  - stage: ValidateAndDeploy
+    displayName: Validate and deploy development infrastructure
+
+    jobs:
+      - job: Deploy
+        displayName: Deploy Static Web App
+
+        steps:
+          - checkout: self
+
+          - task: AzureCLI@2
+            displayName: Validate, preview, and deploy Bicep
+            inputs:
+              azureSubscription: '$(azureServiceConnection)'
+              scriptType: bash
+              scriptLocation: inlineScript
+              inlineScript: |
+                set -euo pipefail
+
+                TIMESTAMP=$(date -u +%Y%m%d-%H%M%S)
+
+                echo "Installing Bicep..."
+                az bicep install
+
+                echo "Building parameter file..."
+                az bicep build-params \
+                  --file "$(parametersFile)" \
+                  --stdout > /dev/null
+
+                echo "Validating subscription deployment..."
+                az deployment sub validate \
+                  --name "parameterpilot-dev-validate-$TIMESTAMP" \
+                  --location "$(resourceGroupLocation)" \
+                  --template-file "$(templateFile)" \
+                  --parameters "$(parametersFile)" \
+                  --output none
+
+                echo "Running what-if..."
+                az deployment sub what-if \
+                  --name "parameterpilot-dev-whatif-$TIMESTAMP" \
+                  --location "$(resourceGroupLocation)" \
+                  --template-file "$(templateFile)" \
+                  --parameters "$(parametersFile)"
+
+                echo "Deploying infrastructure..."
+                az deployment sub create \
+                  --name "parameterpilot-dev-$TIMESTAMP" \
+                  --location "$(resourceGroupLocation)" \
+                  --template-file "$(templateFile)" \
+                  --parameters "$(parametersFile)" \
+                  --output table
