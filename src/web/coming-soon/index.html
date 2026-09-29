@@ -15,7 +15,10 @@
             margin: 0;
             display: grid;
             place-items: center;
-            background: #071d2b;
+            /* overlay + responsive cover background */
+            background:
+                linear-gradient(rgba(7,29,43,0.55), rgba(7,29,43,0.55)),
+                url('dmytro-bukhantsov-IBrZ-TXYWY8-unsplash.webp') center/cover no-repeat;
             color: #eef8fa;
         }
 
@@ -35,6 +38,26 @@
             line-height: 1.6;
             color: #b9d7df;
         }
+
+        footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0.5rem 1rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.875rem;
+            color: #b9d7df;
+        }
+
+        footer a {
+            color: #b9d7df;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -42,5 +65,8 @@
         <h1>Parameter Pilot</h1>
         <p>Coming soon. A new way to track and understand aquarium water parameters.</p>
     </main>
+    <footer>
+        <p>Photo by <a href="https://unsplash.com/@bdv91?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dmytro Bukhantsov</a> on <a href="https://unsplash.com/photos/purple-and-pink-coral-reef-IBrZ-TXYWY8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+    </footer>
 </body>
 </html>
