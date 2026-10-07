@@ -6,7 +6,6 @@ systemContext parameterPilot "SystemContext" {
 
 container parameterPilot "Containers" {
   include *
-  autoLayout lr
   title "Container View - Parameter Pilot"
 }
 
