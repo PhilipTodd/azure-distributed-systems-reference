@@ -31,20 +31,20 @@ deploymentEnvironment "Azure" {
         processor = deploymentNode "Event Processor" "Azure Functions isolated worker" {
           containerInstance parameterPilot.eventProcessor
         }
+        photoWorker = deploymentNode "Tracking Photo Worker" "Worker hosting/tier to be verified; prefer low cost" {
+          containerInstance parameterPilot.photoProcessor
+        }
       }
 
       data = deploymentNode "Data Services" "Managed Azure data services" {
         containerInstance parameterPilot.sqlDb
         containerInstance parameterPilot.cosmosDb
         containerInstance parameterPilot.blobStorage
+        containerInstance parameterPilot.advisorDb
       }
 
       messaging = deploymentNode "Messaging" "Managed messaging" {
         containerInstance parameterPilot.serviceBus
-      }
-
-      ai = deploymentNode "AI Services" "Managed AI services" {
-        containerInstance parameterPilot.aiSearch
       }
 
       observability = deploymentNode "Observability" "Azure Monitor" {
