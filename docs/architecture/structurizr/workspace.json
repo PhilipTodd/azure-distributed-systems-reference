@@ -4,7 +4,7 @@
   "documentation" : { },
   "id" : 1,
   "lastModifiedAgent" : "structurizr-ui",
-  "lastModifiedDate" : "2026-10-07T01:20:36Z",
+  "lastModifiedDate" : "2026-10-19T05:18:12Z",
   "model" : {
     "deploymentNodes" : [ {
       "children" : [ {
@@ -14,108 +14,18 @@
               "containerId" : "4",
               "deploymentGroups" : [ "Default" ],
               "environment" : "Azure",
-              "id" : "53",
-              "instanceId" : 1,
-              "properties" : {
-                "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.appServices.webApp.4bf50019-f6dd-4b08-83e1-2399c2be4721"
-              },
-              "relationships" : [ {
-                "description" : "Calls",
-                "destinationId" : "55",
-                "id" : "56",
-                "linkedRelationshipId" : "22",
-                "sourceId" : "53",
-                "technology" : "HTTPS/JSON"
-              }, {
-                "description" : "Uploads aquarium photos",
-                "destinationId" : "79",
-                "id" : "80",
-                "linkedRelationshipId" : "42",
-                "sourceId" : "53",
-                "technology" : "HTTPS"
-              } ],
-              "tags" : "Container Instance"
-            } ],
-            "description" : "Azure App Service",
-            "environment" : "Azure",
-            "id" : "52",
-            "instances" : "1",
-            "name" : "Web Application",
-            "properties" : {
-              "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.appServices.webApp"
-            },
-            "tags" : "Element,Deployment Node"
-          }, {
-            "containerInstances" : [ {
-              "containerId" : "5",
-              "deploymentGroups" : [ "Default" ],
-              "environment" : "Azure",
-              "id" : "55",
-              "instanceId" : 1,
-              "properties" : {
-                "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.appServices.apiGateway.ac43f1b0-737e-453a-a333-589282f04a7d"
-              },
-              "relationships" : [ {
-                "description" : "Routes aquarium requests",
-                "destinationId" : "58",
-                "id" : "59",
-                "linkedRelationshipId" : "25",
-                "sourceId" : "55",
-                "technology" : "HTTPS/JSON"
-              }, {
-                "description" : "Routes tracking requests",
-                "destinationId" : "61",
-                "id" : "63",
-                "linkedRelationshipId" : "26",
-                "sourceId" : "55",
-                "technology" : "HTTPS/JSON"
-              }, {
-                "description" : "Routes advice requests",
-                "destinationId" : "65",
-                "id" : "67",
-                "linkedRelationshipId" : "27",
-                "sourceId" : "55",
-                "technology" : "HTTPS/JSON"
-              } ],
-              "tags" : "Container Instance"
-            } ],
-            "description" : "Azure API Management",
-            "environment" : "Azure",
-            "id" : "54",
-            "instances" : "1",
-            "name" : "API Gateway",
-            "properties" : {
-              "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.appServices.apiGateway"
-            },
-            "tags" : "Element,Deployment Node,Microsoft Azure - API Management Services"
-          }, {
-            "containerInstances" : [ {
-              "containerId" : "6",
-              "deploymentGroups" : [ "Default" ],
-              "environment" : "Azure",
               "id" : "58",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.appServices.aquariumApp.ac718a48-7d20-40cb-9330-57cc3f1513db"
+                "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.webApp.86862070-d008-4f9c-ab59-87ba9703e811"
               },
               "relationships" : [ {
-                "description" : "Reads/writes aquarium data",
-                "destinationId" : "72",
-                "id" : "73",
-                "linkedRelationshipId" : "28",
-                "sourceId" : "58"
-              }, {
-                "description" : "Publishes aquarium events",
-                "destinationId" : "83",
-                "id" : "84",
-                "linkedRelationshipId" : "29",
-                "sourceId" : "58"
-              }, {
-                "description" : "Sends telemetry",
-                "destinationId" : "93",
-                "id" : "94",
-                "linkedRelationshipId" : "45",
-                "sourceId" : "58"
+                "description" : "Calls",
+                "destinationId" : "60",
+                "id" : "61",
+                "linkedRelationshipId" : "23",
+                "sourceId" : "58",
+                "technology" : "HTTPS/JSON"
               } ],
               "tags" : "Container Instance"
             } ],
@@ -123,9 +33,92 @@
             "environment" : "Azure",
             "id" : "57",
             "instances" : "1",
+            "name" : "Web Application",
+            "properties" : {
+              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.webApp"
+            },
+            "tags" : "Element,Deployment Node"
+          }, {
+            "containerInstances" : [ {
+              "containerId" : "5",
+              "deploymentGroups" : [ "Default" ],
+              "environment" : "Azure",
+              "id" : "60",
+              "instanceId" : 1,
+              "properties" : {
+                "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.apiGateway.e1e66ff0-cc55-4bd9-92c8-beaa4b201872"
+              },
+              "relationships" : [ {
+                "description" : "Routes aquarium requests",
+                "destinationId" : "63",
+                "id" : "64",
+                "linkedRelationshipId" : "26",
+                "sourceId" : "60",
+                "technology" : "HTTPS/JSON"
+              }, {
+                "description" : "Routes tracking requests",
+                "destinationId" : "66",
+                "id" : "68",
+                "linkedRelationshipId" : "27",
+                "sourceId" : "60",
+                "technology" : "HTTPS/JSON"
+              }, {
+                "description" : "Routes advice requests",
+                "destinationId" : "70",
+                "id" : "72",
+                "linkedRelationshipId" : "28",
+                "sourceId" : "60",
+                "technology" : "HTTPS/JSON"
+              } ],
+              "tags" : "Container Instance"
+            } ],
+            "description" : "Azure API Management",
+            "environment" : "Azure",
+            "id" : "59",
+            "instances" : "1",
+            "name" : "API Gateway",
+            "properties" : {
+              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.apiGateway"
+            },
+            "tags" : "Element,Deployment Node,Microsoft Azure - API Management Services"
+          }, {
+            "containerInstances" : [ {
+              "containerId" : "6",
+              "deploymentGroups" : [ "Default" ],
+              "environment" : "Azure",
+              "id" : "63",
+              "instanceId" : 1,
+              "properties" : {
+                "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.aquariumApp.2fff007c-8f0a-4c70-b5a1-2eacfa8781e7"
+              },
+              "relationships" : [ {
+                "description" : "Reads/writes aquarium data",
+                "destinationId" : "79",
+                "id" : "80",
+                "linkedRelationshipId" : "29",
+                "sourceId" : "63"
+              }, {
+                "description" : "Publishes aquarium events",
+                "destinationId" : "93",
+                "id" : "94",
+                "linkedRelationshipId" : "30",
+                "sourceId" : "63"
+              }, {
+                "description" : "Sends telemetry",
+                "destinationId" : "102",
+                "id" : "103",
+                "linkedRelationshipId" : "50",
+                "sourceId" : "63"
+              } ],
+              "tags" : "Container Instance"
+            } ],
+            "description" : "Azure App Service",
+            "environment" : "Azure",
+            "id" : "62",
+            "instances" : "1",
             "name" : "Aquarium Service",
             "properties" : {
-              "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.appServices.aquariumApp"
+              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.aquariumApp"
             },
             "tags" : "Element,Deployment Node"
           }, {
@@ -133,46 +126,53 @@
               "containerId" : "7",
               "deploymentGroups" : [ "Default" ],
               "environment" : "Azure",
-              "id" : "61",
+              "id" : "66",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.appServices.trackingApp.9e8c7853-0108-45dc-a2fe-59eafd088280"
+                "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.trackingApp.a19979e2-3311-43ce-ab43-8c0845647487"
               },
               "relationships" : [ {
                 "description" : "Returns trend data",
-                "destinationId" : "55",
-                "id" : "62",
-                "linkedRelationshipId" : "32",
-                "sourceId" : "61",
+                "destinationId" : "60",
+                "id" : "67",
+                "linkedRelationshipId" : "33",
+                "sourceId" : "66",
                 "technology" : "HTTPS/JSON"
               }, {
                 "description" : "Reads/writes measurements and events",
-                "destinationId" : "75",
-                "id" : "76",
-                "linkedRelationshipId" : "30",
-                "sourceId" : "61"
+                "destinationId" : "82",
+                "id" : "83",
+                "linkedRelationshipId" : "31",
+                "sourceId" : "66"
+              }, {
+                "description" : "Saves private within-limit original after bounded upload validation",
+                "destinationId" : "87",
+                "id" : "88",
+                "linkedRelationshipId" : "47",
+                "sourceId" : "66",
+                "technology" : "HTTPS / managed identity"
               }, {
                 "description" : "Publishes parameter events",
-                "destinationId" : "83",
-                "id" : "85",
-                "linkedRelationshipId" : "31",
-                "sourceId" : "61"
-              }, {
-                "description" : "Sends telemetry",
                 "destinationId" : "93",
                 "id" : "95",
-                "linkedRelationshipId" : "46",
-                "sourceId" : "61"
+                "linkedRelationshipId" : "32",
+                "sourceId" : "66"
+              }, {
+                "description" : "Sends telemetry",
+                "destinationId" : "102",
+                "id" : "104",
+                "linkedRelationshipId" : "51",
+                "sourceId" : "66"
               } ],
               "tags" : "Container Instance"
             } ],
             "description" : "Azure App Service",
             "environment" : "Azure",
-            "id" : "60",
+            "id" : "65",
             "instances" : "1",
             "name" : "Tracking Service",
             "properties" : {
-              "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.appServices.trackingApp"
+              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.trackingApp"
             },
             "tags" : "Element,Deployment Node"
           }, {
@@ -180,62 +180,62 @@
               "containerId" : "8",
               "deploymentGroups" : [ "Default" ],
               "environment" : "Azure",
-              "id" : "65",
+              "id" : "70",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.appServices.advisorApp.a5c6ac2f-d3c8-4062-be08-90b2d80dbcc0"
+                "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.advisorApp.7f12ccab-1b21-4a3b-9322-3311e08ba7ca"
               },
               "relationships" : [ {
                 "description" : "Returns maintenance advice",
-                "destinationId" : "55",
-                "id" : "66",
-                "linkedRelationshipId" : "36",
-                "sourceId" : "65",
+                "destinationId" : "60",
+                "id" : "71",
+                "linkedRelationshipId" : "37",
+                "sourceId" : "70",
                 "technology" : "HTTPS/JSON"
               }, {
                 "description" : "Reads historical measurements",
-                "destinationId" : "75",
-                "id" : "77",
-                "linkedRelationshipId" : "33",
-                "sourceId" : "65"
+                "destinationId" : "82",
+                "id" : "84",
+                "linkedRelationshipId" : "34",
+                "sourceId" : "70"
               }, {
-                "description" : "Publishes advice processing events",
-                "destinationId" : "83",
-                "id" : "86",
-                "linkedRelationshipId" : "35",
-                "sourceId" : "65"
-              }, {
-                "description" : "Retrieves reference knowledge",
+                "description" : "Stores jobs/results/quotas/input snapshots; retrieves curated passages using pgvector",
                 "destinationId" : "90",
                 "id" : "91",
-                "linkedRelationshipId" : "34",
-                "sourceId" : "65"
+                "linkedRelationshipId" : "35",
+                "sourceId" : "70"
               }, {
-                "description" : "Sends telemetry",
+                "description" : "Publishes advice processing events",
                 "destinationId" : "93",
                 "id" : "96",
-                "linkedRelationshipId" : "47",
-                "sourceId" : "65"
+                "linkedRelationshipId" : "36",
+                "sourceId" : "70"
+              }, {
+                "description" : "Sends telemetry",
+                "destinationId" : "102",
+                "id" : "105",
+                "linkedRelationshipId" : "52",
+                "sourceId" : "70"
               } ],
               "tags" : "Container Instance"
             } ],
             "description" : "Azure App Service",
             "environment" : "Azure",
-            "id" : "64",
+            "id" : "69",
             "instances" : "1",
             "name" : "Advisor Service",
             "properties" : {
-              "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.appServices.advisorApp"
+              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.advisorApp"
             },
             "tags" : "Element,Deployment Node"
           } ],
           "description" : "Managed Linux App Service hosting",
           "environment" : "Azure",
-          "id" : "51",
+          "id" : "56",
           "instances" : "1",
           "name" : "Azure App Service",
           "properties" : {
-            "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.appServices"
+            "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices"
           },
           "tags" : "Element,Deployment Node,Microsoft Azure - App Services"
         }, {
@@ -244,192 +244,227 @@
               "containerId" : "9",
               "deploymentGroups" : [ "Default" ],
               "environment" : "Azure",
-              "id" : "70",
+              "id" : "75",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.functions.processor.e68a0233-db9e-440a-b222-91b06c0fa416"
+                "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.functions.processor.c260a43b-908b-4cfb-902a-31f50107cc67"
               },
               "relationships" : [ {
                 "description" : "Updates derived state",
-                "destinationId" : "72",
-                "id" : "74",
-                "linkedRelationshipId" : "40",
-                "sourceId" : "70"
-              }, {
-                "description" : "Processes event data",
-                "destinationId" : "75",
-                "id" : "78",
-                "linkedRelationshipId" : "39",
-                "sourceId" : "70"
-              }, {
-                "description" : "Processes uploaded media",
                 "destinationId" : "79",
                 "id" : "81",
                 "linkedRelationshipId" : "41",
-                "sourceId" : "70"
+                "sourceId" : "75"
+              }, {
+                "description" : "Processes event data",
+                "destinationId" : "82",
+                "id" : "85",
+                "linkedRelationshipId" : "40",
+                "sourceId" : "75"
               }, {
                 "description" : "Consumes asynchronous events",
-                "destinationId" : "83",
-                "id" : "88",
-                "linkedRelationshipId" : "37",
-                "sourceId" : "70"
+                "destinationId" : "93",
+                "id" : "98",
+                "linkedRelationshipId" : "38",
+                "sourceId" : "75"
               }, {
                 "description" : "Sends telemetry",
-                "destinationId" : "93",
-                "id" : "97",
-                "linkedRelationshipId" : "48",
-                "sourceId" : "70"
+                "destinationId" : "102",
+                "id" : "106",
+                "linkedRelationshipId" : "53",
+                "sourceId" : "75"
               } ],
               "tags" : "Container Instance"
             } ],
             "description" : "Azure Functions isolated worker",
             "environment" : "Azure",
-            "id" : "69",
+            "id" : "74",
             "instances" : "1",
             "name" : "Event Processor",
             "properties" : {
-              "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.functions.processor"
+              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.functions.processor"
+            },
+            "tags" : "Element,Deployment Node"
+          }, {
+            "containerInstances" : [ {
+              "containerId" : "10",
+              "deploymentGroups" : [ "Default" ],
+              "environment" : "Azure",
+              "id" : "77",
+              "instanceId" : 1,
+              "properties" : {
+                "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.functions.photoWorker.eca6f022-da93-4ede-a774-c92229782eef"
+              },
+              "relationships" : [ {
+                "description" : "Updates Tracking-owned photo processing status and derivative metadata",
+                "destinationId" : "82",
+                "id" : "86",
+                "linkedRelationshipId" : "45",
+                "sourceId" : "77"
+              }, {
+                "description" : "Reads private original; writes cropped thumbnail and padded hero WebP",
+                "destinationId" : "87",
+                "id" : "89",
+                "linkedRelationshipId" : "44",
+                "sourceId" : "77"
+              }, {
+                "description" : "Consumes registered photo-processing work",
+                "destinationId" : "93",
+                "id" : "100",
+                "linkedRelationshipId" : "42",
+                "sourceId" : "77"
+              }, {
+                "description" : "Sends photo processing telemetry",
+                "destinationId" : "102",
+                "id" : "107",
+                "linkedRelationshipId" : "46",
+                "sourceId" : "77"
+              } ],
+              "tags" : "Container Instance"
+            } ],
+            "description" : "Worker hosting/tier to be verified; prefer low cost",
+            "environment" : "Azure",
+            "id" : "76",
+            "instances" : "1",
+            "name" : "Tracking Photo Worker",
+            "properties" : {
+              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.functions.photoWorker"
             },
             "tags" : "Element,Deployment Node"
           } ],
           "description" : "Serverless background processing",
           "environment" : "Azure",
-          "id" : "68",
+          "id" : "73",
           "instances" : "1",
           "name" : "Azure Functions",
           "properties" : {
-            "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.functions"
+            "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.functions"
           },
           "tags" : "Element,Deployment Node,Microsoft Azure - Function Apps"
         }, {
           "containerInstances" : [ {
-            "containerId" : "10",
-            "deploymentGroups" : [ "Default" ],
-            "environment" : "Azure",
-            "id" : "72",
-            "instanceId" : 1,
-            "properties" : {
-              "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.data.505e9b80-f0d7-45e3-99e9-fbaf882ab1bf"
-            },
-            "tags" : "Container Instance"
-          }, {
             "containerId" : "11",
-            "deploymentGroups" : [ "Default" ],
-            "environment" : "Azure",
-            "id" : "75",
-            "instanceId" : 1,
-            "properties" : {
-              "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.data.61be0a52-4750-43b5-a22a-deac5ac29e57"
-            },
-            "tags" : "Container Instance"
-          }, {
-            "containerId" : "13",
             "deploymentGroups" : [ "Default" ],
             "environment" : "Azure",
             "id" : "79",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.data.0d754ab4-51bc-4ebd-9215-c5d89760dc4d"
+              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.data.85c3223e-cf8e-4e94-9d4e-7c5bda64bbd5"
             },
             "tags" : "Container Instance"
-          } ],
-          "description" : "Managed Azure data services",
-          "environment" : "Azure",
-          "id" : "71",
-          "instances" : "1",
-          "name" : "Data Services",
-          "properties" : {
-            "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.data"
-          },
-          "tags" : "Element,Deployment Node"
-        }, {
-          "containerInstances" : [ {
+          }, {
             "containerId" : "12",
             "deploymentGroups" : [ "Default" ],
             "environment" : "Azure",
-            "id" : "83",
+            "id" : "82",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.messaging.0eebf30b-2974-4b63-97c1-bdeabf8726f0"
+              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.data.5420ba0e-b245-43ed-9de1-22ab5b69137e"
             },
-            "relationships" : [ {
-              "description" : "Delivers asynchronous events",
-              "destinationId" : "70",
-              "id" : "87",
-              "linkedRelationshipId" : "38",
-              "sourceId" : "83"
-            } ],
             "tags" : "Container Instance"
-          } ],
-          "description" : "Managed messaging",
-          "environment" : "Azure",
-          "id" : "82",
-          "instances" : "1",
-          "name" : "Messaging",
-          "properties" : {
-            "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.messaging"
-          },
-          "tags" : "Element,Deployment Node"
-        }, {
-          "containerInstances" : [ {
+          }, {
             "containerId" : "14",
+            "deploymentGroups" : [ "Default" ],
+            "environment" : "Azure",
+            "id" : "87",
+            "instanceId" : 1,
+            "properties" : {
+              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.data.6e80a32c-a8d0-443f-b2ca-1de6910891f1"
+            },
+            "tags" : "Container Instance"
+          }, {
+            "containerId" : "15",
             "deploymentGroups" : [ "Default" ],
             "environment" : "Azure",
             "id" : "90",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.ai.39ca0149-5a92-4d49-a3b4-ba30ae540972"
+              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.data.22620f66-ac73-4fb1-9e66-e517d55c285a"
             },
             "tags" : "Container Instance"
           } ],
-          "description" : "Managed AI services",
+          "description" : "Managed Azure data services",
           "environment" : "Azure",
-          "id" : "89",
+          "id" : "78",
           "instances" : "1",
-          "name" : "AI Services",
+          "name" : "Data Services",
           "properties" : {
-            "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.ai"
+            "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.data"
           },
           "tags" : "Element,Deployment Node"
         }, {
           "containerInstances" : [ {
-            "containerId" : "15",
+            "containerId" : "13",
             "deploymentGroups" : [ "Default" ],
             "environment" : "Azure",
             "id" : "93",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.observability.cf40db1f-995a-4849-a192-c90093eb001a"
+              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.messaging.1997096c-e208-4ee1-add2-c98b8e012703"
+            },
+            "relationships" : [ {
+              "description" : "Delivers asynchronous events",
+              "destinationId" : "75",
+              "id" : "97",
+              "linkedRelationshipId" : "39",
+              "sourceId" : "93"
+            }, {
+              "description" : "Delivers photo-processing work",
+              "destinationId" : "77",
+              "id" : "99",
+              "linkedRelationshipId" : "43",
+              "sourceId" : "93"
+            } ],
+            "tags" : "Container Instance"
+          } ],
+          "description" : "Managed messaging",
+          "environment" : "Azure",
+          "id" : "92",
+          "instances" : "1",
+          "name" : "Messaging",
+          "properties" : {
+            "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.messaging"
+          },
+          "tags" : "Element,Deployment Node"
+        }, {
+          "containerInstances" : [ {
+            "containerId" : "16",
+            "deploymentGroups" : [ "Default" ],
+            "environment" : "Azure",
+            "id" : "102",
+            "instanceId" : 1,
+            "properties" : {
+              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.observability.1924a19f-8870-479a-8a69-e85517784f33"
             },
             "tags" : "Container Instance"
           } ],
           "description" : "Azure Monitor",
           "environment" : "Azure",
-          "id" : "92",
+          "id" : "101",
           "instances" : "1",
           "name" : "Observability",
           "properties" : {
-            "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup.observability"
+            "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.observability"
           },
           "tags" : "Element,Deployment Node"
         } ],
         "description" : "Azure resources for Parameter Pilot",
         "environment" : "Azure",
-        "id" : "50",
+        "id" : "55",
         "instances" : "1",
         "name" : "Parameter Pilot Resource Group",
         "properties" : {
-          "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure.resourceGroup"
+          "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup"
         },
         "tags" : "Element,Deployment Node"
       } ],
       "description" : "Azure subscription",
       "environment" : "Azure",
-      "id" : "49",
+      "id" : "54",
       "instances" : "1",
       "name" : "Microsoft Azure",
       "properties" : {
-        "structurizr.dsl.identifier" : "343195a9-f0a0-43ff-b5f6-beabe68a0e12.azure"
+        "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure"
       },
       "tags" : "Element,Deployment Node"
     } ],
@@ -443,15 +478,15 @@
       "relationships" : [ {
         "description" : "Uses",
         "destinationId" : "4",
-        "id" : "18",
+        "id" : "19",
         "sourceId" : "1",
         "tags" : "Relationship",
         "technology" : "HTTPS"
       }, {
         "description" : "Uses",
         "destinationId" : "3",
-        "id" : "19",
-        "linkedRelationshipId" : "18",
+        "id" : "20",
+        "linkedRelationshipId" : "19",
         "sourceId" : "1",
         "technology" : "HTTPS"
       } ],
@@ -466,15 +501,15 @@
       "relationships" : [ {
         "description" : "Operates",
         "destinationId" : "4",
-        "id" : "20",
+        "id" : "21",
         "sourceId" : "2",
         "tags" : "Relationship",
         "technology" : "HTTPS"
       }, {
         "description" : "Operates",
         "destinationId" : "3",
-        "id" : "21",
-        "linkedRelationshipId" : "20",
+        "id" : "22",
+        "linkedRelationshipId" : "21",
         "sourceId" : "2",
         "technology" : "HTTPS"
       } ],
@@ -492,17 +527,10 @@
         "relationships" : [ {
           "description" : "Calls",
           "destinationId" : "5",
-          "id" : "22",
+          "id" : "23",
           "sourceId" : "4",
           "tags" : "Relationship",
           "technology" : "HTTPS/JSON"
-        }, {
-          "description" : "Uploads aquarium photos",
-          "destinationId" : "13",
-          "id" : "42",
-          "sourceId" : "4",
-          "tags" : "Relationship",
-          "technology" : "HTTPS"
         } ],
         "tags" : "Element,Container,Web",
         "technology" : "Angular"
@@ -516,36 +544,36 @@
         },
         "relationships" : [ {
           "description" : "Authenticates users",
-          "destinationId" : "16",
-          "id" : "23",
+          "destinationId" : "17",
+          "id" : "24",
           "sourceId" : "5",
           "tags" : "Relationship",
           "technology" : "OIDC/OAuth 2.0"
         }, {
           "description" : "Routes aquarium requests",
           "destinationId" : "6",
-          "id" : "25",
+          "id" : "26",
           "sourceId" : "5",
           "tags" : "Relationship",
           "technology" : "HTTPS/JSON"
         }, {
           "description" : "Routes tracking requests",
           "destinationId" : "7",
-          "id" : "26",
+          "id" : "27",
           "sourceId" : "5",
           "tags" : "Relationship",
           "technology" : "HTTPS/JSON"
         }, {
           "description" : "Routes advice requests",
           "destinationId" : "8",
-          "id" : "27",
+          "id" : "28",
           "sourceId" : "5",
           "tags" : "Relationship",
           "technology" : "HTTPS/JSON"
         }, {
           "description" : "Handles subscription billing integration",
-          "destinationId" : "17",
-          "id" : "43",
+          "destinationId" : "18",
+          "id" : "48",
           "sourceId" : "5",
           "tags" : "Relationship",
           "technology" : "HTTPS"
@@ -562,27 +590,27 @@
         },
         "relationships" : [ {
           "description" : "Reads/writes aquarium data",
-          "destinationId" : "10",
-          "id" : "28",
-          "sourceId" : "6",
-          "tags" : "Relationship"
-        }, {
-          "description" : "Publishes aquarium events",
-          "destinationId" : "12",
+          "destinationId" : "11",
           "id" : "29",
           "sourceId" : "6",
           "tags" : "Relationship"
         }, {
+          "description" : "Publishes aquarium events",
+          "destinationId" : "13",
+          "id" : "30",
+          "sourceId" : "6",
+          "tags" : "Relationship"
+        }, {
           "description" : "Sends telemetry",
-          "destinationId" : "15",
-          "id" : "45",
+          "destinationId" : "16",
+          "id" : "50",
           "sourceId" : "6",
           "tags" : "Relationship"
         } ],
         "tags" : "Element,Container,Service",
         "technology" : ".NET 10 Web API"
       }, {
-        "description" : "Records parameter measurements, events and observations and provides historical trend data.",
+        "description" : "Records history; receives authorised photo binaries and enforces 5242880-byte file limit before Blob persistence; registers photo processing.",
         "documentation" : { },
         "id" : "7",
         "name" : "Tracking Service",
@@ -591,27 +619,34 @@
         },
         "relationships" : [ {
           "description" : "Reads/writes measurements and events",
-          "destinationId" : "11",
-          "id" : "30",
-          "sourceId" : "7",
-          "tags" : "Relationship"
-        }, {
-          "description" : "Publishes parameter events",
           "destinationId" : "12",
           "id" : "31",
           "sourceId" : "7",
           "tags" : "Relationship"
         }, {
+          "description" : "Publishes parameter events",
+          "destinationId" : "13",
+          "id" : "32",
+          "sourceId" : "7",
+          "tags" : "Relationship"
+        }, {
           "description" : "Returns trend data",
           "destinationId" : "5",
-          "id" : "32",
+          "id" : "33",
           "sourceId" : "7",
           "tags" : "Relationship",
           "technology" : "HTTPS/JSON"
         }, {
+          "description" : "Saves private within-limit original after bounded upload validation",
+          "destinationId" : "14",
+          "id" : "47",
+          "sourceId" : "7",
+          "tags" : "Relationship",
+          "technology" : "HTTPS / managed identity"
+        }, {
           "description" : "Sends telemetry",
-          "destinationId" : "15",
-          "id" : "46",
+          "destinationId" : "16",
+          "id" : "51",
           "sourceId" : "7",
           "tags" : "Relationship"
         } ],
@@ -627,40 +662,40 @@
         },
         "relationships" : [ {
           "description" : "Reads historical measurements",
-          "destinationId" : "11",
-          "id" : "33",
-          "sourceId" : "8",
-          "tags" : "Relationship"
-        }, {
-          "description" : "Retrieves reference knowledge",
-          "destinationId" : "14",
+          "destinationId" : "12",
           "id" : "34",
           "sourceId" : "8",
           "tags" : "Relationship"
         }, {
-          "description" : "Publishes advice processing events",
-          "destinationId" : "12",
+          "description" : "Stores jobs/results/quotas/input snapshots; retrieves curated passages using pgvector",
+          "destinationId" : "15",
           "id" : "35",
+          "sourceId" : "8",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Publishes advice processing events",
+          "destinationId" : "13",
+          "id" : "36",
           "sourceId" : "8",
           "tags" : "Relationship"
         }, {
           "description" : "Returns maintenance advice",
           "destinationId" : "5",
-          "id" : "36",
+          "id" : "37",
           "sourceId" : "8",
           "tags" : "Relationship",
           "technology" : "HTTPS/JSON"
         }, {
           "description" : "Sends telemetry",
-          "destinationId" : "15",
-          "id" : "47",
+          "destinationId" : "16",
+          "id" : "52",
           "sourceId" : "8",
           "tags" : "Relationship"
         } ],
         "tags" : "Element,Container,Service",
         "technology" : ".NET 10 Web API / Azure AI"
       }, {
-        "description" : "Processes asynchronous domain events and performs background work.",
+        "description" : "Existing non-photo background-work candidate; broader ownership remains under review.",
         "documentation" : { },
         "id" : "9",
         "name" : "Event Processor",
@@ -669,41 +704,70 @@
         },
         "relationships" : [ {
           "description" : "Consumes asynchronous events",
-          "destinationId" : "12",
-          "id" : "37",
+          "destinationId" : "13",
+          "id" : "38",
           "sourceId" : "9",
           "tags" : "Relationship"
         }, {
           "description" : "Processes event data",
-          "destinationId" : "11",
-          "id" : "39",
-          "sourceId" : "9",
-          "tags" : "Relationship"
-        }, {
-          "description" : "Updates derived state",
-          "destinationId" : "10",
+          "destinationId" : "12",
           "id" : "40",
           "sourceId" : "9",
           "tags" : "Relationship"
         }, {
-          "description" : "Processes uploaded media",
-          "destinationId" : "13",
+          "description" : "Updates derived state",
+          "destinationId" : "11",
           "id" : "41",
           "sourceId" : "9",
           "tags" : "Relationship"
         }, {
           "description" : "Sends telemetry",
-          "destinationId" : "15",
-          "id" : "48",
+          "destinationId" : "16",
+          "id" : "53",
           "sourceId" : "9",
           "tags" : "Relationship"
         } ],
         "tags" : "Element,Container,Service",
         "technology" : ".NET 10 Worker / Azure Functions"
       }, {
-        "description" : "Stores transactional aquarium and configuration data.",
+        "description" : "Validates originals; creates cropped 400x400 WebP thumbnails and padded 1200x800 WebP heroes; retains originals for future processing.",
         "documentation" : { },
         "id" : "10",
+        "name" : "Tracking Photo Worker",
+        "properties" : {
+          "structurizr.dsl.identifier" : "parameterPilot.photoProcessor"
+        },
+        "relationships" : [ {
+          "description" : "Consumes registered photo-processing work",
+          "destinationId" : "13",
+          "id" : "42",
+          "sourceId" : "10",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Reads private original; writes cropped thumbnail and padded hero WebP",
+          "destinationId" : "14",
+          "id" : "44",
+          "sourceId" : "10",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Updates Tracking-owned photo processing status and derivative metadata",
+          "destinationId" : "12",
+          "id" : "45",
+          "sourceId" : "10",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Sends photo processing telemetry",
+          "destinationId" : "16",
+          "id" : "46",
+          "sourceId" : "10",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container,Service",
+        "technology" : ".NET Worker / Azure Functions - hosting tier TBD"
+      }, {
+        "description" : "Stores transactional aquarium and configuration data.",
+        "documentation" : { },
+        "id" : "11",
         "name" : "Aquarium SQL Database",
         "properties" : {
           "structurizr.dsl.identifier" : "parameterPilot.sqlDb"
@@ -713,7 +777,7 @@
       }, {
         "description" : "Stores parameter measurements, observations and historical event-oriented data.",
         "documentation" : { },
-        "id" : "11",
+        "id" : "12",
         "name" : "Parameter Event Store",
         "properties" : {
           "structurizr.dsl.identifier" : "parameterPilot.cosmosDb"
@@ -723,7 +787,7 @@
       }, {
         "description" : "Provides asynchronous communication between application services and background processors.",
         "documentation" : { },
-        "id" : "12",
+        "id" : "13",
         "name" : "Message Broker",
         "properties" : {
           "structurizr.dsl.identifier" : "parameterPilot.serviceBus"
@@ -731,16 +795,22 @@
         "relationships" : [ {
           "description" : "Delivers asynchronous events",
           "destinationId" : "9",
-          "id" : "38",
-          "sourceId" : "12",
+          "id" : "39",
+          "sourceId" : "13",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Delivers photo-processing work",
+          "destinationId" : "10",
+          "id" : "43",
+          "sourceId" : "13",
           "tags" : "Relationship"
         } ],
         "tags" : "Element,Container,Infra,Messaging,Microsoft Azure - Service Bus",
         "technology" : "Azure Service Bus"
       }, {
-        "description" : "Stores aquarium photos and other user-uploaded media.",
+        "description" : "Private retained originals plus 400x400 cropped WebP thumbnails and 1200x800 padded WebP heroes. No AI image context.",
         "documentation" : { },
-        "id" : "13",
+        "id" : "14",
         "name" : "Photo Storage",
         "properties" : {
           "structurizr.dsl.identifier" : "parameterPilot.blobStorage"
@@ -748,19 +818,19 @@
         "tags" : "Element,Container,Database,Infra,Microsoft Azure - Storage Accounts",
         "technology" : "Azure Blob Storage"
       }, {
-        "description" : "Retrieves curated aquarium reference material used to ground AI advice.",
+        "description" : "Advisor-owned advice jobs, results, quotas, submitted parameter snapshots and curated passages, metadata and embeddings; replaces proposed Advisor SQL and AI Search.",
         "documentation" : { },
-        "id" : "14",
-        "name" : "Knowledge Search",
+        "id" : "15",
+        "name" : "Advisor PostgreSQL Database",
         "properties" : {
-          "structurizr.dsl.identifier" : "parameterPilot.aiSearch"
+          "structurizr.dsl.identifier" : "parameterPilot.advisorDb"
         },
-        "tags" : "Element,Container,Infra,Microsoft Azure - Search Services",
-        "technology" : "Azure AI Search"
+        "tags" : "Element,Container,Database,Infra",
+        "technology" : "Azure Database for PostgreSQL Flexible Server / pgvector"
       }, {
         "description" : "Application telemetry, distributed tracing, metrics and diagnostics.",
         "documentation" : { },
-        "id" : "15",
+        "id" : "16",
         "name" : "Observability",
         "properties" : {
           "structurizr.dsl.identifier" : "parameterPilot.appInsights"
@@ -777,16 +847,16 @@
       },
       "relationships" : [ {
         "description" : "Authenticates users",
-        "destinationId" : "16",
-        "id" : "24",
-        "linkedRelationshipId" : "23",
+        "destinationId" : "17",
+        "id" : "25",
+        "linkedRelationshipId" : "24",
         "sourceId" : "3",
         "technology" : "OIDC/OAuth 2.0"
       }, {
         "description" : "Handles subscription billing integration",
-        "destinationId" : "17",
-        "id" : "44",
-        "linkedRelationshipId" : "43",
+        "destinationId" : "18",
+        "id" : "49",
+        "linkedRelationshipId" : "48",
         "sourceId" : "3",
         "technology" : "HTTPS"
       } ],
@@ -794,7 +864,7 @@
     }, {
       "description" : "Identity provider for customer authentication and application access.",
       "documentation" : { },
-      "id" : "16",
+      "id" : "17",
       "name" : "Microsoft Entra External ID",
       "properties" : {
         "structurizr.dsl.identifier" : "entra"
@@ -803,7 +873,7 @@
     }, {
       "description" : "External payment provider for subscription billing.",
       "documentation" : { },
-      "id" : "17",
+      "id" : "18",
       "name" : "Stripe",
       "properties" : {
         "structurizr.dsl.identifier" : "stripe"
@@ -815,7 +885,7 @@
   "properties" : {
     "structurizr.inspection.info" : "0",
     "structurizr.inspection.ignore" : "0",
-    "structurizr.inspection.error" : "50",
+    "structurizr.inspection.error" : "58",
     "structurizr.inspection.warning" : "0"
   },
   "views" : {
@@ -873,101 +943,92 @@
         "y" : 1395
       }, {
         "id" : "6",
-        "x" : 2495,
-        "y" : 810
+        "x" : 2015,
+        "y" : 825
       }, {
         "id" : "7",
-        "x" : 2485,
-        "y" : 1780
+        "x" : 2005,
+        "y" : 1630
       }, {
         "id" : "8",
-        "x" : 2510,
-        "y" : 2665
+        "x" : 1995,
+        "y" : 2660
       }, {
         "id" : "9",
-        "x" : 4450,
-        "y" : 1150
+        "x" : 3920,
+        "y" : 1120
       }, {
         "id" : "10",
-        "x" : 3850,
-        "y" : 510
+        "x" : 3935,
+        "y" : 1820
       }, {
         "id" : "11",
-        "x" : 4460,
-        "y" : 2675
+        "x" : 4430,
+        "y" : 655
       }, {
         "id" : "12",
-        "x" : 3465,
-        "y" : 995
+        "x" : 4435,
+        "y" : 2555
       }, {
         "id" : "13",
-        "x" : 4440,
-        "y" : 235
+        "x" : 2995,
+        "y" : 1140
       }, {
         "id" : "14",
-        "x" : 1730,
-        "y" : 2670
+        "x" : 3075,
+        "y" : 1735
       }, {
         "id" : "15",
-        "x" : 3565,
-        "y" : 1770
-      }, {
-        "id" : "16",
-        "x" : 985,
-        "y" : 3145
+        "x" : 4450,
+        "y" : 3070
       }, {
         "id" : "17",
-        "x" : 1480,
-        "y" : 3145
+        "x" : 955,
+        "y" : 3500
+      }, {
+        "id" : "18",
+        "x" : 1435,
+        "y" : 3500
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
       "key" : "Containers",
       "name" : "Container View: Parameter Pilot",
       "order" : 2,
       "relationships" : [ {
-        "id" : "18"
+        "id" : "19"
       }, {
-        "id" : "20"
-      }, {
-        "id" : "22"
+        "id" : "21"
       }, {
         "id" : "23"
       }, {
-        "id" : "25"
+        "id" : "24"
       }, {
-        "id" : "26",
+        "id" : "26"
+      }, {
+        "id" : "27",
         "vertices" : [ {
           "x" : 1980,
           "y" : 1550
         } ]
       }, {
-        "id" : "27",
-        "vertices" : [ {
-          "x" : 1850,
-          "y" : 2055
-        } ]
+        "id" : "28"
       }, {
-        "id" : "28",
+        "id" : "29",
         "vertices" : [ {
           "x" : 3270,
           "y" : 825
         }, {
-          "x" : 3845,
-          "y" : 680
+          "x" : 3875,
+          "y" : 810
         } ]
       }, {
-        "id" : "29"
+        "id" : "30"
       }, {
-        "id" : "30",
+        "id" : "31",
         "vertices" : [ {
-          "x" : 3445,
-          "y" : 2250
-        }, {
-          "x" : 3905,
-          "y" : 2480
+          "x" : 3125,
+          "y" : 2490
         } ]
-      }, {
-        "id" : "31"
       }, {
         "id" : "32"
       }, {
@@ -977,58 +1038,55 @@
       }, {
         "id" : "35"
       }, {
-        "id" : "36",
-        "vertices" : [ {
-          "x" : 2140,
-          "y" : 2055
-        } ]
+        "id" : "36"
       }, {
         "id" : "37",
         "vertices" : [ {
-          "x" : 3930,
-          "y" : 1065
+          "x" : 1995,
+          "y" : 2095
         } ]
       }, {
         "id" : "38",
         "vertices" : [ {
-          "x" : 3925,
-          "y" : 1210
+          "x" : 3520,
+          "y" : 1175
         } ]
       }, {
-        "id" : "39"
+        "id" : "39",
+        "vertices" : [ {
+          "x" : 3480,
+          "y" : 1380
+        } ]
       }, {
-        "id" : "40"
+        "id" : "40",
+        "vertices" : [ {
+          "x" : 4455,
+          "y" : 1605
+        } ]
       }, {
         "id" : "41"
       }, {
         "id" : "42",
         "vertices" : [ {
-          "x" : 2910,
-          "y" : 410
+          "x" : 3435,
+          "y" : 1600
         } ]
       }, {
-        "id" : "43"
+        "id" : "43",
+        "vertices" : [ {
+          "x" : 3710,
+          "y" : 1530
+        } ]
+      }, {
+        "id" : "44"
       }, {
         "id" : "45",
         "vertices" : [ {
-          "x" : 3085,
-          "y" : 1300
-        }, {
-          "x" : 3490,
-          "y" : 1640
+          "x" : 4415,
+          "y" : 2380
         } ]
       }, {
-        "id" : "46",
-        "vertices" : [ {
-          "x" : 3140,
-          "y" : 1850
-        } ]
-      }, {
-        "id" : "47",
-        "vertices" : [ {
-          "x" : 3560,
-          "y" : 2135
-        } ]
+        "id" : "47"
       }, {
         "id" : "48"
       } ],
@@ -1046,237 +1104,309 @@
         "vertices" : false
       },
       "dimensions" : {
-        "height" : 4095,
+        "height" : 4082,
         "width" : 3332
       },
       "elements" : [ {
-        "id" : "49",
-        "x" : 175,
-        "y" : 175
-      }, {
-        "id" : "50",
-        "x" : 175,
-        "y" : 175
-      }, {
-        "id" : "51",
-        "x" : 175,
-        "y" : 175
-      }, {
-        "id" : "52",
-        "x" : 175,
-        "y" : 175
-      }, {
-        "id" : "53",
-        "x" : 279,
-        "y" : 1762
-      }, {
         "id" : "54",
         "x" : 175,
         "y" : 175
       }, {
         "id" : "55",
-        "x" : 1029,
-        "y" : 2066
+        "x" : 175,
+        "y" : 175
+      }, {
+        "id" : "56",
+        "x" : 175,
+        "y" : 175
       }, {
         "id" : "57",
         "x" : 175,
         "y" : 175
       }, {
         "id" : "58",
-        "x" : 1825,
-        "y" : 1608
+        "x" : 280,
+        "y" : 2370
+      }, {
+        "id" : "59",
+        "x" : 175,
+        "y" : 175
       }, {
         "id" : "60",
+        "x" : 1030,
+        "y" : 2370
+      }, {
+        "id" : "62",
         "x" : 175,
         "y" : 175
       }, {
-        "id" : "61",
-        "x" : 1825,
-        "y" : 2220
-      }, {
-        "id" : "64",
-        "x" : 175,
-        "y" : 175
+        "id" : "63",
+        "x" : 1826,
+        "y" : 2983
       }, {
         "id" : "65",
-        "x" : 1825,
-        "y" : 2833
-      }, {
-        "id" : "68",
         "x" : 175,
         "y" : 175
+      }, {
+        "id" : "66",
+        "x" : 1826,
+        "y" : 2370
       }, {
         "id" : "69",
         "x" : 175,
         "y" : 175
       }, {
         "id" : "70",
-        "x" : 1825,
-        "y" : 787
+        "x" : 1826,
+        "y" : 1758
       }, {
-        "id" : "71",
+        "id" : "73",
         "x" : 175,
         "y" : 175
       }, {
-        "id" : "72",
-        "x" : 2621,
-        "y" : 820
+        "id" : "74",
+        "x" : 175,
+        "y" : 175
       }, {
         "id" : "75",
-        "x" : 2621,
-        "y" : 1420
+        "x" : 1826,
+        "y" : 324
+      }, {
+        "id" : "76",
+        "x" : 175,
+        "y" : 175
+      }, {
+        "id" : "77",
+        "x" : 1826,
+        "y" : 937
+      }, {
+        "id" : "78",
+        "x" : 175,
+        "y" : 175
       }, {
         "id" : "79",
-        "x" : 2621,
-        "y" : 220
-      }, {
-        "id" : "82",
-        "x" : 175,
-        "y" : 175
-      }, {
-        "id" : "83",
-        "x" : 2621,
+        "x" : 2622,
         "y" : 2033
       }, {
-        "id" : "89",
-        "x" : 175,
-        "y" : 175
+        "id" : "82",
+        "x" : 2622,
+        "y" : 833
+      }, {
+        "id" : "87",
+        "x" : 2622,
+        "y" : 1433
       }, {
         "id" : "90",
-        "x" : 2621,
-        "y" : 3258
+        "x" : 2622,
+        "y" : 2633
       }, {
         "id" : "92",
         "x" : 175,
         "y" : 175
       }, {
         "id" : "93",
-        "x" : 2621,
-        "y" : 2645
+        "x" : 2622,
+        "y" : 220
+      }, {
+        "id" : "101",
+        "x" : 175,
+        "y" : 175
+      }, {
+        "id" : "102",
+        "x" : 2622,
+        "y" : 3245
       } ],
       "environment" : "Azure",
       "generatedKey" : true,
       "key" : "Deployment-001",
       "name" : "Deployment View: Parameter Pilot - Azure",
-      "order" : 7,
+      "order" : 8,
       "relationships" : [ {
-        "id" : "56"
-      }, {
-        "id" : "59"
-      }, {
-        "id" : "62",
+        "id" : "100",
         "vertices" : [ {
-          "x" : 1680,
-          "y" : 2145
+          "x" : 2484,
+          "y" : 653
+        }, {
+          "x" : 2518,
+          "y" : 503
         } ]
       }, {
-        "id" : "63",
+        "id" : "103"
+      }, {
+        "id" : "104",
         "vertices" : [ {
-          "x" : 1623,
-          "y" : 2440
+          "x" : 2484,
+          "y" : 2803
+        }, {
+          "x" : 2518,
+          "y" : 3112
         } ]
       }, {
-        "id" : "66",
+        "id" : "105",
         "vertices" : [ {
-          "x" : 1617,
+          "x" : 2484,
+          "y" : 2191
+        }, {
+          "x" : 2518,
+          "y" : 3112
+        } ]
+      }, {
+        "id" : "106",
+        "vertices" : [ {
+          "x" : 2484,
+          "y" : 758
+        }, {
+          "x" : 2518,
+          "y" : 3112
+        } ]
+      }, {
+        "id" : "107",
+        "vertices" : [ {
+          "x" : 2484,
+          "y" : 1578
+        }, {
+          "x" : 2518,
+          "y" : 3112
+        } ]
+      }, {
+        "id" : "61"
+      }, {
+        "id" : "64",
+        "vertices" : [ {
+          "x" : 1618,
           "y" : 2849
         } ]
       }, {
         "id" : "67",
         "vertices" : [ {
-          "x" : 1617,
-          "y" : 2549
+          "x" : 1653,
+          "y" : 2370
         } ]
       }, {
-        "id" : "73",
+        "id" : "68",
         "vertices" : [ {
-          "x" : 2517,
-          "y" : 1270
+          "x" : 1653,
+          "y" : 2670
         } ]
       }, {
-        "id" : "74"
-      }, {
-        "id" : "76",
+        "id" : "71",
         "vertices" : [ {
-          "x" : 2483,
-          "y" : 2087
-        }, {
-          "x" : 2517,
-          "y" : 1853
+          "x" : 1618,
+          "y" : 2341
         } ]
       }, {
-        "id" : "77",
+        "id" : "72",
         "vertices" : [ {
-          "x" : 2483,
-          "y" : 2699
-        }, {
-          "x" : 2517,
-          "y" : 1853
+          "x" : 1618,
+          "y" : 2041
         } ]
-      }, {
-        "id" : "78"
       }, {
         "id" : "80",
         "vertices" : [ {
-          "x" : 1617,
-          "y" : 608
+          "x" : 2484,
+          "y" : 2849
+        }, {
+          "x" : 2518,
+          "y" : 2483
         } ]
       }, {
-        "id" : "81"
+        "id" : "81",
+        "vertices" : [ {
+          "x" : 2484,
+          "y" : 758
+        }, {
+          "x" : 2518,
+          "y" : 1883
+        } ]
       }, {
-        "id" : "84"
+        "id" : "83",
+        "vertices" : [ {
+          "x" : 2484,
+          "y" : 2237
+        }, {
+          "x" : 2518,
+          "y" : 1283
+        } ]
+      }, {
+        "id" : "84",
+        "vertices" : [ {
+          "x" : 2484,
+          "y" : 1416
+        }, {
+          "x" : 2518,
+          "y" : 1283
+        } ]
       }, {
         "id" : "85"
       }, {
-        "id" : "86",
-        "vertices" : [ {
-          "x" : 2483,
-          "y" : 2699
-        }, {
-          "x" : 2517,
-          "y" : 2466
-        } ]
-      }, {
-        "id" : "87",
-        "vertices" : [ {
-          "x" : 2517,
-          "y" : 2049
-        }, {
-          "x" : 2483,
-          "y" : 1578
-        } ]
+        "id" : "86"
       }, {
         "id" : "88",
         "vertices" : [ {
-          "x" : 2483,
-          "y" : 1278
+          "x" : 2484,
+          "y" : 2237
         }, {
-          "x" : 2517,
-          "y" : 1749
+          "x" : 2518,
+          "y" : 1883
         } ]
       }, {
-        "id" : "91"
+        "id" : "89"
+      }, {
+        "id" : "91",
+        "vertices" : [ {
+          "x" : 2484,
+          "y" : 2191
+        }, {
+          "x" : 2518,
+          "y" : 2483
+        } ]
       }, {
         "id" : "94",
         "vertices" : [ {
-          "x" : 2483,
-          "y" : 2041
+          "x" : 2484,
+          "y" : 2849
         }, {
-          "x" : 2517,
-          "y" : 2512
+          "x" : 2518,
+          "y" : 653
         } ]
       }, {
-        "id" : "95"
+        "id" : "95",
+        "vertices" : [ {
+          "x" : 2484,
+          "y" : 2237
+        }, {
+          "x" : 2518,
+          "y" : 653
+        } ]
       }, {
-        "id" : "96"
+        "id" : "96",
+        "vertices" : [ {
+          "x" : 2484,
+          "y" : 1416
+        }, {
+          "x" : 2518,
+          "y" : 653
+        } ]
       }, {
         "id" : "97",
         "vertices" : [ {
-          "x" : 2483,
-          "y" : 1428
+          "x" : 2429,
+          "y" : 273
+        } ]
+      }, {
+        "id" : "98",
+        "vertices" : [ {
+          "x" : 2468,
+          "y" : 570
+        } ]
+      }, {
+        "id" : "99",
+        "vertices" : [ {
+          "x" : 2518,
+          "y" : 803
         }, {
-          "x" : 2517,
-          "y" : 2512
+          "x" : 2484,
+          "y" : 953
         } ]
       } ],
       "softwareSystemId" : "3",
@@ -1309,15 +1439,15 @@
         "x" : 1079,
         "y" : 3308
       }, {
-        "id" : "11",
+        "id" : "12",
         "x" : 329,
         "y" : 2708
       }, {
-        "id" : "12",
+        "id" : "13",
         "x" : 1079,
         "y" : 2708
       }, {
-        "id" : "15",
+        "id" : "16",
         "x" : 1079,
         "y" : 3908
       } ],
@@ -1328,37 +1458,37 @@
       "paperSize" : "A3_Portrait",
       "relationships" : [ {
         "description" : "1. Records a parameter measurement",
-        "id" : "18",
+        "id" : "19",
         "order" : "1",
         "response" : false
       }, {
         "description" : "2. POST measurement",
-        "id" : "22",
+        "id" : "23",
         "order" : "2",
         "response" : false
       }, {
         "description" : "3. Submit measurement",
-        "id" : "26",
+        "id" : "27",
         "order" : "3",
         "response" : false
       }, {
         "description" : "4. Store measurement",
-        "id" : "30",
+        "id" : "31",
         "order" : "4",
         "response" : false
       }, {
         "description" : "5. Publish ParameterRecorded",
-        "id" : "31",
+        "id" : "32",
         "order" : "5",
         "response" : false
       }, {
         "description" : "6. Consume event",
-        "id" : "38",
+        "id" : "39",
         "order" : "6",
         "response" : false
       }, {
         "description" : "7. Record telemetry",
-        "id" : "48",
+        "id" : "53",
         "order" : "7",
         "response" : false
       } ],
@@ -1386,7 +1516,7 @@
         "x" : 320,
         "y" : 1540
       }, {
-        "id" : "11",
+        "id" : "12",
         "x" : 315,
         "y" : 2315
       } ],
@@ -1397,12 +1527,12 @@
       "paperSize" : "A4_Portrait",
       "relationships" : [ {
         "description" : "1. Opens trend view",
-        "id" : "18",
+        "id" : "19",
         "order" : "1",
         "response" : false
       }, {
         "description" : "2. Request historical measurements",
-        "id" : "22",
+        "id" : "23",
         "order" : "2",
         "response" : false,
         "vertices" : [ {
@@ -1411,7 +1541,7 @@
         } ]
       }, {
         "description" : "3. Query measurements",
-        "id" : "26",
+        "id" : "27",
         "order" : "3",
         "response" : false,
         "vertices" : [ {
@@ -1420,7 +1550,7 @@
         } ]
       }, {
         "description" : "4. Read historical data",
-        "id" : "30",
+        "id" : "31",
         "order" : "4",
         "response" : false,
         "vertices" : [ {
@@ -1429,7 +1559,7 @@
         } ]
       }, {
         "description" : "5. Return measurements",
-        "id" : "30",
+        "id" : "31",
         "order" : "5",
         "response" : true,
         "vertices" : [ {
@@ -1438,7 +1568,7 @@
         } ]
       }, {
         "description" : "6. Return trend data",
-        "id" : "32",
+        "id" : "33",
         "order" : "6",
         "response" : false,
         "vertices" : [ {
@@ -1450,7 +1580,7 @@
         } ]
       }, {
         "description" : "7. Return trend data",
-        "id" : "22",
+        "id" : "23",
         "order" : "7",
         "response" : true,
         "vertices" : [ {
@@ -1472,7 +1602,7 @@
       }, {
         "id" : "4",
         "x" : 1675,
-        "y" : 545
+        "y" : 660
       }, {
         "id" : "5",
         "x" : 1700,
@@ -1482,13 +1612,13 @@
         "x" : 1685,
         "y" : 1805
       }, {
-        "id" : "11",
+        "id" : "12",
         "x" : 2350,
         "y" : 1185
       }, {
-        "id" : "14",
-        "x" : 1000,
-        "y" : 1190
+        "id" : "15",
+        "x" : 685,
+        "y" : 1765
       } ],
       "externalBoundariesVisible" : false,
       "key" : "MaintenanceAdvice",
@@ -1497,12 +1627,12 @@
       "paperSize" : "A4_Landscape",
       "relationships" : [ {
         "description" : "1. Requests maintenance advice",
-        "id" : "18",
+        "id" : "19",
         "order" : "1",
         "response" : false
       }, {
         "description" : "2. Request advice",
-        "id" : "22",
+        "id" : "23",
         "order" : "2",
         "response" : false,
         "vertices" : [ {
@@ -1511,7 +1641,7 @@
         } ]
       }, {
         "description" : "3. Generate advice",
-        "id" : "27",
+        "id" : "28",
         "order" : "3",
         "response" : false,
         "vertices" : [ {
@@ -1520,30 +1650,30 @@
         } ]
       }, {
         "description" : "4. Read recent measurements",
-        "id" : "33",
+        "id" : "34",
         "order" : "4",
         "response" : false
       }, {
-        "description" : "5. Retrieve relevant reference knowledge",
-        "id" : "34",
+        "description" : "5. Store submitted parameter snapshot; retrieve curated passages with pgvector",
+        "id" : "35",
         "order" : "5",
         "response" : false,
         "vertices" : [ {
-          "x" : 1580,
-          "y" : 1570
+          "x" : 1330,
+          "y" : 2020
         } ]
       }, {
-        "description" : "6. Return grounded knowledge",
-        "id" : "34",
+        "description" : "6. Return reference passages and metadata; no photo context",
+        "id" : "35",
         "order" : "6",
         "response" : true,
         "vertices" : [ {
-          "x" : 1360,
-          "y" : 1695
+          "x" : 1415,
+          "y" : 1675
         } ]
       }, {
         "description" : "7. Return maintenance advice",
-        "id" : "36",
+        "id" : "37",
         "order" : "7",
         "response" : false,
         "vertices" : [ {
@@ -1552,7 +1682,7 @@
         } ]
       }, {
         "description" : "8. Return maintenance advice",
-        "id" : "22",
+        "id" : "23",
         "order" : "8",
         "response" : true,
         "vertices" : [ {
@@ -1569,6 +1699,97 @@
       "elementId" : "3",
       "elements" : [ {
         "id" : "1",
+        "x" : 705,
+        "y" : -10
+      }, {
+        "id" : "4",
+        "x" : 670,
+        "y" : 655
+      }, {
+        "id" : "5",
+        "x" : 710,
+        "y" : 1170
+      }, {
+        "id" : "7",
+        "x" : 1210,
+        "y" : 1780
+      }, {
+        "id" : "10",
+        "x" : 225,
+        "y" : 2840
+      }, {
+        "id" : "12",
+        "x" : 1210,
+        "y" : 2845
+      }, {
+        "id" : "13",
+        "x" : 755,
+        "y" : 2265
+      }, {
+        "id" : "14",
+        "x" : 245,
+        "y" : 1775
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "PhotoUpload",
+      "name" : "Dynamic View: Parameter Pilot",
+      "order" : 6,
+      "paperSize" : "A3_Portrait",
+      "relationships" : [ {
+        "description" : "1. Select photo; UI rejects above 5242880 bytes",
+        "id" : "19",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "2. Authenticated binary upload; no browser Blob SAS",
+        "id" : "23",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "3. Stream upload; enforce actual 5242880-byte file cap; 413 on excess",
+        "id" : "27",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "4. Save within-limit private original after bounded validation",
+        "id" : "47",
+        "order" : "4",
+        "response" : false
+      }, {
+        "description" : "5. Register uploaded metadata and durable processing work",
+        "id" : "31",
+        "order" : "5",
+        "response" : false
+      }, {
+        "description" : "6. Publish registered photo-processing work",
+        "id" : "32",
+        "order" : "6",
+        "response" : false
+      }, {
+        "description" : "7. Deliver work idempotently",
+        "id" : "43",
+        "order" : "7",
+        "response" : false
+      }, {
+        "description" : "8. Validate original; create cropped 400x400 thumbnail and padded 1200x800 hero WebP; retain original",
+        "id" : "44",
+        "order" : "8",
+        "response" : false
+      }, {
+        "description" : "9. Mark Ready only when both derivatives and metadata are durable",
+        "id" : "45",
+        "order" : "9",
+        "response" : false
+      } ],
+      "title" : "Dynamic - Upload via Tracking and generate WebP images"
+    }, {
+      "dimensions" : {
+        "height" : 4520,
+        "width" : 1858
+      },
+      "elementId" : "3",
+      "elements" : [ {
+        "id" : "1",
         "x" : 729,
         "y" : 208
       }, {
@@ -1577,71 +1798,70 @@
         "y" : 908
       }, {
         "id" : "5",
-        "x" : 1079,
+        "x" : 704,
         "y" : 1508
       }, {
-        "id" : "6",
-        "x" : 1079,
-        "y" : 2108
+        "id" : "8",
+        "x" : 755,
+        "y" : 2295
       }, {
-        "id" : "9",
-        "x" : 1079,
-        "y" : 3308
-      }, {
-        "id" : "10",
-        "x" : 329,
-        "y" : 2708
-      }, {
-        "id" : "12",
-        "x" : 1079,
-        "y" : 2708
-      }, {
-        "id" : "13",
-        "x" : 329,
-        "y" : 1508
+        "id" : "15",
+        "x" : 925,
+        "y" : 2995
       } ],
       "externalBoundariesVisible" : false,
-      "key" : "PhotoUpload",
+      "key" : "AdviceHistory",
       "name" : "Dynamic View: Parameter Pilot",
-      "order" : 6,
+      "order" : 7,
       "paperSize" : "A3_Portrait",
       "relationships" : [ {
-        "description" : "1. Selects aquarium photo",
-        "id" : "18",
+        "description" : "1. Scroll Advice history and select an item",
+        "id" : "19",
         "order" : "1",
         "response" : false
       }, {
-        "description" : "2. Upload photo",
-        "id" : "42",
+        "description" : "2. Request owner-scoped history page or detail",
+        "id" : "23",
         "order" : "2",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 779,
+          "y" : 1358
+        } ]
       }, {
-        "description" : "3. Record photo metadata",
-        "id" : "22",
+        "description" : "3. Validate access and query history",
+        "id" : "28",
         "order" : "3",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 845,
+          "y" : 2045
+        } ]
       }, {
-        "description" : "4. Save metadata",
-        "id" : "25",
+        "description" : "4. Read historic advice and original submitted parameter snapshot",
+        "id" : "35",
         "order" : "4",
         "response" : false
       }, {
-        "description" : "5. Persist metadata",
-        "id" : "28",
+        "description" : "5. Return history page or selected advice with submitted values",
+        "id" : "37",
         "order" : "5",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 1150,
+          "y" : 2060
+        } ]
       }, {
-        "description" : "6. Publish PhotoUploaded",
-        "id" : "29",
+        "description" : "6. Display advice and original values; not current readings",
+        "id" : "23",
         "order" : "6",
-        "response" : false
-      }, {
-        "description" : "7. Process event",
-        "id" : "38",
-        "order" : "7",
-        "response" : false
+        "response" : true,
+        "vertices" : [ {
+          "x" : 1079,
+          "y" : 1358
+        } ]
       } ],
-      "title" : "Dynamic - Upload aquarium photo"
+      "title" : "Dynamic - Browse historical advice and submitted parameters"
     } ],
     "systemContextViews" : [ {
       "automaticLayout" : {
@@ -1660,36 +1880,36 @@
       "elements" : [ {
         "id" : "1",
         "x" : 199,
-        "y" : 159
+        "y" : 160
       }, {
         "id" : "2",
         "x" : 199,
-        "y" : 859
+        "y" : 860
       }, {
         "id" : "3",
         "x" : 899,
-        "y" : 559
-      }, {
-        "id" : "16",
-        "x" : 1649,
-        "y" : 259
+        "y" : 560
       }, {
         "id" : "17",
         "x" : 1649,
-        "y" : 859
+        "y" : 260
+      }, {
+        "id" : "18",
+        "x" : 1649,
+        "y" : 860
       } ],
       "enterpriseBoundaryVisible" : true,
       "key" : "SystemContext",
       "name" : "System Context View: Parameter Pilot",
       "order" : 1,
       "relationships" : [ {
-        "id" : "19"
+        "id" : "20"
       }, {
-        "id" : "21"
+        "id" : "22"
       }, {
-        "id" : "24"
+        "id" : "25"
       }, {
-        "id" : "44"
+        "id" : "49"
       } ],
       "softwareSystemId" : "3",
       "title" : "System Context - Parameter Pilot"
