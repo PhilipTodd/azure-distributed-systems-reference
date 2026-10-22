@@ -1,6 +1,6 @@
 # Definition of Done
 
-Version: 0.1 | Date: 8 October 2026 | Status: Proposed
+Version: 0.2 | Date: 20 October 2026 | Status: Proposed
 
 ## Design
 
@@ -22,3 +22,7 @@ Version: 0.1 | Date: 8 October 2026 | Status: Proposed
 - PR evidence complete; required CI/specialist reviews and human approval before merge.
 
 Apply checks proportionately: docs-only work needs document checks, not production tests. Ready for review, approved, merged and deployed are distinct states. Agent review cannot substitute for human approval.
+
+## Accepted verification baseline
+
+Apply [ADR-030](../architecture/decisions/adr-030.md) and the [testing strategy](testing-strategy.md): applicable checks pass before merge, failures block merge, skipped/unavailable evidence is reported, and no blanket coverage percentage substitutes for behaviour verification. Browser tests use controlled accounts/synthetic data and protected artefacts.

@@ -3,427 +3,197 @@
   "description" : "Cloud-native aquarium parameter tracking and AI-assisted maintenance advice.",
   "documentation" : { },
   "id" : 1,
-  "lastModifiedAgent" : "structurizr-ui",
-  "lastModifiedDate" : "2026-10-19T05:18:12Z",
+  "lastModifiedDate" : "2026-10-21T04:50:50Z",
   "model" : {
     "deploymentNodes" : [ {
       "children" : [ {
         "children" : [ {
-          "children" : [ {
-            "containerInstances" : [ {
-              "containerId" : "4",
-              "deploymentGroups" : [ "Default" ],
-              "environment" : "Azure",
-              "id" : "58",
-              "instanceId" : 1,
-              "properties" : {
-                "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.webApp.86862070-d008-4f9c-ab59-87ba9703e811"
-              },
-              "relationships" : [ {
-                "description" : "Calls",
-                "destinationId" : "60",
-                "id" : "61",
-                "linkedRelationshipId" : "23",
-                "sourceId" : "58",
-                "technology" : "HTTPS/JSON"
-              } ],
-              "tags" : "Container Instance"
-            } ],
-            "description" : "Azure App Service",
-            "environment" : "Azure",
-            "id" : "57",
-            "instances" : "1",
-            "name" : "Web Application",
-            "properties" : {
-              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.webApp"
-            },
-            "tags" : "Element,Deployment Node"
-          }, {
-            "containerInstances" : [ {
-              "containerId" : "5",
-              "deploymentGroups" : [ "Default" ],
-              "environment" : "Azure",
-              "id" : "60",
-              "instanceId" : 1,
-              "properties" : {
-                "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.apiGateway.e1e66ff0-cc55-4bd9-92c8-beaa4b201872"
-              },
-              "relationships" : [ {
-                "description" : "Routes aquarium requests",
-                "destinationId" : "63",
-                "id" : "64",
-                "linkedRelationshipId" : "26",
-                "sourceId" : "60",
-                "technology" : "HTTPS/JSON"
-              }, {
-                "description" : "Routes tracking requests",
-                "destinationId" : "66",
-                "id" : "68",
-                "linkedRelationshipId" : "27",
-                "sourceId" : "60",
-                "technology" : "HTTPS/JSON"
-              }, {
-                "description" : "Routes advice requests",
-                "destinationId" : "70",
-                "id" : "72",
-                "linkedRelationshipId" : "28",
-                "sourceId" : "60",
-                "technology" : "HTTPS/JSON"
-              } ],
-              "tags" : "Container Instance"
-            } ],
-            "description" : "Azure API Management",
-            "environment" : "Azure",
-            "id" : "59",
-            "instances" : "1",
-            "name" : "API Gateway",
-            "properties" : {
-              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.apiGateway"
-            },
-            "tags" : "Element,Deployment Node,Microsoft Azure - API Management Services"
-          }, {
-            "containerInstances" : [ {
-              "containerId" : "6",
-              "deploymentGroups" : [ "Default" ],
-              "environment" : "Azure",
-              "id" : "63",
-              "instanceId" : 1,
-              "properties" : {
-                "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.aquariumApp.2fff007c-8f0a-4c70-b5a1-2eacfa8781e7"
-              },
-              "relationships" : [ {
-                "description" : "Reads/writes aquarium data",
-                "destinationId" : "79",
-                "id" : "80",
-                "linkedRelationshipId" : "29",
-                "sourceId" : "63"
-              }, {
-                "description" : "Publishes aquarium events",
-                "destinationId" : "93",
-                "id" : "94",
-                "linkedRelationshipId" : "30",
-                "sourceId" : "63"
-              }, {
-                "description" : "Sends telemetry",
-                "destinationId" : "102",
-                "id" : "103",
-                "linkedRelationshipId" : "50",
-                "sourceId" : "63"
-              } ],
-              "tags" : "Container Instance"
-            } ],
-            "description" : "Azure App Service",
-            "environment" : "Azure",
-            "id" : "62",
-            "instances" : "1",
-            "name" : "Aquarium Service",
-            "properties" : {
-              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.aquariumApp"
-            },
-            "tags" : "Element,Deployment Node"
-          }, {
-            "containerInstances" : [ {
-              "containerId" : "7",
-              "deploymentGroups" : [ "Default" ],
-              "environment" : "Azure",
-              "id" : "66",
-              "instanceId" : 1,
-              "properties" : {
-                "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.trackingApp.a19979e2-3311-43ce-ab43-8c0845647487"
-              },
-              "relationships" : [ {
-                "description" : "Returns trend data",
-                "destinationId" : "60",
-                "id" : "67",
-                "linkedRelationshipId" : "33",
-                "sourceId" : "66",
-                "technology" : "HTTPS/JSON"
-              }, {
-                "description" : "Reads/writes measurements and events",
-                "destinationId" : "82",
-                "id" : "83",
-                "linkedRelationshipId" : "31",
-                "sourceId" : "66"
-              }, {
-                "description" : "Saves private within-limit original after bounded upload validation",
-                "destinationId" : "87",
-                "id" : "88",
-                "linkedRelationshipId" : "47",
-                "sourceId" : "66",
-                "technology" : "HTTPS / managed identity"
-              }, {
-                "description" : "Publishes parameter events",
-                "destinationId" : "93",
-                "id" : "95",
-                "linkedRelationshipId" : "32",
-                "sourceId" : "66"
-              }, {
-                "description" : "Sends telemetry",
-                "destinationId" : "102",
-                "id" : "104",
-                "linkedRelationshipId" : "51",
-                "sourceId" : "66"
-              } ],
-              "tags" : "Container Instance"
-            } ],
-            "description" : "Azure App Service",
-            "environment" : "Azure",
-            "id" : "65",
-            "instances" : "1",
-            "name" : "Tracking Service",
-            "properties" : {
-              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.trackingApp"
-            },
-            "tags" : "Element,Deployment Node"
-          }, {
-            "containerInstances" : [ {
-              "containerId" : "8",
-              "deploymentGroups" : [ "Default" ],
-              "environment" : "Azure",
-              "id" : "70",
-              "instanceId" : 1,
-              "properties" : {
-                "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.advisorApp.7f12ccab-1b21-4a3b-9322-3311e08ba7ca"
-              },
-              "relationships" : [ {
-                "description" : "Returns maintenance advice",
-                "destinationId" : "60",
-                "id" : "71",
-                "linkedRelationshipId" : "37",
-                "sourceId" : "70",
-                "technology" : "HTTPS/JSON"
-              }, {
-                "description" : "Reads historical measurements",
-                "destinationId" : "82",
-                "id" : "84",
-                "linkedRelationshipId" : "34",
-                "sourceId" : "70"
-              }, {
-                "description" : "Stores jobs/results/quotas/input snapshots; retrieves curated passages using pgvector",
-                "destinationId" : "90",
-                "id" : "91",
-                "linkedRelationshipId" : "35",
-                "sourceId" : "70"
-              }, {
-                "description" : "Publishes advice processing events",
-                "destinationId" : "93",
-                "id" : "96",
-                "linkedRelationshipId" : "36",
-                "sourceId" : "70"
-              }, {
-                "description" : "Sends telemetry",
-                "destinationId" : "102",
-                "id" : "105",
-                "linkedRelationshipId" : "52",
-                "sourceId" : "70"
-              } ],
-              "tags" : "Container Instance"
-            } ],
-            "description" : "Azure App Service",
-            "environment" : "Azure",
-            "id" : "69",
-            "instances" : "1",
-            "name" : "Advisor Service",
-            "properties" : {
-              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices.advisorApp"
-            },
-            "tags" : "Element,Deployment Node"
-          } ],
-          "description" : "Managed Linux App Service hosting",
-          "environment" : "Azure",
-          "id" : "56",
-          "instances" : "1",
-          "name" : "Azure App Service",
-          "properties" : {
-            "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.appServices"
-          },
-          "tags" : "Element,Deployment Node,Microsoft Azure - App Services"
-        }, {
-          "children" : [ {
-            "containerInstances" : [ {
-              "containerId" : "9",
-              "deploymentGroups" : [ "Default" ],
-              "environment" : "Azure",
-              "id" : "75",
-              "instanceId" : 1,
-              "properties" : {
-                "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.functions.processor.c260a43b-908b-4cfb-902a-31f50107cc67"
-              },
-              "relationships" : [ {
-                "description" : "Updates derived state",
-                "destinationId" : "79",
-                "id" : "81",
-                "linkedRelationshipId" : "41",
-                "sourceId" : "75"
-              }, {
-                "description" : "Processes event data",
-                "destinationId" : "82",
-                "id" : "85",
-                "linkedRelationshipId" : "40",
-                "sourceId" : "75"
-              }, {
-                "description" : "Consumes asynchronous events",
-                "destinationId" : "93",
-                "id" : "98",
-                "linkedRelationshipId" : "38",
-                "sourceId" : "75"
-              }, {
-                "description" : "Sends telemetry",
-                "destinationId" : "102",
-                "id" : "106",
-                "linkedRelationshipId" : "53",
-                "sourceId" : "75"
-              } ],
-              "tags" : "Container Instance"
-            } ],
-            "description" : "Azure Functions isolated worker",
-            "environment" : "Azure",
-            "id" : "74",
-            "instances" : "1",
-            "name" : "Event Processor",
-            "properties" : {
-              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.functions.processor"
-            },
-            "tags" : "Element,Deployment Node"
-          }, {
-            "containerInstances" : [ {
-              "containerId" : "10",
-              "deploymentGroups" : [ "Default" ],
-              "environment" : "Azure",
-              "id" : "77",
-              "instanceId" : 1,
-              "properties" : {
-                "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.functions.photoWorker.eca6f022-da93-4ede-a774-c92229782eef"
-              },
-              "relationships" : [ {
-                "description" : "Updates Tracking-owned photo processing status and derivative metadata",
-                "destinationId" : "82",
-                "id" : "86",
-                "linkedRelationshipId" : "45",
-                "sourceId" : "77"
-              }, {
-                "description" : "Reads private original; writes cropped thumbnail and padded hero WebP",
-                "destinationId" : "87",
-                "id" : "89",
-                "linkedRelationshipId" : "44",
-                "sourceId" : "77"
-              }, {
-                "description" : "Consumes registered photo-processing work",
-                "destinationId" : "93",
-                "id" : "100",
-                "linkedRelationshipId" : "42",
-                "sourceId" : "77"
-              }, {
-                "description" : "Sends photo processing telemetry",
-                "destinationId" : "102",
-                "id" : "107",
-                "linkedRelationshipId" : "46",
-                "sourceId" : "77"
-              } ],
-              "tags" : "Container Instance"
-            } ],
-            "description" : "Worker hosting/tier to be verified; prefer low cost",
-            "environment" : "Azure",
-            "id" : "76",
-            "instances" : "1",
-            "name" : "Tracking Photo Worker",
-            "properties" : {
-              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.functions.photoWorker"
-            },
-            "tags" : "Element,Deployment Node"
-          } ],
-          "description" : "Serverless background processing",
-          "environment" : "Azure",
-          "id" : "73",
-          "instances" : "1",
-          "name" : "Azure Functions",
-          "properties" : {
-            "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.functions"
-          },
-          "tags" : "Element,Deployment Node,Microsoft Azure - Function Apps"
-        }, {
           "containerInstances" : [ {
-            "containerId" : "11",
+            "containerId" : "4",
             "deploymentGroups" : [ "Default" ],
             "environment" : "Azure",
-            "id" : "79",
+            "id" : "64",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.data.85c3223e-cf8e-4e94-9d4e-7c5bda64bbd5"
+              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.resourceGroup.webHosting.76d062cc-4726-4923-ac71-09bf38882208"
             },
-            "tags" : "Container Instance"
-          }, {
-            "containerId" : "12",
-            "deploymentGroups" : [ "Default" ],
-            "environment" : "Azure",
-            "id" : "82",
-            "instanceId" : 1,
-            "properties" : {
-              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.data.5420ba0e-b245-43ed-9de1-22ab5b69137e"
-            },
-            "tags" : "Container Instance"
-          }, {
-            "containerId" : "14",
-            "deploymentGroups" : [ "Default" ],
-            "environment" : "Azure",
-            "id" : "87",
-            "instanceId" : 1,
-            "properties" : {
-              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.data.6e80a32c-a8d0-443f-b2ca-1de6910891f1"
-            },
-            "tags" : "Container Instance"
-          }, {
-            "containerId" : "15",
-            "deploymentGroups" : [ "Default" ],
-            "environment" : "Azure",
-            "id" : "90",
-            "instanceId" : 1,
-            "properties" : {
-              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.data.22620f66-ac73-4fb1-9e66-e517d55c285a"
-            },
+            "relationships" : [ {
+              "description" : "Calls",
+              "destinationId" : "69",
+              "id" : "70",
+              "linkedRelationshipId" : "25",
+              "sourceId" : "64",
+              "technology" : "HTTPS/JSON or bounded photo upload"
+            } ],
             "tags" : "Container Instance"
           } ],
-          "description" : "Managed Azure data services",
+          "description" : "Angular hosting; only APIM used for browser API calls",
           "environment" : "Azure",
-          "id" : "78",
+          "id" : "63",
           "instances" : "1",
-          "name" : "Data Services",
+          "name" : "Static Web Apps",
           "properties" : {
-            "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.data"
+            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.resourceGroup.webHosting"
           },
           "tags" : "Element,Deployment Node"
         }, {
           "containerInstances" : [ {
-            "containerId" : "13",
+            "containerId" : "17",
             "deploymentGroups" : [ "Default" ],
             "environment" : "Azure",
-            "id" : "93",
+            "id" : "66",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.messaging.1997096c-e208-4ee1-add2-c98b8e012703"
+              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.resourceGroup.inference.89d4b7ef-12ff-4770-9ee8-c1cf6505dbda"
+            },
+            "tags" : "Container Instance"
+          } ],
+          "description" : "Later Foundry allocation/model/region remain to be verified",
+          "environment" : "Azure",
+          "id" : "65",
+          "instances" : "1",
+          "name" : "Inference Hosting",
+          "properties" : {
+            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.resourceGroup.inference"
+          },
+          "tags" : "Element,Deployment Node"
+        } ],
+        "description" : "Application-owned resources; actual names/scopes TBD",
+        "environment" : "Azure",
+        "id" : "62",
+        "instances" : "1",
+        "name" : "Parameter Pilot Resource Group",
+        "properties" : {
+          "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.resourceGroup"
+        },
+        "tags" : "Element,Deployment Node"
+      }, {
+        "children" : [ {
+          "containerInstances" : [ {
+            "containerId" : "5",
+            "deploymentGroups" : [ "Default" ],
+            "environment" : "Azure",
+            "id" : "69",
+            "instanceId" : 1,
+            "properties" : {
+              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedGateway.e9791689-67b8-4bdd-a996-53586026bb9e"
             },
             "relationships" : [ {
-              "description" : "Delivers asynchronous events",
-              "destinationId" : "75",
-              "id" : "97",
-              "linkedRelationshipId" : "39",
-              "sourceId" : "93"
+              "description" : "Validates token and routes; Aquarium independently validates",
+              "destinationId" : "87",
+              "id" : "88",
+              "linkedRelationshipId" : "29",
+              "sourceId" : "69",
+              "technology" : "HTTPS/JSON"
             }, {
-              "description" : "Delivers photo-processing work",
-              "destinationId" : "77",
-              "id" : "99",
-              "linkedRelationshipId" : "43",
-              "sourceId" : "93"
+              "description" : "Validates token and routes; Tracking independently validates",
+              "destinationId" : "92",
+              "id" : "94",
+              "linkedRelationshipId" : "30",
+              "sourceId" : "69",
+              "technology" : "HTTPS/JSON or bounded binary"
+            }, {
+              "description" : "Validates token and routes; Advisor independently validates",
+              "destinationId" : "100",
+              "id" : "102",
+              "linkedRelationshipId" : "31",
+              "sourceId" : "69",
+              "technology" : "HTTPS/JSON"
             } ],
             "tags" : "Container Instance"
           } ],
-          "description" : "Managed messaging",
+          "description" : "Platform-owned instance; app APIs/policies; HTTPS browser entry; outbound addressing must support narrow backend rules",
           "environment" : "Azure",
-          "id" : "92",
+          "id" : "68",
           "instances" : "1",
-          "name" : "Messaging",
+          "name" : "Shared APIM",
           "properties" : {
-            "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.messaging"
+            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedGateway"
+          },
+          "tags" : "Element,Deployment Node"
+        }, {
+          "children" : [ {
+            "containerInstances" : [ {
+              "containerId" : "12",
+              "deploymentGroups" : [ "Default" ],
+              "environment" : "Azure",
+              "id" : "73",
+              "instanceId" : 1,
+              "properties" : {
+                "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedSql.aquariumSchema.b40e1516-3ca5-45eb-9607-61ab4ab043aa"
+              },
+              "tags" : "Container Instance"
+            } ],
+            "description" : "Application-owned tables/migrations; schema-scoped runtime identities",
+            "environment" : "Azure",
+            "id" : "72",
+            "instances" : "1",
+            "name" : "Aquarium schema",
+            "properties" : {
+              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedSql.aquariumSchema"
+            },
+            "tags" : "Element,Deployment Node"
+          } ],
+          "description" : "Platform-owned SQL database and capacity",
+          "environment" : "Azure",
+          "id" : "71",
+          "instances" : "1",
+          "name" : "ReferenceProjectsDb",
+          "properties" : {
+            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedSql"
+          },
+          "tags" : "Element,Deployment Node"
+        }, {
+          "children" : [ {
+            "containerInstances" : [ {
+              "containerId" : "13",
+              "deploymentGroups" : [ "Default" ],
+              "environment" : "Azure",
+              "id" : "76",
+              "instanceId" : 1,
+              "properties" : {
+                "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedCosmos.trackingContainers.62c47c0e-ee6e-4cdc-b8d0-b08e9bc579f9"
+              },
+              "tags" : "Container Instance"
+            } ],
+            "description" : "App-owned /tankId containers; state/outbox same container and partition",
+            "environment" : "Azure",
+            "id" : "75",
+            "instances" : "1",
+            "name" : "Tracking-owned containers",
+            "properties" : {
+              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedCosmos.trackingContainers"
+            },
+            "tags" : "Element,Deployment Node"
+          } ],
+          "description" : "Platform-owned account/database/throughput",
+          "environment" : "Azure",
+          "id" : "74",
+          "instances" : "1",
+          "name" : "ReferenceProjects Cosmos database",
+          "properties" : {
+            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedCosmos"
+          },
+          "tags" : "Element,Deployment Node"
+        }, {
+          "containerInstances" : [ {
+            "containerId" : "15",
+            "deploymentGroups" : [ "Default" ],
+            "environment" : "Azure",
+            "id" : "78",
+            "instanceId" : 1,
+            "properties" : {
+              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedStorage.0c5ee631-6807-4676-8474-2eb3a97d1d3a"
+            },
+            "tags" : "Container Instance"
+          } ],
+          "description" : "Platform-owned account; application private photo containers/lifecycle, introduced in photo stage",
+          "environment" : "Azure",
+          "id" : "77",
+          "instances" : "1",
+          "name" : "Shared Blob Storage Account",
+          "properties" : {
+            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedStorage"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -431,40 +201,396 @@
             "containerId" : "16",
             "deploymentGroups" : [ "Default" ],
             "environment" : "Azure",
-            "id" : "102",
+            "id" : "80",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.observability.1924a19f-8870-479a-8a69-e85517784f33"
+              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPostgres.3cf0bf1d-75bc-4754-b472-537498002c4c"
             },
             "tags" : "Container Instance"
           } ],
-          "description" : "Azure Monitor",
+          "description" : "Platform capacity/extensions/backups; Advisor database/data in later AI stage",
           "environment" : "Azure",
-          "id" : "101",
+          "id" : "79",
           "instances" : "1",
-          "name" : "Observability",
+          "name" : "Shared PostgreSQL Flexible Server",
           "properties" : {
-            "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup.observability"
+            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPostgres"
+          },
+          "tags" : "Element,Deployment Node"
+        }, {
+          "containerInstances" : [ {
+            "containerId" : "14",
+            "deploymentGroups" : [ "Default" ],
+            "environment" : "Azure",
+            "id" : "82",
+            "instanceId" : 1,
+            "properties" : {
+              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedMessaging.a1bb3dc8-5cee-4276-a273-9ba21288d47c"
+            },
+            "relationships" : [ {
+              "description" : "Delivers only Aquarium-addressed work/relevant subscriptions",
+              "destinationId" : "107",
+              "id" : "110",
+              "linkedRelationshipId" : "42",
+              "sourceId" : "82"
+            }, {
+              "description" : "Delivers Tracking photo commands and relevant event subscriptions",
+              "destinationId" : "113",
+              "id" : "117",
+              "linkedRelationshipId" : "46",
+              "sourceId" : "82"
+            }, {
+              "description" : "Delivers Advisor-addressed commands and relevant subscriptions",
+              "destinationId" : "120",
+              "id" : "124",
+              "linkedRelationshipId" : "52",
+              "sourceId" : "82"
+            } ],
+            "tags" : "Container Instance"
+          } ],
+          "description" : "Platform namespace/SKU; application-owned queues/topics/subscriptions",
+          "environment" : "Azure",
+          "id" : "81",
+          "instances" : "1",
+          "name" : "Shared Service Bus Namespace",
+          "properties" : {
+            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedMessaging"
+          },
+          "tags" : "Element,Deployment Node"
+        }, {
+          "containerInstances" : [ {
+            "containerId" : "18",
+            "deploymentGroups" : [ "Default" ],
+            "environment" : "Azure",
+            "id" : "84",
+            "instanceId" : 1,
+            "properties" : {
+              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedMonitoring.327f6c6f-4976-47c2-b97e-abc0a329097a"
+            },
+            "tags" : "Container Instance"
+          } ],
+          "description" : "Platform App Insights/Log Analytics hosting and policy",
+          "environment" : "Azure",
+          "id" : "83",
+          "instances" : "1",
+          "name" : "Shared Monitoring",
+          "properties" : {
+            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedMonitoring"
+          },
+          "tags" : "Element,Deployment Node"
+        }, {
+          "children" : [ {
+            "containerInstances" : [ {
+              "containerId" : "6",
+              "deploymentGroups" : [ "Default" ],
+              "environment" : "Azure",
+              "id" : "87",
+              "instanceId" : 1,
+              "properties" : {
+                "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.aquariumApp.0fd58ef0-d031-4225-91ab-240b93012525"
+              },
+              "relationships" : [ {
+                "description" : "Synchronously reads/writes owned state; atomically writes outbox",
+                "destinationId" : "73",
+                "id" : "89",
+                "linkedRelationshipId" : "32",
+                "sourceId" : "87"
+              }, {
+                "description" : "Emits telemetry directly",
+                "destinationId" : "84",
+                "id" : "90",
+                "linkedRelationshipId" : "55",
+                "sourceId" : "87"
+              } ],
+              "tags" : "Container Instance"
+            } ],
+            "description" : "Separate containerised App Service app/identity/configuration; restricted public HTTPS behind APIM",
+            "environment" : "Azure",
+            "id" : "86",
+            "instances" : "1",
+            "name" : "Aquarium API App",
+            "properties" : {
+              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.aquariumApp"
+            },
+            "tags" : "Element,Deployment Node"
+          }, {
+            "containerInstances" : [ {
+              "containerId" : "7",
+              "deploymentGroups" : [ "Default" ],
+              "environment" : "Azure",
+              "id" : "92",
+              "instanceId" : 1,
+              "properties" : {
+                "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.trackingApp.0273096a-1482-4848-80a3-74026b598d67"
+              },
+              "relationships" : [ {
+                "description" : "Returns saved data or photo job status",
+                "destinationId" : "69",
+                "id" : "93",
+                "linkedRelationshipId" : "35",
+                "sourceId" : "92",
+                "technology" : "HTTPS/JSON"
+              }, {
+                "description" : "Synchronously reads/writes owned history and same-partition outbox",
+                "destinationId" : "76",
+                "id" : "95",
+                "linkedRelationshipId" : "33",
+                "sourceId" : "92"
+              }, {
+                "description" : "Saves private within-limit original after bounded validation",
+                "destinationId" : "78",
+                "id" : "96",
+                "linkedRelationshipId" : "36",
+                "sourceId" : "92",
+                "technology" : "HTTPS / managed identity"
+              }, {
+                "description" : "Emits telemetry directly",
+                "destinationId" : "84",
+                "id" : "97",
+                "linkedRelationshipId" : "56",
+                "sourceId" : "92"
+              }, {
+                "description" : "One batch per new panel: authorised tank access, current definition revisions, units and input-validation rules; fail closed",
+                "destinationId" : "87",
+                "id" : "98",
+                "linkedRelationshipId" : "34",
+                "sourceId" : "92",
+                "technology" : "HTTPS / OAuth OBO delegated token"
+              } ],
+              "tags" : "Container Instance"
+            } ],
+            "description" : "Separate containerised App Service app/identity/configuration; restricted public HTTPS behind APIM",
+            "environment" : "Azure",
+            "id" : "91",
+            "instances" : "1",
+            "name" : "Tracking API App",
+            "properties" : {
+              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.trackingApp"
+            },
+            "tags" : "Element,Deployment Node"
+          }, {
+            "containerInstances" : [ {
+              "containerId" : "8",
+              "deploymentGroups" : [ "Default" ],
+              "environment" : "Azure",
+              "id" : "100",
+              "instanceId" : 1,
+              "properties" : {
+                "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.advisorApp.3487274c-8ec7-4071-afdd-e5adef20d162"
+              },
+              "relationships" : [ {
+                "description" : "Returns 202 job Location or authorised history/result",
+                "destinationId" : "69",
+                "id" : "101",
+                "linkedRelationshipId" : "39",
+                "sourceId" : "100",
+                "technology" : "HTTPS/JSON"
+              }, {
+                "description" : "Synchronously registers job/quota/outbox; reads result/history/input snapshots",
+                "destinationId" : "80",
+                "id" : "103",
+                "linkedRelationshipId" : "38",
+                "sourceId" : "100"
+              }, {
+                "description" : "Emits telemetry directly",
+                "destinationId" : "84",
+                "id" : "104",
+                "linkedRelationshipId" : "57",
+                "sourceId" : "100"
+              }, {
+                "description" : "Authorised profile/entitlement checks",
+                "destinationId" : "87",
+                "id" : "105",
+                "linkedRelationshipId" : "37",
+                "sourceId" : "100",
+                "technology" : "HTTPS / workload identity and verified actor"
+              } ],
+              "tags" : "Container Instance"
+            } ],
+            "description" : "Later separate containerised App Service app/identity/configuration; restricted public HTTPS",
+            "environment" : "Azure",
+            "id" : "99",
+            "instances" : "1",
+            "name" : "Advisor API App",
+            "properties" : {
+              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.advisorApp"
+            },
+            "tags" : "Element,Deployment Node"
+          }, {
+            "containerInstances" : [ {
+              "containerId" : "9",
+              "deploymentGroups" : [ "Default" ],
+              "environment" : "Azure",
+              "id" : "107",
+              "instanceId" : 1,
+              "properties" : {
+                "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.aquariumFunctions.023a498d-b8df-491f-b891-3dac832c3a7e"
+              },
+              "relationships" : [ {
+                "description" : "Reads local outbox; updates only Aquarium-owned task/inbox/projection state",
+                "destinationId" : "73",
+                "id" : "108",
+                "linkedRelationshipId" : "40",
+                "sourceId" : "107"
+              }, {
+                "description" : "Publishes Aquarium outbox; consumes assigned commands/subscriptions when justified",
+                "destinationId" : "82",
+                "id" : "109",
+                "linkedRelationshipId" : "41",
+                "sourceId" : "107"
+              }, {
+                "description" : "Emits telemetry with propagated trace context",
+                "destinationId" : "84",
+                "id" : "111",
+                "linkedRelationshipId" : "58",
+                "sourceId" : "107"
+              } ],
+              "tags" : "Container Instance"
+            } ],
+            "description" : "Service-owned functions and managed identity",
+            "environment" : "Azure",
+            "id" : "106",
+            "instances" : "1",
+            "name" : "Aquarium Function App",
+            "properties" : {
+              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.aquariumFunctions"
+            },
+            "tags" : "Element,Deployment Node"
+          }, {
+            "containerInstances" : [ {
+              "containerId" : "10",
+              "deploymentGroups" : [ "Default" ],
+              "environment" : "Azure",
+              "id" : "113",
+              "instanceId" : 1,
+              "properties" : {
+                "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.trackingFunctions.5699aaba-180c-40c6-97a9-36e5e9692a79"
+              },
+              "relationships" : [ {
+                "description" : "Relays Tracking outbox; updates owned processing status/inbox/history",
+                "destinationId" : "76",
+                "id" : "114",
+                "linkedRelationshipId" : "43",
+                "sourceId" : "113"
+              }, {
+                "description" : "Reads retained original; writes cropped thumbnail and padded hero WebP",
+                "destinationId" : "78",
+                "id" : "115",
+                "linkedRelationshipId" : "44",
+                "sourceId" : "113"
+              }, {
+                "description" : "Publishes Tracking outbox; consumes assigned work",
+                "destinationId" : "82",
+                "id" : "116",
+                "linkedRelationshipId" : "45",
+                "sourceId" : "113"
+              }, {
+                "description" : "Emits telemetry with propagated trace context",
+                "destinationId" : "84",
+                "id" : "118",
+                "linkedRelationshipId" : "59",
+                "sourceId" : "113"
+              } ],
+              "tags" : "Container Instance"
+            } ],
+            "description" : "Photo/outbox functions; bounded image concurrency",
+            "environment" : "Azure",
+            "id" : "112",
+            "instances" : "1",
+            "name" : "Tracking Function App",
+            "properties" : {
+              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.trackingFunctions"
+            },
+            "tags" : "Element,Deployment Node"
+          }, {
+            "containerInstances" : [ {
+              "containerId" : "11",
+              "deploymentGroups" : [ "Default" ],
+              "environment" : "Azure",
+              "id" : "120",
+              "instanceId" : 1,
+              "properties" : {
+                "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.advisorFunctions.35d2e003-3020-476a-92fd-da6975c676b4"
+              },
+              "relationships" : [ {
+                "description" : "Requests text inference; no photo input",
+                "destinationId" : "66",
+                "id" : "121",
+                "linkedRelationshipId" : "50",
+                "sourceId" : "120",
+                "technology" : "HTTPS"
+              }, {
+                "description" : "Relays outbox; persists advice results/quotas/input snapshots; pgvector retrieval",
+                "destinationId" : "80",
+                "id" : "122",
+                "linkedRelationshipId" : "47",
+                "sourceId" : "120"
+              }, {
+                "description" : "Publishes Advisor outbox; consumes advice commands/relevant events",
+                "destinationId" : "82",
+                "id" : "123",
+                "linkedRelationshipId" : "51",
+                "sourceId" : "120"
+              }, {
+                "description" : "Emits telemetry with propagated trace context",
+                "destinationId" : "84",
+                "id" : "125",
+                "linkedRelationshipId" : "60",
+                "sourceId" : "120"
+              }, {
+                "description" : "Gets authorised profile and entitlement",
+                "destinationId" : "87",
+                "id" : "126",
+                "linkedRelationshipId" : "48",
+                "sourceId" : "120",
+                "technology" : "HTTPS / workload identity and verified actor"
+              }, {
+                "description" : "Gets authorised measurement/maintenance/observation history",
+                "destinationId" : "92",
+                "id" : "127",
+                "linkedRelationshipId" : "49",
+                "sourceId" : "120",
+                "technology" : "HTTPS / workload identity and verified actor"
+              } ],
+              "tags" : "Container Instance"
+            } ],
+            "description" : "Later advice/outbox functions; bounded inference concurrency",
+            "environment" : "Azure",
+            "id" : "119",
+            "instances" : "1",
+            "name" : "Advisor Function App",
+            "properties" : {
+              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.advisorFunctions"
+            },
+            "tags" : "Element,Deployment Node"
+          } ],
+          "description" : "Shared API/Functions compute; verify OS/SKU/runtime/Always On/headroom; no independent compute scaling",
+          "environment" : "Azure",
+          "id" : "85",
+          "instances" : "1",
+          "name" : "Existing Shared Linux App Service Plan",
+          "properties" : {
+            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan"
           },
           "tags" : "Element,Deployment Node"
         } ],
-        "description" : "Azure resources for Parameter Pilot",
+        "description" : "Externally managed prerequisite; inventory and access remain unverified",
         "environment" : "Azure",
-        "id" : "55",
+        "id" : "67",
         "instances" : "1",
-        "name" : "Parameter Pilot Resource Group",
+        "name" : "Shared Development Platform",
         "properties" : {
-          "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure.resourceGroup"
+          "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform"
         },
         "tags" : "Element,Deployment Node"
       } ],
-      "description" : "Azure subscription",
+      "description" : "Local/dev-only initial scope; no Test/Production resources implied",
       "environment" : "Azure",
-      "id" : "54",
+      "id" : "61",
       "instances" : "1",
-      "name" : "Microsoft Azure",
+      "name" : "Microsoft Azure - Development",
       "properties" : {
-        "structurizr.dsl.identifier" : "5d29ab00-5fda-474b-b854-38b36ff6300d.azure"
+        "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure"
       },
       "tags" : "Element,Deployment Node"
     } ],
@@ -478,15 +604,15 @@
       "relationships" : [ {
         "description" : "Uses",
         "destinationId" : "4",
-        "id" : "19",
+        "id" : "21",
         "sourceId" : "1",
         "tags" : "Relationship",
         "technology" : "HTTPS"
       }, {
         "description" : "Uses",
         "destinationId" : "3",
-        "id" : "20",
-        "linkedRelationshipId" : "19",
+        "id" : "22",
+        "linkedRelationshipId" : "21",
         "sourceId" : "1",
         "technology" : "HTTPS"
       } ],
@@ -501,15 +627,15 @@
       "relationships" : [ {
         "description" : "Operates",
         "destinationId" : "4",
-        "id" : "21",
+        "id" : "23",
         "sourceId" : "2",
         "tags" : "Relationship",
         "technology" : "HTTPS"
       }, {
         "description" : "Operates",
         "destinationId" : "3",
-        "id" : "22",
-        "linkedRelationshipId" : "21",
+        "id" : "24",
+        "linkedRelationshipId" : "23",
         "sourceId" : "2",
         "technology" : "HTTPS"
       } ],
@@ -527,13 +653,20 @@
         "relationships" : [ {
           "description" : "Calls",
           "destinationId" : "5",
-          "id" : "23",
+          "id" : "25",
           "sourceId" : "4",
           "tags" : "Relationship",
-          "technology" : "HTTPS/JSON"
+          "technology" : "HTTPS/JSON or bounded photo upload"
+        }, {
+          "description" : "Signs in with authorisation code + PKCE; obtains API access token",
+          "destinationId" : "19",
+          "id" : "26",
+          "sourceId" : "4",
+          "tags" : "Relationship",
+          "technology" : "OIDC/OAuth 2.0"
         } ],
         "tags" : "Element,Container,Web",
-        "technology" : "Angular"
+        "technology" : "Angular 22 / strict TypeScript"
       }, {
         "description" : "Single authenticated entry point for browser clients and external integrations.",
         "documentation" : { },
@@ -543,37 +676,37 @@
           "structurizr.dsl.identifier" : "parameterPilot.apiGateway"
         },
         "relationships" : [ {
-          "description" : "Authenticates users",
-          "destinationId" : "17",
-          "id" : "24",
-          "sourceId" : "5",
-          "tags" : "Relationship",
-          "technology" : "OIDC/OAuth 2.0"
-        }, {
-          "description" : "Routes aquarium requests",
-          "destinationId" : "6",
-          "id" : "26",
-          "sourceId" : "5",
-          "tags" : "Relationship",
-          "technology" : "HTTPS/JSON"
-        }, {
-          "description" : "Routes tracking requests",
-          "destinationId" : "7",
-          "id" : "27",
-          "sourceId" : "5",
-          "tags" : "Relationship",
-          "technology" : "HTTPS/JSON"
-        }, {
-          "description" : "Routes advice requests",
-          "destinationId" : "8",
+          "description" : "Loads issuer metadata/signing keys for access-token validation",
+          "destinationId" : "19",
           "id" : "28",
           "sourceId" : "5",
           "tags" : "Relationship",
+          "technology" : "HTTPS / OIDC metadata"
+        }, {
+          "description" : "Validates token and routes; Aquarium independently validates",
+          "destinationId" : "6",
+          "id" : "29",
+          "sourceId" : "5",
+          "tags" : "Relationship",
           "technology" : "HTTPS/JSON"
         }, {
-          "description" : "Handles subscription billing integration",
-          "destinationId" : "18",
-          "id" : "48",
+          "description" : "Validates token and routes; Tracking independently validates",
+          "destinationId" : "7",
+          "id" : "30",
+          "sourceId" : "5",
+          "tags" : "Relationship",
+          "technology" : "HTTPS/JSON or bounded binary"
+        }, {
+          "description" : "Validates token and routes; Advisor independently validates",
+          "destinationId" : "8",
+          "id" : "31",
+          "sourceId" : "5",
+          "tags" : "Relationship",
+          "technology" : "HTTPS/JSON"
+        }, {
+          "description" : "Existing payment integration candidate; provider/adapter decision pending",
+          "destinationId" : "20",
+          "id" : "53",
           "sourceId" : "5",
           "tags" : "Relationship",
           "technology" : "HTTPS"
@@ -581,7 +714,7 @@
         "tags" : "Element,Container,Gateway,Microsoft Azure - API Management Services",
         "technology" : "Azure API Management"
       }, {
-        "description" : "Manages tanks, aquarium configuration, parameter definitions and current state.",
+        "description" : "Owns tanks and SQL GUID parameter definitions/revisions/units/input rules; serves tank-selected definitions and batch validation context.",
         "documentation" : { },
         "id" : "6",
         "name" : "Aquarium Service",
@@ -589,26 +722,20 @@
           "structurizr.dsl.identifier" : "parameterPilot.aquariumService"
         },
         "relationships" : [ {
-          "description" : "Reads/writes aquarium data",
-          "destinationId" : "11",
-          "id" : "29",
+          "description" : "Synchronously reads/writes owned state; atomically writes outbox",
+          "destinationId" : "12",
+          "id" : "32",
           "sourceId" : "6",
           "tags" : "Relationship"
         }, {
-          "description" : "Publishes aquarium events",
-          "destinationId" : "13",
-          "id" : "30",
-          "sourceId" : "6",
-          "tags" : "Relationship"
-        }, {
-          "description" : "Sends telemetry",
-          "destinationId" : "16",
-          "id" : "50",
+          "description" : "Emits telemetry directly",
+          "destinationId" : "18",
+          "id" : "55",
           "sourceId" : "6",
           "tags" : "Relationship"
         } ],
         "tags" : "Element,Container,Service",
-        "technology" : ".NET 10 Web API"
+        "technology" : "ASP.NET Core 10 / C# 14"
       }, {
         "description" : "Records history; receives authorised photo binaries and enforces 5242880-byte file limit before Blob persistence; registers photo processing.",
         "documentation" : { },
@@ -618,40 +745,41 @@
           "structurizr.dsl.identifier" : "parameterPilot.trackingService"
         },
         "relationships" : [ {
-          "description" : "Reads/writes measurements and events",
-          "destinationId" : "12",
-          "id" : "31",
-          "sourceId" : "7",
-          "tags" : "Relationship"
-        }, {
-          "description" : "Publishes parameter events",
+          "description" : "Synchronously reads/writes owned history and same-partition outbox",
           "destinationId" : "13",
-          "id" : "32",
+          "id" : "33",
           "sourceId" : "7",
           "tags" : "Relationship"
         }, {
-          "description" : "Returns trend data",
+          "description" : "One batch per new panel: authorised tank access, current definition revisions, units and input-validation rules; fail closed",
+          "destinationId" : "6",
+          "id" : "34",
+          "sourceId" : "7",
+          "tags" : "Relationship",
+          "technology" : "HTTPS / OAuth OBO delegated token"
+        }, {
+          "description" : "Returns saved data or photo job status",
           "destinationId" : "5",
-          "id" : "33",
+          "id" : "35",
           "sourceId" : "7",
           "tags" : "Relationship",
           "technology" : "HTTPS/JSON"
         }, {
-          "description" : "Saves private within-limit original after bounded upload validation",
-          "destinationId" : "14",
-          "id" : "47",
+          "description" : "Saves private within-limit original after bounded validation",
+          "destinationId" : "15",
+          "id" : "36",
           "sourceId" : "7",
           "tags" : "Relationship",
           "technology" : "HTTPS / managed identity"
         }, {
-          "description" : "Sends telemetry",
-          "destinationId" : "16",
-          "id" : "51",
+          "description" : "Emits telemetry directly",
+          "destinationId" : "18",
+          "id" : "56",
           "sourceId" : "7",
           "tags" : "Relationship"
         } ],
         "tags" : "Element,Container,Service",
-        "technology" : ".NET 10 Web API"
+        "technology" : "ASP.NET Core 10 / C# 14"
       }, {
         "description" : "Produces maintenance advice from aquarium measurements, events and relevant reference knowledge.",
         "documentation" : { },
@@ -661,148 +789,193 @@
           "structurizr.dsl.identifier" : "parameterPilot.advisorService"
         },
         "relationships" : [ {
-          "description" : "Reads historical measurements",
-          "destinationId" : "12",
-          "id" : "34",
-          "sourceId" : "8",
-          "tags" : "Relationship"
-        }, {
-          "description" : "Stores jobs/results/quotas/input snapshots; retrieves curated passages using pgvector",
-          "destinationId" : "15",
-          "id" : "35",
-          "sourceId" : "8",
-          "tags" : "Relationship"
-        }, {
-          "description" : "Publishes advice processing events",
-          "destinationId" : "13",
-          "id" : "36",
-          "sourceId" : "8",
-          "tags" : "Relationship"
-        }, {
-          "description" : "Returns maintenance advice",
-          "destinationId" : "5",
+          "description" : "Authorised profile/entitlement checks",
+          "destinationId" : "6",
           "id" : "37",
+          "sourceId" : "8",
+          "tags" : "Relationship",
+          "technology" : "HTTPS / workload identity and verified actor"
+        }, {
+          "description" : "Synchronously registers job/quota/outbox; reads result/history/input snapshots",
+          "destinationId" : "16",
+          "id" : "38",
+          "sourceId" : "8",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Returns 202 job Location or authorised history/result",
+          "destinationId" : "5",
+          "id" : "39",
           "sourceId" : "8",
           "tags" : "Relationship",
           "technology" : "HTTPS/JSON"
         }, {
-          "description" : "Sends telemetry",
-          "destinationId" : "16",
-          "id" : "52",
+          "description" : "Emits telemetry directly",
+          "destinationId" : "18",
+          "id" : "57",
           "sourceId" : "8",
           "tags" : "Relationship"
         } ],
         "tags" : "Element,Container,Service",
-        "technology" : ".NET 10 Web API / Azure AI"
+        "technology" : "ASP.NET Core 10 / C# 14 / Foundry"
       }, {
-        "description" : "Existing non-photo background-work candidate; broader ownership remains under review.",
+        "description" : "Aquarium-owned outbox publication and approved deferred tasks; accesses Aquarium SQL only.",
         "documentation" : { },
         "id" : "9",
-        "name" : "Event Processor",
+        "name" : "Aquarium Async Worker",
         "properties" : {
-          "structurizr.dsl.identifier" : "parameterPilot.eventProcessor"
+          "structurizr.dsl.identifier" : "parameterPilot.aquariumWorker"
         },
         "relationships" : [ {
-          "description" : "Consumes asynchronous events",
-          "destinationId" : "13",
-          "id" : "38",
-          "sourceId" : "9",
-          "tags" : "Relationship"
-        }, {
-          "description" : "Processes event data",
+          "description" : "Reads local outbox; updates only Aquarium-owned task/inbox/projection state",
           "destinationId" : "12",
           "id" : "40",
           "sourceId" : "9",
           "tags" : "Relationship"
         }, {
-          "description" : "Updates derived state",
-          "destinationId" : "11",
+          "description" : "Publishes Aquarium outbox; consumes assigned commands/subscriptions when justified",
+          "destinationId" : "14",
           "id" : "41",
           "sourceId" : "9",
           "tags" : "Relationship"
         }, {
-          "description" : "Sends telemetry",
-          "destinationId" : "16",
-          "id" : "53",
+          "description" : "Emits telemetry with propagated trace context",
+          "destinationId" : "18",
+          "id" : "58",
           "sourceId" : "9",
           "tags" : "Relationship"
         } ],
         "tags" : "Element,Container,Service",
-        "technology" : ".NET 10 Worker / Azure Functions"
+        "technology" : ".NET 10 isolated Azure Functions / shared plan (compatibility verification pending)"
       }, {
-        "description" : "Validates originals; creates cropped 400x400 WebP thumbnails and padded 1200x800 WebP heroes; retains originals for future processing.",
+        "description" : "Tracking outbox and deferred tasks; photo validation and cropped 400x400 thumbnail/padded 1200x800 hero WebP; retains originals.",
         "documentation" : { },
         "id" : "10",
-        "name" : "Tracking Photo Worker",
+        "name" : "Tracking Async Worker",
         "properties" : {
-          "structurizr.dsl.identifier" : "parameterPilot.photoProcessor"
+          "structurizr.dsl.identifier" : "parameterPilot.trackingWorker"
         },
         "relationships" : [ {
-          "description" : "Consumes registered photo-processing work",
+          "description" : "Relays Tracking outbox; updates owned processing status/inbox/history",
           "destinationId" : "13",
-          "id" : "42",
+          "id" : "43",
           "sourceId" : "10",
           "tags" : "Relationship"
         }, {
-          "description" : "Reads private original; writes cropped thumbnail and padded hero WebP",
-          "destinationId" : "14",
+          "description" : "Reads retained original; writes cropped thumbnail and padded hero WebP",
+          "destinationId" : "15",
           "id" : "44",
           "sourceId" : "10",
           "tags" : "Relationship"
         }, {
-          "description" : "Updates Tracking-owned photo processing status and derivative metadata",
-          "destinationId" : "12",
+          "description" : "Publishes Tracking outbox; consumes assigned work",
+          "destinationId" : "14",
           "id" : "45",
           "sourceId" : "10",
           "tags" : "Relationship"
         }, {
-          "description" : "Sends photo processing telemetry",
-          "destinationId" : "16",
-          "id" : "46",
+          "description" : "Emits telemetry with propagated trace context",
+          "destinationId" : "18",
+          "id" : "59",
           "sourceId" : "10",
           "tags" : "Relationship"
         } ],
         "tags" : "Element,Container,Service",
-        "technology" : ".NET Worker / Azure Functions - hosting tier TBD"
+        "technology" : ".NET 10 isolated Azure Functions / shared plan (compatibility verification pending)"
       }, {
-        "description" : "Stores transactional aquarium and configuration data.",
+        "description" : "Advisor-owned advice context, retrieval, inference, result persistence and outbox publication.",
         "documentation" : { },
         "id" : "11",
-        "name" : "Aquarium SQL Database",
+        "name" : "Advisor Async Worker",
+        "properties" : {
+          "structurizr.dsl.identifier" : "parameterPilot.advisorWorker"
+        },
+        "relationships" : [ {
+          "description" : "Relays outbox; persists advice results/quotas/input snapshots; pgvector retrieval",
+          "destinationId" : "16",
+          "id" : "47",
+          "sourceId" : "11",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Gets authorised profile and entitlement",
+          "destinationId" : "6",
+          "id" : "48",
+          "sourceId" : "11",
+          "tags" : "Relationship",
+          "technology" : "HTTPS / workload identity and verified actor"
+        }, {
+          "description" : "Gets authorised measurement/maintenance/observation history",
+          "destinationId" : "7",
+          "id" : "49",
+          "sourceId" : "11",
+          "tags" : "Relationship",
+          "technology" : "HTTPS / workload identity and verified actor"
+        }, {
+          "description" : "Requests text inference; no photo input",
+          "destinationId" : "17",
+          "id" : "50",
+          "sourceId" : "11",
+          "tags" : "Relationship",
+          "technology" : "HTTPS"
+        }, {
+          "description" : "Publishes Advisor outbox; consumes advice commands/relevant events",
+          "destinationId" : "14",
+          "id" : "51",
+          "sourceId" : "11",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Emits telemetry with propagated trace context",
+          "destinationId" : "18",
+          "id" : "60",
+          "sourceId" : "11",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container,Service",
+        "technology" : ".NET 10 isolated Azure Functions / shared plan (compatibility verification pending)"
+      }, {
+        "description" : "Aquarium-owned tables, outbox/inbox and migrations in schema Aquarium within platform-owned ReferenceProjectsDb; schema-scoped runtime access.",
+        "documentation" : { },
+        "id" : "12",
+        "name" : "Aquarium SQL Schema",
         "properties" : {
           "structurizr.dsl.identifier" : "parameterPilot.sqlDb"
         },
         "tags" : "Element,Container,Database,Infra,Microsoft Azure - SQL Database",
-        "technology" : "Azure SQL"
+        "technology" : "Azure SQL / Aquarium schema"
       }, {
-        "description" : "Stores parameter measurements, observations and historical event-oriented data.",
+        "description" : "Tracking-owned containers in platform-owned ReferenceProjects database; partition key /tankId; state and outbox in same container/partition for atomicity.",
         "documentation" : { },
-        "id" : "12",
-        "name" : "Parameter Event Store",
+        "id" : "13",
+        "name" : "Tracking History Store",
         "properties" : {
           "structurizr.dsl.identifier" : "parameterPilot.cosmosDb"
         },
         "tags" : "Element,Container,Database,Infra,Microsoft Azure - Azure Cosmos DB",
         "technology" : "Azure Cosmos DB"
       }, {
-        "description" : "Provides asynchronous communication between application services and background processors.",
+        "description" : "One Service Bus namespace with separate service command queues and event topics/filtered subscriptions; not one shared consumer queue.",
         "documentation" : { },
-        "id" : "13",
+        "id" : "14",
         "name" : "Message Broker",
         "properties" : {
           "structurizr.dsl.identifier" : "parameterPilot.serviceBus"
         },
         "relationships" : [ {
-          "description" : "Delivers asynchronous events",
+          "description" : "Delivers only Aquarium-addressed work/relevant subscriptions",
           "destinationId" : "9",
-          "id" : "39",
-          "sourceId" : "13",
+          "id" : "42",
+          "sourceId" : "14",
           "tags" : "Relationship"
         }, {
-          "description" : "Delivers photo-processing work",
+          "description" : "Delivers Tracking photo commands and relevant event subscriptions",
           "destinationId" : "10",
-          "id" : "43",
-          "sourceId" : "13",
+          "id" : "46",
+          "sourceId" : "14",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Delivers Advisor-addressed commands and relevant subscriptions",
+          "destinationId" : "11",
+          "id" : "52",
+          "sourceId" : "14",
           "tags" : "Relationship"
         } ],
         "tags" : "Element,Container,Infra,Messaging,Microsoft Azure - Service Bus",
@@ -810,7 +983,7 @@
       }, {
         "description" : "Private retained originals plus 400x400 cropped WebP thumbnails and 1200x800 padded WebP heroes. No AI image context.",
         "documentation" : { },
-        "id" : "14",
+        "id" : "15",
         "name" : "Photo Storage",
         "properties" : {
           "structurizr.dsl.identifier" : "parameterPilot.blobStorage"
@@ -820,7 +993,7 @@
       }, {
         "description" : "Advisor-owned advice jobs, results, quotas, submitted parameter snapshots and curated passages, metadata and embeddings; replaces proposed Advisor SQL and AI Search.",
         "documentation" : { },
-        "id" : "15",
+        "id" : "16",
         "name" : "Advisor PostgreSQL Database",
         "properties" : {
           "structurizr.dsl.identifier" : "parameterPilot.advisorDb"
@@ -828,9 +1001,19 @@
         "tags" : "Element,Container,Database,Infra",
         "technology" : "Azure Database for PostgreSQL Flexible Server / pgvector"
       }, {
+        "description" : "Text advice inference; model/version/region remain subject to selection; no photo context.",
+        "documentation" : { },
+        "id" : "17",
+        "name" : "Model Inference",
+        "properties" : {
+          "structurizr.dsl.identifier" : "parameterPilot.foundry"
+        },
+        "tags" : "Element,Container,Infra",
+        "technology" : "Microsoft Foundry"
+      }, {
         "description" : "Application telemetry, distributed tracing, metrics and diagnostics.",
         "documentation" : { },
-        "id" : "16",
+        "id" : "18",
         "name" : "Observability",
         "properties" : {
           "structurizr.dsl.identifier" : "parameterPilot.appInsights"
@@ -846,17 +1029,17 @@
         "structurizr.dsl.identifier" : "parameterPilot"
       },
       "relationships" : [ {
-        "description" : "Authenticates users",
-        "destinationId" : "17",
-        "id" : "25",
-        "linkedRelationshipId" : "24",
+        "description" : "Signs in with authorisation code + PKCE; obtains API access token",
+        "destinationId" : "19",
+        "id" : "27",
+        "linkedRelationshipId" : "26",
         "sourceId" : "3",
         "technology" : "OIDC/OAuth 2.0"
       }, {
-        "description" : "Handles subscription billing integration",
-        "destinationId" : "18",
-        "id" : "49",
-        "linkedRelationshipId" : "48",
+        "description" : "Existing payment integration candidate; provider/adapter decision pending",
+        "destinationId" : "20",
+        "id" : "54",
+        "linkedRelationshipId" : "53",
         "sourceId" : "3",
         "technology" : "HTTPS"
       } ],
@@ -864,7 +1047,7 @@
     }, {
       "description" : "Identity provider for customer authentication and application access.",
       "documentation" : { },
-      "id" : "17",
+      "id" : "19",
       "name" : "Microsoft Entra External ID",
       "properties" : {
         "structurizr.dsl.identifier" : "entra"
@@ -873,7 +1056,7 @@
     }, {
       "description" : "External payment provider for subscription billing.",
       "documentation" : { },
-      "id" : "18",
+      "id" : "20",
       "name" : "Stripe",
       "properties" : {
         "structurizr.dsl.identifier" : "stripe"
@@ -883,16 +1066,15 @@
   },
   "name" : "Parameter Pilot",
   "properties" : {
+    "structurizr.inspection.error" : "64",
     "structurizr.inspection.info" : "0",
     "structurizr.inspection.ignore" : "0",
-    "structurizr.inspection.error" : "58",
     "structurizr.inspection.warning" : "0"
   },
   "views" : {
     "configuration" : {
       "branding" : { },
-      "lastSavedView" : "Containers",
-      "metadataSymbols" : "SquareBrackets",
+      "lastSavedView" : "TrendAnalysis",
       "styles" : {
         "elements" : [ {
           "border" : "Dashed",
@@ -921,116 +1103,114 @@
       "themes" : [ "https://static.structurizr.com/themes/microsoft-azure-2021.01.26/theme.json" ]
     },
     "containerViews" : [ {
-      "dimensions" : {
-        "height" : 4697,
-        "width" : 5320
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
       },
+      "description" : "Aquarium API commits owned state plus outbox in schema Aquarium within shared ReferenceProjectsDb synchronously. Aquarium Async Worker relays pending outbox messages to the shared Service Bus namespace.",
       "elements" : [ {
-        "id" : "1",
-        "x" : 200,
-        "y" : 414
-      }, {
-        "id" : "2",
-        "x" : 200,
-        "y" : 1114
-      }, {
         "id" : "4",
-        "x" : 1000,
-        "y" : 820
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "5",
-        "x" : 1010,
-        "y" : 1395
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "6",
-        "x" : 2015,
-        "y" : 825
-      }, {
-        "id" : "7",
-        "x" : 2005,
-        "y" : 1630
-      }, {
-        "id" : "8",
-        "x" : 1995,
-        "y" : 2660
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "9",
-        "x" : 3920,
-        "y" : 1120
-      }, {
-        "id" : "10",
-        "x" : 3935,
-        "y" : 1820
-      }, {
-        "id" : "11",
-        "x" : 4430,
-        "y" : 655
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "12",
-        "x" : 4435,
-        "y" : 2555
-      }, {
-        "id" : "13",
-        "x" : 2995,
-        "y" : 1140
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "14",
-        "x" : 3075,
-        "y" : 1735
-      }, {
-        "id" : "15",
-        "x" : 4450,
-        "y" : 3070
-      }, {
-        "id" : "17",
-        "x" : 955,
-        "y" : 3500
-      }, {
-        "id" : "18",
-        "x" : 1435,
-        "y" : 3500
+        "x" : 0,
+        "y" : 0
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
-      "key" : "Containers",
+      "key" : "AquariumContainers",
       "name" : "Container View: Parameter Pilot",
       "order" : 2,
       "relationships" : [ {
-        "id" : "19"
+        "id" : "25"
       }, {
-        "id" : "21"
-      }, {
-        "id" : "23"
-      }, {
-        "id" : "24"
-      }, {
-        "id" : "26"
-      }, {
-        "id" : "27",
-        "vertices" : [ {
-          "x" : 1980,
-          "y" : 1550
-        } ]
-      }, {
-        "id" : "28"
-      }, {
-        "id" : "29",
-        "vertices" : [ {
-          "x" : 3270,
-          "y" : 825
-        }, {
-          "x" : 3875,
-          "y" : 810
-        } ]
-      }, {
-        "id" : "30"
-      }, {
-        "id" : "31",
-        "vertices" : [ {
-          "x" : 3125,
-          "y" : 2490
-        } ]
+        "id" : "29"
       }, {
         "id" : "32"
+      }, {
+        "id" : "40"
+      }, {
+        "id" : "41"
+      }, {
+        "id" : "42"
+      } ],
+      "softwareSystemId" : "3",
+      "title" : "Containers - Aquarium Service"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Tracking API commits history plus outbox in one /tankId partition in the same Tracking container in shared ReferenceProjects; Tracking Async Worker publishes messages and processes photos. Aquarium API supplies one authorised batch of definition revisions/units/input rules per new panel; failures save nothing.",
+      "elements" : [ {
+        "id" : "4",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "5",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "6",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "7",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "10",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "13",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "14",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "15",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "TrackingContainers",
+      "name" : "Container View: Parameter Pilot",
+      "order" : 3,
+      "relationships" : [ {
+        "id" : "25"
+      }, {
+        "id" : "29"
+      }, {
+        "id" : "30"
       }, {
         "id" : "33"
       }, {
@@ -1040,62 +1220,19 @@
       }, {
         "id" : "36"
       }, {
-        "id" : "37",
-        "vertices" : [ {
-          "x" : 1995,
-          "y" : 2095
-        } ]
-      }, {
-        "id" : "38",
-        "vertices" : [ {
-          "x" : 3520,
-          "y" : 1175
-        } ]
-      }, {
-        "id" : "39",
-        "vertices" : [ {
-          "x" : 3480,
-          "y" : 1380
-        } ]
-      }, {
-        "id" : "40",
-        "vertices" : [ {
-          "x" : 4455,
-          "y" : 1605
-        } ]
-      }, {
-        "id" : "41"
-      }, {
-        "id" : "42",
-        "vertices" : [ {
-          "x" : 3435,
-          "y" : 1600
-        } ]
-      }, {
-        "id" : "43",
-        "vertices" : [ {
-          "x" : 3710,
-          "y" : 1530
-        } ]
+        "id" : "43"
       }, {
         "id" : "44"
       }, {
-        "id" : "45",
-        "vertices" : [ {
-          "x" : 4415,
-          "y" : 2380
-        } ]
+        "id" : "45"
       }, {
-        "id" : "47"
-      }, {
-        "id" : "48"
+        "id" : "46"
       } ],
       "softwareSystemId" : "3",
-      "title" : "Container View - Parameter Pilot"
-    } ],
-    "deploymentViews" : [ {
+      "title" : "Containers - Tracking Service"
+    }, {
       "automaticLayout" : {
-        "applied" : true,
+        "applied" : false,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
@@ -1103,316 +1240,688 @@
         "rankSeparation" : 300,
         "vertices" : false
       },
-      "dimensions" : {
-        "height" : 4082,
-        "width" : 3332
+      "description" : "Advisor API commits job/quota plus PostgreSQL outbox. Advisor Async Worker relays/consumes advice commands, retrieves authorised context, calls Foundry and stores result/completion outbox.",
+      "elements" : [ {
+        "id" : "4",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "5",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "6",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "7",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "8",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "11",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "14",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "16",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "17",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "AdvisorContainers",
+      "name" : "Container View: Parameter Pilot",
+      "order" : 4,
+      "relationships" : [ {
+        "id" : "25"
+      }, {
+        "id" : "29"
+      }, {
+        "id" : "30"
+      }, {
+        "id" : "31"
+      }, {
+        "id" : "34"
+      }, {
+        "id" : "35"
+      }, {
+        "id" : "37"
+      }, {
+        "id" : "38"
+      }, {
+        "id" : "39"
+      }, {
+        "id" : "47"
+      }, {
+        "id" : "48"
+      }, {
+        "id" : "49"
+      }, {
+        "id" : "50"
+      }, {
+        "id" : "51"
+      }, {
+        "id" : "52"
+      } ],
+      "softwareSystemId" : "3",
+      "title" : "Containers - Advisor Service"
+    } ],
+    "deploymentViews" : [ {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
       },
       "elements" : [ {
-        "id" : "54",
-        "x" : 175,
-        "y" : 175
-      }, {
-        "id" : "55",
-        "x" : 175,
-        "y" : 175
-      }, {
-        "id" : "56",
-        "x" : 175,
-        "y" : 175
-      }, {
-        "id" : "57",
-        "x" : 175,
-        "y" : 175
-      }, {
-        "id" : "58",
-        "x" : 280,
-        "y" : 2370
-      }, {
-        "id" : "59",
-        "x" : 175,
-        "y" : 175
-      }, {
-        "id" : "60",
-        "x" : 1030,
-        "y" : 2370
+        "id" : "61",
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "62",
-        "x" : 175,
-        "y" : 175
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "63",
-        "x" : 1826,
-        "y" : 2983
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "64",
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "65",
-        "x" : 175,
-        "y" : 175
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "66",
-        "x" : 1826,
-        "y" : 2370
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "67",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "68",
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "69",
-        "x" : 175,
-        "y" : 175
+        "x" : 0,
+        "y" : 0
       }, {
-        "id" : "70",
-        "x" : 1826,
-        "y" : 1758
+        "id" : "71",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "72",
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "73",
-        "x" : 175,
-        "y" : 175
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "74",
-        "x" : 175,
-        "y" : 175
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "75",
-        "x" : 1826,
-        "y" : 324
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "76",
-        "x" : 175,
-        "y" : 175
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "77",
-        "x" : 1826,
-        "y" : 937
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "78",
-        "x" : 175,
-        "y" : 175
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "79",
-        "x" : 2622,
-        "y" : 2033
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "80",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "81",
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "82",
-        "x" : 2622,
-        "y" : 833
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "83",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "84",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "85",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "86",
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "87",
-        "x" : 2622,
-        "y" : 1433
+        "x" : 0,
+        "y" : 0
       }, {
-        "id" : "90",
-        "x" : 2622,
-        "y" : 2633
+        "id" : "91",
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "92",
-        "x" : 175,
-        "y" : 175
+        "x" : 0,
+        "y" : 0
       }, {
-        "id" : "93",
-        "x" : 2622,
-        "y" : 220
+        "id" : "99",
+        "x" : 0,
+        "y" : 0
       }, {
-        "id" : "101",
-        "x" : 175,
-        "y" : 175
+        "id" : "100",
+        "x" : 0,
+        "y" : 0
       }, {
-        "id" : "102",
-        "x" : 2622,
-        "y" : 3245
+        "id" : "106",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "107",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "112",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "113",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "119",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "120",
+        "x" : 0,
+        "y" : 0
       } ],
       "environment" : "Azure",
       "generatedKey" : true,
       "key" : "Deployment-001",
       "name" : "Deployment View: Parameter Pilot - Azure",
-      "order" : 8,
+      "order" : 14,
       "relationships" : [ {
-        "id" : "100",
-        "vertices" : [ {
-          "x" : 2484,
-          "y" : 653
-        }, {
-          "x" : 2518,
-          "y" : 503
-        } ]
+        "id" : "101"
+      }, {
+        "id" : "102"
       }, {
         "id" : "103"
       }, {
-        "id" : "104",
-        "vertices" : [ {
-          "x" : 2484,
-          "y" : 2803
-        }, {
-          "x" : 2518,
-          "y" : 3112
-        } ]
+        "id" : "104"
       }, {
-        "id" : "105",
-        "vertices" : [ {
-          "x" : 2484,
-          "y" : 2191
-        }, {
-          "x" : 2518,
-          "y" : 3112
-        } ]
+        "id" : "105"
       }, {
-        "id" : "106",
-        "vertices" : [ {
-          "x" : 2484,
-          "y" : 758
-        }, {
-          "x" : 2518,
-          "y" : 3112
-        } ]
+        "id" : "108"
       }, {
-        "id" : "107",
-        "vertices" : [ {
-          "x" : 2484,
-          "y" : 1578
-        }, {
-          "x" : 2518,
-          "y" : 3112
-        } ]
+        "id" : "109"
       }, {
-        "id" : "61"
+        "id" : "110"
       }, {
-        "id" : "64",
-        "vertices" : [ {
-          "x" : 1618,
-          "y" : 2849
-        } ]
+        "id" : "111"
       }, {
-        "id" : "67",
-        "vertices" : [ {
-          "x" : 1653,
-          "y" : 2370
-        } ]
+        "id" : "114"
       }, {
-        "id" : "68",
-        "vertices" : [ {
-          "x" : 1653,
-          "y" : 2670
-        } ]
+        "id" : "115"
       }, {
-        "id" : "71",
-        "vertices" : [ {
-          "x" : 1618,
-          "y" : 2341
-        } ]
+        "id" : "116"
       }, {
-        "id" : "72",
-        "vertices" : [ {
-          "x" : 1618,
-          "y" : 2041
-        } ]
+        "id" : "117"
       }, {
-        "id" : "80",
-        "vertices" : [ {
-          "x" : 2484,
-          "y" : 2849
-        }, {
-          "x" : 2518,
-          "y" : 2483
-        } ]
+        "id" : "118"
       }, {
-        "id" : "81",
-        "vertices" : [ {
-          "x" : 2484,
-          "y" : 758
-        }, {
-          "x" : 2518,
-          "y" : 1883
-        } ]
+        "id" : "121"
       }, {
-        "id" : "83",
-        "vertices" : [ {
-          "x" : 2484,
-          "y" : 2237
-        }, {
-          "x" : 2518,
-          "y" : 1283
-        } ]
+        "id" : "122"
       }, {
-        "id" : "84",
-        "vertices" : [ {
-          "x" : 2484,
-          "y" : 1416
-        }, {
-          "x" : 2518,
-          "y" : 1283
-        } ]
+        "id" : "123"
       }, {
-        "id" : "85"
+        "id" : "124"
       }, {
-        "id" : "86"
+        "id" : "125"
       }, {
-        "id" : "88",
-        "vertices" : [ {
-          "x" : 2484,
-          "y" : 2237
-        }, {
-          "x" : 2518,
-          "y" : 1883
-        } ]
+        "id" : "126"
+      }, {
+        "id" : "127"
+      }, {
+        "id" : "70"
+      }, {
+        "id" : "88"
       }, {
         "id" : "89"
       }, {
-        "id" : "91",
-        "vertices" : [ {
-          "x" : 2484,
-          "y" : 2191
-        }, {
-          "x" : 2518,
-          "y" : 2483
-        } ]
+        "id" : "90"
       }, {
-        "id" : "94",
-        "vertices" : [ {
-          "x" : 2484,
-          "y" : 2849
-        }, {
-          "x" : 2518,
-          "y" : 653
-        } ]
+        "id" : "93"
       }, {
-        "id" : "95",
-        "vertices" : [ {
-          "x" : 2484,
-          "y" : 2237
-        }, {
-          "x" : 2518,
-          "y" : 653
-        } ]
+        "id" : "94"
       }, {
-        "id" : "96",
-        "vertices" : [ {
-          "x" : 2484,
-          "y" : 1416
-        }, {
-          "x" : 2518,
-          "y" : 653
-        } ]
+        "id" : "95"
       }, {
-        "id" : "97",
-        "vertices" : [ {
-          "x" : 2429,
-          "y" : 273
-        } ]
+        "id" : "96"
       }, {
-        "id" : "98",
-        "vertices" : [ {
-          "x" : 2468,
-          "y" : 570
-        } ]
+        "id" : "97"
       }, {
-        "id" : "99",
-        "vertices" : [ {
-          "x" : 2518,
-          "y" : 803
-        }, {
-          "x" : 2484,
-          "y" : 953
-        } ]
+        "id" : "98"
       } ],
       "softwareSystemId" : "3",
       "title" : "Deployment - Azure"
     } ],
     "dynamicViews" : [ {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Accepted ADR-009. Customer and workload token contracts remain distinct; exact scopes/roles/delegation are TBD. No live identity setup is implied.",
+      "elementId" : "3",
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "4",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "5",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "6",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "7",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "12",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "13",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "19",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "CustomerIdentity",
+      "name" : "Dynamic View: Parameter Pilot",
+      "order" : 5,
+      "relationships" : [ {
+        "description" : "1. Start sign-in",
+        "id" : "21",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "2. Authorisation code + PKCE; obtain API access token",
+        "id" : "26",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "3. Send API request with access token, not ID token",
+        "id" : "25",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "4. APIM validates token; Tracking independently validates token/permissions",
+        "id" : "30",
+        "order" : "4",
+        "response" : false
+      }, {
+        "description" : "5. Workload authentication plus verified actor/tank context; authorise access",
+        "id" : "34",
+        "order" : "5",
+        "response" : false
+      }, {
+        "description" : "6. Resolve trusted identity to internal user and single-owner tank",
+        "id" : "32",
+        "order" : "6",
+        "response" : false
+      }, {
+        "description" : "7. Only if authorised, read owned tank history",
+        "id" : "33",
+        "order" : "7",
+        "response" : false
+      }, {
+        "description" : "8. Return allowed data; fail closed if required context unavailable",
+        "id" : "35",
+        "order" : "8",
+        "response" : false
+      }, {
+        "description" : "9. Present authorised result or safe error",
+        "id" : "25",
+        "order" : "9",
+        "response" : true
+      } ],
+      "title" : "Dynamic - Customer sign-in and authorised tank access"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "SQL state and outbox commit atomically. Publication is outside that transaction; send then crash can republish the same message ID.",
+      "elementId" : "3",
+      "elements" : [ {
+        "id" : "4",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "5",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "6",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "9",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "12",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "14",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "AquariumOutbox",
+      "name" : "Dynamic View: Parameter Pilot",
+      "order" : 6,
+      "relationships" : [ {
+        "description" : "1. POST tank",
+        "id" : "25",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "2. Authorise and validate",
+        "id" : "29",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "3. COMMIT tank + ownership + TankCreated outbox in one SQL transaction",
+        "id" : "32",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "4. Return 201 after durable commit; broker can be unavailable",
+        "id" : "29",
+        "order" : "4",
+        "response" : true
+      }, {
+        "description" : "5. Relay function reads pending outbox",
+        "id" : "40",
+        "order" : "5",
+        "response" : false
+      }, {
+        "description" : "6. Publish TankCreated to Aquarium events topic; stable event ID",
+        "id" : "41",
+        "order" : "6",
+        "response" : false
+      }, {
+        "description" : "7. Record dispatch only after broker acceptance; retry may duplicate",
+        "id" : "40",
+        "order" : "7",
+        "response" : false
+      } ],
+      "title" : "Outbox - Aquarium tank creation"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "One Aquarium rule/eligibility batch before an all-or-nothing local commit. Stale revision or unavailable validation saves neither panel nor outbox. Accepted /tankId partition; state and outbox must share the same container.",
+      "elementId" : "3",
+      "elements" : [ {
+        "id" : "5",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "6",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "7",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "10",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "13",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "14",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "TrackingOutbox",
+      "name" : "Dynamic View: Parameter Pilot",
+      "order" : 7,
+      "relationships" : [ {
+        "description" : "1. Submit panel with definition IDs/revisions, values and units",
+        "id" : "30",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "2. One batch: authorise tank and retrieve selected active definitions/revisions/units/input rules",
+        "id" : "34",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "3. After trusted validation, COMMIT panel + idempotency + outbox in one partition",
+        "id" : "33",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "4. Confirm saved; stale rules/unavailable Aquarium instead return actionable error with no write",
+        "id" : "35",
+        "order" : "4",
+        "response" : false
+      }, {
+        "description" : "5. Relay reads pending outbox",
+        "id" : "43",
+        "order" : "5",
+        "response" : false
+      }, {
+        "description" : "6. Publish MeasurementPanelRecorded to Tracking events topic",
+        "id" : "45",
+        "order" : "6",
+        "response" : false
+      }, {
+        "description" : "7. Record broker acceptance; duplicates remain possible",
+        "id" : "43",
+        "order" : "7",
+        "response" : false
+      } ],
+      "title" : "Outbox - Tracking measurement recording"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "Two local PostgreSQL transactions surround external work. Outbox relay and command processing are different functions in the same worker app; no exactly-once inference claim.",
+      "elementId" : "3",
+      "elements" : [ {
+        "id" : "5",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "6",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "7",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "8",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "11",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "14",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "16",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "17",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalBoundariesVisible" : false,
+      "key" : "AdvisorOutbox",
+      "name" : "Dynamic View: Parameter Pilot",
+      "order" : 8,
+      "relationships" : [ {
+        "description" : "1. Submit authorised advice request",
+        "id" : "31",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "2. COMMIT job + quota reservation + GenerateAdvice outbox",
+        "id" : "38",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "3. Return 202 and job Location after commit",
+        "id" : "39",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "4. Relay reads pending GenerateAdvice command",
+        "id" : "47",
+        "order" : "4",
+        "response" : false
+      }, {
+        "description" : "5. Send stable command ID to Advisor advice queue",
+        "id" : "51",
+        "order" : "5",
+        "response" : false
+      }, {
+        "description" : "6. Record dispatch after broker acceptance",
+        "id" : "47",
+        "order" : "6",
+        "response" : false
+      }, {
+        "description" : "7. Advice handler receives command; idempotent lease",
+        "id" : "52",
+        "order" : "7",
+        "response" : false
+      }, {
+        "description" : "8. Authorised profile and entitlement",
+        "id" : "48",
+        "order" : "8",
+        "response" : false
+      }, {
+        "description" : "9. Authorised reading/history context",
+        "id" : "49",
+        "order" : "9",
+        "response" : false
+      }, {
+        "description" : "10. Save submitted-input snapshot; retrieve pgvector references",
+        "id" : "47",
+        "order" : "10",
+        "response" : false
+      }, {
+        "description" : "11. Request text inference; no photos",
+        "id" : "50",
+        "order" : "11",
+        "response" : false
+      }, {
+        "description" : "12. COMMIT result + terminal job + quota settlement + AdviceCompleted outbox",
+        "id" : "47",
+        "order" : "12",
+        "response" : false
+      }, {
+        "description" : "13. Relay reads completion outbox",
+        "id" : "47",
+        "order" : "13",
+        "response" : false
+      }, {
+        "description" : "14. Publish AdviceCompleted to Advisor events topic",
+        "id" : "51",
+        "order" : "14",
+        "response" : false
+      }, {
+        "description" : "15. Record completion dispatch after broker acceptance",
+        "id" : "47",
+        "order" : "15",
+        "response" : false
+      } ],
+      "title" : "Outbox - Advisor request and completion"
+    }, {
+      "description" : "UI retains input on stale-definition or Aquarium-unavailable errors; no new panel/outbox is saved on validation failure.",
       "dimensions" : {
         "height" : 4520,
         "width" : 1858
@@ -1431,68 +1940,117 @@
         "x" : 704,
         "y" : 1508
       }, {
+        "id" : "6",
+        "x" : 0,
+        "y" : 0
+      }, {
         "id" : "7",
         "x" : 704,
         "y" : 2108
       }, {
-        "id" : "9",
-        "x" : 1079,
-        "y" : 3308
+        "id" : "10",
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "12",
-        "x" : 329,
-        "y" : 2708
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "13",
         "x" : 1079,
         "y" : 2708
       }, {
-        "id" : "16",
+        "id" : "14",
         "x" : 1079,
-        "y" : 3908
+        "y" : 2708
       } ],
       "externalBoundariesVisible" : false,
       "key" : "RecordParameter",
       "name" : "Dynamic View: Parameter Pilot",
-      "order" : 3,
+      "order" : 9,
       "paperSize" : "A3_Portrait",
       "relationships" : [ {
-        "description" : "1. Records a parameter measurement",
-        "id" : "19",
+        "description" : "1. Open measurement entry for tank",
+        "id" : "21",
         "order" : "1",
         "response" : false
       }, {
-        "description" : "2. POST measurement",
-        "id" : "23",
+        "description" : "2. Request tank-selected definitions/units/revisions",
+        "id" : "25",
         "order" : "2",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 929,
+          "y" : 1358
+        } ]
       }, {
-        "description" : "3. Submit measurement",
-        "id" : "27",
+        "description" : "3. Get authorised entry configuration",
+        "id" : "29",
         "order" : "3",
         "response" : false
       }, {
-        "description" : "4. Store measurement",
-        "id" : "31",
+        "description" : "4. Read selected GUID definitions and scientific revisions",
+        "id" : "32",
         "order" : "4",
         "response" : false
       }, {
-        "description" : "5. Publish ParameterRecorded",
-        "id" : "32",
+        "description" : "5. Submit panel with IDs/revisions, values, units and measured time",
+        "id" : "25",
         "order" : "5",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 1079,
+          "y" : 1358
+        } ]
       }, {
-        "description" : "6. Consume event",
-        "id" : "39",
+        "description" : "6. Validate shape/authentication",
+        "id" : "30",
         "order" : "6",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 779,
+          "y" : 1958
+        } ]
       }, {
-        "description" : "7. Record telemetry",
-        "id" : "53",
+        "description" : "7. Batch all references once: tank eligibility, active revisions, units and authoritative rules",
+        "id" : "34",
         "order" : "7",
         "response" : false
+      }, {
+        "description" : "8. If complete panel validates, atomically save panel/idempotency/outbox",
+        "id" : "33",
+        "order" : "8",
+        "response" : false
+      }, {
+        "description" : "9. Return 201 only after durable commit; invalid/stale/unavailable means no new save",
+        "id" : "35",
+        "order" : "9",
+        "response" : false,
+        "vertices" : [ {
+          "x" : 1079,
+          "y" : 1958
+        } ]
+      }, {
+        "description" : "10. Confirm saved, or preserve input and offer refresh/retry",
+        "id" : "25",
+        "order" : "10",
+        "response" : true,
+        "vertices" : [ {
+          "x" : 779,
+          "y" : 1358
+        } ]
+      }, {
+        "description" : "11. Relay function reads persisted outbox asynchronously",
+        "id" : "43",
+        "order" : "11",
+        "response" : false
+      }, {
+        "description" : "12. Publish MeasurementPanelRecorded; duplicates possible",
+        "id" : "45",
+        "order" : "12",
+        "response" : false
       } ],
-      "title" : "Dynamic - Record aquarium parameter"
+      "title" : "Dynamic - Batched rule validation, measurement panel commit and outbox publication"
     }, {
       "dimensions" : {
         "height" : 2858,
@@ -1516,23 +2074,23 @@
         "x" : 320,
         "y" : 1540
       }, {
-        "id" : "12",
-        "x" : 315,
-        "y" : 2315
+        "id" : "13",
+        "x" : 0,
+        "y" : 0
       } ],
       "externalBoundariesVisible" : false,
       "key" : "TrendAnalysis",
       "name" : "Dynamic View: Parameter Pilot",
-      "order" : 4,
+      "order" : 10,
       "paperSize" : "A4_Portrait",
       "relationships" : [ {
         "description" : "1. Opens trend view",
-        "id" : "19",
+        "id" : "21",
         "order" : "1",
         "response" : false
       }, {
         "description" : "2. Request historical measurements",
-        "id" : "23",
+        "id" : "25",
         "order" : "2",
         "response" : false,
         "vertices" : [ {
@@ -1541,7 +2099,7 @@
         } ]
       }, {
         "description" : "3. Query measurements",
-        "id" : "27",
+        "id" : "30",
         "order" : "3",
         "response" : false,
         "vertices" : [ {
@@ -1550,25 +2108,25 @@
         } ]
       }, {
         "description" : "4. Read historical data",
-        "id" : "31",
+        "id" : "33",
         "order" : "4",
         "response" : false,
         "vertices" : [ {
-          "x" : 690,
-          "y" : 2050
+          "x" : 531,
+          "y" : 889
         } ]
       }, {
         "description" : "5. Return measurements",
-        "id" : "31",
+        "id" : "33",
         "order" : "5",
         "response" : true,
         "vertices" : [ {
-          "x" : 385,
-          "y" : 2020
+          "x" : 238,
+          "y" : 950
         } ]
       }, {
         "description" : "6. Return trend data",
-        "id" : "33",
+        "id" : "35",
         "order" : "6",
         "response" : false,
         "vertices" : [ {
@@ -1580,7 +2138,7 @@
         } ]
       }, {
         "description" : "7. Return trend data",
-        "id" : "23",
+        "id" : "25",
         "order" : "7",
         "response" : true,
         "vertices" : [ {
@@ -1608,89 +2166,134 @@
         "x" : 1700,
         "y" : 1185
       }, {
+        "id" : "6",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "7",
+        "x" : 0,
+        "y" : 0
+      }, {
         "id" : "8",
         "x" : 1685,
         "y" : 1805
       }, {
-        "id" : "12",
-        "x" : 2350,
-        "y" : 1185
+        "id" : "11",
+        "x" : 0,
+        "y" : 0
       }, {
-        "id" : "15",
+        "id" : "14",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "16",
         "x" : 685,
         "y" : 1765
+      }, {
+        "id" : "17",
+        "x" : 0,
+        "y" : 0
       } ],
       "externalBoundariesVisible" : false,
       "key" : "MaintenanceAdvice",
       "name" : "Dynamic View: Parameter Pilot",
-      "order" : 5,
+      "order" : 11,
       "paperSize" : "A4_Landscape",
       "relationships" : [ {
-        "description" : "1. Requests maintenance advice",
-        "id" : "19",
+        "description" : "1. Request advice",
+        "id" : "21",
         "order" : "1",
         "response" : false
       }, {
-        "description" : "2. Request advice",
-        "id" : "23",
+        "description" : "2. POST advice request",
+        "id" : "25",
         "order" : "2",
-        "response" : false,
-        "vertices" : [ {
-          "x" : 1780,
-          "y" : 1010
-        } ]
+        "response" : false
       }, {
-        "description" : "3. Generate advice",
-        "id" : "28",
+        "description" : "3. Authorise request and entitlement",
+        "id" : "31",
         "order" : "3",
         "response" : false,
         "vertices" : [ {
-          "x" : 1995,
-          "y" : 1605
+          "x" : 1767,
+          "y" : 1641
         } ]
       }, {
-        "description" : "4. Read recent measurements",
-        "id" : "34",
+        "description" : "4. Commit job/quota reservation/outbox",
+        "id" : "38",
         "order" : "4",
         "response" : false
       }, {
-        "description" : "5. Store submitted parameter snapshot; retrieve curated passages with pgvector",
-        "id" : "35",
+        "description" : "5. Return 202 and job Location",
+        "id" : "39",
         "order" : "5",
         "response" : false,
         "vertices" : [ {
-          "x" : 1330,
-          "y" : 2020
+          "x" : 2067,
+          "y" : 1648
         } ]
       }, {
-        "description" : "6. Return reference passages and metadata; no photo context",
-        "id" : "35",
+        "description" : "6. Relay persisted GenerateAdvice command",
+        "id" : "47",
         "order" : "6",
-        "response" : true,
+        "response" : false,
         "vertices" : [ {
-          "x" : 1415,
-          "y" : 1675
+          "x" : 567,
+          "y" : 1032
         } ]
       }, {
-        "description" : "7. Return maintenance advice",
-        "id" : "37",
+        "description" : "7. Send command to Advisor queue",
+        "id" : "51",
         "order" : "7",
         "response" : false,
         "vertices" : [ {
-          "x" : 1820,
-          "y" : 1590
+          "x" : 225,
+          "y" : 300
         } ]
       }, {
-        "description" : "8. Return maintenance advice",
-        "id" : "23",
+        "description" : "8. Advice function receives command; claim lease idempotently",
+        "id" : "52",
         "order" : "8",
-        "response" : true,
+        "response" : false,
         "vertices" : [ {
-          "x" : 2015,
-          "y" : 1010
+          "x" : 225,
+          "y" : 0
+        } ]
+      }, {
+        "description" : "9. Get scoped profile/entitlement",
+        "id" : "48",
+        "order" : "9",
+        "response" : false
+      }, {
+        "description" : "10. Get scoped history via owner API; no direct Cosmos read",
+        "id" : "49",
+        "order" : "10",
+        "response" : false
+      }, {
+        "description" : "11. Preserve submitted context; retrieve curated passages with pgvector",
+        "id" : "47",
+        "order" : "11",
+        "response" : false,
+        "vertices" : [ {
+          "x" : 707,
+          "y" : 978
+        } ]
+      }, {
+        "description" : "12. Infer text advice without photos",
+        "id" : "50",
+        "order" : "12",
+        "response" : false
+      }, {
+        "description" : "13. Validate/store result, settle quota and write completion outbox",
+        "id" : "47",
+        "order" : "13",
+        "response" : false,
+        "vertices" : [ {
+          "x" : 427,
+          "y" : 1086
         } ]
       } ],
-      "title" : "Dynamic - Generate maintenance advice"
+      "title" : "Dynamic - Registered advice job processed by Advisor Async Worker"
     }, {
       "dimensions" : {
         "height" : 3920,
@@ -1718,68 +2321,89 @@
         "x" : 225,
         "y" : 2840
       }, {
-        "id" : "12",
-        "x" : 1210,
-        "y" : 2845
-      }, {
         "id" : "13",
         "x" : 755,
         "y" : 2265
       }, {
         "id" : "14",
+        "x" : 755,
+        "y" : 2265
+      }, {
+        "id" : "15",
         "x" : 245,
         "y" : 1775
       } ],
       "externalBoundariesVisible" : false,
       "key" : "PhotoUpload",
       "name" : "Dynamic View: Parameter Pilot",
-      "order" : 6,
+      "order" : 12,
       "paperSize" : "A3_Portrait",
       "relationships" : [ {
         "description" : "1. Select photo; UI rejects above 5242880 bytes",
-        "id" : "19",
+        "id" : "21",
         "order" : "1",
         "response" : false
       }, {
         "description" : "2. Authenticated binary upload; no browser Blob SAS",
-        "id" : "23",
+        "id" : "25",
         "order" : "2",
         "response" : false
       }, {
         "description" : "3. Stream upload; enforce actual 5242880-byte file cap; 413 on excess",
-        "id" : "27",
+        "id" : "30",
         "order" : "3",
         "response" : false
       }, {
         "description" : "4. Save within-limit private original after bounded validation",
-        "id" : "47",
+        "id" : "36",
         "order" : "4",
         "response" : false
       }, {
         "description" : "5. Register uploaded metadata and durable processing work",
-        "id" : "31",
+        "id" : "33",
         "order" : "5",
         "response" : false
       }, {
-        "description" : "6. Publish registered photo-processing work",
-        "id" : "32",
-        "order" : "6",
-        "response" : false
-      }, {
-        "description" : "7. Deliver work idempotently",
+        "description" : "6. Relay durable photo-processing command from outbox",
         "id" : "43",
-        "order" : "7",
-        "response" : false
+        "order" : "6",
+        "response" : false,
+        "vertices" : [ {
+          "x" : 825,
+          "y" : 2804
+        } ]
       }, {
-        "description" : "8. Validate original; create cropped 400x400 thumbnail and padded 1200x800 hero WebP; retain original",
-        "id" : "44",
-        "order" : "8",
-        "response" : false
-      }, {
-        "description" : "9. Mark Ready only when both derivatives and metadata are durable",
+        "description" : "7. Publish ProcessPhoto command to Tracking queue",
         "id" : "45",
+        "order" : "7",
+        "response" : false,
+        "vertices" : [ {
+          "x" : 825,
+          "y" : 2804
+        } ]
+      }, {
+        "description" : "8. Tracking photo function receives command idempotently",
+        "id" : "46",
+        "order" : "8",
+        "response" : false,
+        "vertices" : [ {
+          "x" : 604,
+          "y" : 2600
+        } ]
+      }, {
+        "description" : "9. Validate original; create cropped 400x400 thumbnail and padded 1200x800 hero WebP; retain original",
+        "id" : "44",
         "order" : "9",
         "response" : false
+      }, {
+        "description" : "10. Mark Ready only when both derivatives and metadata are durable; completion outbox",
+        "id" : "43",
+        "order" : "10",
+        "response" : false,
+        "vertices" : [ {
+          "x" : 604,
+          "y" : 2600
+        } ]
       } ],
       "title" : "Dynamic - Upload via Tracking and generate WebP images"
     }, {
@@ -1805,23 +2429,23 @@
         "x" : 755,
         "y" : 2295
       }, {
-        "id" : "15",
+        "id" : "16",
         "x" : 925,
         "y" : 2995
       } ],
       "externalBoundariesVisible" : false,
       "key" : "AdviceHistory",
       "name" : "Dynamic View: Parameter Pilot",
-      "order" : 7,
+      "order" : 13,
       "paperSize" : "A3_Portrait",
       "relationships" : [ {
         "description" : "1. Scroll Advice history and select an item",
-        "id" : "19",
+        "id" : "21",
         "order" : "1",
         "response" : false
       }, {
         "description" : "2. Request owner-scoped history page or detail",
-        "id" : "23",
+        "id" : "25",
         "order" : "2",
         "response" : false,
         "vertices" : [ {
@@ -1830,7 +2454,7 @@
         } ]
       }, {
         "description" : "3. Validate access and query history",
-        "id" : "28",
+        "id" : "31",
         "order" : "3",
         "response" : false,
         "vertices" : [ {
@@ -1839,12 +2463,12 @@
         } ]
       }, {
         "description" : "4. Read historic advice and original submitted parameter snapshot",
-        "id" : "35",
+        "id" : "38",
         "order" : "4",
         "response" : false
       }, {
         "description" : "5. Return history page or selected advice with submitted values",
-        "id" : "37",
+        "id" : "39",
         "order" : "5",
         "response" : false,
         "vertices" : [ {
@@ -1853,7 +2477,7 @@
         } ]
       }, {
         "description" : "6. Display advice and original values; not current readings",
-        "id" : "23",
+        "id" : "25",
         "order" : "6",
         "response" : true,
         "vertices" : [ {
@@ -1865,7 +2489,7 @@
     } ],
     "systemContextViews" : [ {
       "automaticLayout" : {
-        "applied" : true,
+        "applied" : false,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
@@ -1873,43 +2497,39 @@
         "rankSeparation" : 300,
         "vertices" : false
       },
-      "dimensions" : {
-        "height" : 1500,
-        "width" : 2300
-      },
       "elements" : [ {
         "id" : "1",
-        "x" : 199,
-        "y" : 160
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "2",
-        "x" : 199,
-        "y" : 860
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "3",
-        "x" : 899,
-        "y" : 560
+        "x" : 0,
+        "y" : 0
       }, {
-        "id" : "17",
-        "x" : 1649,
-        "y" : 260
+        "id" : "19",
+        "x" : 0,
+        "y" : 0
       }, {
-        "id" : "18",
-        "x" : 1649,
-        "y" : 860
+        "id" : "20",
+        "x" : 0,
+        "y" : 0
       } ],
       "enterpriseBoundaryVisible" : true,
       "key" : "SystemContext",
       "name" : "System Context View: Parameter Pilot",
       "order" : 1,
       "relationships" : [ {
-        "id" : "20"
-      }, {
         "id" : "22"
       }, {
-        "id" : "25"
+        "id" : "24"
       }, {
-        "id" : "49"
+        "id" : "27"
+      }, {
+        "id" : "54"
       } ],
       "softwareSystemId" : "3",
       "title" : "System Context - Parameter Pilot"

@@ -1,6 +1,6 @@
 # API conventions
 
-Version: 0.2 | Date: 19 October 2026 | Status: Proposed
+Version: 0.4 | Date: 20 October 2026 | Status: Proposed
 
 - Prefix `/api/v1`, JSON and bearer access tokens.
 - Owning services enforce resource access independently of APIM.
@@ -21,3 +21,11 @@ Full contracts are slice-readiness gates. Markdown excerpts are not evidence of 
 ## Accepted photo upload exception
 
 Photo binary ingress is through Tracking at API-014, not JSON or direct-to-Blob. Enforce the exact file limit 5,242,880 bytes; allow separately bounded multipart overhead. Return 413 for excess and 202 with status Location for durable accepted work. No separate browser completion call. Download authorisation is independent from upload.
+
+## Accepted core-versus-job distinction — 20 October 2026
+
+Core tank/measurement/maintenance/observation mutations confirm local committed state, not merely queued commands. Advice/photo processing return 202 with durable job/status Location. Read APIs query owned stores. Broker outage can delay events without invalidating a committed core write. Outbox publication belongs to service-owned relay functions.
+
+## Accepted identity and resource checks
+
+ADR-009 requires APIM and each receiving API to independently validate applicable access tokens (issuer/audience/signature/lifetime and scopes or workload app permissions as appropriate). ID tokens are not accepted as API tokens. Aquarium resolves validated identity to internal user and owns tank authorisation. Tracking obtains trusted checks through Aquarium; caller-provided user IDs cannot confer access. Workload identity and originating actor context are distinct; precise delegation remains TBD. Required authorisation unavailable means fail closed, not saved/queued success.

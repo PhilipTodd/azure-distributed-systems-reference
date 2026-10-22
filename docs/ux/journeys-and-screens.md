@@ -1,6 +1,6 @@
 # Personas, journeys and screens
 
-Version: 0.2 | Date: 19 October 2026 | Status: Draft
+Version: 0.4 | Date: 21 October 2026 | Status: Draft
 
 | Persona | Need |
 | --- | --- |
@@ -42,3 +42,11 @@ Wireframes, responsive breakpoints and chart library selection remain design-rea
 Advice is a request/result history, not continuous chat. Cursor-based scroll-back exposes older advice; selecting a result shows its original submitted parameter values, units and measured times. Do not substitute current readings. Recheck access on history list/detail. No photo attachment or image context is offered for advice in this pack.
 
 Photo selection checks exact bytes and shows “Maximum photo size is 5 MiB (5,242,880 bytes)” before upload. Handle Tracking's 413 similarly. Upload through Tracking, then show processing status. Future gallery uses cropped 400 x 400 WebP thumbnails; selecting one opens the padded 1200 x 800 WebP hero. Keep the original for future processing; it is not the default gallery display.
+
+## Accepted measurement entry and retry
+
+Fetch selected definitions/units/current revisions from Aquarium for the selected tank. Submit a panel to Tracking. A stale-definition rejection offers configuration refresh and revalidation without discarding user input; an Aquarium dependency failure keeps entry data available for retry and never displays saved success. Historical reading display queries Tracking. See [ADR-023](../architecture/decisions/adr-023.md).
+
+## Accepted profile preference and minimum tank contract — 21 October 2026
+
+PROFILE-01/TANK-01: after first External ID sign-in, require an unselected measurement-system choice: Metric, US customary or UK imperial. Complete profile before tank creation/measurement entry. Users may later change this preference. Tank creation follows the [minimum contract](../api/tank-and-profile-contract.md), showing explicit litre/US-gallon/UK-gallon volume units and a user-confirmable timezone suggestion. Do not silently default measurement preference. Historical advice remains as originally issued.

@@ -254,7 +254,7 @@ ParameterPilot/
 │       ├── sql.bicep
 │       └── storage.bicep
 │
-├── pipelines/                                # Azure DevOps pipelines
+├── pipelines/                                # Legacy Azure DevOps proposal; retire after verified GitHub Actions cutover (ADR-018)
 │   ├── templates/
 │   │   ├── build-service.yml
 │   │   ├── test-service.yml
@@ -285,3 +285,7 @@ ParameterPilot/
 ├── SECURITY.md
 └── LICENSE
 ```
+
+## Accepted delivery authority
+
+[ADR-018](architecture/decisions/adr-018.md) selects GitHub Actions as Parameter Pilot's sole CI/CD authority. Any Azure DevOps pipelines in earlier layout examples are legacy migration references, not the target repository design. Actual observed legacy definitions are infra/pipelines/deploy-infrastructure.yml and deploy-web.yml. Migration/retirement awaits verified replacement and coordinated cutover; no pipelines were changed by this documentation update. See [delivery specification](engineering/delivery.md).

@@ -2,28 +2,28 @@
 layout: page
 title: Deployment pipeline
 eyebrow: Delivery
-description: Lint, unit tests, integration, staging, then production. Same sequence whether the host is GitHub Actions or Azure DevOps.
+description: GitHub Actions is the sole Parameter Pilot CI/CD authority; migrate and retire Azure DevOps after verified cutover.
 permalink: /deployment/
 ---
 
-{% include pipeline.html %}
+## Delivery authority
 
-{% include callout.html type="info" title="Replace with the real workflow" content="Edit `_data/pipeline.yml` so stage names match the YAML in `.github/workflows` or the Azure DevOps pipeline. Link the workflow file from this page when the project site is filled." %}
+Accepted [ADR-018](architecture/decisions/adr-018.md): GitHub Actions is the sole target for Parameter Pilot CI/CD. Existing infra/pipelines Azure DevOps definitions are legacy migration inputs, not a second intended authority. They have not been retired by this documentation update.
 
-## Gates
+## Intended checks and deployment
 
-| Stage | Blocks promotion when |
+| Step | Intended gate |
 | --- | --- |
-| Linting | Format, analyzers, or policy checks fail |
-| Unit tests | Coverage or failed assertions |
-| Integration | Contract, API, or data tests fail |
-| Staging | Smoke tests or a failed slot deploy |
-| Production | Missing approval or a red staging gate |
+| Pull request | Applicable build, formatting/static, meaningful tests and security checks |
+| Merge | Required checks/reviews and human approval |
+| Artefact | Build/publish approved images to shared ACR; immutable release identity |
+| Development deployment | Scoped Azure OIDC, applicable authorisation and smoke/recovery verification |
+| Release preparation | Decide Test/Production topology/provisioning and promotion controls separately |
 
-## Live demo
+Initially establish Local/dev only (ADR-025). Automated tests start immediately; no dedicated Test environment is required. Exact workflow/check names and branch/environment protections must be configured and verified.
 
-The running environment is the outcome of this pipeline, not a sidecar.
+## Legacy migration
 
-<div class="btn-row">
-  <a class="btn btn--primary" href="{{ site.project.demo.url }}" target="_blank" rel="noopener noreferrer">{{ site.project.demo.label }}</a>
-</div>
+Verify replacement capabilities, coordinate cutover without competing active deployers, then retire Azure DevOps triggers/definitions/YAML and obsolete app-specific credentials after dependency review. See [delivery design](engineering/delivery.md).
+
+Shared platform provisioning/deployment is independently managed and occurs only on the owner's separate request. Parameter Pilot deploys approved app resources against pre-existing platform hosting. This page does not establish any workflow or deployment currently runs.
