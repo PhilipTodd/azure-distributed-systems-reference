@@ -1,8 +1,8 @@
 # ADR catalogue
 
-Version: 0.2 | Date: 19 October 2026 | Status: Mixed — see individual decision records
+Version: 0.13 | Date: 21 October 2026 | Status: Mixed — see individual decision records
 
-Canonical ADR directory: `docs/architecture/decisions/`. ADR-015, ADR-016 and ADR-021 are Accepted for their recorded decisions; ADR-004 and ADR-022 are Partially Accepted. Other ADRs remain Proposed. Approval evidence is linked to the owner's 19 October 2026 chat decisions.
+Canonical ADR directory: `docs/architecture/decisions/`. ADR-002, ADR-003, ADR-005, ADR-007, ADR-008, ADR-009, ADR-011, ADR-012, ADR-015, ADR-016, ADR-018, ADR-021, ADR-023, ADR-024, ADR-025, ADR-026, ADR-027, ADR-028, ADR-029 and ADR-030 are Accepted for their recorded decisions; ADR-004, ADR-017 and ADR-022 are Partially Accepted. Other ADRs remain Proposed. Approval evidence links to the owner's 19 and 20 October 2026 chat decisions.
 
 | ADR | Decision subject |
 | --- | --- |
@@ -28,7 +28,19 @@ Canonical ADR directory: `docs/architecture/decisions/`. ADR-015, ADR-016 and AD
 | [ADR-020](adr-020.md) | Xero release placement |
 | [ADR-021](adr-021.md) | Initial tank access model |
 | [ADR-022](adr-022.md) | Environments, cost and recovery |
+| [ADR-023](adr-023.md) | Aquarium parameter definitions and validated Tracking measurement panels |
+| [ADR-024](adr-024.md) | Shared platform ownership, Aquarium schema and Tracking containers |
+| [ADR-025](adr-025.md) | Local and Development initially; release environments deferred |
+| [ADR-026](adr-026.md) | Development APIM ingress and restricted public backends |
+| [ADR-027](adr-027.md) | Configuration, secrets and managed-identity access |
+| [ADR-028](adr-028.md) | Backend, Tracking persistence and frontend technology baseline |
+| [ADR-029](adr-029.md) | Hybrid Local dependencies and individual developer identity |
+| [ADR-030](adr-030.md) | Automated testing and browser verification |
 
 Acceptance requires context/options review, consequences, readiness verification and recorded human approval. Superseded decisions retain links/history. Legacy decision documents remain references until deliberately reconciled.
 
 Accepted/partially accepted ADRs do not approve the whole pack or implementation. See [authorisation record](../../engineering/authorised-decisions-2026-10-19.md).
+
+20 October worker approval: [decision record](../../engineering/authorised-decisions-2026-10-20.md). ADR-016's photo-processing unit is now functions within Tracking Async Worker; accepted derivative rules are unchanged.
+
+21 October identity refinement: [approval record](../../engineering/authorised-decisions-2026-10-21.md); ADR-009 includes local email-passcode registration, deferred social sign-on and same-email Microsoft/customer account-isolation safeguards.

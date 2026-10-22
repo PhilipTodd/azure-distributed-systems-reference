@@ -1,6 +1,6 @@
 # API catalogue
 
-Version: 0.2 | Date: 19 October 2026 | Status: Draft
+Version: 0.5 | Date: 21 October 2026 | Status: Draft
 
 All routes below are relative to `/api/v1`.
 
@@ -41,3 +41,21 @@ Before implementation add complete operation schemas/responses, task update/canc
 API-014 requires bearer auth, per-tank/event checks and idempotency. Define bounded multipart envelope separately from the exact file limit. Missing/misleading Content-Length never bypasses actual-byte enforcement. Interrupted or oversized uploads leave no accepted photo/job; reconcile partial storage failures. API-016 exposes Uploaded/Processing/Ready/Rejected/Failed and authorised ready derivatives. Full request/error schemas remain a readiness gate.
 
 API-017 accepts no photos, image URLs or image embeddings. API-018 returns submitted parameter values/units/times from PostgreSQL snapshot, not live records.
+
+## Accepted measurement-panel interaction
+
+API-004 supplies tank-selected definitions to UI; API-005 receives a panel with definition GUIDs/revisions and values/units. Tracking calls Aquarium once per new panel before committing state/outbox. Stale revisions require actionable rejection; dependency outage permits retry but no persistence.
+
+| ID | Proposed internal route | Interaction |
+| --- | --- | --- |
+| API-025 | POST /internal/v1/tanks/{tankId}/measurement-validation-context | Tracking-to-Aquarium batch: authenticated actor/tank access plus authoritative selected definitions/revisions/units/input rules |
+
+See [batch contract](aquarium-validation-contract.md). Route/error/schema details remain draft; accepted behaviour is in ADR-023.
+
+## Accepted internal workload operations
+
+ID-14/[ADR-009](../architecture/decisions/adr-009.md) accepts dedicated Aquarium current actor/tank access and applicable-entitlement checks, and Tracking authorised Advisor history retrieval at Stage 5. Routes/schemas/permissions remain to specify. Require approved workload caller/operation permission plus actor/tank/action checks and network restrictions. Customer routes retain delegation. API-025 uses OBO despite its proposed /internal URL; naming alone is not an authentication policy.
+
+## Accepted profile preference and minimum tank contract — 21 October 2026
+
+[Tank/profile contract](tank-and-profile-contract.md) records accepted PROFILE-01/TANK-01. Aquarium owns authenticated profile completion/update and tank creation; exact routes/schemas remain to validate. No default measurement preference; server gates tank creation and Tracking measurement entry on completed profile. Include explicit volume unit; never accept client owner authority. Existing API-025 eligibility must include required completed profile, without adding a second per-panel Aquarium call.

@@ -1,6 +1,6 @@
 # Staged delivery plan
 
-Version: 0.3 | Date: 19 October 2026 | Status: Draft; staged delivery and first-release product direction confirmed
+Version: 0.34 | Date: 21 October 2026 | Status: Draft; staged delivery and first-release product direction confirmed
 
 ## Delivery approach
 
@@ -26,15 +26,17 @@ The first public release contains tracking, maintenance and charts. Paid AI and 
 
 ### Deliverables
 
-- Inventory shared-platform resources, ownership, permissions, regions and capacity.
-- Agree applicable architecture, versions, environment topology, cost estimates/low-cost tiers and proposed recovery targets; budget remains unset.
-- Establish local development dependencies, configuration/secrets handling and repeatable setup documentation.
-- Establish repository checks, container build conventions, delivery controls and baseline telemetry.
-- Define identity configuration, API access and per-tank authorisation contracts for the first slice.
+- Prepare and review the Stage 2 readiness specification: compatible versions, executable contracts, parameter definitions and reproducible setup instructions.
+- Verify the owner-managed shared platform provides the required Aquarium/Tracking resources, scoped access and compatible hosting/network configuration.
+- Establish Local and Development setup using synthetic data, secure configuration and the accepted identity design.
+- Establish proportionate baseline build/test checks, delivery controls and telemetry.
+- Record evidence and scoped acceptance criteria for the first working slice.
 
 ### Exit criteria
 
-Applicable decisions are recorded, setup/check instructions are reproducible, and authorised deployment scopes are understood. Provision only approved stage dependencies; do not provision unused Advisor/AI infrastructure for the first release.
+The readiness baseline is reviewed, required platform access is verified, Local/dev setup and baseline checks are reproducible, and Stage 2 scope is ready for human implementation authorisation. Scientific parameter definitions require review. Test/Production provisioning, commercial-scale benchmarks and unused later-stage infrastructure are not Stage 1 requirements.
+
+Detailed prerequisites and agent guidance are maintained in the [Stage 1 readiness guide](stage-1-readiness.md).
 
 ## Stage 2 — Secure tank and measurement vertical slice
 
@@ -43,7 +45,7 @@ Requirements: FR-001, FR-002 and the basic FR-003 journey.
 ### Deliverables
 
 - Registration/sign-in and owner-to-tank access enforcement.
-- Single-owner tank creation/configuration for general freshwater/marine tracking, timezone and water-volume fields.
+- Required registration profile choice of Metric, US customary or UK imperial; single-owner freshwater/marine tank creation with timezone and optional operating water volume.
 - Parameter definitions, explicit units and basic measurement-panel entry.
 - Authorised measurement write/read through the UI, gateway and owning services.
 - Input validation, clear errors and telemetry across the complete journey.
@@ -60,7 +62,7 @@ Requirements: complete FR-003 and FR-004; applicable messaging, compatibility an
 
 - Custom parameter definitions and lifecycle rules needed for historical readings.
 - Corrections with prior revisions, actor/time/reason and optimistic concurrency.
-- Idempotent submissions and reliable publication under the approved outbox/event design.
+- Idempotent submissions and local transactional outboxes: core writes remain synchronous; Aquarium/Tracking Async Worker relay functions publish persisted events via the one namespace.
 - Duplicate-safe consumers where required; backlog/DLQ diagnostics and recovery procedures.
 - Bounded historical queries, pagination and measured-versus-recorded timestamp handling.
 
@@ -93,7 +95,7 @@ Requirement: FR-011 in an internal or controlled pilot; public paid access waits
 
 ### Deliverables
 
-- Advisor job API, scoped context assembly and asynchronous execution/status handling.
+- Advisor job API registers job/quota/outbox synchronously; Advisor Async Worker relays/consumes the dedicated advice command, assembles scoped context and persists results/status in PostgreSQL.
 - Reviewed/versioned knowledge corpus and pgvector retrieval in Advisor-owned PostgreSQL, plus approved Foundry inference integration. PostgreSQL also stores jobs/results/quotas; no Advisor SQL or AI Search deployment.
 - Structured output, valid evidence/citations and explicit missing/stale/conflicting-data handling.
 - Scrollable Advice history list; selected advice exposes immutable submitted parameter values/units/times. Photos are excluded from AI context throughout this pack.
@@ -111,6 +113,7 @@ Requirements: FR-012 and FR-014, completing the public release of FR-011.
 ### Deliverables
 
 - Approved free/paid feature policy, pricing, quotas and payment-provider choice.
+- Reassess customer MFA, account recovery and protection of subscription/payment-management actions; approve the policy before Stage 6 launch (ID-09).
 - Checkout and subscription-management journeys within the selected provider's supported model.
 - Server-side entitlements, validated/idempotent webhooks and provider reconciliation.
 - Usage reservation/settlement and defined cancellation, access-change and failure behaviour.
@@ -128,7 +131,7 @@ Requirement: FR-010. Can be scheduled after Stage 4 independently of Stages 5–
 
 - UI checks exact 5,242,880-byte file limit and provides feedback. Binary uploads through APIM to Tracking; Tracking enforces actual bytes before Blob persistence and returns 413 on excess. No browser upload SAS or second completion call.
 - Private quarantine, content validation/scanning, metadata stripping and processing-status handling.
-- Worker creates cropped 400 x 400 WebP thumbnails and padded 1200 x 800 WebP heroes; retain originals for future processing, with authorised viewing/maintenance association. Future gallery uses thumbnails that open heroes.
+- Tracking Async Worker's photo function consumes its dedicated command and creates cropped 400 x 400 WebP thumbnails and padded 1200 x 800 WebP heroes; retain originals for future processing, with authorised viewing/maintenance association. Future gallery uses thumbnails that open heroes.
 - Retry, abandoned-upload/orphan reconciliation and retention/deletion handling.
 - Accepted resizing/format/dimension/original-retention rules are recorded in ADR-016. Define remaining WebP quality, crop alignment, padding colour, upscaling, source-format and decoded-pixel limits before implementation.
 
@@ -175,11 +178,3 @@ Before implementation: accepted applicable ADRs, complete slice contracts, verif
 Before completion: meaningful behaviour/failure verification, security and telemetry review, current documentation/traceability, recovery instructions and [Definition of Done](definition-of-done.md) evidence. Human approval is required before merge; deployment/spend needs applicable authorisation.
 
 Track requirements, issues, tests and PRs in the [traceability register](traceability.md). Keep [product scope](../requirements/vision-and-scope.md), [functional requirements](../requirements/functional-requirements.md) and the [decision register](decision-register.md) consistent as stage decisions are approved. This plan changes delivery organisation, not the authoritative Structurizr architecture or ADR acceptance status.
-
-## Change history
-
-| Version | Date | Change |
-| --- | --- | --- |
-| 0.1 | 8 October 2026 | Initial proposed delivery sequence |
-| 0.2 | 14 October 2026 | Explicit stages, deliverables, dependencies and exit criteria; preserves confirmed first-release scope and proposed later timing |
-| 0.3 | 19 October 2026 | Incorporates accepted scope, cost, photo upload/processing, Advice history and PostgreSQL decisions; later-stage timing remains proposed |

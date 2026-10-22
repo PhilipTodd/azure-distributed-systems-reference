@@ -1,6 +1,6 @@
 # AI architecture and evaluation
 
-Version: 0.2 | Date: 19 October 2026 | Status: Proposed; later-release capability
+Version: 0.5 | Date: 21 October 2026 | Status: Proposed; later-release capability
 
 Pipeline: authorise -> reserve quota -> capture context -> retrieve references -> infer -> validate -> persist -> present.
 
@@ -73,6 +73,14 @@ Exact model/region/version, quota, provider data handling, per-job cost and know
 
 The Advice page presents a scrollable, paginated history list. Selecting an item shows advice and the immutable parameter values actually submitted with that AI request, with units and measured times. Store that snapshot in PostgreSQL with the job/result and access checks; do not reconstruct it from amended live readings. Conversational threading is not included.
 
-One Advisor PostgreSQL instance stores relational jobs/results/quotas/snapshots and curated reference passages/metadata/pgvector embeddings. No separate Advisor SQL or Azure AI Search deployment is required. Validate index/metadata-filter behaviour, recall, latency, pooling and cost before release. Retained original photos are not available to Advisor as context.
+One Advisor-owned PostgreSQL database on platform-owned server hosting stores relational jobs/results/quotas/snapshots and curated reference passages/metadata/pgvector embeddings. No separate Advisor SQL or Azure AI Search deployment is required. Validate index/metadata-filter behaviour, recall, latency, pooling and cost before release. Retained original photos are not available to Advisor as context.
 
 Add evaluations for history snapshot fidelity after source corrections, cross-owner history access, pagination and exclusion of photo content. See [authorisation record](../engineering/authorised-decisions-2026-10-19.md).
+
+## Accepted worker baseline — 20 October 2026
+
+See [asynchronous-processing design](asynchronous-processing.md). Service-owned workers use only their owner's stores; core CRUD stays synchronous with local outboxes. Advice/photo handlers are durable asynchronous workflows. One namespace routes relevant commands/events; direct telemetry is not a queued business task. Shared-plan compute requires capacity/concurrency verification.
+
+## Accepted profile preference and minimum tank contract — 21 October 2026
+
+PROFILE-01: when Stage 5 is implemented, include the current Aquarium-owned explicit Metric/US customary/UK imperial preference in advice context and immutable request snapshot. Capture once per request; in-flight requests keep their captured preference. New advice follows requested units with scientific parameter semantics preserved. Existing text and context are not regenerated after profile changes. [Contract](../api/tank-and-profile-contract.md).

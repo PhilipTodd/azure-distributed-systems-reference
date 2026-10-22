@@ -1,6 +1,6 @@
 # Event architecture and catalogue
 
-Version: 0.1 | Date: 8 October 2026 | Status: Proposed
+Version: 0.2 | Date: 20 October 2026 | Status: Proposed
 
 | ID | Event | Publisher | Consumer intent |
 | --- | --- | --- | --- |
@@ -10,7 +10,7 @@ Version: 0.1 | Date: 8 October 2026 | Status: Proposed
 | EVT-004 | MeasurementPanelCorrected.v1 | Tracking | Derived state |
 | EVT-005 | MeasurementPanelDeleted.v1 | Tracking | Derived cleanup |
 | EVT-006 | MaintenanceCompleted.v1 | Tracking | Approved downstream processing |
-| EVT-007 | PhotoUploadCompleted.v1 | Tracking | Tracking photo worker |
+| EVT-007 | PhotoUploadCompleted.v1 | Tracking | Optional approved consumers; ProcessPhoto command starts processing |
 | EVT-008 | PhotoProcessingCompleted.v1 | Tracking | Approved notification/projection |
 | EVT-009 | EntitlementChanged.v1 | Aquarium | Advisor |
 | EVT-010 | AdviceCompleted.v1 | Advisor | Approved notification/projection |
@@ -20,7 +20,7 @@ GenerateAdvice.v1 is a command on a separate queue, not an event claiming comple
 
 ## Topology and reliability
 
-- Topic per publishing context with consumer-specific subscriptions; dedicated advice command queue.
+- One Service Bus namespace. Topic per publishing context with consumer-specific filtered subscriptions; separate Advisor advice and Tracking photo command queues. No all-worker shared queue.
 - Local transactional outbox; at-least-once publication/delivery.
 - Consumer inbox and state change committed together where possible.
 - External side effects need independent idempotency/reconciliation.
@@ -34,3 +34,7 @@ GenerateAdvice.v1 is a command on a separate queue, not an event claiming comple
 - Dapr deferred; contracts independent of optional broker abstraction.
 
 See [schemas](schemas.md) and [data reliability](../architecture/data.md).
+
+## Accepted routing and commands — 20 October 2026
+
+GenerateAdvice.v1 goes to Advisor Async Worker; ProcessPhoto.v1 goes to Tracking Async Worker. Each app also has timer/change-feed outbox relay functions. Aquarium receives relevant service-addressed work only when a concrete task/subscription exists. Delivery topology is not blanket broadcast. See [entity map, permissions and recovery](../architecture/asynchronous-processing.md). Retry count ten remains proposed; routing/at-least-once/idempotent handling are accepted under ADR-008.

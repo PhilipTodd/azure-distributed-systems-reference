@@ -1,6 +1,6 @@
 # Evidence register
 
-Version: 0.2 | Date: 19 October 2026 | Status: Draft
+Version: 0.4 | Date: 20 October 2026 | Status: Draft
 
 ## Status vocabulary
 
@@ -45,3 +45,11 @@ No live Azure resources, permissions, domain ownership, budgets or running servi
 ## Model update — 19 October 2026
 
 Initial observations above describe the pre-update evidence. The authorised decision record now selects PostgreSQL/pgvector and Tracking photo uploads/worker derivatives; canonical DSL is updated for those changes and Advice history. See [current C4 reconciliation](../architecture/c4.md) and [approval record](authorised-decisions-2026-10-19.md). Duplicate Mermaid C4 views were removed. Generated workspace.json/SVGs remain stale until regenerated; other model gaps remain open. No live Azure verification or deployment is implied.
+
+## Platform repository evidence — 20 October 2026
+
+Inspected C:\Git\azure-reference-platform documentation/main Bicep/modules/dev parameters read-only. Observed shared ReferenceProjectsDb and ReferenceProjects definitions; accepted app use is Aquarium schema and Tracking-owned /tankId containers. See [inventory](../infrastructure/platform-inventory.md). Source observations supersede “inventory unavailable” for repository definitions only; no live Azure resources/permissions/cost verification performed.
+
+## CI/CD decision update
+
+Observed infra/pipelines Azure DevOps files remain present. ADR-018 now accepts GitHub Actions sole target authority and verified migration/retirement. This supersedes the decision gap, not the observation: migration, disablement, removal and live workflow operation have not been performed by this documentation change.
