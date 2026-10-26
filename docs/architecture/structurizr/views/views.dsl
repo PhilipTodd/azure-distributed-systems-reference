@@ -8,21 +8,18 @@ systemContext parameterPilot "SystemContext" {
 // Observability is intentionally omitted; shared infrastructure is repeated by reference.
 container parameterPilot "AquariumContainers" {
   include parameterPilot.web parameterPilot.apiGateway parameterPilot.aquariumService parameterPilot.aquariumWorker parameterPilot.sqlDb parameterPilot.serviceBus
-  autoLayout lr
   title "Containers - Aquarium Service"
   description "Aquarium API commits owned state plus outbox in schema Aquarium within shared ReferenceProjectsDb synchronously. Aquarium Async Worker relays pending outbox messages to the shared Service Bus namespace."
 }
 
 container parameterPilot "TrackingContainers" {
   include parameterPilot.web parameterPilot.apiGateway parameterPilot.trackingService parameterPilot.trackingWorker parameterPilot.cosmosDb parameterPilot.blobStorage parameterPilot.serviceBus parameterPilot.aquariumService
-  autoLayout lr
   title "Containers - Tracking Service"
   description "Tracking API commits history plus outbox in one /tankId partition in the same Tracking container in shared ReferenceProjects; Tracking Async Worker publishes messages and processes photos. Aquarium API supplies one authorised batch of definition revisions/units/input rules per new panel; failures save nothing."
 }
 
 container parameterPilot "AdvisorContainers" {
   include parameterPilot.web parameterPilot.apiGateway parameterPilot.advisorService parameterPilot.advisorWorker parameterPilot.advisorDb parameterPilot.serviceBus parameterPilot.aquariumService parameterPilot.trackingService parameterPilot.foundry
-  autoLayout lr
   title "Containers - Advisor Service"
   description "Advisor API commits job/quota plus PostgreSQL outbox. Advisor Async Worker relays/consumes advice commands, retrieves authorised context, calls Foundry and stores result/completion outbox."
 }
@@ -30,7 +27,6 @@ container parameterPilot "AdvisorContainers" {
 dynamic parameterPilot "CustomerIdentity" {
   title "Dynamic - Customer sign-in and authorised tank access"
   description "Accepted ADR-009. Customer and workload token contracts remain distinct; exact scopes/roles/delegation are TBD. No live identity setup is implied."
-  autoLayout lr
   aquariumOwner -> parameterPilot.web "1. Start sign-in"
   parameterPilot.web -> entra "2. Authorisation code + PKCE; obtain API access token"
   parameterPilot.web -> parameterPilot.apiGateway "3. Send API request with access token, not ID token"
@@ -45,7 +41,6 @@ dynamic parameterPilot "CustomerIdentity" {
 dynamic parameterPilot "AquariumOutbox" {
   title "Outbox - Aquarium tank creation"
   description "SQL state and outbox commit atomically. Publication is outside that transaction; send then crash can republish the same message ID."
-  autoLayout lr
   parameterPilot.web -> parameterPilot.apiGateway "1. POST tank"
   parameterPilot.apiGateway -> parameterPilot.aquariumService "2. Authorise and validate"
   parameterPilot.aquariumService -> parameterPilot.sqlDb "3. COMMIT tank + ownership + TankCreated outbox in one SQL transaction"
@@ -58,7 +53,6 @@ dynamic parameterPilot "AquariumOutbox" {
 dynamic parameterPilot "TrackingOutbox" {
   title "Outbox - Tracking measurement recording"
   description "One Aquarium rule/eligibility batch before an all-or-nothing local commit. Stale revision or unavailable validation saves neither panel nor outbox. Accepted /tankId partition; state and outbox must share the same container."
-  autoLayout lr
   parameterPilot.apiGateway -> parameterPilot.trackingService "1. Submit panel with definition IDs/revisions, values and units"
   parameterPilot.trackingService -> parameterPilot.aquariumService "2. One batch: authorise tank and retrieve selected active definitions/revisions/units/input rules"
   parameterPilot.trackingService -> parameterPilot.cosmosDb "3. After trusted validation, COMMIT panel + idempotency + outbox in one partition"
@@ -71,7 +65,6 @@ dynamic parameterPilot "TrackingOutbox" {
 dynamic parameterPilot "AdvisorOutbox" {
   title "Outbox - Advisor request and completion"
   description "Two local PostgreSQL transactions surround external work. Outbox relay and command processing are different functions in the same worker app; no exactly-once inference claim."
-  autoLayout lr
   parameterPilot.apiGateway -> parameterPilot.advisorService "1. Submit authorised advice request"
   parameterPilot.advisorService -> parameterPilot.advisorDb "2. COMMIT job + quota reservation + GenerateAdvice outbox"
   parameterPilot.advisorService -> parameterPilot.apiGateway "3. Return 202 and job Location after commit"
@@ -164,6 +157,5 @@ dynamic parameterPilot "AdviceHistory" {
 
 deployment parameterPilot "Azure" {
   include *
-  autoLayout lr
   title "Deployment - Azure"
 }

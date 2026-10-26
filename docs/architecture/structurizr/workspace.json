@@ -3,7 +3,8 @@
   "description" : "Cloud-native aquarium parameter tracking and AI-assisted maintenance advice.",
   "documentation" : { },
   "id" : 1,
-  "lastModifiedDate" : "2026-10-21T04:50:50Z",
+  "lastModifiedAgent" : "structurizr-ui",
+  "lastModifiedDate" : "2026-10-26T01:30:22Z",
   "model" : {
     "deploymentNodes" : [ {
       "children" : [ {
@@ -15,7 +16,7 @@
             "id" : "64",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.resourceGroup.webHosting.76d062cc-4726-4923-ac71-09bf38882208"
+              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.resourceGroup.webHosting.29762ee9-add8-4d04-9942-dee74216e949"
             },
             "relationships" : [ {
               "description" : "Calls",
@@ -33,7 +34,7 @@
           "instances" : "1",
           "name" : "Static Web Apps",
           "properties" : {
-            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.resourceGroup.webHosting"
+            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.resourceGroup.webHosting"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -44,7 +45,7 @@
             "id" : "66",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.resourceGroup.inference.89d4b7ef-12ff-4770-9ee8-c1cf6505dbda"
+              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.resourceGroup.inference.0747edf5-0bd9-4133-99fe-269925f429d7"
             },
             "tags" : "Container Instance"
           } ],
@@ -54,7 +55,7 @@
           "instances" : "1",
           "name" : "Inference Hosting",
           "properties" : {
-            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.resourceGroup.inference"
+            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.resourceGroup.inference"
           },
           "tags" : "Element,Deployment Node"
         } ],
@@ -64,7 +65,7 @@
         "instances" : "1",
         "name" : "Parameter Pilot Resource Group",
         "properties" : {
-          "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.resourceGroup"
+          "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.resourceGroup"
         },
         "tags" : "Element,Deployment Node"
       }, {
@@ -76,7 +77,7 @@
             "id" : "69",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedGateway.e9791689-67b8-4bdd-a996-53586026bb9e"
+              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedGateway.95a459df-49b5-4cd1-a77a-82a335828953"
             },
             "relationships" : [ {
               "description" : "Validates token and routes; Aquarium independently validates",
@@ -108,7 +109,7 @@
           "instances" : "1",
           "name" : "Shared APIM",
           "properties" : {
-            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedGateway"
+            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedGateway"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -120,7 +121,7 @@
               "id" : "73",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedSql.aquariumSchema.b40e1516-3ca5-45eb-9607-61ab4ab043aa"
+                "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedSql.aquariumSchema.b8b8b91b-9a93-4e23-94fb-f53af65c5344"
               },
               "tags" : "Container Instance"
             } ],
@@ -130,7 +131,7 @@
             "instances" : "1",
             "name" : "Aquarium schema",
             "properties" : {
-              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedSql.aquariumSchema"
+              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedSql.aquariumSchema"
             },
             "tags" : "Element,Deployment Node"
           } ],
@@ -140,7 +141,7 @@
           "instances" : "1",
           "name" : "ReferenceProjectsDb",
           "properties" : {
-            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedSql"
+            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedSql"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -152,7 +153,7 @@
               "id" : "76",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedCosmos.trackingContainers.62c47c0e-ee6e-4cdc-b8d0-b08e9bc579f9"
+                "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedCosmos.trackingContainers.b414e15a-12f5-46c1-9aff-e567ca9568fb"
               },
               "tags" : "Container Instance"
             } ],
@@ -162,7 +163,7 @@
             "instances" : "1",
             "name" : "Tracking-owned containers",
             "properties" : {
-              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedCosmos.trackingContainers"
+              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedCosmos.trackingContainers"
             },
             "tags" : "Element,Deployment Node"
           } ],
@@ -172,7 +173,7 @@
           "instances" : "1",
           "name" : "ReferenceProjects Cosmos database",
           "properties" : {
-            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedCosmos"
+            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedCosmos"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -183,7 +184,7 @@
             "id" : "78",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedStorage.0c5ee631-6807-4676-8474-2eb3a97d1d3a"
+              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedStorage.afb57027-4c60-4586-8f60-c454e1d31282"
             },
             "tags" : "Container Instance"
           } ],
@@ -193,7 +194,7 @@
           "instances" : "1",
           "name" : "Shared Blob Storage Account",
           "properties" : {
-            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedStorage"
+            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedStorage"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -204,7 +205,7 @@
             "id" : "80",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPostgres.3cf0bf1d-75bc-4754-b472-537498002c4c"
+              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPostgres.2f8d0564-c605-4b45-b50e-11448297fc33"
             },
             "tags" : "Container Instance"
           } ],
@@ -214,7 +215,7 @@
           "instances" : "1",
           "name" : "Shared PostgreSQL Flexible Server",
           "properties" : {
-            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPostgres"
+            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPostgres"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -225,7 +226,7 @@
             "id" : "82",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedMessaging.a1bb3dc8-5cee-4276-a273-9ba21288d47c"
+              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedMessaging.28975e16-658d-4efb-9b0b-5853c4611247"
             },
             "relationships" : [ {
               "description" : "Delivers only Aquarium-addressed work/relevant subscriptions",
@@ -254,7 +255,7 @@
           "instances" : "1",
           "name" : "Shared Service Bus Namespace",
           "properties" : {
-            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedMessaging"
+            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedMessaging"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -265,7 +266,7 @@
             "id" : "84",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedMonitoring.327f6c6f-4976-47c2-b97e-abc0a329097a"
+              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedMonitoring.065c1672-d4b4-4203-b1cf-f32c96432d37"
             },
             "tags" : "Container Instance"
           } ],
@@ -275,7 +276,7 @@
           "instances" : "1",
           "name" : "Shared Monitoring",
           "properties" : {
-            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedMonitoring"
+            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedMonitoring"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -287,7 +288,7 @@
               "id" : "87",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.aquariumApp.0fd58ef0-d031-4225-91ab-240b93012525"
+                "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.aquariumApp.669801d1-f04f-4d15-a521-6827c1ce7aea"
               },
               "relationships" : [ {
                 "description" : "Synchronously reads/writes owned state; atomically writes outbox",
@@ -310,7 +311,7 @@
             "instances" : "1",
             "name" : "Aquarium API App",
             "properties" : {
-              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.aquariumApp"
+              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.aquariumApp"
             },
             "tags" : "Element,Deployment Node"
           }, {
@@ -321,7 +322,7 @@
               "id" : "92",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.trackingApp.0273096a-1482-4848-80a3-74026b598d67"
+                "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.trackingApp.907a18f1-7e4b-4f72-af0a-2b7a39d47d47"
               },
               "relationships" : [ {
                 "description" : "Returns saved data or photo job status",
@@ -365,7 +366,7 @@
             "instances" : "1",
             "name" : "Tracking API App",
             "properties" : {
-              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.trackingApp"
+              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.trackingApp"
             },
             "tags" : "Element,Deployment Node"
           }, {
@@ -376,7 +377,7 @@
               "id" : "100",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.advisorApp.3487274c-8ec7-4071-afdd-e5adef20d162"
+                "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.advisorApp.dd5af6dc-ff7c-4be2-be07-2c121bb71ab7"
               },
               "relationships" : [ {
                 "description" : "Returns 202 job Location or authorised history/result",
@@ -413,7 +414,7 @@
             "instances" : "1",
             "name" : "Advisor API App",
             "properties" : {
-              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.advisorApp"
+              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.advisorApp"
             },
             "tags" : "Element,Deployment Node"
           }, {
@@ -424,7 +425,7 @@
               "id" : "107",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.aquariumFunctions.023a498d-b8df-491f-b891-3dac832c3a7e"
+                "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.aquariumFunctions.6b7a492c-27aa-4d37-9a63-7978f8f01587"
               },
               "relationships" : [ {
                 "description" : "Reads local outbox; updates only Aquarium-owned task/inbox/projection state",
@@ -453,7 +454,7 @@
             "instances" : "1",
             "name" : "Aquarium Function App",
             "properties" : {
-              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.aquariumFunctions"
+              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.aquariumFunctions"
             },
             "tags" : "Element,Deployment Node"
           }, {
@@ -464,7 +465,7 @@
               "id" : "113",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.trackingFunctions.5699aaba-180c-40c6-97a9-36e5e9692a79"
+                "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.trackingFunctions.854fab35-fa07-45ed-a6cc-300cdcfed01f"
               },
               "relationships" : [ {
                 "description" : "Relays Tracking outbox; updates owned processing status/inbox/history",
@@ -499,7 +500,7 @@
             "instances" : "1",
             "name" : "Tracking Function App",
             "properties" : {
-              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.trackingFunctions"
+              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.trackingFunctions"
             },
             "tags" : "Element,Deployment Node"
           }, {
@@ -510,7 +511,7 @@
               "id" : "120",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.advisorFunctions.35d2e003-3020-476a-92fd-da6975c676b4"
+                "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.advisorFunctions.5eff7016-38e3-494d-9d9e-ccf5fbb28c1e"
               },
               "relationships" : [ {
                 "description" : "Requests text inference; no photo input",
@@ -560,7 +561,7 @@
             "instances" : "1",
             "name" : "Advisor Function App",
             "properties" : {
-              "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan.advisorFunctions"
+              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.advisorFunctions"
             },
             "tags" : "Element,Deployment Node"
           } ],
@@ -570,7 +571,7 @@
           "instances" : "1",
           "name" : "Existing Shared Linux App Service Plan",
           "properties" : {
-            "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform.sharedPlan"
+            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan"
           },
           "tags" : "Element,Deployment Node"
         } ],
@@ -580,7 +581,7 @@
         "instances" : "1",
         "name" : "Shared Development Platform",
         "properties" : {
-          "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure.sharedPlatform"
+          "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform"
         },
         "tags" : "Element,Deployment Node"
       } ],
@@ -590,7 +591,7 @@
       "instances" : "1",
       "name" : "Microsoft Azure - Development",
       "properties" : {
-        "structurizr.dsl.identifier" : "a608a5b9-7e66-495f-a57f-cd7f337ba2c9.azure"
+        "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure"
       },
       "tags" : "Element,Deployment Node"
     } ],
@@ -1066,15 +1067,16 @@
   },
   "name" : "Parameter Pilot",
   "properties" : {
-    "structurizr.inspection.error" : "64",
     "structurizr.inspection.info" : "0",
     "structurizr.inspection.ignore" : "0",
+    "structurizr.inspection.error" : "65",
     "structurizr.inspection.warning" : "0"
   },
   "views" : {
     "configuration" : {
       "branding" : { },
-      "lastSavedView" : "TrendAnalysis",
+      "lastSavedView" : "CustomerIdentity",
+      "metadataSymbols" : "SquareBrackets",
       "styles" : {
         "elements" : [ {
           "border" : "Dashed",
@@ -1103,40 +1105,35 @@
       "themes" : [ "https://static.structurizr.com/themes/microsoft-azure-2021.01.26/theme.json" ]
     },
     "containerViews" : [ {
-      "automaticLayout" : {
-        "applied" : false,
-        "edgeSeparation" : 0,
-        "implementation" : "Graphviz",
-        "nodeSeparation" : 300,
-        "rankDirection" : "LeftRight",
-        "rankSeparation" : 300,
-        "vertices" : false
-      },
       "description" : "Aquarium API commits owned state plus outbox in schema Aquarium within shared ReferenceProjectsDb synchronously. Aquarium Async Worker relays pending outbox messages to the shared Service Bus namespace.",
+      "dimensions" : {
+        "height" : 1435,
+        "width" : 3140
+      },
       "elements" : [ {
         "id" : "4",
-        "x" : 0,
-        "y" : 0
+        "x" : 260,
+        "y" : 170
       }, {
         "id" : "5",
-        "x" : 0,
-        "y" : 0
+        "x" : 970,
+        "y" : 162
       }, {
         "id" : "6",
-        "x" : 0,
-        "y" : 0
+        "x" : 1720,
+        "y" : 162
       }, {
         "id" : "9",
-        "x" : 0,
-        "y" : 0
+        "x" : 2450,
+        "y" : 795
       }, {
         "id" : "12",
-        "x" : 0,
-        "y" : 0
+        "x" : 2455,
+        "y" : 165
       }, {
         "id" : "14",
-        "x" : 0,
-        "y" : 0
+        "x" : 1720,
+        "y" : 760
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
       "key" : "AquariumContainers",
@@ -1151,72 +1148,84 @@
       }, {
         "id" : "40"
       }, {
-        "id" : "41"
+        "id" : "41",
+        "vertices" : [ {
+          "x" : 2280,
+          "y" : 1050
+        } ]
       }, {
-        "id" : "42"
+        "id" : "42",
+        "vertices" : [ {
+          "x" : 2300,
+          "y" : 765
+        } ]
       } ],
       "softwareSystemId" : "3",
       "title" : "Containers - Aquarium Service"
     }, {
-      "automaticLayout" : {
-        "applied" : false,
-        "edgeSeparation" : 0,
-        "implementation" : "Graphviz",
-        "nodeSeparation" : 300,
-        "rankDirection" : "LeftRight",
-        "rankSeparation" : 300,
-        "vertices" : false
-      },
       "description" : "Tracking API commits history plus outbox in one /tankId partition in the same Tracking container in shared ReferenceProjects; Tracking Async Worker publishes messages and processes photos. Aquarium API supplies one authorised batch of definition revisions/units/input rules per new panel; failures save nothing.",
+      "dimensions" : {
+        "height" : 2158,
+        "width" : 3666
+      },
       "elements" : [ {
         "id" : "4",
-        "x" : 0,
-        "y" : 0
+        "x" : 329,
+        "y" : 329
       }, {
         "id" : "5",
-        "x" : 0,
-        "y" : 0
+        "x" : 329,
+        "y" : 929
       }, {
         "id" : "6",
-        "x" : 0,
-        "y" : 0
+        "x" : 1115,
+        "y" : 1025
       }, {
         "id" : "7",
-        "x" : 0,
-        "y" : 0
+        "x" : 1079,
+        "y" : 329
       }, {
         "id" : "10",
-        "x" : 0,
-        "y" : 0
+        "x" : 1405,
+        "y" : 1520
       }, {
         "id" : "13",
-        "x" : 0,
-        "y" : 0
+        "x" : 2455,
+        "y" : 925
       }, {
         "id" : "14",
-        "x" : 0,
-        "y" : 0
+        "x" : 2500,
+        "y" : 1515
       }, {
         "id" : "15",
-        "x" : 0,
-        "y" : 0
+        "x" : 1795,
+        "y" : 930
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
       "key" : "TrackingContainers",
       "name" : "Container View: Parameter Pilot",
       "order" : 3,
+      "paperSize" : "A3_Landscape",
       "relationships" : [ {
         "id" : "25"
       }, {
         "id" : "29"
       }, {
-        "id" : "30"
+        "id" : "30",
+        "vertices" : [ {
+          "x" : 1022,
+          "y" : 896
+        } ]
       }, {
         "id" : "33"
       }, {
         "id" : "34"
       }, {
-        "id" : "35"
+        "id" : "35",
+        "vertices" : [ {
+          "x" : 835,
+          "y" : 661
+        } ]
       }, {
         "id" : "36"
       }, {
@@ -1224,59 +1233,62 @@
       }, {
         "id" : "44"
       }, {
-        "id" : "45"
+        "id" : "45",
+        "vertices" : [ {
+          "x" : 2155,
+          "y" : 1550
+        } ]
       }, {
-        "id" : "46"
+        "id" : "46",
+        "vertices" : [ {
+          "x" : 2170,
+          "y" : 1780
+        } ]
       } ],
       "softwareSystemId" : "3",
       "title" : "Containers - Tracking Service"
     }, {
-      "automaticLayout" : {
-        "applied" : false,
-        "edgeSeparation" : 0,
-        "implementation" : "Graphviz",
-        "nodeSeparation" : 300,
-        "rankDirection" : "LeftRight",
-        "rankSeparation" : 300,
-        "vertices" : false
-      },
       "description" : "Advisor API commits job/quota plus PostgreSQL outbox. Advisor Async Worker relays/consumes advice commands, retrieves authorised context, calls Foundry and stores result/completion outbox.",
+      "dimensions" : {
+        "height" : 2917,
+        "width" : 3890
+      },
       "elements" : [ {
         "id" : "4",
-        "x" : 0,
-        "y" : 0
+        "x" : 405,
+        "y" : 650
       }, {
         "id" : "5",
-        "x" : 0,
-        "y" : 0
+        "x" : 420,
+        "y" : 1215
       }, {
         "id" : "6",
-        "x" : 0,
-        "y" : 0
+        "x" : 1270,
+        "y" : 540
       }, {
         "id" : "7",
-        "x" : 0,
-        "y" : 0
+        "x" : 1320,
+        "y" : 2010
       }, {
         "id" : "8",
-        "x" : 0,
-        "y" : 0
+        "x" : 1310,
+        "y" : 1315
       }, {
         "id" : "11",
-        "x" : 0,
-        "y" : 0
+        "x" : 2535,
+        "y" : 930
       }, {
         "id" : "14",
-        "x" : 0,
-        "y" : 0
+        "x" : 2155,
+        "y" : 285
       }, {
         "id" : "16",
-        "x" : 0,
-        "y" : 0
+        "x" : 2895,
+        "y" : 1500
       }, {
         "id" : "17",
-        "x" : 0,
-        "y" : 0
+        "x" : 2880,
+        "y" : 285
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
       "key" : "AdvisorContainers",
@@ -1287,11 +1299,23 @@
       }, {
         "id" : "29"
       }, {
-        "id" : "30"
+        "id" : "30",
+        "vertices" : [ {
+          "x" : 925,
+          "y" : 1915
+        } ]
       }, {
-        "id" : "31"
+        "id" : "31",
+        "vertices" : [ {
+          "x" : 1145,
+          "y" : 1475
+        } ]
       }, {
-        "id" : "34"
+        "id" : "34",
+        "vertices" : [ {
+          "x" : 2215,
+          "y" : 1085
+        } ]
       }, {
         "id" : "35"
       }, {
@@ -1299,7 +1323,11 @@
       }, {
         "id" : "38"
       }, {
-        "id" : "39"
+        "id" : "39",
+        "vertices" : [ {
+          "x" : 1150,
+          "y" : 1280
+        } ]
       }, {
         "id" : "47"
       }, {
@@ -1317,280 +1345,468 @@
       "title" : "Containers - Advisor Service"
     } ],
     "deploymentViews" : [ {
-      "automaticLayout" : {
-        "applied" : false,
-        "edgeSeparation" : 0,
-        "implementation" : "Graphviz",
-        "nodeSeparation" : 300,
-        "rankDirection" : "LeftRight",
-        "rankSeparation" : 300,
-        "vertices" : false
+      "dimensions" : {
+        "height" : 4270,
+        "width" : 9183
       },
       "elements" : [ {
         "id" : "61",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "62",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "63",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "64",
-        "x" : 0,
-        "y" : 0
+        "x" : 8195,
+        "y" : 1829
       }, {
         "id" : "65",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "66",
-        "x" : 0,
-        "y" : 0
+        "x" : 7433,
+        "y" : 1829
       }, {
         "id" : "67",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "68",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "69",
-        "x" : 0,
-        "y" : 0
+        "x" : 6258,
+        "y" : 1829
       }, {
         "id" : "71",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "72",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "73",
-        "x" : 0,
-        "y" : 0
+        "x" : 5558,
+        "y" : 3329
       }, {
         "id" : "74",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "75",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "76",
-        "x" : 0,
-        "y" : 0
+        "x" : 1370,
+        "y" : 2579
       }, {
         "id" : "77",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "78",
-        "x" : 0,
-        "y" : 0
+        "x" : 2237,
+        "y" : 2579
       }, {
         "id" : "79",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "80",
-        "x" : 0,
-        "y" : 0
+        "x" : 3000,
+        "y" : 2579
       }, {
         "id" : "81",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "82",
-        "x" : 0,
-        "y" : 0
+        "x" : 4629,
+        "y" : 537
       }, {
         "id" : "83",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "84",
-        "x" : 0,
-        "y" : 0
+        "x" : 2279,
+        "y" : 3329
       }, {
         "id" : "85",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "86",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "87",
-        "x" : 0,
-        "y" : 0
+        "x" : 4762,
+        "y" : 2579
       }, {
         "id" : "91",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "92",
-        "x" : 0,
-        "y" : 0
+        "x" : 3866,
+        "y" : 1829
       }, {
         "id" : "99",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "100",
-        "x" : 0,
-        "y" : 0
+        "x" : 4629,
+        "y" : 1829
       }, {
         "id" : "106",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "107",
-        "x" : 0,
-        "y" : 0
+        "x" : 5391,
+        "y" : 1183
       }, {
         "id" : "112",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "113",
-        "x" : 0,
-        "y" : 0
+        "x" : 3866,
+        "y" : 1183
       }, {
         "id" : "119",
-        "x" : 0,
-        "y" : 0
+        "x" : 350,
+        "y" : 350
       }, {
         "id" : "120",
-        "x" : 0,
-        "y" : 0
+        "x" : 4629,
+        "y" : 1183
       } ],
       "environment" : "Azure",
       "generatedKey" : true,
       "key" : "Deployment-001",
       "name" : "Deployment View: Parameter Pilot - Azure",
       "order" : 14,
+      "paperSize" : "A1_Landscape",
       "relationships" : [ {
-        "id" : "101"
+        "id" : "101",
+        "vertices" : [ {
+          "x" : 5397,
+          "y" : 1979
+        }, {
+          "x" : 5940,
+          "y" : 1979
+        } ]
       }, {
-        "id" : "102"
+        "id" : "102",
+        "vertices" : [ {
+          "x" : 5940,
+          "y" : 1979
+        }, {
+          "x" : 5397,
+          "y" : 1979
+        } ]
       }, {
-        "id" : "103"
+        "id" : "103",
+        "vertices" : [ {
+          "x" : 4495,
+          "y" : 2337
+        }, {
+          "x" : 4312,
+          "y" : 2370
+        } ]
       }, {
-        "id" : "104"
+        "id" : "104",
+        "vertices" : [ {
+          "x" : 3858,
+          "y" : 3087
+        } ]
       }, {
         "id" : "105"
       }, {
-        "id" : "108"
+        "id" : "108",
+        "vertices" : [ {
+          "x" : 6887,
+          "y" : 1620
+        }, {
+          "x" : 6887,
+          "y" : 2337
+        } ]
       }, {
-        "id" : "109"
+        "id" : "109",
+        "vertices" : [ {
+          "x" : 5108,
+          "y" : 975
+        } ]
       }, {
-        "id" : "110"
+        "id" : "110",
+        "vertices" : [ {
+          "x" : 5408,
+          "y" : 975
+        } ]
       }, {
-        "id" : "111"
+        "id" : "111",
+        "vertices" : [ {
+          "x" : 5258,
+          "y" : 1587
+        }, {
+          "x" : 3687,
+          "y" : 1620
+        }, {
+          "x" : 2366,
+          "y" : 2337
+        }, {
+          "x" : 1191,
+          "y" : 2370
+        }, {
+          "x" : 1191,
+          "y" : 3087
+        } ]
       }, {
-        "id" : "114"
+        "id" : "114",
+        "vertices" : [ {
+          "x" : 1941,
+          "y" : 1620
+        } ]
       }, {
-        "id" : "115"
+        "id" : "115",
+        "vertices" : [ {
+          "x" : 2016,
+          "y" : 1620
+        }, {
+          "x" : 2016,
+          "y" : 2337
+        } ]
       }, {
-        "id" : "116"
+        "id" : "116",
+        "vertices" : [ {
+          "x" : 4300,
+          "y" : 975
+        } ]
       }, {
-        "id" : "117"
+        "id" : "117",
+        "vertices" : [ {
+          "x" : 4600,
+          "y" : 975
+        } ]
       }, {
-        "id" : "118"
+        "id" : "118",
+        "vertices" : [ {
+          "x" : 1645,
+          "y" : 1620
+        }, {
+          "x" : 666,
+          "y" : 2370
+        }, {
+          "x" : 666,
+          "y" : 3087
+        } ]
       }, {
-        "id" : "121"
+        "id" : "121",
+        "vertices" : [ {
+          "x" : 5212,
+          "y" : 1587
+        }, {
+          "x" : 6887,
+          "y" : 1620
+        } ]
       }, {
-        "id" : "122"
+        "id" : "122",
+        "vertices" : [ {
+          "x" : 4495,
+          "y" : 1587
+        }, {
+          "x" : 3687,
+          "y" : 1620
+        } ]
       }, {
-        "id" : "123"
+        "id" : "123",
+        "vertices" : [ {
+          "x" : 5004,
+          "y" : 1010
+        } ]
       }, {
-        "id" : "124"
+        "id" : "124",
+        "vertices" : [ {
+          "x" : 4704,
+          "y" : 1010
+        } ]
       }, {
-        "id" : "125"
+        "id" : "125",
+        "vertices" : [ {
+          "x" : 4495,
+          "y" : 1587
+        }, {
+          "x" : 3316,
+          "y" : 1620
+        }, {
+          "x" : 1258,
+          "y" : 2337
+        }, {
+          "x" : 975,
+          "y" : 2370
+        }, {
+          "x" : 975,
+          "y" : 3087
+        } ]
       }, {
-        "id" : "126"
+        "id" : "126",
+        "vertices" : [ {
+          "x" : 5258,
+          "y" : 1620
+        }, {
+          "x" : 5258,
+          "y" : 2337
+        } ]
       }, {
-        "id" : "127"
+        "id" : "127",
+        "vertices" : [ {
+          "x" : 4450,
+          "y" : 1620
+        } ]
       }, {
-        "id" : "70"
+        "id" : "70",
+        "vertices" : [ {
+          "x" : 8062,
+          "y" : 1620
+        }, {
+          "x" : 7912,
+          "y" : 1604
+        }, {
+          "x" : 7404,
+          "y" : 1604
+        }, {
+          "x" : 7254,
+          "y" : 1620
+        } ]
       }, {
         "id" : "88"
       }, {
         "id" : "89"
       }, {
-        "id" : "90"
+        "id" : "90",
+        "vertices" : [ {
+          "x" : 4470,
+          "y" : 3087
+        } ]
       }, {
-        "id" : "93"
+        "id" : "93",
+        "vertices" : [ {
+          "x" : 4450,
+          "y" : 1620
+        }, {
+          "x" : 4600,
+          "y" : 1604
+        }, {
+          "x" : 5312,
+          "y" : 1604
+        }, {
+          "x" : 5462,
+          "y" : 1620
+        } ]
       }, {
-        "id" : "94"
+        "id" : "94",
+        "vertices" : [ {
+          "x" : 5462,
+          "y" : 1620
+        }, {
+          "x" : 5312,
+          "y" : 1604
+        }, {
+          "x" : 4600,
+          "y" : 1604
+        }, {
+          "x" : 4450,
+          "y" : 1620
+        } ]
       }, {
-        "id" : "95"
+        "id" : "95",
+        "vertices" : [ {
+          "x" : 2483,
+          "y" : 2337
+        }, {
+          "x" : 2058,
+          "y" : 2370
+        } ]
       }, {
-        "id" : "96"
+        "id" : "96",
+        "vertices" : [ {
+          "x" : 2820,
+          "y" : 2370
+        } ]
       }, {
-        "id" : "97"
+        "id" : "97",
+        "vertices" : [ {
+          "x" : 3629,
+          "y" : 3087
+        } ]
       }, {
-        "id" : "98"
+        "id" : "98",
+        "vertices" : [ {
+          "x" : 4450,
+          "y" : 2337
+        } ]
       } ],
       "softwareSystemId" : "3",
       "title" : "Deployment - Azure"
     } ],
     "dynamicViews" : [ {
-      "automaticLayout" : {
-        "applied" : false,
-        "edgeSeparation" : 0,
-        "implementation" : "Graphviz",
-        "nodeSeparation" : 300,
-        "rankDirection" : "LeftRight",
-        "rankSeparation" : 300,
-        "vertices" : false
-      },
       "description" : "Accepted ADR-009. Customer and workload token contracts remain distinct; exact scopes/roles/delegation are TBD. No live identity setup is implied.",
+      "dimensions" : {
+        "height" : 2754,
+        "width" : 3204
+      },
       "elementId" : "3",
       "elements" : [ {
         "id" : "1",
-        "x" : 0,
-        "y" : 0
+        "x" : 425,
+        "y" : 5
       }, {
         "id" : "4",
-        "x" : 0,
-        "y" : 0
+        "x" : 400,
+        "y" : 570
       }, {
         "id" : "5",
-        "x" : 0,
-        "y" : 0
+        "x" : 410,
+        "y" : 1345
       }, {
         "id" : "6",
-        "x" : 0,
-        "y" : 0
+        "x" : 1465,
+        "y" : 1375
       }, {
         "id" : "7",
-        "x" : 0,
-        "y" : 0
+        "x" : 1425,
+        "y" : 605
       }, {
         "id" : "12",
-        "x" : 0,
-        "y" : 0
+        "x" : 2195,
+        "y" : 1385
       }, {
         "id" : "13",
-        "x" : 0,
-        "y" : 0
+        "x" : 2190,
+        "y" : 605
       }, {
         "id" : "19",
-        "x" : 0,
-        "y" : 0
+        "x" : 1035,
+        "y" : 125
       } ],
       "externalBoundariesVisible" : false,
       "key" : "CustomerIdentity",
       "name" : "Dynamic View: Parameter Pilot",
       "order" : 5,
+      "paperSize" : "A3_Landscape",
       "relationships" : [ {
         "description" : "1. Start sign-in",
         "id" : "21",
@@ -1605,12 +1821,20 @@
         "description" : "3. Send API request with access token, not ID token",
         "id" : "25",
         "order" : "3",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 510,
+          "y" : 1090
+        } ]
       }, {
         "description" : "4. APIM validates token; Tracking independently validates token/permissions",
         "id" : "30",
         "order" : "4",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 1050,
+          "y" : 1025
+        } ]
       }, {
         "description" : "5. Workload authentication plus verified actor/tank context; authorise access",
         "id" : "34",
@@ -1630,55 +1854,59 @@
         "description" : "8. Return allowed data; fail closed if required context unavailable",
         "id" : "35",
         "order" : "8",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 1260,
+          "y" : 1205
+        } ]
       }, {
         "description" : "9. Present authorised result or safe error",
         "id" : "25",
         "order" : "9",
-        "response" : true
+        "response" : true,
+        "vertices" : [ {
+          "x" : 755,
+          "y" : 1080
+        } ]
       } ],
       "title" : "Dynamic - Customer sign-in and authorised tank access"
     }, {
-      "automaticLayout" : {
-        "applied" : false,
-        "edgeSeparation" : 0,
-        "implementation" : "Graphviz",
-        "nodeSeparation" : 300,
-        "rankDirection" : "LeftRight",
-        "rankSeparation" : 300,
-        "vertices" : false
-      },
       "description" : "SQL state and outbox commit atomically. Publication is outside that transaction; send then crash can republish the same message ID.",
+      "dimensions" : {
+        "height" : 1558,
+        "width" : 2608
+      },
       "elementId" : "3",
       "elements" : [ {
         "id" : "4",
-        "x" : 0,
-        "y" : 0
+        "x" : 280,
+        "y" : 120
       }, {
         "id" : "5",
-        "x" : 0,
-        "y" : 0
+        "x" : 310,
+        "y" : 530
       }, {
         "id" : "6",
-        "x" : 0,
-        "y" : 0
+        "x" : 1125,
+        "y" : 215
       }, {
         "id" : "9",
-        "x" : 0,
-        "y" : 0
+        "x" : 1145,
+        "y" : 790
       }, {
         "id" : "12",
-        "x" : 0,
-        "y" : 0
+        "x" : 2155,
+        "y" : 540
       }, {
         "id" : "14",
-        "x" : 0,
-        "y" : 0
+        "x" : 2065,
+        "y" : 1065
       } ],
       "externalBoundariesVisible" : false,
       "key" : "AquariumOutbox",
       "name" : "Dynamic View: Parameter Pilot",
       "order" : 6,
+      "paperSize" : "A4_Landscape",
       "relationships" : [ {
         "description" : "1. POST tank",
         "id" : "25",
@@ -1688,7 +1916,11 @@
         "description" : "2. Authorise and validate",
         "id" : "29",
         "order" : "2",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 996,
+          "y" : 662
+        } ]
       }, {
         "description" : "3. COMMIT tank + ownership + TankCreated outbox in one SQL transaction",
         "id" : "32",
@@ -1698,12 +1930,20 @@
         "description" : "4. Return 201 after durable commit; broker can be unavailable",
         "id" : "29",
         "order" : "4",
-        "response" : true
+        "response" : true,
+        "vertices" : [ {
+          "x" : 888,
+          "y" : 382
+        } ]
       }, {
         "description" : "5. Relay function reads pending outbox",
         "id" : "40",
         "order" : "5",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 1911,
+          "y" : 960
+        } ]
       }, {
         "description" : "6. Publish TankCreated to Aquarium events topic; stable event ID",
         "id" : "41",
@@ -1713,60 +1953,68 @@
         "description" : "7. Record dispatch only after broker acceptance; retry may duplicate",
         "id" : "40",
         "order" : "7",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 1838,
+          "y" : 669
+        } ]
       } ],
       "title" : "Outbox - Aquarium tank creation"
     }, {
-      "automaticLayout" : {
-        "applied" : false,
-        "edgeSeparation" : 0,
-        "implementation" : "Graphviz",
-        "nodeSeparation" : 300,
-        "rankDirection" : "LeftRight",
-        "rankSeparation" : 300,
-        "vertices" : false
-      },
       "description" : "One Aquarium rule/eligibility batch before an all-or-nothing local commit. Stale revision or unavailable validation saves neither panel nor outbox. Accepted /tankId partition; state and outbox must share the same container.",
+      "dimensions" : {
+        "height" : 1558,
+        "width" : 3358
+      },
       "elementId" : "3",
       "elements" : [ {
         "id" : "5",
-        "x" : 0,
-        "y" : 0
+        "x" : 385,
+        "y" : 265
       }, {
         "id" : "6",
-        "x" : 0,
-        "y" : 0
+        "x" : 1260,
+        "y" : 910
       }, {
         "id" : "7",
-        "x" : 0,
-        "y" : 0
+        "x" : 1240,
+        "y" : 260
       }, {
         "id" : "10",
-        "x" : 0,
-        "y" : 0
+        "x" : 1855,
+        "y" : 910
       }, {
         "id" : "13",
-        "x" : 0,
-        "y" : 0
+        "x" : 2700,
+        "y" : 255
       }, {
         "id" : "14",
-        "x" : 0,
-        "y" : 0
+        "x" : 2705,
+        "y" : 905
       } ],
       "externalBoundariesVisible" : false,
       "key" : "TrackingOutbox",
       "name" : "Dynamic View: Parameter Pilot",
       "order" : 7,
+      "paperSize" : "A4_Landscape",
       "relationships" : [ {
         "description" : "1. Submit panel with definition IDs/revisions, values and units",
         "id" : "30",
         "order" : "1",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 1000,
+          "y" : 370
+        } ]
       }, {
         "description" : "2. One batch: authorise tank and retrieve selected active definitions/revisions/units/input rules",
         "id" : "34",
         "order" : "2",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 1483,
+          "y" : 775
+        } ]
       }, {
         "description" : "3. After trusted validation, COMMIT panel + idempotency + outbox in one partition",
         "id" : "33",
@@ -1776,12 +2024,20 @@
         "description" : "4. Confirm saved; stale rules/unavailable Aquarium instead return actionable error with no write",
         "id" : "35",
         "order" : "4",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 1065,
+          "y" : 675
+        } ]
       }, {
         "description" : "5. Relay reads pending outbox",
         "id" : "43",
         "order" : "5",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 2360,
+          "y" : 655
+        } ]
       }, {
         "description" : "6. Publish MeasurementPanelRecorded to Tracking events topic",
         "id" : "45",
@@ -1791,93 +2047,121 @@
         "description" : "7. Record broker acceptance; duplicates remain possible",
         "id" : "43",
         "order" : "7",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 2570,
+          "y" : 785
+        } ]
       } ],
       "title" : "Outbox - Tracking measurement recording"
     }, {
-      "automaticLayout" : {
-        "applied" : false,
-        "edgeSeparation" : 0,
-        "implementation" : "Graphviz",
-        "nodeSeparation" : 300,
-        "rankDirection" : "LeftRight",
-        "rankSeparation" : 300,
-        "vertices" : false
-      },
       "description" : "Two local PostgreSQL transactions surround external work. Outbox relay and command processing are different functions in the same worker app; no exactly-once inference claim.",
+      "dimensions" : {
+        "height" : 1558,
+        "width" : 4858
+      },
       "elementId" : "3",
       "elements" : [ {
         "id" : "5",
-        "x" : 0,
-        "y" : 0
+        "x" : 329,
+        "y" : 929
       }, {
         "id" : "6",
-        "x" : 0,
-        "y" : 0
+        "x" : 1045,
+        "y" : 1160
       }, {
         "id" : "7",
-        "x" : 0,
-        "y" : 0
+        "x" : 1050,
+        "y" : 600
       }, {
         "id" : "8",
-        "x" : 0,
-        "y" : 0
+        "x" : 1035,
+        "y" : 65
       }, {
         "id" : "11",
-        "x" : 0,
-        "y" : 0
+        "x" : 1785,
+        "y" : 600
       }, {
         "id" : "14",
-        "x" : 0,
-        "y" : 0
+        "x" : 2705,
+        "y" : 1075
       }, {
         "id" : "16",
-        "x" : 0,
-        "y" : 0
+        "x" : 3260,
+        "y" : 75
       }, {
         "id" : "17",
-        "x" : 0,
-        "y" : 0
+        "x" : 3240,
+        "y" : 755
       } ],
       "externalBoundariesVisible" : false,
       "key" : "AdvisorOutbox",
       "name" : "Dynamic View: Parameter Pilot",
       "order" : 8,
+      "paperSize" : "A3_Landscape",
       "relationships" : [ {
         "description" : "1. Submit authorised advice request",
         "id" : "31",
         "order" : "1",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 704,
+          "y" : 779
+        } ]
       }, {
         "description" : "2. COMMIT job + quota reservation + GenerateAdvice outbox",
         "id" : "38",
         "order" : "2",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 2345,
+          "y" : 140
+        } ]
       }, {
         "description" : "3. Return 202 and job Location after commit",
         "id" : "39",
         "order" : "3",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 404,
+          "y" : 779
+        } ]
       }, {
         "description" : "4. Relay reads pending GenerateAdvice command",
         "id" : "47",
         "order" : "4",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 2797,
+          "y" : 628
+        } ]
       }, {
         "description" : "5. Send stable command ID to Advisor advice queue",
         "id" : "51",
         "order" : "5",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 2280,
+          "y" : 1035
+        } ]
       }, {
         "description" : "6. Record dispatch after broker acceptance",
         "id" : "47",
         "order" : "6",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 2697,
+          "y" : 346
+        } ]
       }, {
         "description" : "7. Advice handler receives command; idempotent lease",
         "id" : "52",
         "order" : "7",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 2480,
+          "y" : 870
+        } ]
       }, {
         "description" : "8. Authorised profile and entitlement",
         "id" : "48",
@@ -1892,7 +2176,11 @@
         "description" : "10. Save submitted-input snapshot; retrieve pgvector references",
         "id" : "47",
         "order" : "10",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 2848,
+          "y" : 770
+        } ]
       }, {
         "description" : "11. Request text inference; no photos",
         "id" : "50",
@@ -1902,22 +2190,38 @@
         "description" : "12. COMMIT result + terminal job + quota settlement + AdviceCompleted outbox",
         "id" : "47",
         "order" : "12",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 2646,
+          "y" : 204
+        } ]
       }, {
         "description" : "13. Relay reads completion outbox",
         "id" : "47",
         "order" : "13",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 2898,
+          "y" : 911
+        } ]
       }, {
         "description" : "14. Publish AdviceCompleted to Advisor events topic",
         "id" : "51",
         "order" : "14",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 2025,
+          "y" : 1230
+        } ]
       }, {
         "description" : "15. Record completion dispatch after broker acceptance",
         "id" : "47",
         "order" : "15",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 2596,
+          "y" : 63
+        } ]
       } ],
       "title" : "Outbox - Advisor request and completion"
     }, {
@@ -1929,32 +2233,32 @@
       "elementId" : "3",
       "elements" : [ {
         "id" : "1",
-        "x" : 729,
-        "y" : 208
+        "x" : 1065,
+        "y" : 5
       }, {
         "id" : "4",
-        "x" : 704,
-        "y" : 908
+        "x" : 1045,
+        "y" : 670
       }, {
         "id" : "5",
-        "x" : 704,
-        "y" : 1508
+        "x" : 1025,
+        "y" : 1475
       }, {
         "id" : "6",
-        "x" : 0,
-        "y" : 0
+        "x" : 130,
+        "y" : 1810
       }, {
         "id" : "7",
-        "x" : 704,
-        "y" : 2108
+        "x" : 1115,
+        "y" : 2120
       }, {
         "id" : "10",
-        "x" : 0,
-        "y" : 0
+        "x" : 155,
+        "y" : 2695
       }, {
         "id" : "12",
-        "x" : 0,
-        "y" : 0
+        "x" : 100,
+        "y" : 855
       }, {
         "id" : "13",
         "x" : 1079,
@@ -1978,11 +2282,7 @@
         "description" : "2. Request tank-selected definitions/units/revisions",
         "id" : "25",
         "order" : "2",
-        "response" : false,
-        "vertices" : [ {
-          "x" : 929,
-          "y" : 1358
-        } ]
+        "response" : false
       }, {
         "description" : "3. Get authorised entry configuration",
         "id" : "29",
@@ -1999,8 +2299,8 @@
         "order" : "5",
         "response" : false,
         "vertices" : [ {
-          "x" : 1079,
-          "y" : 1358
+          "x" : 1495,
+          "y" : 1245
         } ]
       }, {
         "description" : "6. Validate shape/authentication",
@@ -2008,8 +2308,8 @@
         "order" : "6",
         "response" : false,
         "vertices" : [ {
-          "x" : 779,
-          "y" : 1958
+          "x" : 1140,
+          "y" : 1975
         } ]
       }, {
         "description" : "7. Batch all references once: tank eligibility, active revisions, units and authoritative rules",
@@ -2027,8 +2327,8 @@
         "order" : "9",
         "response" : false,
         "vertices" : [ {
-          "x" : 1079,
-          "y" : 1958
+          "x" : 1455,
+          "y" : 1950
         } ]
       }, {
         "description" : "10. Confirm saved, or preserve input and offer refresh/retry",
@@ -2036,8 +2336,8 @@
         "order" : "10",
         "response" : true,
         "vertices" : [ {
-          "x" : 779,
-          "y" : 1358
+          "x" : 960,
+          "y" : 1280
         } ]
       }, {
         "description" : "11. Relay function reads persisted outbox asynchronously",
@@ -2053,36 +2353,36 @@
       "title" : "Dynamic - Batched rule validation, measurement panel commit and outbox publication"
     }, {
       "dimensions" : {
-        "height" : 2858,
-        "width" : 1704
+        "height" : 2480,
+        "width" : 3508
       },
       "elementId" : "3",
       "elements" : [ {
         "id" : "1",
-        "x" : 1175,
-        "y" : 215
+        "x" : 710,
+        "y" : 30
       }, {
         "id" : "4",
-        "x" : 325,
-        "y" : 240
+        "x" : 695,
+        "y" : 610
       }, {
         "id" : "5",
-        "x" : 295,
-        "y" : 890
+        "x" : 710,
+        "y" : 1305
       }, {
         "id" : "7",
-        "x" : 320,
-        "y" : 1540
+        "x" : 1530,
+        "y" : 1315
       }, {
         "id" : "13",
-        "x" : 0,
-        "y" : 0
+        "x" : 2405,
+        "y" : 1325
       } ],
       "externalBoundariesVisible" : false,
       "key" : "TrendAnalysis",
       "name" : "Dynamic View: Parameter Pilot",
       "order" : 10,
-      "paperSize" : "A4_Portrait",
+      "paperSize" : "A4_Landscape",
       "relationships" : [ {
         "description" : "1. Opens trend view",
         "id" : "21",
@@ -2094,8 +2394,8 @@
         "order" : "2",
         "response" : false,
         "vertices" : [ {
-          "x" : 655,
-          "y" : 725
+          "x" : 1050,
+          "y" : 1080
         } ]
       }, {
         "description" : "3. Query measurements",
@@ -2103,8 +2403,8 @@
         "order" : "3",
         "response" : false,
         "vertices" : [ {
-          "x" : 704,
-          "y" : 1404
+          "x" : 1265,
+          "y" : 1345
         } ]
       }, {
         "description" : "4. Read historical data",
@@ -2112,8 +2412,8 @@
         "order" : "4",
         "response" : false,
         "vertices" : [ {
-          "x" : 531,
-          "y" : 889
+          "x" : 2145,
+          "y" : 1375
         } ]
       }, {
         "description" : "5. Return measurements",
@@ -2121,8 +2421,8 @@
         "order" : "5",
         "response" : true,
         "vertices" : [ {
-          "x" : 238,
-          "y" : 950
+          "x" : 2255,
+          "y" : 1600
         } ]
       }, {
         "description" : "6. Return trend data",
@@ -2130,11 +2430,8 @@
         "order" : "6",
         "response" : false,
         "vertices" : [ {
-          "x" : 420,
-          "y" : 1380
-        }, {
-          "x" : 490,
-          "y" : 1220
+          "x" : 1330,
+          "y" : 1535
         } ]
       }, {
         "description" : "7. Return trend data",
@@ -2142,57 +2439,57 @@
         "order" : "7",
         "response" : true,
         "vertices" : [ {
-          "x" : 425,
-          "y" : 705
+          "x" : 825,
+          "y" : 1115
         } ]
       } ],
       "title" : "Dynamic - View parameter trends"
     }, {
       "dimensions" : {
-        "height" : 2258,
-        "width" : 3170
+        "height" : 2480,
+        "width" : 3508
       },
       "elementId" : "3",
       "elements" : [ {
         "id" : "1",
-        "x" : 1695,
-        "y" : 10
+        "x" : 195,
+        "y" : 15
       }, {
         "id" : "4",
-        "x" : 1675,
-        "y" : 660
+        "x" : 185,
+        "y" : 610
       }, {
         "id" : "5",
-        "x" : 1700,
-        "y" : 1185
+        "x" : 185,
+        "y" : 1245
       }, {
         "id" : "6",
-        "x" : 0,
-        "y" : 0
+        "x" : 1050,
+        "y" : 615
       }, {
         "id" : "7",
-        "x" : 0,
-        "y" : 0
+        "x" : 1050,
+        "y" : 1215
       }, {
         "id" : "8",
-        "x" : 1685,
+        "x" : 1065,
         "y" : 1805
       }, {
         "id" : "11",
-        "x" : 0,
-        "y" : 0
+        "x" : 1875,
+        "y" : 1215
       }, {
         "id" : "14",
-        "x" : 0,
-        "y" : 0
+        "x" : 2645,
+        "y" : 970
       }, {
         "id" : "16",
-        "x" : 685,
-        "y" : 1765
+        "x" : 2605,
+        "y" : 1800
       }, {
         "id" : "17",
-        "x" : 0,
-        "y" : 0
+        "x" : 2620,
+        "y" : 520
       } ],
       "externalBoundariesVisible" : false,
       "key" : "MaintenanceAdvice",
@@ -2215,8 +2512,8 @@
         "order" : "3",
         "response" : false,
         "vertices" : [ {
-          "x" : 1767,
-          "y" : 1641
+          "x" : 785,
+          "y" : 1770
         } ]
       }, {
         "description" : "4. Commit job/quota reservation/outbox",
@@ -2229,8 +2526,8 @@
         "order" : "5",
         "response" : false,
         "vertices" : [ {
-          "x" : 2067,
-          "y" : 1648
+          "x" : 920,
+          "y" : 1560
         } ]
       }, {
         "description" : "6. Relay persisted GenerateAdvice command",
@@ -2238,8 +2535,8 @@
         "order" : "6",
         "response" : false,
         "vertices" : [ {
-          "x" : 567,
-          "y" : 1032
+          "x" : 2370,
+          "y" : 1755
         } ]
       }, {
         "description" : "7. Send command to Advisor queue",
@@ -2247,8 +2544,8 @@
         "order" : "7",
         "response" : false,
         "vertices" : [ {
-          "x" : 225,
-          "y" : 300
+          "x" : 2415,
+          "y" : 1205
         } ]
       }, {
         "description" : "8. Advice function receives command; claim lease idempotently",
@@ -2256,8 +2553,8 @@
         "order" : "8",
         "response" : false,
         "vertices" : [ {
-          "x" : 225,
-          "y" : 0
+          "x" : 2440,
+          "y" : 995
         } ]
       }, {
         "description" : "9. Get scoped profile/entitlement",
@@ -2275,22 +2572,26 @@
         "order" : "11",
         "response" : false,
         "vertices" : [ {
-          "x" : 707,
-          "y" : 978
+          "x" : 2655,
+          "y" : 1460
         } ]
       }, {
         "description" : "12. Infer text advice without photos",
         "id" : "50",
         "order" : "12",
-        "response" : false
+        "response" : false,
+        "vertices" : [ {
+          "x" : 2265,
+          "y" : 815
+        } ]
       }, {
         "description" : "13. Validate/store result, settle quota and write completion outbox",
         "id" : "47",
         "order" : "13",
         "response" : false,
         "vertices" : [ {
-          "x" : 427,
-          "y" : 1086
+          "x" : 2455,
+          "y" : 1555
         } ]
       } ],
       "title" : "Dynamic - Registered advice job processed by Advisor Async Worker"
@@ -2322,12 +2623,12 @@
         "y" : 2840
       }, {
         "id" : "13",
-        "x" : 755,
-        "y" : 2265
+        "x" : 1180,
+        "y" : 2290
       }, {
         "id" : "14",
-        "x" : 755,
-        "y" : 2265
+        "x" : 1180,
+        "y" : 2825
       }, {
         "id" : "15",
         "x" : 245,
@@ -2378,8 +2679,8 @@
         "order" : "7",
         "response" : false,
         "vertices" : [ {
-          "x" : 825,
-          "y" : 2804
+          "x" : 930,
+          "y" : 3090
         } ]
       }, {
         "description" : "8. Tracking photo function receives command idempotently",
@@ -2387,8 +2688,8 @@
         "order" : "8",
         "response" : false,
         "vertices" : [ {
-          "x" : 604,
-          "y" : 2600
+          "x" : 860,
+          "y" : 2910
         } ]
       }, {
         "description" : "9. Validate original; create cropped 400x400 thumbnail and padded 1200x800 hero WebP; retain original",
@@ -2401,8 +2702,8 @@
         "order" : "10",
         "response" : false,
         "vertices" : [ {
-          "x" : 604,
-          "y" : 2600
+          "x" : 900,
+          "y" : 2395
         } ]
       } ],
       "title" : "Dynamic - Upload via Tracking and generate WebP images"
@@ -2489,7 +2790,7 @@
     } ],
     "systemContextViews" : [ {
       "automaticLayout" : {
-        "applied" : false,
+        "applied" : true,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
@@ -2497,26 +2798,30 @@
         "rankSeparation" : 300,
         "vertices" : false
       },
+      "dimensions" : {
+        "height" : 1500,
+        "width" : 2300
+      },
       "elements" : [ {
         "id" : "1",
-        "x" : 0,
-        "y" : 0
+        "x" : 200,
+        "y" : 159
       }, {
         "id" : "2",
-        "x" : 0,
-        "y" : 0
+        "x" : 200,
+        "y" : 859
       }, {
         "id" : "3",
-        "x" : 0,
-        "y" : 0
+        "x" : 900,
+        "y" : 559
       }, {
         "id" : "19",
-        "x" : 0,
-        "y" : 0
+        "x" : 1650,
+        "y" : 259
       }, {
         "id" : "20",
-        "x" : 0,
-        "y" : 0
+        "x" : 1650,
+        "y" : 859
       } ],
       "enterpriseBoundaryVisible" : true,
       "key" : "SystemContext",
