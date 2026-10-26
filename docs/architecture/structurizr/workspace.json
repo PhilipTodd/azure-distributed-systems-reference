@@ -4,7 +4,7 @@
   "documentation" : { },
   "id" : 1,
   "lastModifiedAgent" : "structurizr-ui",
-  "lastModifiedDate" : "2026-10-26T01:30:22Z",
+  "lastModifiedDate" : "2026-10-26T02:06:06Z",
   "model" : {
     "deploymentNodes" : [ {
       "children" : [ {
@@ -1075,7 +1075,7 @@
   "views" : {
     "configuration" : {
       "branding" : { },
-      "lastSavedView" : "CustomerIdentity",
+      "lastSavedView" : "AquariumContainers",
       "metadataSymbols" : "SquareBrackets",
       "styles" : {
         "elements" : [ {
@@ -1107,8 +1107,8 @@
     "containerViews" : [ {
       "description" : "Aquarium API commits owned state plus outbox in schema Aquarium within shared ReferenceProjectsDb synchronously. Aquarium Async Worker relays pending outbox messages to the shared Service Bus namespace.",
       "dimensions" : {
-        "height" : 1435,
-        "width" : 3140
+        "height" : 2480,
+        "width" : 3508
       },
       "elements" : [ {
         "id" : "4",
@@ -1116,29 +1116,30 @@
         "y" : 170
       }, {
         "id" : "5",
-        "x" : 970,
-        "y" : 162
+        "x" : 295,
+        "y" : 610
       }, {
         "id" : "6",
-        "x" : 1720,
-        "y" : 162
+        "x" : 1010,
+        "y" : 610
       }, {
         "id" : "9",
-        "x" : 2450,
-        "y" : 795
+        "x" : 1645,
+        "y" : 420
       }, {
         "id" : "12",
-        "x" : 2455,
-        "y" : 165
+        "x" : 2310,
+        "y" : 1080
       }, {
         "id" : "14",
-        "x" : 1720,
-        "y" : 760
+        "x" : 2730,
+        "y" : 310
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
       "key" : "AquariumContainers",
       "name" : "Container View: Parameter Pilot",
       "order" : 2,
+      "paperSize" : "A4_Landscape",
       "relationships" : [ {
         "id" : "25"
       }, {
@@ -1150,14 +1151,14 @@
       }, {
         "id" : "41",
         "vertices" : [ {
-          "x" : 2280,
-          "y" : 1050
+          "x" : 2420,
+          "y" : 685
         } ]
       }, {
         "id" : "42",
         "vertices" : [ {
-          "x" : 2300,
-          "y" : 765
+          "x" : 2335,
+          "y" : 335
         } ]
       } ],
       "softwareSystemId" : "3",
@@ -1263,32 +1264,32 @@
         "y" : 1215
       }, {
         "id" : "6",
-        "x" : 1270,
-        "y" : 540
+        "x" : 1260,
+        "y" : 1380
       }, {
         "id" : "7",
-        "x" : 1320,
-        "y" : 2010
+        "x" : 1285,
+        "y" : 2080
       }, {
         "id" : "8",
-        "x" : 1310,
-        "y" : 1315
+        "x" : 1270,
+        "y" : 620
       }, {
         "id" : "11",
-        "x" : 2535,
-        "y" : 930
+        "x" : 2780,
+        "y" : 1530
       }, {
         "id" : "14",
-        "x" : 2155,
-        "y" : 285
+        "x" : 2775,
+        "y" : 640
       }, {
         "id" : "16",
-        "x" : 2895,
-        "y" : 1500
+        "x" : 1980,
+        "y" : 1100
       }, {
         "id" : "17",
-        "x" : 2880,
-        "y" : 285
+        "x" : 2780,
+        "y" : 2075
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
       "key" : "AdvisorContainers",
@@ -1307,39 +1308,51 @@
       }, {
         "id" : "31",
         "vertices" : [ {
-          "x" : 1145,
-          "y" : 1475
+          "x" : 1210,
+          "y" : 1205
         } ]
       }, {
-        "id" : "34",
-        "vertices" : [ {
-          "x" : 2215,
-          "y" : 1085
-        } ]
+        "id" : "34"
       }, {
         "id" : "35"
       }, {
         "id" : "37"
       }, {
-        "id" : "38"
+        "id" : "38",
+        "vertices" : [ {
+          "x" : 1760,
+          "y" : 990
+        } ]
       }, {
         "id" : "39",
         "vertices" : [ {
-          "x" : 1150,
-          "y" : 1280
+          "x" : 1020,
+          "y" : 1010
         } ]
       }, {
         "id" : "47"
       }, {
         "id" : "48"
       }, {
-        "id" : "49"
+        "id" : "49",
+        "vertices" : [ {
+          "x" : 2245,
+          "y" : 2055
+        } ]
       }, {
         "id" : "50"
       }, {
-        "id" : "51"
+        "id" : "51",
+        "vertices" : [ {
+          "x" : 3120,
+          "y" : 1240
+        } ]
       }, {
-        "id" : "52"
+        "id" : "52",
+        "vertices" : [ {
+          "x" : 2795,
+          "y" : 1190
+        } ]
       } ],
       "softwareSystemId" : "3",
       "title" : "Containers - Advisor Service"

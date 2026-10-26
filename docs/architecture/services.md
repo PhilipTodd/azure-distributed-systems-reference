@@ -56,3 +56,7 @@ Each service API is its own containerised App Service app on the shared Linux pl
 ADR-002 accepts Domain, Application, Infrastructure and API/Functions host roles; service API/worker reuse Application/Domain code. Domain has no vendor/persistence/HTTP dependency, Application defines narrow interfaces, Infrastructure adapts clients and hosts compose. Shared technical primitives only across services; no mandated per-class interfaces/repositories.
 
 ADR-028 accepts .NET 10/C# 14, relational EF Core 10, isolated Functions compatibility gate and direct Cosmos SDK for Tracking Infrastructure. Exact patches/providers remain to be verified. Angular 22 client SPA/strict TypeScript and Vitest are accepted frontend baseline.
+
+## Accepted service separation - 26 October 2026
+
+The human owner approved the Aquarium, Tracking and Advisor service separation in ADR-001. Other proposals in this document retain their existing status; detailed commercial/module boundaries and release scheduling are separate decisions.
