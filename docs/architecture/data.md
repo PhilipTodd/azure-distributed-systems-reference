@@ -1,6 +1,6 @@
 # Data architecture
 
-Version: 0.8 | Date: 21 October 2026 | Status: Draft specification; authorised decisions identified below
+Version: 0.9 | Date: 26 October 2026 | Status: Draft specification; authorised decisions identified below
 
 ## Approval scope
 
@@ -69,3 +69,9 @@ Tracking uses Azure Cosmos DB .NET SDK in Infrastructure, not EF Core Cosmos pro
 MEAS-09: Aquarium validation is the definition-consistency point for a new panel. Aquarium validates submitted revisions and returns authoritative rules; Tracking applies those rules and persists exact definition IDs/revisions with the panel. A definition change after successful validation does not invalidate that accepted panel; the next new submission uses then-current definitions. Retain historical definition revisions so saved readings remain interpretable. A stale revision detected during validation returns the accepted 409 with input preservation.
 
 No second Aquarium validation call or distributed SQL/Cosmos transaction is introduced. This consistency rule is limited to definition changes; it does not waive token validation or tank-ownership checks. Existing fail-closed dependency behaviour and same-container/partition local atomicity remain. Timing/retirement scenarios must be verified; no executable behaviour changed.
+
+## Accepted measurement versioning — 26 October 2026
+
+[ADR-006](decisions/adr-006.md) accepts measurement-only record versioning without full event sourcing. Stable measurement IDs group uniquely identified versions with Active, Superseded or Deleted status and structured append-only History entries. Corrections atomically supersede the current version and create its replacement; restoration creates a new version. Use optimistic concurrency and operation-ID deduplication, preserve user input on conflicts and validate the resulting panel before committing. Measurement time changes only when explicitly corrected.
+
+Current charts/reports/calculations read Active versions; historical advice retains exact input values and version IDs. Retain all measurement versions/history initially without automatic expiry, subject to review before production. Permanent-erasure permissions and dependent snapshot treatment remain to be defined before erasure implementation. This does not extend retention or versioning policy to other Tracking record types. Exact physical panel/version representation and transactional feasibility require verification within existing ownership and partition boundaries. See the [approval record](../engineering/authorised-decisions-2026-10-26.md).
