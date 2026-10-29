@@ -3,8 +3,7 @@
   "description" : "Cloud-native aquarium parameter tracking and AI-assisted maintenance advice.",
   "documentation" : { },
   "id" : 1,
-  "lastModifiedAgent" : "structurizr-ui",
-  "lastModifiedDate" : "2026-10-26T02:06:06Z",
+  "lastModifiedDate" : "2026-10-27T21:55:47Z",
   "model" : {
     "deploymentNodes" : [ {
       "children" : [ {
@@ -16,7 +15,7 @@
             "id" : "64",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.resourceGroup.webHosting.29762ee9-add8-4d04-9942-dee74216e949"
+              "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.resourceGroup.webHosting.92c7b1fe-8da1-4ae8-962e-948ac8f66cba"
             },
             "relationships" : [ {
               "description" : "Calls",
@@ -34,7 +33,7 @@
           "instances" : "1",
           "name" : "Static Web Apps",
           "properties" : {
-            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.resourceGroup.webHosting"
+            "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.resourceGroup.webHosting"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -45,7 +44,7 @@
             "id" : "66",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.resourceGroup.inference.0747edf5-0bd9-4133-99fe-269925f429d7"
+              "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.resourceGroup.inference.1b0a698d-67b7-4925-9708-50ba5a1778e4"
             },
             "tags" : "Container Instance"
           } ],
@@ -55,7 +54,7 @@
           "instances" : "1",
           "name" : "Inference Hosting",
           "properties" : {
-            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.resourceGroup.inference"
+            "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.resourceGroup.inference"
           },
           "tags" : "Element,Deployment Node"
         } ],
@@ -65,7 +64,7 @@
         "instances" : "1",
         "name" : "Parameter Pilot Resource Group",
         "properties" : {
-          "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.resourceGroup"
+          "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.resourceGroup"
         },
         "tags" : "Element,Deployment Node"
       }, {
@@ -77,7 +76,7 @@
             "id" : "69",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedGateway.95a459df-49b5-4cd1-a77a-82a335828953"
+              "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedGateway.8babc2be-5156-4178-b40e-a319e55c77e8"
             },
             "relationships" : [ {
               "description" : "Validates token and routes; Aquarium independently validates",
@@ -109,7 +108,7 @@
           "instances" : "1",
           "name" : "Shared APIM",
           "properties" : {
-            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedGateway"
+            "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedGateway"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -121,7 +120,7 @@
               "id" : "73",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedSql.aquariumSchema.b8b8b91b-9a93-4e23-94fb-f53af65c5344"
+                "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedSql.aquariumSchema.bd424776-3732-421b-86ec-649f7189e25f"
               },
               "tags" : "Container Instance"
             } ],
@@ -131,7 +130,7 @@
             "instances" : "1",
             "name" : "Aquarium schema",
             "properties" : {
-              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedSql.aquariumSchema"
+              "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedSql.aquariumSchema"
             },
             "tags" : "Element,Deployment Node"
           } ],
@@ -141,7 +140,7 @@
           "instances" : "1",
           "name" : "ReferenceProjectsDb",
           "properties" : {
-            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedSql"
+            "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedSql"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -153,7 +152,7 @@
               "id" : "76",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedCosmos.trackingContainers.b414e15a-12f5-46c1-9aff-e567ca9568fb"
+                "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedCosmos.trackingContainers.d7d5f51e-aeea-4799-a5ce-f060f65b128f"
               },
               "tags" : "Container Instance"
             } ],
@@ -163,7 +162,7 @@
             "instances" : "1",
             "name" : "Tracking-owned containers",
             "properties" : {
-              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedCosmos.trackingContainers"
+              "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedCosmos.trackingContainers"
             },
             "tags" : "Element,Deployment Node"
           } ],
@@ -173,7 +172,7 @@
           "instances" : "1",
           "name" : "ReferenceProjects Cosmos database",
           "properties" : {
-            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedCosmos"
+            "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedCosmos"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -184,7 +183,7 @@
             "id" : "78",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedStorage.afb57027-4c60-4586-8f60-c454e1d31282"
+              "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedStorage.0fb398a1-3c7e-4b15-a917-f91e0710f7ca"
             },
             "tags" : "Container Instance"
           } ],
@@ -194,7 +193,7 @@
           "instances" : "1",
           "name" : "Shared Blob Storage Account",
           "properties" : {
-            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedStorage"
+            "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedStorage"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -205,7 +204,7 @@
             "id" : "80",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPostgres.2f8d0564-c605-4b45-b50e-11448297fc33"
+              "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedPostgres.634efa42-0c4e-4535-95ed-0fa04cabdf73"
             },
             "tags" : "Container Instance"
           } ],
@@ -215,7 +214,7 @@
           "instances" : "1",
           "name" : "Shared PostgreSQL Flexible Server",
           "properties" : {
-            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPostgres"
+            "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedPostgres"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -226,7 +225,7 @@
             "id" : "82",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedMessaging.28975e16-658d-4efb-9b0b-5853c4611247"
+              "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedMessaging.2037aff6-3d0a-4bfb-80a6-b6aefe9f8151"
             },
             "relationships" : [ {
               "description" : "Delivers only Aquarium-addressed work/relevant subscriptions",
@@ -255,7 +254,7 @@
           "instances" : "1",
           "name" : "Shared Service Bus Namespace",
           "properties" : {
-            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedMessaging"
+            "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedMessaging"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -266,7 +265,7 @@
             "id" : "84",
             "instanceId" : 1,
             "properties" : {
-              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedMonitoring.065c1672-d4b4-4203-b1cf-f32c96432d37"
+              "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedMonitoring.f8f65cdf-7bc7-4367-ab31-02927404aab6"
             },
             "tags" : "Container Instance"
           } ],
@@ -276,7 +275,7 @@
           "instances" : "1",
           "name" : "Shared Monitoring",
           "properties" : {
-            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedMonitoring"
+            "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedMonitoring"
           },
           "tags" : "Element,Deployment Node"
         }, {
@@ -288,7 +287,7 @@
               "id" : "87",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.aquariumApp.669801d1-f04f-4d15-a521-6827c1ce7aea"
+                "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedPlan.aquariumApp.50b87d86-0e4f-4a11-b12b-613b395fde3e"
               },
               "relationships" : [ {
                 "description" : "Synchronously reads/writes owned state; atomically writes outbox",
@@ -311,7 +310,7 @@
             "instances" : "1",
             "name" : "Aquarium API App",
             "properties" : {
-              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.aquariumApp"
+              "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedPlan.aquariumApp"
             },
             "tags" : "Element,Deployment Node"
           }, {
@@ -322,7 +321,7 @@
               "id" : "92",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.trackingApp.907a18f1-7e4b-4f72-af0a-2b7a39d47d47"
+                "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedPlan.trackingApp.9ae5286f-bb31-4ce5-99e3-0def30923809"
               },
               "relationships" : [ {
                 "description" : "Returns saved data or photo job status",
@@ -366,7 +365,7 @@
             "instances" : "1",
             "name" : "Tracking API App",
             "properties" : {
-              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.trackingApp"
+              "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedPlan.trackingApp"
             },
             "tags" : "Element,Deployment Node"
           }, {
@@ -377,7 +376,7 @@
               "id" : "100",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.advisorApp.dd5af6dc-ff7c-4be2-be07-2c121bb71ab7"
+                "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedPlan.advisorApp.f3761e55-a560-4351-bb38-74a0d231fd8d"
               },
               "relationships" : [ {
                 "description" : "Returns 202 job Location or authorised history/result",
@@ -414,7 +413,7 @@
             "instances" : "1",
             "name" : "Advisor API App",
             "properties" : {
-              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.advisorApp"
+              "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedPlan.advisorApp"
             },
             "tags" : "Element,Deployment Node"
           }, {
@@ -425,7 +424,7 @@
               "id" : "107",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.aquariumFunctions.6b7a492c-27aa-4d37-9a63-7978f8f01587"
+                "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedPlan.aquariumFunctions.463db07b-1438-4857-bea5-248e6b3bbb50"
               },
               "relationships" : [ {
                 "description" : "Reads local outbox; updates only Aquarium-owned task/inbox/projection state",
@@ -454,7 +453,7 @@
             "instances" : "1",
             "name" : "Aquarium Function App",
             "properties" : {
-              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.aquariumFunctions"
+              "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedPlan.aquariumFunctions"
             },
             "tags" : "Element,Deployment Node"
           }, {
@@ -465,7 +464,7 @@
               "id" : "113",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.trackingFunctions.854fab35-fa07-45ed-a6cc-300cdcfed01f"
+                "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedPlan.trackingFunctions.28459a20-e636-446a-ac7b-a24050357066"
               },
               "relationships" : [ {
                 "description" : "Relays Tracking outbox; updates owned processing status/inbox/history",
@@ -500,7 +499,7 @@
             "instances" : "1",
             "name" : "Tracking Function App",
             "properties" : {
-              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.trackingFunctions"
+              "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedPlan.trackingFunctions"
             },
             "tags" : "Element,Deployment Node"
           }, {
@@ -511,7 +510,7 @@
               "id" : "120",
               "instanceId" : 1,
               "properties" : {
-                "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.advisorFunctions.5eff7016-38e3-494d-9d9e-ccf5fbb28c1e"
+                "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedPlan.advisorFunctions.dbcb41d6-76a4-4955-9cad-22ec3ecc3605"
               },
               "relationships" : [ {
                 "description" : "Requests text inference; no photo input",
@@ -561,7 +560,7 @@
             "instances" : "1",
             "name" : "Advisor Function App",
             "properties" : {
-              "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan.advisorFunctions"
+              "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedPlan.advisorFunctions"
             },
             "tags" : "Element,Deployment Node"
           } ],
@@ -571,7 +570,7 @@
           "instances" : "1",
           "name" : "Existing Shared Linux App Service Plan",
           "properties" : {
-            "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform.sharedPlan"
+            "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform.sharedPlan"
           },
           "tags" : "Element,Deployment Node"
         } ],
@@ -581,7 +580,7 @@
         "instances" : "1",
         "name" : "Shared Development Platform",
         "properties" : {
-          "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure.sharedPlatform"
+          "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure.sharedPlatform"
         },
         "tags" : "Element,Deployment Node"
       } ],
@@ -591,7 +590,7 @@
       "instances" : "1",
       "name" : "Microsoft Azure - Development",
       "properties" : {
-        "structurizr.dsl.identifier" : "31831ae0-2d94-48bb-b34c-454a7b5c08d1.azure"
+        "structurizr.dsl.identifier" : "b8e4b4f0-57aa-476a-807b-84887560c223.azure"
       },
       "tags" : "Element,Deployment Node"
     } ],
@@ -1067,6 +1066,7 @@
   },
   "name" : "Parameter Pilot",
   "properties" : {
+    "structurizr.inspection.error" : "65",
     "structurizr.inspection.info" : "0",
     "structurizr.inspection.ignore" : "0",
     "structurizr.inspection.error" : "65",
@@ -1076,7 +1076,6 @@
     "configuration" : {
       "branding" : { },
       "lastSavedView" : "AquariumContainers",
-      "metadataSymbols" : "SquareBrackets",
       "styles" : {
         "elements" : [ {
           "border" : "Dashed",
