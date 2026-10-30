@@ -46,3 +46,15 @@ The accepted dedicated-group approach is recorded in the [owner decision record]
 ## Administrator deployment outcome
 
 Shared-platform deployment `platform-sql-entra-admin-20261030-051009` succeeded. The repeatable directory bootstrap, existing Bicep entry point, nine passing offline tests and safe live evidence are documented in the platform repository at `docs/sql-entra-administration.md` and `docs/evidence/sql-entra-admin-2026-10-30.json`. This completes the administrator prerequisite, not the Stage 1 scoped-access gate.
+
+## Next scoped-access prerequisite check — 30 October 2026
+
+After the administrator setup, live metadata inspection confirmed:
+
+- rg-parameterpilot-dev contains only stapp-adt-parameterpilot-dev (Static Web App). No PP App Service apps or user-assigned managed identities were returned.
+- ReferenceProjectsDb has no Aquarium schema and no Aquarium schema objects. Only system metadata was queried; no customer records were read or changed.
+- Therefore no Aquarium runtime/migration principal or Tracking runtime principal is available for effective scoped-access tests. Do not substitute the privileged owner, invent principal IDs or grant access to unused worker identities.
+
+The next dependency is PP infrastructure preparation through its existing main.bicep: actual Aquarium/Tracking hosting and identities, the accepted service-owned configuration/vault instances, and the approved Tracking container. Prepare concrete settings/preview for review, preserving shared B1 and other products. Create schema/contained users and narrow migration/runtime grants only against verified identities and approved objects; do not grant db_owner or general schema-wide DML over migration metadata merely to make a connection test pass. Application feature implementation remains a separate gate.
+
+Publication evidence: PP readiness commit 18df4cb and shared-platform administrator commit e2b28b4 were pushed to their task branches. Platform [Validate Infrastructure](https://github.com/PhilipTodd/azure-reference-platform/actions/runs/41008801397) passed for e2b28b4; no workflow run was returned for the PP task branch. PP local checks passed schema meta-validation, 12 accepted seed shapes and 42 structural cases; these do not verify runtime or Azure access isolation.
