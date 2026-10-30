@@ -14,6 +14,13 @@ The [Engineering & Architecture Pack](docs/engineering/architecture-pack.md) is 
 
 Standards: [engineering standards](docs/engineering/standards.md). Completion: [Definition of Done](docs/engineering/definition-of-done.md). Agent boundaries: [governance](docs/engineering/agent-governance.md).
 
+## Git visibility and change summaries — owner request, 30 October 2026
+
+- Inform the owner before running any Git-related command or task, including read-only status/diff/log checks, branch operations, commits, fetch/pull, merges/rebases, pushes and pull-request actions. Name the action and its purpose; related read-only checks may be announced together with each command identified.
+- Report the outcome, including any new branch name, merge result, remote push, pull request creation or completion, and failures. Do not perform these silently. Visibility does not itself grant permission to merge, push, deploy or complete a pull request.
+- Give a brief reviewable summary of every codebase change: affected files/areas, what changed and why, checks performed and any unavailable/failed verification. State when no codebase changes were made.
+- Preserve the existing task branch and unrelated work unless a change is necessary and authorised. Never self-approve or merge directly to main.
+
 ## Architecture source of truth
 - The authoritative C4 architecture model is maintained in docs/architecture/structurizr/.
 - AI agents must consult the existing Structurizr DSL before creating or modifying architecture documentation.

@@ -36,6 +36,7 @@ Canonical ADR directory: `docs/architecture/decisions/`. ADR-001, ADR-002, ADR-0
 | [ADR-028](adr-028.md) | Backend, Tracking persistence and frontend technology baseline |
 | [ADR-029](adr-029.md) | Hybrid Local dependencies and individual developer identity |
 | [ADR-030](adr-030.md) | Automated testing and browser verification |
+| [ADR-031](adr-031.md) | Accepted: PP-owned service-isolated configuration/vault instances; deployment deferred to PP Bicep |
 
 Acceptance requires context/options review, consequences, readiness verification and recorded human approval. Superseded decisions retain links/history. Legacy decision documents remain references until deliberately reconciled.
 

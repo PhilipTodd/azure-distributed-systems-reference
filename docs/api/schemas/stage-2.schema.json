@@ -1,0 +1,572 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Parameter Pilot Stage 2 accepted contract baseline",
+  "description": "Wire schemas accepted under SPEC-02 on 29 October 2026. Not application implementation or runtime verification. Select a named $defs entry.",
+  "$defs": {
+    "ProfileUpdate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "measurementSystem"
+      ],
+      "properties": {
+        "measurementSystem": {
+          "enum": [
+            "metric",
+            "usCustomary",
+            "ukImperial"
+          ]
+        }
+      }
+    },
+    "CompletedProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "measurementSystem",
+        "completed"
+      ],
+      "properties": {
+        "measurementSystem": {
+          "enum": [
+            "metric",
+            "usCustomary",
+            "ukImperial"
+          ]
+        },
+        "completed": {
+          "const": true
+        }
+      }
+    },
+    "Profile": {
+      "oneOf": [
+        { "$ref": "#/$defs/CompletedProfile" },
+        { "type": "object", "additionalProperties": false,
+          "required": ["completed"], "properties": { "completed": { "const": false } } }
+      ]
+    },
+    "IdempotencyKey": { "type": "string", "minLength": 16, "maxLength": 128 },
+    "Volume": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "unitCode"
+      ],
+      "properties": {
+        "value": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000,
+          "multipleOf": 0.000001
+        },
+        "unitCode": {
+          "enum": [
+            "L",
+            "gal-US",
+            "gal-UK"
+          ]
+        }
+      }
+    },
+    "TankCreate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "waterType",
+        "timezone"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "\\S"
+        },
+        "waterType": {
+          "enum": [
+            "freshwater",
+            "marine"
+          ]
+        },
+        "timezone": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "operatingWaterVolume": {
+          "$ref": "#/$defs/Volume"
+        }
+      }
+    },
+    "Tank": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "waterType",
+        "timezone",
+        "id",
+        "createdAt"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "\\S"
+        },
+        "waterType": {
+          "enum": [
+            "freshwater",
+            "marine"
+          ]
+        },
+        "timezone": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "operatingWaterVolume": {
+          "$ref": "#/$defs/Volume"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        }
+      }
+    },
+    "DefinitionPair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "parameterDefinitionId",
+        "definitionRevision"
+      ],
+      "properties": {
+        "parameterDefinitionId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "definitionRevision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        }
+      }
+    },
+    "ReadingInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "parameterDefinitionId",
+        "definitionRevision",
+        "value",
+        "unitCode",
+        "qualifier"
+      ],
+      "properties": {
+        "parameterDefinitionId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "definitionRevision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "value": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000,
+          "multipleOf": 0.000001
+        },
+        "unitCode": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "qualifier": {
+          "enum": [
+            "exact",
+            "belowDetectionLimit",
+            "aboveDetectionLimit"
+          ]
+        }
+      }
+    },
+    "PanelCreate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "measuredAt",
+        "readings"
+      ],
+      "properties": {
+        "measuredAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "readings": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 50,
+          "items": {
+            "$ref": "#/$defs/ReadingInput"
+          }
+        },
+        "testMethod": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 4000
+        }
+      }
+    },
+    "Panel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "measuredAt",
+        "readings",
+        "id",
+        "tankId",
+        "recordedAt",
+        "revision"
+      ],
+      "properties": {
+        "measuredAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+        },
+        "readings": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 50,
+          "items": {
+            "$ref": "#/$defs/ReadingInput"
+          }
+        },
+        "testMethod": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "tankId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "recordedAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        }
+      }
+    },
+    "SelectionUpdate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "parameterDefinitionIds"
+      ],
+      "properties": {
+        "parameterDefinitionIds": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 50,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      }
+    },
+    "UnitRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unitCode",
+        "displayLabel",
+        "decimalPlaces"
+      ],
+      "properties": {
+        "unitCode": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "displayLabel": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "minimum": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000,
+          "multipleOf": 0.000001
+        },
+        "maximum": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000,
+          "multipleOf": 0.000001
+        },
+        "decimalPlaces": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 6
+        }
+      }
+    },
+    "ParameterDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "parameterDefinitionId",
+        "definitionRevision",
+        "family",
+        "displayName",
+        "quantity",
+        "reportingBasis",
+        "allowedUnits",
+        "qualifiers"
+      ],
+      "properties": {
+        "parameterDefinitionId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "definitionRevision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "family": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "quantity": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "reportingBasis": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "allowedUnits": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 10,
+          "items": {
+            "$ref": "#/$defs/UnitRule"
+          }
+        },
+        "qualifiers": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "exact",
+              "belowDetectionLimit",
+              "aboveDetectionLimit"
+            ]
+          }
+        }
+      }
+    },
+    "DefinitionList": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tankId",
+        "definitions"
+      ],
+      "properties": {
+        "tankId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "definitions": {
+          "type": "array",
+          "maxItems": 50,
+          "items": {
+            "$ref": "#/$defs/ParameterDefinition"
+          }
+        }
+      }
+    },
+    "ValidationRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "definitions"
+      ],
+      "properties": {
+        "definitions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 50,
+          "items": {
+            "$ref": "#/$defs/DefinitionPair"
+          }
+        }
+      }
+    },
+    "ValidationContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tankId",
+        "profileCompleted",
+        "definitions"
+      ],
+      "properties": {
+        "tankId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "profileCompleted": {
+          "const": true
+        },
+        "definitions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 50,
+          "items": {
+            "$ref": "#/$defs/ParameterDefinition"
+          }
+        }
+      }
+    },
+    "Problem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "title",
+        "status",
+        "code",
+        "traceId"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "format": "uri"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "status": {
+          "type": "integer",
+          "minimum": 400,
+          "maximum": 599
+        },
+        "code": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "traceId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "detail": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "instance": {
+          "type": "string",
+          "maxLength": 2048
+        },
+        "errors": {
+          "type": "array",
+          "maxItems": 100,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "code",
+              "message"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "code": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "message": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              }
+            }
+          }
+        }
+      }
+    },
+    "SeedCatalogue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "definitions"
+      ],
+      "properties": {
+        "status": {
+          "const": "accepted-baseline-not-installed"
+        },
+        "definitions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ParameterDefinition"
+          }
+        }
+      }
+    }
+  }
+}

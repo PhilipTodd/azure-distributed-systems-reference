@@ -1,11 +1,11 @@
 # Configuration and secrets
 
-Version: 0.3 | Date: 20 October 2026 | Status: Accepted storage/access arrangement; detailed policies Draft
+Version: 0.4 | Date: 30 October 2026 | Status: Accepted PP-exclusive ownership/isolation; deployment deferred to PP Bicep
 
 | Information | Accepted location |
 | --- | --- |
-| Deployed nonsecret settings / feature flags | Shared Azure App Configuration |
-| Unavoidable secrets | Shared Key Vault |
+| Deployed nonsecret settings / feature flags | PP-owned service-isolated Azure App Configuration |
+| Unavoidable secrets | PP-owned service-isolated Key Vault |
 | Secret pointers | Key Vault references where supported; no secret value in App Configuration |
 | Local nonsecret defaults | Version-controlled configuration |
 | Local dev secrets | .NET User Secrets or equivalent untracked local settings |
@@ -13,7 +13,7 @@ Version: 0.3 | Date: 20 October 2026 | Status: Accepted storage/access arrangeme
 
 Managed identities are the preferred deployed access mechanism. Each API/worker receives only the required content access. Local User Secrets is unencrypted; protect developer accounts/machines and never use it as production vault hosting.
 
-Platform owns shared service lifecycle/security; app owns its scoped content/approved assignments. Verify actual enforceable separation; labels/prefixes do not restrict access. Separate instances require appropriate owner/platform approval where shared isolation is insufficient.
+PP owns lifecycle/Bicep/security and scoped content/approved assignments for its exclusive instances (accepted ADR-031). Provision them when PP Bicep is altered; no platform-owned instance is required for this slice. Verify actual enforceable separation; labels/prefixes do not restrict access. The accepted PP-owned service instances still require actual isolation tests; any wider topology change requires the applicable owner approval.
 
 Still decide naming, concrete RBAC/developer grants, bootstrap/precedence, retry/timeouts, secret version selection/provider rotation details and audit implementation. Startup/restart refresh, operator-controlled rotation and required-configuration failure policy are accepted below; no numeric periods or actual credentials are set here.
 

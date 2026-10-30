@@ -2,6 +2,8 @@
 
 Version: 0.5 | Date: 21 October 2026 | Status: Draft; not independently validated
 
+29 October readiness addition: the [candidate JSON Schema bundle](schemas/stage-2.schema.json) provides separate closed PanelCreate and Panel response shapes, ReadingInput and Problem, accepted under SPEC-02 on 29 October. The historical OpenAPI excerpt remains Draft. See [SPEC-02](../engineering/stage-2-readiness-specification.md#candidate-executable-contracts) for limits and semantic checks. Structural validation of that bundle does not validate the historical OpenAPI excerpt below; the excerpt remains Draft and must not be treated as a complete HTTP specification.
+
 Accepted MEAS-07 field behaviour; executable OpenAPI excerpt still requires validation. Concrete core-operation excerpt. Extract to YAML and validate before implementation. Cross-field checks reject duplicate definition IDs, retired definitions and incompatible units. No complete product OpenAPI is claimed.
 
 ```yaml
