@@ -22,7 +22,7 @@ The current checkout was inspected rather than assuming the handover's selective
 | `ParameterPilot.slnx` | Folder entries and legacy OrderService name; no project entries | No functioning application solution established |
 | `src/web/coming-soon` | Static page and image | Not the proposed Angular application |
 | `docs/architecture/structurizr` | Parameter Pilot candidates for three services and a generic event processor | Not accepted service boundaries |
-| `infra/bicep/main.bicep` | Resource group and Static Web App module | No broader platform wiring established |
+| `infra/bicep/environments/dev/main.bicep` | Resource group and Static Web App module | No broader platform wiring established |
 | `infra/pipelines` | Azure DevOps deployment YAML | Conflicts with intended GitHub Actions delivery authority |
 | `docs/azure.md` | Claims shared-resource wiring and broad application resources | Claims exceed inspected Bicep |
 | `README.md` | Legacy reference-project branding | Must be reconciled deliberately |

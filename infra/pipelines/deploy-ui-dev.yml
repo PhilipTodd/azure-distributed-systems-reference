@@ -1,4 +1,4 @@
-# Run after deploy-infrastructure.yml. Replace this page with the Angular
+# Run after deploy-infra-dev.yml. Replace this page with the Angular
 # build output when the application is ready.
 trigger: none
 pr: none

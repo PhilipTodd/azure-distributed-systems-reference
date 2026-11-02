@@ -1,0 +1,206 @@
+{
+  "date": "2026-11-02",
+  "operation": "Azure subscription what-if only; no deployment",
+  "subscriptionId": "9671ac36-9800-451a-b283-35ea87f8b419",
+  "entryPoint": "infra/bicep/environments/dev/main.bicep",
+  "parameters": "infra/bicep/environments/dev/main.dev.bicepparam",
+  "previewOverride": {
+    "deployServiceFoundations": true
+  },
+  "savedFoundationSwitch": false,
+  "status": "Succeeded",
+  "diagnostics": null,
+  "counts": {
+    "NoChange": 1,
+    "Create": 14,
+    "Modify": 3
+  },
+  "sourceSha256": {
+    "infra/bicep/modules/app-config.bicep": "a777a8625ce24f369a851079fac9a6c5ada9138ee3d2012de3c310d8f71d83e2",
+    "infra/bicep/modules/appservice.bicep": "bc1d9da6b624e400cf7826b8fddd23521891ea924888127ae150f88128a5ce82",
+    "infra/bicep/modules/key-vault.bicep": "ff865d5fb6788f47548e3b988856fc3ca1254c35f3096929881c87e979a3ad17",
+    "infra/bicep/modules/role-assignments.bicep": "ac532878afb99d77f0cb1839995af961fedca3198d28f1cc91f8375483c35a82",
+    "infra/bicep/modules/static-web-app.bicep": "d1b814fe7fe0c056a79d050074bdf3e60d2b5045e949e68d456bf82dcdc59e10",
+    "infra/bicep/environments/dev/main.bicep": "e4dc4ce236cb83849dc3185d95f5d1309537baa292a73c28f31f6d0e9ebfe0d1",
+    "infra/bicep/environments/dev/main.dev.bicepparam": "7100a74f4510d77c3ed08e6c5c82f1ea7778c16108ec75eceab5188a5b5b15fe"
+  },
+  "changes": [
+    {
+      "changeType": "NoChange",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev",
+      "delta": []
+    },
+    {
+      "changeType": "Create",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-adt-aquarium-dev",
+      "delta": null
+    },
+    {
+      "changeType": "Create",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-adt-aquarium-dev/providers/Microsoft.Authorization/roleAssignments/0bab047f-2cd1-5a7f-a3aa-6d2aa2c41e0e",
+      "delta": null
+    },
+    {
+      "changeType": "Create",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-adt-tracking-dev",
+      "delta": null
+    },
+    {
+      "changeType": "Create",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-adt-tracking-dev/providers/Microsoft.Authorization/roleAssignments/66189257-3fbd-59e1-87f1-fab56f30ef77",
+      "delta": null
+    },
+    {
+      "changeType": "Create",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-adt-aquarium-dev",
+      "delta": null
+    },
+    {
+      "changeType": "Create",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-adt-aquarium-dev/providers/Microsoft.Authorization/roleAssignments/1572d52e-c124-5649-aff6-0d00ff6258c4",
+      "delta": null
+    },
+    {
+      "changeType": "Create",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-adt-tracking-dev",
+      "delta": null
+    },
+    {
+      "changeType": "Create",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-adt-tracking-dev/providers/Microsoft.Authorization/roleAssignments/8d5da3fe-9f03-541d-9b72-6858d2a9e00f",
+      "delta": null
+    },
+    {
+      "changeType": "Create",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/api-adt-aquarium-dev",
+      "delta": null
+    },
+    {
+      "changeType": "Create",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/api-adt-aquarium-dev/basicPublishingCredentialsPolicies/ftp",
+      "delta": null
+    },
+    {
+      "changeType": "Create",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/api-adt-aquarium-dev/basicPublishingCredentialsPolicies/scm",
+      "delta": null
+    },
+    {
+      "changeType": "Create",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/api-adt-tracking-dev",
+      "delta": null
+    },
+    {
+      "changeType": "Create",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/api-adt-tracking-dev/basicPublishingCredentialsPolicies/ftp",
+      "delta": null
+    },
+    {
+      "changeType": "Create",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/api-adt-tracking-dev/basicPublishingCredentialsPolicies/scm",
+      "delta": null
+    },
+    {
+      "changeType": "Modify",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/staticSites/stapp-adt-parameterpilot-dev",
+      "delta": [
+        {
+          "after": null,
+          "before": "DeploymentToken",
+          "children": null,
+          "path": "properties.deploymentAuthPolicy",
+          "propertyChangeType": "Delete"
+        },
+        {
+          "after": null,
+          "before": "SwaCli",
+          "children": null,
+          "path": "properties.provider",
+          "propertyChangeType": "Delete"
+        },
+        {
+          "after": null,
+          "before": "13.75.76.44",
+          "children": null,
+          "path": "properties.stableInboundIP",
+          "propertyChangeType": "Delete"
+        },
+        {
+          "after": null,
+          "before": {
+            "environmentDistribution": {
+              "default": 100
+            }
+          },
+          "children": null,
+          "path": "properties.trafficSplitting",
+          "propertyChangeType": "Delete"
+        },
+        {
+          "after": {
+            "skipGithubActionWorkflowGeneration": true
+          },
+          "before": null,
+          "children": null,
+          "path": "properties.buildProperties",
+          "propertyChangeType": "Create"
+        }
+      ]
+    },
+    {
+      "changeType": "Modify",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/staticSites/stapp-adt-parameterpilot-dev/customDomains/parameterpilot.com",
+      "delta": [
+        {
+          "after": null,
+          "before": "2027-03-25T23:59:59Z",
+          "children": null,
+          "path": "properties.expiresOn",
+          "propertyChangeType": "Delete"
+        },
+        {
+          "after": null,
+          "before": false,
+          "children": null,
+          "path": "properties.isDefault",
+          "propertyChangeType": "Delete"
+        },
+        {
+          "after": "dns-txt-token",
+          "before": null,
+          "children": null,
+          "path": "properties.validationMethod",
+          "propertyChangeType": "Create"
+        }
+      ]
+    },
+    {
+      "changeType": "Modify",
+      "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/staticSites/stapp-adt-parameterpilot-dev/customDomains/www.parameterpilot.com",
+      "delta": [
+        {
+          "after": null,
+          "before": "2027-03-25T23:59:59Z",
+          "children": null,
+          "path": "properties.expiresOn",
+          "propertyChangeType": "Delete"
+        },
+        {
+          "after": null,
+          "before": false,
+          "children": null,
+          "path": "properties.isDefault",
+          "propertyChangeType": "Delete"
+        },
+        {
+          "after": "dns-txt-token",
+          "before": null,
+          "children": null,
+          "path": "properties.validationMethod",
+          "propertyChangeType": "Create"
+        }
+      ]
+    }
+  ],
+  "remainingGate": "Review and preserve existing website/domain settings before deployment; this preview authorises no changes."
+}

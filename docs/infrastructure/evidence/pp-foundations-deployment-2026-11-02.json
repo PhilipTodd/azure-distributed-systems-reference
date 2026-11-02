@@ -1,0 +1,229 @@
+{
+  "date": "2026-11-02",
+  "authority": "Owner authorised deployment and accepted previewed website/domain changes; see authorised-decisions-2026-11-02.md",
+  "deployment": {
+    "correlationId": "d0dd3eae-c0a9-4d46-ab88-02830412457b",
+    "duration": "PT1M22.1853148S",
+    "error": null,
+    "name": "pp-foundations-dev-20261102-1e43f0ac",
+    "outputs": {
+      "serviceFoundationResources": {
+        "type": "Array",
+        "value": [
+          {
+            "appId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/api-adt-aquarium-dev",
+            "configurationEndpoint": "https://appcs-adt-aquarium-dev.azconfig.io",
+            "principalId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+            "service": "aquarium",
+            "vaultUri": "https://kv-adt-aquarium-dev.vault.azure.net/"
+          },
+          {
+            "appId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/api-adt-tracking-dev",
+            "configurationEndpoint": "https://appcs-adt-tracking-dev.azconfig.io",
+            "principalId": "6c046dfa-2416-4706-893d-7cc000afecf0",
+            "service": "tracking",
+            "vaultUri": "https://kv-adt-tracking-dev.vault.azure.net/"
+          }
+        ]
+      },
+      "staticWebAppHostname": {
+        "type": "String",
+        "value": "nice-wave-053e2ba00.2.azurestaticapps.net"
+      },
+      "staticWebAppName": {
+        "type": "String",
+        "value": "stapp-adt-parameterpilot-dev"
+      }
+    },
+    "state": "Succeeded",
+    "templateHash": "9929638848626807522",
+    "timestamp": "2026-11-02T02:07:55.480227+00:00"
+  },
+  "entryPoint": "infra/bicep/environments/dev/main.bicep",
+  "parameters": "infra/bicep/environments/dev/main.dev.bicepparam",
+  "override": {
+    "deployServiceFoundations": true
+  },
+  "savedSwitch": false,
+  "previewCounts": {
+    "Create": 14,
+    "Modify": 3,
+    "NoChange": 1
+  },
+  "resources": {
+    "aquarium": {
+      "configuration": {
+        "name": "appcs-adt-aquarium-dev",
+        "state": "Succeeded",
+        "sku": "free",
+        "disableLocalAuth": true
+      },
+      "vault": {
+        "name": "kv-adt-aquarium-dev",
+        "state": "Succeeded",
+        "sku": "standard",
+        "enableRbacAuthorization": true,
+        "enablePurgeProtection": true,
+        "enableSoftDelete": true,
+        "softDeleteRetentionInDays": 90
+      },
+      "app": {
+        "name": "api-adt-aquarium-dev",
+        "state": "Disabled",
+        "enabled": false,
+        "publicNetworkAccess": "Disabled",
+        "httpsOnly": true,
+        "principalId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+        "serverFarmId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.Web/serverfarms/asp-platform-dev"
+      },
+      "configurationProtection": {
+        "alwaysOn": false,
+        "minTlsVersion": "1.2",
+        "scmMinTlsVersion": "1.2",
+        "ftpsState": "Disabled",
+        "remoteDebuggingEnabled": false,
+        "acrUseManagedIdentityCreds": true,
+        "ipSecurityRestrictionsDefaultAction": "Deny",
+        "scmIpSecurityRestrictionsDefaultAction": "Deny",
+        "scmIpSecurityRestrictionsUseMain": true
+      }
+    },
+    "tracking": {
+      "configuration": {
+        "name": "appcs-adt-tracking-dev",
+        "state": "Succeeded",
+        "sku": "free",
+        "disableLocalAuth": true
+      },
+      "vault": {
+        "name": "kv-adt-tracking-dev",
+        "state": "Succeeded",
+        "sku": "standard",
+        "enableRbacAuthorization": true,
+        "enablePurgeProtection": true,
+        "enableSoftDelete": true,
+        "softDeleteRetentionInDays": 90
+      },
+      "app": {
+        "name": "api-adt-tracking-dev",
+        "state": "Disabled",
+        "enabled": false,
+        "publicNetworkAccess": "Disabled",
+        "httpsOnly": true,
+        "principalId": "6c046dfa-2416-4706-893d-7cc000afecf0",
+        "serverFarmId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.Web/serverfarms/asp-platform-dev"
+      },
+      "configurationProtection": {
+        "alwaysOn": false,
+        "minTlsVersion": "1.2",
+        "scmMinTlsVersion": "1.2",
+        "ftpsState": "Disabled",
+        "remoteDebuggingEnabled": false,
+        "acrUseManagedIdentityCreds": true,
+        "ipSecurityRestrictionsDefaultAction": "Deny",
+        "scmIpSecurityRestrictionsDefaultAction": "Deny",
+        "scmIpSecurityRestrictionsUseMain": true
+      }
+    }
+  },
+  "runtimeReadGrants": {
+    "aquarium": [
+      {
+        "scope": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourcegroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-adt-aquarium-dev",
+        "roleDefinitionId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/providers/Microsoft.Authorization/roleDefinitions/516239f1-63e1-4d78-a4de-a74fb236a071",
+        "principalId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+        "principalType": "ServicePrincipal"
+      },
+      {
+        "scope": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourcegroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-adt-aquarium-dev",
+        "roleDefinitionId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/providers/Microsoft.Authorization/roleDefinitions/4633458b-17de-408a-b874-0445c86b69e6",
+        "principalId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+        "principalType": "ServicePrincipal"
+      }
+    ],
+    "tracking": [
+      {
+        "scope": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourcegroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-adt-tracking-dev",
+        "roleDefinitionId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/providers/Microsoft.Authorization/roleDefinitions/516239f1-63e1-4d78-a4de-a74fb236a071",
+        "principalId": "6c046dfa-2416-4706-893d-7cc000afecf0",
+        "principalType": "ServicePrincipal"
+      },
+      {
+        "scope": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourcegroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-adt-tracking-dev",
+        "roleDefinitionId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/providers/Microsoft.Authorization/roleDefinitions/4633458b-17de-408a-b874-0445c86b69e6",
+        "principalId": "6c046dfa-2416-4706-893d-7cc000afecf0",
+        "principalType": "ServicePrincipal"
+      }
+    ]
+  },
+  "basicPublishingAllowed": {
+    "aquarium": {
+      "ftp": false,
+      "scm": false
+    },
+    "tracking": {
+      "ftp": false,
+      "scm": false
+    }
+  },
+  "sharedPlatformVerification": {
+    "planSkuUnchanged": true,
+    "linuxReserved": true,
+    "preexistingAppsUnchanged": true,
+    "preexistingApps": [
+      {
+        "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-ticketing-dev/providers/Microsoft.Web/sites/api-adt-ticketing-dev",
+        "name": "api-adt-ticketing-dev",
+        "serverFarmId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.Web/serverfarms/asp-platform-dev",
+        "state": "Running"
+      },
+      {
+        "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-event-sourcing-dev/providers/Microsoft.Web/sites/api-adt-blastplanning-dev",
+        "name": "api-adt-blastplanning-dev",
+        "serverFarmId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.Web/serverfarms/asp-platform-dev",
+        "state": "Running"
+      },
+      {
+        "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-event-sourcing-dev/providers/Microsoft.Web/sites/web-adt-blastplanning-dev",
+        "name": "web-adt-blastplanning-dev",
+        "serverFarmId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.Web/serverfarms/asp-platform-dev",
+        "state": "Running"
+      }
+    ]
+  },
+  "websiteHttpsChecks": [
+    {
+      "host": "nice-wave-053e2ba00.2.azurestaticapps.net",
+      "status": 200,
+      "tls": "Default certificate validation passed",
+      "bytesRead": 512
+    },
+    {
+      "host": "parameterpilot.com",
+      "status": 200,
+      "tls": "Default certificate validation passed",
+      "bytesRead": 512
+    },
+    {
+      "host": "www.parameterpilot.com",
+      "status": 200,
+      "tls": "Default certificate validation passed",
+      "bytesRead": 512
+    }
+  ],
+  "sourceSha256": {
+    "infra/bicep/modules/app-config.bicep": "a777a8625ce24f369a851079fac9a6c5ada9138ee3d2012de3c310d8f71d83e2",
+    "infra/bicep/modules/appservice.bicep": "bc1d9da6b624e400cf7826b8fddd23521891ea924888127ae150f88128a5ce82",
+    "infra/bicep/modules/key-vault.bicep": "ff865d5fb6788f47548e3b988856fc3ca1254c35f3096929881c87e979a3ad17",
+    "infra/bicep/modules/role-assignments.bicep": "ac532878afb99d77f0cb1839995af961fedca3198d28f1cc91f8375483c35a82",
+    "infra/bicep/modules/static-web-app.bicep": "d1b814fe7fe0c056a79d050074bdf3e60d2b5045e949e68d456bf82dcdc59e10",
+    "infra/bicep/environments/dev/main.bicep": "e4dc4ce236cb83849dc3185d95f5d1309537baa292a73c28f31f6d0e9ebfe0d1",
+    "infra/bicep/environments/dev/main.dev.bicepparam": "7100a74f4510d77c3ed08e6c5c82f1ea7778c16108ec75eceab5188a5b5b15fe"
+  },
+  "notVerified": [
+    "Effective workload configuration/secret reads and cross-service denial using the managed identities",
+    "SQL/Cosmos scoped runtime/migration access",
+    "Container execution, API authentication/owner isolation, ingress and functional capacity"
+  ],
+  "secretsOrCustomerRowsRead": false
+}

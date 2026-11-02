@@ -1,0 +1,756 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.48.1.52935",
+      "templateHash": "9929638848626807522"
+    }
+  },
+  "parameters": {
+    "environment": {
+      "type": "string",
+      "allowedValues": [
+        "dev",
+        "test",
+        "prod"
+      ],
+      "metadata": {
+        "description": "Deployment environment."
+      }
+    },
+    "applicationLocation": {
+      "type": "string",
+      "metadata": {
+        "description": "Location of the Parameter Pilot application resource group."
+      }
+    },
+    "applicationResourceGroupName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Parameter Pilot application resource group."
+      }
+    },
+    "deployServiceFoundations": {
+      "type": "bool",
+      "defaultValue": false,
+      "metadata": {
+        "description": "Opt in to the reviewed Development service foundations; does not activate API traffic."
+      }
+    },
+    "platformResourceGroupName": {
+      "type": "string",
+      "defaultValue": "rg-platform-dev",
+      "metadata": {
+        "description": "Name of the shared platform resource group."
+      }
+    },
+    "appServicePlanName": {
+      "type": "string",
+      "defaultValue": "asp-platform-dev",
+      "metadata": {
+        "description": "Name of the existing shared Linux B1 App Service Plan."
+      }
+    },
+    "apiLocation": {
+      "type": "string",
+      "defaultValue": "australiaeast",
+      "metadata": {
+        "description": "Azure region of the existing shared plan used by API hosts."
+      }
+    },
+    "aquariumApiAppName": {
+      "type": "string",
+      "metadata": {
+        "description": "Globally unique name of the Aquarium API App Service."
+      }
+    },
+    "trackingApiAppName": {
+      "type": "string",
+      "metadata": {
+        "description": "Globally unique name of the Tracking API App Service."
+      }
+    },
+    "staticWebAppLocation": {
+      "type": "string",
+      "metadata": {
+        "description": "Azure region for the existing Static Web App."
+      }
+    },
+    "staticWebAppName": {
+      "type": "string",
+      "metadata": {
+        "description": "Globally unique name of the Parameter Pilot Static Web App."
+      }
+    },
+    "staticWebAppCustomDomains": {
+      "type": "array",
+      "defaultValue": [],
+      "metadata": {
+        "description": "Custom domains associated with the Static Web App."
+      }
+    },
+    "aquariumAppConfigurationName": {
+      "type": "string",
+      "metadata": {
+        "description": "Globally unique name of the Aquarium App Configuration store."
+      }
+    },
+    "trackingAppConfigurationName": {
+      "type": "string",
+      "metadata": {
+        "description": "Globally unique name of the Tracking App Configuration store."
+      }
+    },
+    "aquariumKeyVaultName": {
+      "type": "string",
+      "maxLength": 24,
+      "metadata": {
+        "description": "Globally unique name of the Aquarium Key Vault."
+      }
+    },
+    "trackingKeyVaultName": {
+      "type": "string",
+      "maxLength": 24,
+      "metadata": {
+        "description": "Globally unique name of the Tracking Key Vault."
+      }
+    }
+  },
+  "variables": {
+    "includeServiceFoundations": "[and(parameters('deployServiceFoundations'), equals(parameters('environment'), 'dev'))]",
+    "serviceNames": [
+      "aquarium",
+      "tracking"
+    ],
+    "resourceNames": {
+      "aquarium": {
+        "apiAppName": "[parameters('aquariumApiAppName')]",
+        "appConfigurationName": "[parameters('aquariumAppConfigurationName')]",
+        "keyVaultName": "[parameters('aquariumKeyVaultName')]"
+      },
+      "tracking": {
+        "apiAppName": "[parameters('trackingApiAppName')]",
+        "appConfigurationName": "[parameters('trackingAppConfigurationName')]",
+        "keyVaultName": "[parameters('trackingKeyVaultName')]"
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/resourceGroups",
+      "apiVersion": "2024-03-01",
+      "name": "[parameters('applicationResourceGroupName')]",
+      "location": "[parameters('applicationLocation')]"
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "[format('parameterpilot-static-web-app-{0}', parameters('environment'))]",
+      "resourceGroup": "[parameters('applicationResourceGroupName')]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "name": {
+            "value": "[parameters('staticWebAppName')]"
+          },
+          "location": {
+            "value": "[parameters('staticWebAppLocation')]"
+          },
+          "environment": {
+            "value": "[parameters('environment')]"
+          },
+          "customDomains": {
+            "value": "[parameters('staticWebAppCustomDomains')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.48.1.52935",
+              "templateHash": "5277070966355864699"
+            }
+          },
+          "parameters": {
+            "name": {
+              "type": "string",
+              "metadata": {
+                "description": "Globally unique name for the Parameter Pilot Static Web App."
+              }
+            },
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure region for the Static Web App resource."
+              }
+            },
+            "environment": {
+              "type": "string",
+              "metadata": {
+                "description": "Deployment environment label."
+              }
+            },
+            "customDomains": {
+              "type": "array",
+              "defaultValue": [],
+              "metadata": {
+                "description": "Custom domains associated with the Static Web App."
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Web/staticSites",
+              "apiVersion": "2023-12-01",
+              "name": "[parameters('name')]",
+              "location": "[parameters('location')]",
+              "sku": {
+                "name": "Free",
+                "tier": "Free"
+              },
+              "properties": {
+                "buildProperties": {
+                  "skipGithubActionWorkflowGeneration": true
+                }
+              },
+              "tags": {
+                "application": "parameterpilot",
+                "environment": "[parameters('environment')]"
+              }
+            },
+            {
+              "copy": {
+                "name": "customDomainResources",
+                "count": "[length(parameters('customDomains'))]"
+              },
+              "type": "Microsoft.Web/staticSites/customDomains",
+              "apiVersion": "2023-12-01",
+              "name": "[format('{0}/{1}', parameters('name'), parameters('customDomains')[copyIndex()])]",
+              "properties": {
+                "validationMethod": "dns-txt-token"
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.Web/staticSites', parameters('name'))]"
+              ]
+            }
+          ],
+          "outputs": {
+            "name": {
+              "type": "string",
+              "value": "[parameters('name')]"
+            },
+            "defaultHostname": {
+              "type": "string",
+              "value": "[reference(resourceId('Microsoft.Web/staticSites', parameters('name')), '2023-12-01').defaultHostname]"
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "[subscriptionResourceId('Microsoft.Resources/resourceGroups', parameters('applicationResourceGroupName'))]"
+      ]
+    },
+    {
+      "copy": {
+        "name": "appConfiguration",
+        "count": "[length(variables('serviceNames'))]"
+      },
+      "condition": "[variables('includeServiceFoundations')]",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "[format('parameterpilot-{0}-app-config-{1}', variables('serviceNames')[copyIndex()], parameters('environment'))]",
+      "resourceGroup": "[parameters('applicationResourceGroupName')]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "location": {
+            "value": "[parameters('apiLocation')]"
+          },
+          "appConfigurationName": {
+            "value": "[variables('resourceNames')[variables('serviceNames')[copyIndex()]].appConfigurationName]"
+          },
+          "tags": {
+            "value": {
+              "application": "parameterpilot",
+              "service": "[variables('serviceNames')[copyIndex()]]",
+              "environment": "[parameters('environment')]"
+            }
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.48.1.52935",
+              "templateHash": "7615927070256922970"
+            }
+          },
+          "parameters": {
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure region for the application resource."
+              }
+            },
+            "tags": {
+              "type": "object",
+              "metadata": {
+                "description": "Tags applied to the service-owned resource."
+              }
+            },
+            "appConfigurationName": {
+              "type": "string",
+              "metadata": {
+                "description": "Globally unique name of the service App Configuration store."
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.AppConfiguration/configurationStores",
+              "apiVersion": "2024-06-01",
+              "name": "[parameters('appConfigurationName')]",
+              "location": "[parameters('location')]",
+              "tags": "[parameters('tags')]",
+              "sku": {
+                "name": "Free"
+              },
+              "properties": {
+                "disableLocalAuth": true,
+                "publicNetworkAccess": "Enabled"
+              }
+            }
+          ],
+          "outputs": {
+            "appConfigurationId": {
+              "type": "string",
+              "value": "[resourceId('Microsoft.AppConfiguration/configurationStores', parameters('appConfigurationName'))]"
+            },
+            "appConfigurationName": {
+              "type": "string",
+              "value": "[parameters('appConfigurationName')]"
+            },
+            "endpoint": {
+              "type": "string",
+              "value": "[reference(resourceId('Microsoft.AppConfiguration/configurationStores', parameters('appConfigurationName')), '2024-06-01').endpoint]"
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "[subscriptionResourceId('Microsoft.Resources/resourceGroups', parameters('applicationResourceGroupName'))]"
+      ]
+    },
+    {
+      "copy": {
+        "name": "keyVault",
+        "count": "[length(variables('serviceNames'))]"
+      },
+      "condition": "[variables('includeServiceFoundations')]",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "[format('parameterpilot-{0}-key-vault-{1}', variables('serviceNames')[copyIndex()], parameters('environment'))]",
+      "resourceGroup": "[parameters('applicationResourceGroupName')]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "location": {
+            "value": "[parameters('apiLocation')]"
+          },
+          "keyVaultName": {
+            "value": "[variables('resourceNames')[variables('serviceNames')[copyIndex()]].keyVaultName]"
+          },
+          "tags": {
+            "value": {
+              "application": "parameterpilot",
+              "service": "[variables('serviceNames')[copyIndex()]]",
+              "environment": "[parameters('environment')]"
+            }
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.48.1.52935",
+              "templateHash": "1553498356678171448"
+            }
+          },
+          "parameters": {
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure region for the application resource."
+              }
+            },
+            "tags": {
+              "type": "object",
+              "metadata": {
+                "description": "Tags applied to the service-owned resource."
+              }
+            },
+            "keyVaultName": {
+              "type": "string",
+              "maxLength": 24,
+              "metadata": {
+                "description": "Globally unique name of the service Key Vault."
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.KeyVault/vaults",
+              "apiVersion": "2024-11-01",
+              "name": "[parameters('keyVaultName')]",
+              "location": "[parameters('location')]",
+              "tags": "[parameters('tags')]",
+              "properties": {
+                "tenantId": "[tenant().tenantId]",
+                "sku": {
+                  "family": "A",
+                  "name": "standard"
+                },
+                "enableRbacAuthorization": true,
+                "enableSoftDelete": true,
+                "softDeleteRetentionInDays": 90,
+                "enablePurgeProtection": true,
+                "enabledForDeployment": false,
+                "enabledForDiskEncryption": false,
+                "enabledForTemplateDeployment": false,
+                "publicNetworkAccess": "Enabled",
+                "networkAcls": {
+                  "bypass": "None",
+                  "defaultAction": "Allow"
+                },
+                "accessPolicies": []
+              }
+            }
+          ],
+          "outputs": {
+            "keyVaultId": {
+              "type": "string",
+              "value": "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]"
+            },
+            "keyVaultName": {
+              "type": "string",
+              "value": "[parameters('keyVaultName')]"
+            },
+            "vaultUri": {
+              "type": "string",
+              "value": "[reference(resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName')), '2024-11-01').vaultUri]"
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "[subscriptionResourceId('Microsoft.Resources/resourceGroups', parameters('applicationResourceGroupName'))]"
+      ]
+    },
+    {
+      "copy": {
+        "name": "appService",
+        "count": "[length(variables('serviceNames'))]"
+      },
+      "condition": "[variables('includeServiceFoundations')]",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "[format('parameterpilot-{0}-appservice-{1}', variables('serviceNames')[copyIndex()], parameters('environment'))]",
+      "resourceGroup": "[parameters('applicationResourceGroupName')]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "location": {
+            "value": "[parameters('apiLocation')]"
+          },
+          "apiAppName": {
+            "value": "[variables('resourceNames')[variables('serviceNames')[copyIndex()]].apiAppName]"
+          },
+          "appServicePlanId": {
+            "value": "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('platformResourceGroupName')), 'Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
+          },
+          "appConfigurationEndpoint": {
+            "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-app-config-{1}', variables('serviceNames')[copyIndex()], parameters('environment'))), '2025-04-01').outputs.endpoint.value]"
+          },
+          "keyVaultUri": {
+            "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-key-vault-{1}', variables('serviceNames')[copyIndex()], parameters('environment'))), '2025-04-01').outputs.vaultUri.value]"
+          },
+          "tags": {
+            "value": {
+              "application": "parameterpilot",
+              "service": "[variables('serviceNames')[copyIndex()]]",
+              "environment": "[parameters('environment')]"
+            }
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.48.1.52935",
+              "templateHash": "3656795760090006184"
+            }
+          },
+          "parameters": {
+            "location": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure region for the application resource."
+              }
+            },
+            "tags": {
+              "type": "object",
+              "metadata": {
+                "description": "Tags applied to the service-owned resource."
+              }
+            },
+            "apiAppName": {
+              "type": "string",
+              "metadata": {
+                "description": "Globally unique name of the service API App Service."
+              }
+            },
+            "appServicePlanId": {
+              "type": "string",
+              "metadata": {
+                "description": "Resource ID of the existing shared Linux App Service Plan."
+              }
+            },
+            "appConfigurationEndpoint": {
+              "type": "string",
+              "metadata": {
+                "description": "Endpoint of this service’s App Configuration store."
+              }
+            },
+            "keyVaultUri": {
+              "type": "string",
+              "metadata": {
+                "description": "URI of this service’s Key Vault."
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Web/sites",
+              "apiVersion": "2024-11-01",
+              "name": "[parameters('apiAppName')]",
+              "location": "[parameters('location')]",
+              "tags": "[parameters('tags')]",
+              "kind": "app,linux,container",
+              "identity": {
+                "type": "SystemAssigned"
+              },
+              "properties": {
+                "serverFarmId": "[parameters('appServicePlanId')]",
+                "reserved": true,
+                "enabled": false,
+                "httpsOnly": true,
+                "publicNetworkAccess": "Disabled",
+                "clientAffinityEnabled": false,
+                "siteConfig": {
+                  "alwaysOn": false,
+                  "minTlsVersion": "1.2",
+                  "scmMinTlsVersion": "1.2",
+                  "ftpsState": "Disabled",
+                  "remoteDebuggingEnabled": false,
+                  "acrUseManagedIdentityCreds": true,
+                  "ipSecurityRestrictionsDefaultAction": "Deny",
+                  "scmIpSecurityRestrictionsDefaultAction": "Deny",
+                  "scmIpSecurityRestrictionsUseMain": true,
+                  "appSettings": [
+                    {
+                      "name": "AppConfiguration__Endpoint",
+                      "value": "[parameters('appConfigurationEndpoint')]"
+                    },
+                    {
+                      "name": "KeyVault__VaultUri",
+                      "value": "[parameters('keyVaultUri')]"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "Microsoft.Web/sites/basicPublishingCredentialsPolicies",
+              "apiVersion": "2024-11-01",
+              "name": "[format('{0}/{1}', parameters('apiAppName'), 'ftp')]",
+              "properties": {
+                "allow": false
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('apiAppName'))]"
+              ]
+            },
+            {
+              "type": "Microsoft.Web/sites/basicPublishingCredentialsPolicies",
+              "apiVersion": "2024-11-01",
+              "name": "[format('{0}/{1}', parameters('apiAppName'), 'scm')]",
+              "properties": {
+                "allow": false
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('apiAppName'))]"
+              ]
+            }
+          ],
+          "outputs": {
+            "apiAppId": {
+              "type": "string",
+              "value": "[resourceId('Microsoft.Web/sites', parameters('apiAppName'))]"
+            },
+            "apiAppName": {
+              "type": "string",
+              "value": "[parameters('apiAppName')]"
+            },
+            "principalId": {
+              "type": "string",
+              "value": "[reference(resourceId('Microsoft.Web/sites', parameters('apiAppName')), '2024-11-01', 'full').identity.principalId]"
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-app-config-{1}', variables('serviceNames')[copyIndex()], parameters('environment')))]",
+        "[subscriptionResourceId('Microsoft.Resources/resourceGroups', parameters('applicationResourceGroupName'))]",
+        "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-key-vault-{1}', variables('serviceNames')[copyIndex()], parameters('environment')))]"
+      ]
+    },
+    {
+      "copy": {
+        "name": "runtimeAccess",
+        "count": "[length(variables('serviceNames'))]"
+      },
+      "condition": "[variables('includeServiceFoundations')]",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "[format('parameterpilot-{0}-runtime-access-{1}', variables('serviceNames')[copyIndex()], parameters('environment'))]",
+      "resourceGroup": "[parameters('applicationResourceGroupName')]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "apiAppName": {
+            "value": "[variables('resourceNames')[variables('serviceNames')[copyIndex()]].apiAppName]"
+          },
+          "principalId": {
+            "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-appservice-{1}', variables('serviceNames')[copyIndex()], parameters('environment'))), '2025-04-01').outputs.principalId.value]"
+          },
+          "appConfigurationName": {
+            "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-app-config-{1}', variables('serviceNames')[copyIndex()], parameters('environment'))), '2025-04-01').outputs.appConfigurationName.value]"
+          },
+          "keyVaultName": {
+            "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-key-vault-{1}', variables('serviceNames')[copyIndex()], parameters('environment'))), '2025-04-01').outputs.keyVaultName.value]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.48.1.52935",
+              "templateHash": "14454558507461885996"
+            }
+          },
+          "parameters": {
+            "apiAppName": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the service API App Service whose identity receives read access."
+              }
+            },
+            "principalId": {
+              "type": "string",
+              "metadata": {
+                "description": "System-assigned principal ID returned by the corresponding API host."
+              }
+            },
+            "appConfigurationName": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of this service’s App Configuration store."
+              }
+            },
+            "keyVaultName": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of this service’s Key Vault."
+              }
+            }
+          },
+          "variables": {
+            "configurationReader": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '516239f1-63e1-4d78-a4de-a74fb236a071')]",
+            "secretsUser": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '4633458b-17de-408a-b874-0445c86b69e6')]"
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Authorization/roleAssignments",
+              "apiVersion": "2022-04-01",
+              "scope": "[resourceId('Microsoft.AppConfiguration/configurationStores', parameters('appConfigurationName'))]",
+              "name": "[guid(resourceId('Microsoft.AppConfiguration/configurationStores', parameters('appConfigurationName')), resourceId('Microsoft.Web/sites', parameters('apiAppName')), variables('configurationReader'))]",
+              "properties": {
+                "principalId": "[parameters('principalId')]",
+                "principalType": "ServicePrincipal",
+                "roleDefinitionId": "[variables('configurationReader')]"
+              }
+            },
+            {
+              "type": "Microsoft.Authorization/roleAssignments",
+              "apiVersion": "2022-04-01",
+              "scope": "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]",
+              "name": "[guid(resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName')), resourceId('Microsoft.Web/sites', parameters('apiAppName')), variables('secretsUser'))]",
+              "properties": {
+                "principalId": "[parameters('principalId')]",
+                "principalType": "ServicePrincipal",
+                "roleDefinitionId": "[variables('secretsUser')]"
+              }
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-app-config-{1}', variables('serviceNames')[copyIndex()], parameters('environment')))]",
+        "[subscriptionResourceId('Microsoft.Resources/resourceGroups', parameters('applicationResourceGroupName'))]",
+        "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-appservice-{1}', variables('serviceNames')[copyIndex()], parameters('environment')))]",
+        "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-key-vault-{1}', variables('serviceNames')[copyIndex()], parameters('environment')))]"
+      ]
+    }
+  ],
+  "outputs": {
+    "staticWebAppName": {
+      "type": "string",
+      "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-static-web-app-{0}', parameters('environment'))), '2025-04-01').outputs.name.value]"
+    },
+    "staticWebAppHostname": {
+      "type": "string",
+      "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-static-web-app-{0}', parameters('environment'))), '2025-04-01').outputs.defaultHostname.value]"
+    },
+    "serviceFoundationResources": {
+      "type": "array",
+      "value": "[if(variables('includeServiceFoundations'), createArray(createObject('service', 'aquarium', 'appId', reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-appservice-{1}', variables('serviceNames')[0], parameters('environment'))), '2025-04-01').outputs.apiAppId.value, 'principalId', reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-appservice-{1}', variables('serviceNames')[0], parameters('environment'))), '2025-04-01').outputs.principalId.value, 'configurationEndpoint', reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-app-config-{1}', variables('serviceNames')[0], parameters('environment'))), '2025-04-01').outputs.endpoint.value, 'vaultUri', reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-key-vault-{1}', variables('serviceNames')[0], parameters('environment'))), '2025-04-01').outputs.vaultUri.value), createObject('service', 'tracking', 'appId', reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-appservice-{1}', variables('serviceNames')[1], parameters('environment'))), '2025-04-01').outputs.apiAppId.value, 'principalId', reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-appservice-{1}', variables('serviceNames')[1], parameters('environment'))), '2025-04-01').outputs.principalId.value, 'configurationEndpoint', reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-app-config-{1}', variables('serviceNames')[1], parameters('environment'))), '2025-04-01').outputs.endpoint.value, 'vaultUri', reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-key-vault-{1}', variables('serviceNames')[1], parameters('environment'))), '2025-04-01').outputs.vaultUri.value)), createArray())]"
+    }
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "date": "2026-10-30",
+  "purpose": "Review only; no deployment",
+  "modulePreview": {
+    "status": "Succeeded",
+    "diagnostics": null,
+    "changes": [
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-pp-aq-dev-pqa7mxefsmbhs"
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-pp-aq-dev-pqa7mxefsmbhs/providers/Microsoft.Authorization/roleAssignments/fd38f4d1-fd8e-5306-a114-50bf4153ac76"
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-pp-tr-dev-pqa7mxefsmbhs"
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-pp-tr-dev-pqa7mxefsmbhs/providers/Microsoft.Authorization/roleAssignments/9afc7277-d27a-59c6-ad16-db7bfadbfd3e"
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-pp-aq-pqa7mxefsmbhs"
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-pp-aq-pqa7mxefsmbhs/providers/Microsoft.Authorization/roleAssignments/d556cf32-d7eb-547b-91fb-fa6f269d2faf"
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-pp-tr-pqa7mxefsmbhs"
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-pp-tr-pqa7mxefsmbhs/providers/Microsoft.Authorization/roleAssignments/2ab4f11e-2072-57d5-b2e0-13742b47be3a"
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/app-pp-aquarium-dev-pqa7mxefsmbhs"
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/app-pp-aquarium-dev-pqa7mxefsmbhs/basicPublishingCredentialsPolicies/ftp"
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/app-pp-aquarium-dev-pqa7mxefsmbhs/basicPublishingCredentialsPolicies/scm"
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/app-pp-tracking-dev-pqa7mxefsmbhs"
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/app-pp-tracking-dev-pqa7mxefsmbhs/basicPublishingCredentialsPolicies/ftp"
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/app-pp-tracking-dev-pqa7mxefsmbhs/basicPublishingCredentialsPolicies/scm"
+      },
+      {
+        "changeType": "Ignore",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/staticSites/stapp-adt-parameterpilot-dev"
+      }
+    ]
+  },
+  "verification": {
+    "bicepBuild": "Passed",
+    "parameterBuild": "Passed",
+    "compiledSecurityChecks": "Passed",
+    "unsafeMutationCasesRejected": 7,
+    "liveAccessTests": "Not run; resources not deployed"
+  },
+  "sourceSha256": {
+    "infra/bicep/main.bicep": "72510d9ff67f3635f20e8773fcaedab4331459bf4ea80a9df5bce157bb760301",
+    "infra/bicep/modules/service-foundations.bicep": "127dcb6108a50f53c22c27e65c31d214e3934c5d202a4f62ad7123f884ff95e2",
+    "infra/bicep/modules/service-foundation.bicep": "f8172d72661038fc24145fd251be25e7807a1e033514b15cfac97c66bbfb7a2c"
+  },
+  "fullEntryPointPreview": {
+    "status": "Succeeded",
+    "diagnostics": null,
+    "changes": [
+      {
+        "changeType": "NoChange",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev",
+        "deltaPaths": []
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-pp-aq-dev-pqa7mxefsmbhs",
+        "deltaPaths": []
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-pp-aq-dev-pqa7mxefsmbhs/providers/Microsoft.Authorization/roleAssignments/fd38f4d1-fd8e-5306-a114-50bf4153ac76",
+        "deltaPaths": []
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-pp-tr-dev-pqa7mxefsmbhs",
+        "deltaPaths": []
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-pp-tr-dev-pqa7mxefsmbhs/providers/Microsoft.Authorization/roleAssignments/9afc7277-d27a-59c6-ad16-db7bfadbfd3e",
+        "deltaPaths": []
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-pp-aq-pqa7mxefsmbhs",
+        "deltaPaths": []
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-pp-aq-pqa7mxefsmbhs/providers/Microsoft.Authorization/roleAssignments/d556cf32-d7eb-547b-91fb-fa6f269d2faf",
+        "deltaPaths": []
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-pp-tr-pqa7mxefsmbhs",
+        "deltaPaths": []
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-pp-tr-pqa7mxefsmbhs/providers/Microsoft.Authorization/roleAssignments/2ab4f11e-2072-57d5-b2e0-13742b47be3a",
+        "deltaPaths": []
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/app-pp-aquarium-dev-pqa7mxefsmbhs",
+        "deltaPaths": []
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/app-pp-aquarium-dev-pqa7mxefsmbhs/basicPublishingCredentialsPolicies/ftp",
+        "deltaPaths": []
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/app-pp-aquarium-dev-pqa7mxefsmbhs/basicPublishingCredentialsPolicies/scm",
+        "deltaPaths": []
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/app-pp-tracking-dev-pqa7mxefsmbhs",
+        "deltaPaths": []
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/app-pp-tracking-dev-pqa7mxefsmbhs/basicPublishingCredentialsPolicies/ftp",
+        "deltaPaths": []
+      },
+      {
+        "changeType": "Create",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/app-pp-tracking-dev-pqa7mxefsmbhs/basicPublishingCredentialsPolicies/scm",
+        "deltaPaths": []
+      },
+      {
+        "changeType": "Modify",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/staticSites/stapp-adt-parameterpilot-dev",
+        "deltaPaths": [
+          "properties.deploymentAuthPolicy",
+          "properties.provider",
+          "properties.stableInboundIP",
+          "properties.trafficSplitting",
+          "properties.buildProperties"
+        ]
+      },
+      {
+        "changeType": "Modify",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/staticSites/stapp-adt-parameterpilot-dev/customDomains/parameterpilot.com",
+        "deltaPaths": [
+          "properties.expiresOn",
+          "properties.isDefault",
+          "properties.validationMethod"
+        ]
+      },
+      {
+        "changeType": "Modify",
+        "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/staticSites/stapp-adt-parameterpilot-dev/customDomains/www.parameterpilot.com",
+        "deltaPaths": [
+          "properties.expiresOn",
+          "properties.isDefault",
+          "properties.validationMethod"
+        ]
+      }
+    ]
+  }
+}

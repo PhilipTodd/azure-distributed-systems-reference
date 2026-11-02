@@ -1,6 +1,17 @@
 # Stage 1 scoped-access setup
 
-Date: 30 October 2026 | Status: Shared SQL administrator deployed and verified; scoped application access pending
+Date: 30 October 2026 | Status: SQL administrator and PP foundations deployed; effective scoped application access pending
+
+## Current deployed foundation state — 2 November 2026
+
+The owner authorised the PP foundation deployment, including the previewed website/domain deltas. Deployment `pp-foundations-dev-20261102-1e43f0ac` Succeeded. Aquarium/Tracking API hosts, their distinct system identities, service-owned configuration stores/vaults and four resource-specific read-role assignments now exist. Both hosts remain disabled and inaccessible publicly. This supersedes the earlier prerequisite inventory below that found only a static website.
+
+- Aquarium API: `api-adt-aquarium-dev`; principal `e43e0132-e184-4669-8431-9f5a3ea5393e`.
+- Tracking API: `api-adt-tracking-dev`; principal `6c046dfa-2416-4706-893d-7cc000afecf0`.
+
+Management-plane grants match the intended own-store Configuration Data Reader and own-vault Secrets User roles. Effective runtime reads/cross-service denial and SQL/Cosmos grants remain pending. No migration identity, SQL schema/container or runtime data-plane user was created by this deployment. See [safe deployment evidence](evidence/pp-foundations-deployment-2026-11-02.json) and [owner authorisation](../engineering/authorised-decisions-2026-11-02.md).
+
+## Earlier preparation and prerequisite evidence
 
 This is the next item after configuration/vault ownership was accepted and provisioning deferred to PP Bicep. The owner subsequently instructed implementation to proceed. The dedicated administrator group and server assignment are now deployed; PP runtime roles and contained users remain pending.
 
@@ -58,3 +69,7 @@ After the administrator setup, live metadata inspection confirmed:
 The next dependency is PP infrastructure preparation through its existing main.bicep: actual Aquarium/Tracking hosting and identities, the accepted service-owned configuration/vault instances, and the approved Tracking container. Prepare concrete settings/preview for review, preserving shared B1 and other products. Create schema/contained users and narrow migration/runtime grants only against verified identities and approved objects; do not grant db_owner or general schema-wide DML over migration metadata merely to make a connection test pass. Application feature implementation remains a separate gate.
 
 Publication evidence: PP readiness commit 18df4cb and shared-platform administrator commit e2b28b4 were pushed to their task branches. Platform [Validate Infrastructure](https://github.com/PhilipTodd/azure-reference-platform/actions/runs/41008801397) passed for e2b28b4; no workflow run was returned for the PP task branch. PP local checks passed schema meta-validation, 12 accepted seed shapes and 42 structural cases; these do not verify runtime or Azure access isolation.
+
+## PP foundation draft prepared
+
+The owner authorised preparation for review of the [Aquarium/Tracking foundation draft](pp-service-foundations-review.md). Existing PP Bicep now includes an opt-in, Development-only module for stopped/closed API identity hosts and service-isolated configuration/vault resources and read grants. The committed switch remains false; no deployment or effective runtime-isolation result is implied.

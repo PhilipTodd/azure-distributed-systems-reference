@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-02",
+  "scope": "Resource-type module split and BlastIQ comment/layout alignment; no deployment",
+  "checks": {
+    "bicepFormat": "Passed",
+    "bicepBuild": "Passed without warnings",
+    "parameterBuild": "Passed",
+    "compiledSecurityBoundaries": "Passed",
+    "unsafeMutationsRejected": 7,
+    "relativeModulePaths": "Passed",
+    "prePostResourcePayloadComparison": "Seven per-service resource definitions unchanged after normalising equivalent module input expressions; output wiring checked by compiled verifier",
+    "entryPointInputContract": "Names/types/defaults/constraints preserved; descriptions reorganised",
+    "existingWebsiteResourcePayload": "Unchanged",
+    "azurePreview": "Not run for this module split",
+    "azureDeployment": "Not performed"
+  },
+  "sourceSha256": {
+    "infra/bicep/modules/app-config.bicep": "a777a8625ce24f369a851079fac9a6c5ada9138ee3d2012de3c310d8f71d83e2",
+    "infra/bicep/modules/appservice.bicep": "bc1d9da6b624e400cf7826b8fddd23521891ea924888127ae150f88128a5ce82",
+    "infra/bicep/modules/key-vault.bicep": "ff865d5fb6788f47548e3b988856fc3ca1254c35f3096929881c87e979a3ad17",
+    "infra/bicep/modules/role-assignments.bicep": "ac532878afb99d77f0cb1839995af961fedca3198d28f1cc91f8375483c35a82",
+    "infra/bicep/modules/static-web-app.bicep": "d1b814fe7fe0c056a79d050074bdf3e60d2b5045e949e68d456bf82dcdc59e10",
+    "infra/bicep/environments/dev/main.bicep": "e4dc4ce236cb83849dc3185d95f5d1309537baa292a73c28f31f6d0e9ebfe0d1",
+    "infra/bicep/environments/dev/main.dev.bicepparam": "7100a74f4510d77c3ed08e6c5c82f1ea7778c16108ec75eceab5188a5b5b15fe",
+    "scripts/verify-service-foundations.py": "3bf8c652394119f035ca4a3bdaa734133660ea532cd78890a4a5b1b96d09add6"
+  }
+}
