@@ -30,7 +30,7 @@ Shared platform Bicep/deployment runs outside Parameter Pilot's agentic applicat
 
 ## Accepted migration plan
 
-1. Inventory existing infra/pipelines/deploy-infrastructure.yml and deploy-web.yml plus externally configured pipeline triggers/service connections.
+1. Inventory existing infra/pipelines/deploy-infra-dev.yml and deploy-ui-dev.yml plus externally configured pipeline triggers/service connections.
 2. Implement GitHub PR checks/build/security, shared ACR publishing and dev application deployment with scoped OIDC. Preserve existing capability until replacements are verified.
 3. Verify checks, access boundaries, immutable artefacts, deployment/smoke/recovery behaviour and approval controls.
 4. Coordinate cutover with no competing active deployers; disable legacy triggers before activating replacement deployment for that target.

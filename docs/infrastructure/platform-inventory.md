@@ -1,6 +1,14 @@
 # Shared-platform repository inventory and ownership
 
-Version: 0.2 | Date: 20 October 2026 | Status: Observed Bicep/documentation; accepted ownership choices; live inventory unverified
+Version: 0.3 | Date: 30 October 2026 | Status: Source inventory plus live resource metadata; operational readiness pending
+
+## Current live evidence
+
+Current ownership correction: PP-exclusive App Configuration stores/Key Vaults belong to PP and are deferred until PP Bicep is altered (accepted ADR-031). Historical platform-owned configuration/vault statements below are superseded; actual provisioning and isolation tests remain open. The next [scoped-access task](scoped-access-readiness.md) has a dedicated SQL administrator group selected, but no group/admin/grants applied.
+
+Subsequent [APIM/ACR deployment on 30 October](platform-foundations-draft-2026-10-30.md) succeeded through the existing main.bicep/local parameter path. APIM Developer/policy and ACR Basic now exist and their infrastructure controls were checked; B1 and verified existing settings/app states were retained. App Configuration/Key Vault, scoped access and application ingress/identity/handover remain outstanding. The pre-deployment source/read-only inventory below is historical for the now-provisioned APIM/ACR resources.
+
+The [30 October readiness report](platform-readiness-2026-10-30.md) verifies core deployed resources and records actual IDs/settings, shared-plan load, missing APIM/ACR/configuration/secrets prerequisites, absent SQL Entra administration/Cosmos data-role assignments, and 90-day diagnostic table retention. Resource existence is now verified for the listed core resources; operational access, isolation, capacity acceptance and handover remain open. No Azure or platform-source changes were made. The older source-only statements below describe the 20 October inspection and are superseded by that report for observed live state.
 
 Source: C:\Git\azure-reference-platform. Read-only inspection; no platform source, credentials or deployment state changed.
 

@@ -1,3 +1,9 @@
+targetScope = 'resourceGroup'
+
+// ============================================================================
+// Deployment
+// ============================================================================
+
 @description('Globally unique name for the Parameter Pilot Static Web App.')
 param name string
 
@@ -9,6 +15,10 @@ param environment string
 
 @description('Custom domains associated with the Static Web App.')
 param customDomains array = []
+
+// ============================================================================
+// Static Web App
+// ============================================================================
 
 resource staticWebApp 'Microsoft.Web/staticSites@2023-12-01' = {
   name: name
@@ -28,6 +38,10 @@ resource staticWebApp 'Microsoft.Web/staticSites@2023-12-01' = {
   }
 }
 
+// ============================================================================
+// Custom domains
+// ============================================================================
+
 resource customDomainResources 'Microsoft.Web/staticSites/customDomains@2023-12-01' = [
   for domainName in customDomains: {
     parent: staticWebApp
@@ -37,6 +51,10 @@ resource customDomainResources 'Microsoft.Web/staticSites/customDomains@2023-12-
     }
   }
 ]
+
+// ============================================================================
+// Outputs
+// ============================================================================
 
 output name string = staticWebApp.name
 output defaultHostname string = staticWebApp.properties.defaultHostname

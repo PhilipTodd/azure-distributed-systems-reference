@@ -1,0 +1,266 @@
+{
+  "status": "accepted-baseline-not-installed",
+  "definitions": [
+    {
+      "parameterDefinitionId": "b1ba0000-0000-4000-8000-000000000001",
+      "definitionRevision": 1,
+      "family": "pH",
+      "displayName": "pH",
+      "quantity": "hydrogen-ion activity index",
+      "reportingBasis": "pH scale as reported by the test method",
+      "allowedUnits": [
+        {
+          "unitCode": "pH",
+          "displayLabel": "pH",
+          "maximum": 1000000,
+          "decimalPlaces": 6
+        }
+      ],
+      "qualifiers": [
+        "exact"
+      ]
+    },
+    {
+      "parameterDefinitionId": "b1ba0000-0000-4000-8000-000000000002",
+      "definitionRevision": 1,
+      "family": "ammonia",
+      "displayName": "Total ammonia nitrogen (TAN)",
+      "quantity": "mass concentration",
+      "reportingBasis": "total NH3 + NH4+, expressed as nitrogen",
+      "allowedUnits": [
+        {
+          "unitCode": "mg/L-as-N",
+          "displayLabel": "mg/L as N",
+          "minimum": 0,
+          "maximum": 1000000,
+          "decimalPlaces": 6
+        }
+      ],
+      "qualifiers": [
+        "exact",
+        "belowDetectionLimit",
+        "aboveDetectionLimit"
+      ]
+    },
+    {
+      "parameterDefinitionId": "b1ba0000-0000-4000-8000-000000000003",
+      "definitionRevision": 1,
+      "family": "ammonia",
+      "displayName": "Free ammonia (NH3)",
+      "quantity": "mass concentration",
+      "reportingBasis": "un-ionised NH3, expressed as NH3",
+      "allowedUnits": [
+        {
+          "unitCode": "mg/L-as-NH3",
+          "displayLabel": "mg/L as NH3",
+          "minimum": 0,
+          "maximum": 1000000,
+          "decimalPlaces": 6
+        }
+      ],
+      "qualifiers": [
+        "exact",
+        "belowDetectionLimit",
+        "aboveDetectionLimit"
+      ]
+    },
+    {
+      "parameterDefinitionId": "b1ba0000-0000-4000-8000-000000000004",
+      "definitionRevision": 1,
+      "family": "nitrite",
+      "displayName": "Nitrite as NO2",
+      "quantity": "mass concentration",
+      "reportingBasis": "nitrite, expressed as NO2",
+      "allowedUnits": [
+        {
+          "unitCode": "mg/L-as-NO2",
+          "displayLabel": "mg/L as NO2",
+          "minimum": 0,
+          "maximum": 1000000,
+          "decimalPlaces": 6
+        }
+      ],
+      "qualifiers": [
+        "exact",
+        "belowDetectionLimit",
+        "aboveDetectionLimit"
+      ]
+    },
+    {
+      "parameterDefinitionId": "b1ba0000-0000-4000-8000-000000000005",
+      "definitionRevision": 1,
+      "family": "nitrite",
+      "displayName": "Nitrite as N",
+      "quantity": "mass concentration",
+      "reportingBasis": "nitrite nitrogen, expressed as N",
+      "allowedUnits": [
+        {
+          "unitCode": "mg/L-as-N",
+          "displayLabel": "mg/L as N",
+          "minimum": 0,
+          "maximum": 1000000,
+          "decimalPlaces": 6
+        }
+      ],
+      "qualifiers": [
+        "exact",
+        "belowDetectionLimit",
+        "aboveDetectionLimit"
+      ]
+    },
+    {
+      "parameterDefinitionId": "b1ba0000-0000-4000-8000-000000000006",
+      "definitionRevision": 1,
+      "family": "nitrate",
+      "displayName": "Nitrate as NO3",
+      "quantity": "mass concentration",
+      "reportingBasis": "nitrate, expressed as NO3",
+      "allowedUnits": [
+        {
+          "unitCode": "mg/L-as-NO3",
+          "displayLabel": "mg/L as NO3",
+          "minimum": 0,
+          "maximum": 1000000,
+          "decimalPlaces": 6
+        }
+      ],
+      "qualifiers": [
+        "exact",
+        "belowDetectionLimit",
+        "aboveDetectionLimit"
+      ]
+    },
+    {
+      "parameterDefinitionId": "b1ba0000-0000-4000-8000-000000000007",
+      "definitionRevision": 1,
+      "family": "nitrate",
+      "displayName": "Nitrate as N",
+      "quantity": "mass concentration",
+      "reportingBasis": "nitrate nitrogen, expressed as N",
+      "allowedUnits": [
+        {
+          "unitCode": "mg/L-as-N",
+          "displayLabel": "mg/L as N",
+          "minimum": 0,
+          "maximum": 1000000,
+          "decimalPlaces": 6
+        }
+      ],
+      "qualifiers": [
+        "exact",
+        "belowDetectionLimit",
+        "aboveDetectionLimit"
+      ]
+    },
+    {
+      "parameterDefinitionId": "b1ba0000-0000-4000-8000-000000000008",
+      "definitionRevision": 1,
+      "family": "phosphate",
+      "displayName": "Orthophosphate as PO4",
+      "quantity": "mass concentration",
+      "reportingBasis": "orthophosphate, expressed as PO4; not total phosphorus",
+      "allowedUnits": [
+        {
+          "unitCode": "mg/L-as-PO4",
+          "displayLabel": "mg/L as PO4",
+          "minimum": 0,
+          "maximum": 1000000,
+          "decimalPlaces": 6
+        }
+      ],
+      "qualifiers": [
+        "exact",
+        "belowDetectionLimit",
+        "aboveDetectionLimit"
+      ]
+    },
+    {
+      "parameterDefinitionId": "b1ba0000-0000-4000-8000-000000000009",
+      "definitionRevision": 1,
+      "family": "phosphate",
+      "displayName": "Orthophosphate as P",
+      "quantity": "mass concentration",
+      "reportingBasis": "orthophosphate phosphorus, expressed as P; not total phosphorus",
+      "allowedUnits": [
+        {
+          "unitCode": "mg/L-as-P",
+          "displayLabel": "mg/L as P",
+          "minimum": 0,
+          "maximum": 1000000,
+          "decimalPlaces": 6
+        }
+      ],
+      "qualifiers": [
+        "exact",
+        "belowDetectionLimit",
+        "aboveDetectionLimit"
+      ]
+    },
+    {
+      "parameterDefinitionId": "b1ba0000-0000-4000-8000-000000000010",
+      "definitionRevision": 1,
+      "family": "calcium",
+      "displayName": "Calcium",
+      "quantity": "mass concentration",
+      "reportingBasis": "calcium, expressed as Ca",
+      "allowedUnits": [
+        {
+          "unitCode": "mg/L-as-Ca",
+          "displayLabel": "mg/L as Ca",
+          "minimum": 0,
+          "maximum": 1000000,
+          "decimalPlaces": 6
+        }
+      ],
+      "qualifiers": [
+        "exact",
+        "belowDetectionLimit",
+        "aboveDetectionLimit"
+      ]
+    },
+    {
+      "parameterDefinitionId": "b1ba0000-0000-4000-8000-000000000011",
+      "definitionRevision": 1,
+      "family": "magnesium",
+      "displayName": "Magnesium",
+      "quantity": "mass concentration",
+      "reportingBasis": "magnesium, expressed as Mg",
+      "allowedUnits": [
+        {
+          "unitCode": "mg/L-as-Mg",
+          "displayLabel": "mg/L as Mg",
+          "minimum": 0,
+          "maximum": 1000000,
+          "decimalPlaces": 6
+        }
+      ],
+      "qualifiers": [
+        "exact",
+        "belowDetectionLimit",
+        "aboveDetectionLimit"
+      ]
+    },
+    {
+      "parameterDefinitionId": "b1ba0000-0000-4000-8000-000000000012",
+      "definitionRevision": 1,
+      "family": "alkalinity",
+      "displayName": "Total alkalinity",
+      "quantity": "acid-neutralising capacity",
+      "reportingBasis": "total alkalinity, expressed as CaCO3 equivalent",
+      "allowedUnits": [
+        {
+          "unitCode": "mg/L-as-CaCO3",
+          "displayLabel": "mg/L as CaCO3",
+          "minimum": 0,
+          "maximum": 1000000,
+          "decimalPlaces": 6
+        }
+      ],
+      "qualifiers": [
+        "exact",
+        "belowDetectionLimit",
+        "aboveDetectionLimit"
+      ]
+    }
+  ]
+}

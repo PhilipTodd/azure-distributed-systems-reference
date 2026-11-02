@@ -1,0 +1,41 @@
+{
+  "status": "accepted-nonsecret-template-not-runtime-configuration",
+  "browser": {
+    "authority": "<development-external-id-authority>",
+    "tenantId": "<development-customer-tenant-guid>",
+    "clientId": "<spa-client-guid>",
+    "redirectUri": "http://localhost:4200",
+    "aquariumScope": "<full-aquarium-delegated-scope>",
+    "trackingScope": "<full-tracking-delegated-scope>",
+    "aquariumBaseUrl": "https://localhost:7101",
+    "trackingBaseUrl": "https://localhost:7102"
+  },
+  "aquariumServer": {
+    "authority": "<development-external-id-authority>",
+    "audience": "<aquarium-api-audience>",
+    "allowedTrackingClientId": "<tracking-client-guid>",
+    "sqlConnectionReference": "<User-Secrets-or-managed-identity-configuration-reference>",
+    "sqlSchema": "Aquarium",
+    "appConfigurationEndpoint": "<approved-aquarium-configuration-endpoint>",
+    "keyVaultUri": "<approved-aquarium-vault-uri>"
+  },
+  "trackingServer": {
+    "authority": "<development-external-id-authority>",
+    "audience": "<tracking-api-audience>",
+    "clientId": "<tracking-client-guid>",
+    "aquariumScope": "<full-Aquarium.Read-delegated-scope>",
+    "aquariumBaseUrl": "https://localhost:7101",
+    "oboCertificateReference": "<untracked-local-certificate-or-dev-Key-Vault-reference>",
+    "cosmosEndpoint": "https://localhost:8081",
+    "cosmosDatabase": "<approved-local-database-name>",
+    "cosmosContainer": "<approved-panel-idempotency-outbox-container-name>",
+    "partitionKeyPath": "/tankId",
+    "cosmosCredentialReference": "<User-Secrets-emulator-key-or-dev-managed-identity>",
+    "appConfigurationEndpoint": "<approved-tracking-configuration-endpoint>",
+    "keyVaultUri": "<approved-tracking-vault-uri>"
+  },
+  "localDiagnostics": { "azureExportEnabled": false },
+  "developmentDiagnostics": {
+    "applicationInsightsConnectionStringReference": "<approved-nonsecret-configuration-reference>"
+  }
+}

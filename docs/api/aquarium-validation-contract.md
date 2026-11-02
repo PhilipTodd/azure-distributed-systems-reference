@@ -4,6 +4,8 @@ Version: 0.10 | Date: 21 October 2026 | Status: Accepted interaction; detailed H
 
 Authority: [ADR-023](../architecture/decisions/adr-023.md).
 
+Candidate executable DefinitionPair/ParameterDefinition/ValidationRequest/ValidationContext shapes and proposed seed variants are in the [Stage 2 schema bundle](schemas/stage-2.schema.json) and [readiness specification](../engineering/stage-2-readiness-specification.md). The concrete baseline and scientific seed content were accepted under SPEC-02/03 in the [29 October record](../engineering/authorised-decisions-2026-10-29.md). Structural verification does not prove identity/runtime behaviour. This document's accepted interaction remains authoritative.
+
 ## UI definition discovery
 
 API-004: GET /api/v1/tanks/{tankId}/parameter-definitions returns the owner-authorised tank-selected definitions, stable GUIDs, current revisions, allowed units, qualifiers and relevant input rules for entry. Rule values/response schema remain draft. UI validation aids usability; Tracking must independently use trusted Aquarium information.

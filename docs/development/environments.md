@@ -21,9 +21,9 @@ Exact versions, emulator feature coverage, runtime settings, network topology, d
 
 The owner will separately request changes to azure-reference-platform and its Bicep deployment outside Parameter Pilot's agentic application development process. Shared development resources must be provisioned and verified before Parameter Pilot agentic implementation begins.
 
-Platform infrastructure includes intended shared APIM, ACR, Key Vault, App Configuration, Blob Storage account and PostgreSQL Flexible Server, alongside existing shared SQL/Cosmos/Service Bus/compute/monitoring. This is an agreed target, not evidence they exist or permission to provision now.
+Platform infrastructure includes intended shared APIM, ACR, Blob Storage account and PostgreSQL Flexible Server, alongside existing shared SQL/Cosmos/Service Bus/compute/monitoring. This is an agreed target, not blanket provisioning authority. PP-exclusive App Configuration stores and Key Vaults are PP-owned under ADR-031, deployed when PP Bicep is altered; they are not prerequisites that the shared-platform repository must provision.
 
-Parameter Pilot references existing hosting and manages only approved application resources/content: API definitions/policies, images, scoped secrets/configuration, photo containers/lifecycle and Advisor database/schema/tables/embeddings. Shared PostgreSQL server/capacity/extensions/backups belong to the platform; Advisor owns its database and data.
+Parameter Pilot references existing hosting and manages only approved application resources/content: API definitions/policies, images, PP-exclusive configuration/vault instances and their scoped content/grants (when PP Bicep is altered), photo containers/lifecycle and Advisor database/schema/tables/embeddings. Shared PostgreSQL server/capacity/extensions/backups belong to the platform; Advisor owns its database and data.
 
 Do not use naming prefixes or App Configuration labels as security boundaries. Verify enforceable isolation; use separate instances if the chosen shared arrangement cannot meet access requirements.
 

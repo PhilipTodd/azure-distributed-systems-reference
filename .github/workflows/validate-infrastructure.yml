@@ -1,0 +1,32 @@
+name: Validate PP Infrastructure
+
+on:
+  pull_request:
+    paths:
+      - 'infra/bicep/**'
+      - 'scripts/verify-service-foundations.py'
+      - '.github/workflows/validate-infrastructure.yml'
+  push:
+    branches: ['codex/**', main]
+    paths:
+      - 'infra/bicep/**'
+      - 'scripts/verify-service-foundations.py'
+      - '.github/workflows/validate-infrastructure.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Bicep
+        run: az bicep install
+      - name: Compile and verify Development boundaries
+        run: |
+          set -euo pipefail
+          az bicep build --file infra/bicep/environments/dev/main.bicep --outfile "$RUNNER_TEMP/pp-main.json"
+          az bicep build-params --file infra/bicep/environments/dev/main.dev.bicepparam --outfile "$RUNNER_TEMP/pp-parameters.json"
+          python3 scripts/verify-service-foundations.py "$RUNNER_TEMP/pp-main.json" "$RUNNER_TEMP/pp-parameters.json"

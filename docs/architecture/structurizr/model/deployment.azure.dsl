@@ -1,7 +1,7 @@
-// Accepted Development target only. Resource existence/permissions/capacity remain unverified.
+// Accepted Development only. Core/APIM/ACR existence is verified; app access/capacity remain gates.
 deploymentEnvironment "Azure" {
   azure = deploymentNode "Microsoft Azure - Development" "Local/dev-only initial scope; no Test/Production resources implied" {
-    resourceGroup = deploymentNode "Parameter Pilot Resource Group" "Application-owned resources; actual names/scopes TBD" {
+    resourceGroup = deploymentNode "Parameter Pilot Resource Group" "PP-owned hosting and service-isolated App Configuration/Key Vault instances; instance deployment deferred to PP Bicep under ADR-031" {
       webHosting = deploymentNode "Static Web Apps" "Angular hosting; only APIM used for browser API calls" {
         containerInstance parameterPilot.web
       }
@@ -9,7 +9,7 @@ deploymentEnvironment "Azure" {
         containerInstance parameterPilot.foundry
       }
     }
-    sharedPlatform = deploymentNode "Shared Development Platform" "Externally managed prerequisite; inventory and access remain unverified" {
+    sharedPlatform = deploymentNode "Shared Development Platform" "Shared compute/data/messaging/APIM/ACR/monitoring lifecycle; PP-exclusive configuration/vaults are application-owned" {
       sharedGateway = deploymentNode "Shared APIM" "Platform-owned instance; app APIs/policies; HTTPS browser entry; outbound addressing must support narrow backend rules" {
         containerInstance parameterPilot.apiGateway
       }

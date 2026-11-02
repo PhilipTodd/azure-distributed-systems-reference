@@ -260,7 +260,7 @@ ParameterPilot/
 │   │   ├── test-service.yml
 │   │   ├── deploy-service.yml
 │   │   ├── build-angular.yml
-│   │   └── deploy-infrastructure.yml
+│   │   └── deploy-infra-dev.yml
 │   │
 │   ├── ci.yml
 │   ├── deploy-infra.yml
@@ -268,7 +268,7 @@ ParameterPilot/
 │   ├── deploy-Aquarium.yml
 │   ├── deploy-Advisor.yml
 │   ├── deploy-gateway.yml
-│   └── deploy-web.yml
+│   └── deploy-ui-dev.yml
 │
 ├── scripts/
 │   ├── setup-local.ps1
@@ -288,4 +288,4 @@ ParameterPilot/
 
 ## Accepted delivery authority
 
-[ADR-018](architecture/decisions/adr-018.md) selects GitHub Actions as Parameter Pilot's sole CI/CD authority. Any Azure DevOps pipelines in earlier layout examples are legacy migration references, not the target repository design. Actual observed legacy definitions are infra/pipelines/deploy-infrastructure.yml and deploy-web.yml. Migration/retirement awaits verified replacement and coordinated cutover; no pipelines were changed by this documentation update. See [delivery specification](engineering/delivery.md).
+[ADR-018](architecture/decisions/adr-018.md) selects GitHub Actions as Parameter Pilot's sole CI/CD authority. Any Azure DevOps pipelines in earlier layout examples are legacy migration references, not the target repository design. Actual observed legacy definitions are infra/pipelines/deploy-infra-dev.yml and deploy-ui-dev.yml. Migration/retirement awaits verified replacement and coordinated cutover; no pipelines were changed by this documentation update. See [delivery specification](engineering/delivery.md).

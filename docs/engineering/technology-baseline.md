@@ -4,6 +4,8 @@ Version: 0.3 | Date: 21 October 2026 | Status: Accepted majors/approach; exact p
 
 Authority: accepted [ADR-028](../architecture/decisions/adr-028.md).
 
+The [29 October candidate readiness specification](stage-2-readiness-specification.md#exact-candidate-dependencies) records exact dependency/image pins accepted under SPEC-01 on 29 October. Published metadata and schema verification do not establish successful application restore/build, emulator execution or shared-plan compatibility; those gates remain open. The candidate does not change accepted majors.
+
 | Area | Accepted baseline | Still verify/select |
 | --- | --- | --- |
 | APIs | .NET 10 / ASP.NET Core 10; C# 14 | SDK/runtime patches, base-image/OS compatibility |

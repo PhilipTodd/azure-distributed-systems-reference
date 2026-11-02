@@ -19,6 +19,8 @@ Decision authority: human owner/architect. This pack is a design baseline, not i
 - Accepted 20 October: three service-owned Async Worker Function Apps; core writes stay synchronous with local outboxes; one Service Bus namespace with separate queues/subscriptions; owner-only stores and direct telemetry. Shared-plan hosting requires verification.
 - Azure hosting, Angular, ASP.NET Core APIs, meaningful microservices, SQL, Cosmos history, Blob photos, Service Bus, containers, shared-platform reuse and contextual AI remain planning inputs.
 
+30 October ownership refinement: accepted [ADR-031](../architecture/decisions/adr-031.md) places PP-exclusive App Configuration stores/Key Vaults in PP infrastructure, with deployment deferred to PP Bicep changes. Genuinely shared resources remain platform-owned. [Scoped access](../infrastructure/scoped-access-readiness.md) is the next preparation item; a dedicated platform SQL administrator group is selected, with no grants applied.
+
 ## Pack contents
 
 | Area | Documents |

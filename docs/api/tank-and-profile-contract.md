@@ -4,6 +4,8 @@ Version: 0.1 | Date: 21 October 2026 | Status: Accepted behaviour; executable sc
 
 Authority: PROFILE-01/TANK-01 in the [approval record](../engineering/authorised-decisions-2026-10-21.md). Aquarium owns the profile and Tank aggregate. No new service/store or C4 topology is introduced.
 
+Candidate executable Profile/ProfileUpdate/TankCreate/Tank/Volume shapes now exist in the [Stage 2 schema bundle](schemas/stage-2.schema.json). Proposed routes, wire enums, decimal/size limits and conversion treatment are in [SPEC-02](../engineering/stage-2-readiness-specification.md#candidate-executable-contracts); these concrete choices were accepted under SPEC-02 in the [29 October record](../engineering/authorised-decisions-2026-10-29.md); runtime verification remains pending.
+
 ## Required registration profile completion
 
 After External ID authentication, require an explicit profile choice before tank creation or measurement entry. No preselected measurement-system default. An authenticated user may complete/read their own onboarding profile before this gate is satisfied; authentication alone does not imply completed registration. Enforce the gate server-side, not only in the UI.

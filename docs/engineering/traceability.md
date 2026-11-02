@@ -1,8 +1,28 @@
 # Traceability register
 
-Version: 0.33 | Date: 21 October 2026 | Status: Draft
+Version: 0.34 | Date: 29 October 2026 | Status: Draft
+
+READY-01 preparation -> [29 October candidate specification](stage-2-readiness-specification.md) -> [executable schema bundle](../api/schemas/stage-2.schema.json), [scientific seed proposal](../api/schemas/stage-2-seed-proposal.json), [nonsecret configuration template](../development/stage-2-configuration.example.json) -> [structural verification](../../scripts/verify-readiness-contracts.py). SPEC-01–04 and the initial scientific baseline were accepted in the [29 October record](authorised-decisions-2026-10-29.md). Runtime/cloud verification and Stage 1 completion acceptance remain open. No implementation/deployment evidence is implied.
 
 Requirement -> story -> design/ADR -> API/event/data contract -> issue -> implementation -> tests/evaluations -> PR -> human approval.
+
+30 October owner ownership correction -> ADR-024/027 refined and ADR-031 accepted -> PP-exclusive configuration/vault lifecycle in PP Bicep, deployment deferred -> authoritative deployment descriptions updated -> [scoped-access plan](../infrastructure/scoped-access-readiness.md) with selected dedicated SQL administrator group -> actual principal/grant setup and access tests pending. No cloud mutation or overall Stage 1 completion implied.
+
+Explicit 30 October full-template approval -> deployment platform-dev-20261030-apim-acr-020536 -> [successful APIM/ACR infrastructure evidence](../infrastructure/platform-foundations-draft-2026-10-30.md) -> live SKU/TLS/policy/registry-denial checks and unchanged selected core snapshots -> remaining scoped access, app ingress/JWT/OBO, Local/delivery readiness and Stage 1 handover. No Git merge/push/PR or overall Stage 1 completion implied.
+
+Owner deployment-path correction -> [consolidated platform evidence](../infrastructure/platform-foundations-draft-2026-10-30.md) -> main.bicep plus existing local/GitHub parameter paths, standalone entry points removed -> compile/controls/subscription validation passed -> three pre-existing Cosmos/Insights what-if Modify entries require review before deployment. Owner Git visibility and change-summary instructions recorded in both repositories' AGENTS.md.
+
+PLATFORM-READY-03 / accepted APIM+ACR budget -> platform branch `codex/parameterpilot-platform-foundations` -> [nondeploying draft evidence](../infrastructure/platform-foundations-draft-2026-10-30.md) -> build/parameter/security-boundary checks and Azure validation/what-if passed -> human deployment review and post-deployment resource/access checks pending. Configuration/vault topology remains outside this draft.
+
+30 October revised hosting budget -> [human acceptance](authorised-decisions-2026-10-30.md) -> approximately A$120/month total before tax/additional usage, B1/APIM Developer/planned ACR -> cost decision closed, later optimisation allowed -> scoped architecture/platform deployment approval and actual-cost/operational verification remain open.
+
+Subsequent 30 October owner direction -> [APIM Developer educational requirement](authorised-decisions-2026-10-30.md) -> [recalculated budget](../infrastructure/development-hosting-budget-2026-10-30.md): retain B1, reinstate Developer, approximately A$118.41/month with planned ACR before tax/new usage; supersedes prior APIM withdrawal/Consumption investigation. No deployment or unrelated proposal acceptance implied.
+
+30 October owner-only educational/budget direction -> [acceptance record](authorised-decisions-2026-10-30.md) -> [budget revision](../infrastructure/development-hosting-budget-2026-10-30.md): retain B1, whole-portfolio below-A$80/month target, withdraw B2/APIM Developer cost scenario -> focused low-cost ingress review under ADR-026/009, then scoped platform approval/verification. No alternate ingress is accepted or deployed.
+
+PLATFORM-READY-01–05 -> [platform change proposal](../infrastructure/platform-change-proposal-2026-10-30.md), PLATFORM-PROP-01–04 and proposed [ADR-031](../architecture/decisions/adr-031.md) -> human topology/capacity/cost review -> separately authorised platform Bicep/what-if/deployment and operational verification. Proposal and public rate evidence are preparation outputs, not approval or completed readiness.
+
+PLATFORM-01/02 -> ADR-024/025/026/027 -> [30 October live platform evidence](../infrastructure/platform-readiness-2026-10-30.md) -> PLATFORM-READY-01–06 for capacity, isolation/network design, missing resource provisioning, scoped access, retention and verified handover. Management-plane inventory gathered; operational acceptance and deployment authorisation remain separate gates.
 
 | Requirement | Story | Design | Contract | Verification |
 | --- | --- | --- | --- | --- |

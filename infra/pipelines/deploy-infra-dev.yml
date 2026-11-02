@@ -9,8 +9,8 @@ pool:
 variables:
   azureServiceConnection: 'sc-parameterpilot-dev'
   resourceGroupLocation: 'australiaeast'
-  templateFile: 'infra/bicep/main.bicep'
-  parametersFile: 'infra/bicep/environments/dev/dev.bicepparam'
+  templateFile: 'infra/bicep/environments/dev/main.bicep'
+  parametersFile: 'infra/bicep/environments/dev/main.dev.bicepparam'
 
 stages:
   - stage: ValidateAndDeploy

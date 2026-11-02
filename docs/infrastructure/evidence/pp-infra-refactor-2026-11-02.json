@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-02",
+  "scope": "PP layout/naming refactor only; no deployment",
+  "checks": {
+    "bicepBuild": "Passed",
+    "developmentParametersBuild": "Passed",
+    "moduleAndParameterRelativePaths": "Passed",
+    "compiledSecurityChecks": "Passed; seven unsafe mutations rejected",
+    "azurePreviewForRefactoredNames": "Not run; 30 October evidence is historical",
+    "deployedResourceMutation": "None"
+  },
+  "developmentNames": {
+    "applicationResourceGroupName": "rg-parameterpilot-dev",
+    "staticWebAppName": "stapp-adt-parameterpilot-dev",
+    "platformResourceGroupName": "rg-platform-dev",
+    "appServicePlanName": "asp-platform-dev",
+    "aquariumApiAppName": "api-adt-aquarium-dev",
+    "trackingApiAppName": "api-adt-tracking-dev",
+    "aquariumAppConfigurationName": "appcs-adt-aquarium-dev",
+    "trackingAppConfigurationName": "appcs-adt-tracking-dev",
+    "aquariumKeyVaultName": "kv-adt-aquarium-dev",
+    "trackingKeyVaultName": "kv-adt-tracking-dev"
+  },
+  "sourceSha256": {
+    "infra/bicep/modules/service-foundation.bicep": "a000d5b132aaa663097298df7e16d363b2955857a7f256e18a62e2f43dfdd345",
+    "infra/bicep/modules/service-foundations.bicep": "5790bad2d90823f739b0997fddc4bdf6a087d4d9b182f6410d2a20f1efaa5782",
+    "infra/bicep/modules/static-web-app.bicep": "7ed116e8b5ddc64fb2c40def45dca438e37065932d32f05e6c997ea8135b9daf",
+    "infra/bicep/environments/dev/main.bicep": "0f60fc2a9c28a079f9f638c9bd430bec892f53042c8f791be0ab171ae9e8c4c2",
+    "infra/bicep/environments/dev/main.dev.bicepparam": "3bd783e0fa8e0d634ea5901c5ce7e109469cb5684d2381e6cdb3aa285d88c109",
+    "infra/pipelines/deploy-infra-dev.yml": "9142bd4ad5e05a5e2eaaad637141c815044fe5379357f3ea5c8de2e33d409cdf",
+    "infra/pipelines/deploy-ui-dev.yml": "d67dd3f6fa2a43e21249e1eb81311f856504e801c2784866820a22b6c2f068bf",
+    ".github/workflows/validate-infrastructure.yml": "c682bc84e3be9d67f57aaaca1aaa2f637060321fdb6adea0c88cf02339045b43"
+  }
+}

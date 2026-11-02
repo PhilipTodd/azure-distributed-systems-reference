@@ -1,6 +1,14 @@
 # Decision and risk register
 
-Version: 0.33 | Date: 21 October 2026 | Status: Draft
+Version: 0.35 | Date: 30 October 2026 | Status: Draft
+
+## Stage 2 accepted baseline — 29 October 2026
+
+30 October latest ownership/access direction: [ADR-031](../architecture/decisions/adr-031.md) is accepted with **PP ownership** of exclusive configuration/vault instances and deployment deferred to PP Bicep changes. Earlier platform-owned proposals below are historical. The owner selected a dedicated platform SQL administrators group; [scoped-access setup](../infrastructure/scoped-access-readiness.md) is the next implementation/verification item. No identities/grants/resources were changed by this documentation task.
+
+30 October current direction: the [owner record](authorised-decisions-2026-10-30.md) retains B1, includes APIM Developer for education and accepts the [revised budget](../infrastructure/development-hosting-budget-2026-10-30.md) of A$118.41/month (approximately A$120/month) total before tax/new variable usage including planned ACR. This supersedes the former A$80 target; later cost optimisation remains possible. B2 and the old incremental allowance remain withdrawn. Proposed ADR-031 isolation, scoped access/retention, ingress verification and later deployment approval remain open; no platform change occurred.
+
+The [readiness specification](stage-2-readiness-specification.md) presents SPEC-01–04: exact dependency/image candidates, concrete contract/limit proposals, 12 scientific seed variants and Local configuration/bootstrap choices. The owner accepted all four recommendations, including scientific seed content, in the [29 October record](authorised-decisions-2026-10-29.md). Structural verification is separate from runtime/platform evidence. This acceptance does not reopen architecture or authorise application implementation, platform deployment/spend or merge.
 
 | Priority | Topic | Position/status | Owner / gate |
 | --- | --- | --- | --- |
@@ -8,7 +16,7 @@ Version: 0.33 | Date: 21 October 2026 | Status: Draft
 | High | Aquarium scope | Accepted: general freshwater/marine tracking | Owner; DEC-03 |
 | High | Tank sharing | Accepted: single-owner tanks | Architect; before access contract |
 | High | Region | Accepted: Australia East preference; verify support | Platform owner; verify availability |
-| High | Budget | Unset; accepted low-cost tier selection direction | Owner; before provisioning |
+| High | Budget | Accepted approximately A$120/month whole-portfolio estimate before tax/additional variable usage; B1 plus APIM Developer; later optimisation allowed | Owner; applicable deployment approval and actual-cost review remain |
 | High | Free/paid policy | Free tracking/paid AI; pricing/limits TBD | Product owner; before commercial release |
 | High | Platform inventory | Source inspected: azure-reference-platform; placement/ownership accepted ADR-024; live resources/capacity/permissions unverified | Platform owner; before IaC approval |
 | High | Units/dosing | Reviewed catalogue/formulas required | Domain reviewer; before calculator |
