@@ -1,0 +1,8 @@
+{
+  "status": "owner-approved",
+  "approval": "Owner approved the tested GA replacement in chat on 3 November 2026; retain approved SQL digest and ports",
+  "approvedSqlDigest": "sha256:4402d880dd4c34bfa7d8705e56a86cd6c88da80a1f6bbbe741f999e76264a090",
+  "unavailableApprovedCosmosDigest": "sha256:ff955bdc5b191228425ee7072f99b151c7f7406ae7ed0be1b3ba8cbaa287a7e9",
+  "proposedCosmosTag": "vnext-EN20261019",
+  "proposedCosmosDigest": "sha256:db53613dae19d0a3d5ad50688d14aa6e957af082dafea56b52e1bd3a6b3f1406"
+}

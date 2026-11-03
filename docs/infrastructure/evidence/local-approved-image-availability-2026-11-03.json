@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-03",
+  "approvedCosmosDigest": "sha256:ff955bdc5b191228425ee7072f99b151c7f7406ae7ed0be1b3ba8cbaa287a7e9",
+  "microsoftRegistryManifestStatus": 404,
+  "dockerPull": "not found",
+  "approvedSqlDigestPull": "succeeded",
+  "replacementApproval": "pending"
+}

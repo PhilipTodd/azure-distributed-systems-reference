@@ -1,0 +1,10 @@
+{
+  "purpose": "Local dependency verification only; not a product schema or customer identity mapping",
+  "database": "ParameterPilotLocalBootstrap",
+  "container": "local-bootstrap",
+  "partitionKey": "/tankId",
+  "items": [
+    {"id": "fixture-a", "tankId": "synthetic-tank-a", "marker": "pp-local-bootstrap-v1", "value": 42},
+    {"id": "fixture-b", "tankId": "synthetic-tank-b", "marker": "pp-local-bootstrap-v1", "value": 84}
+  ]
+}

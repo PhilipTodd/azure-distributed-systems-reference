@@ -1,0 +1,34 @@
+services:
+  sql:
+    image: mcr.microsoft.com/mssql/server:2022-CU27-ubuntu-22.04@sha256:4402d880dd4c34bfa7d8705e56a86cd6c88da80a1f6bbbe741f999e76264a090
+    platform: linux/amd64
+    environment:
+      ACCEPT_EULA: 'Y'
+      MSSQL_PID: Developer
+      MSSQL_MEMORY_LIMIT_MB: '2048'
+    command: ['/bin/bash', '-c', 'export MSSQL_SA_PASSWORD="$$(cat /run/secrets/sql_password)"; exec /opt/mssql/bin/sqlservr']
+    secrets: [sql_password]
+    ports: ['127.0.0.1:${PP_SQL_PORT:-1433}:1433']
+    volumes: [sql-data:/var/opt/mssql]
+    healthcheck:
+      test: ['CMD-SHELL', 'SQLCMDPASSWORD="$$(cat /run/secrets/sql_password)" /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -C -b -Q "SELECT 1" -o /dev/null']
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+  cosmos:
+    # Owner-approved GA replacement, 3 November 2026; previous digest unavailable.
+    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:vnext-EN20261019@sha256:db53613dae19d0a3d5ad50688d14aa6e957af082dafea56b52e1bd3a6b3f1406
+    platform: linux/amd64
+    command: ['--protocol', 'https', '--explorer-protocol', 'http', '--enable-telemetry', 'false', '--log-level', 'error']
+    ports:
+      - '127.0.0.1:${PP_COSMOS_PORT:-8081}:8081'
+      - '127.0.0.1:${PP_COSMOS_HEALTH_PORT:-18080}:8080'
+      - '127.0.0.1:${PP_COSMOS_EXPLORER_PORT:-11234}:1234'
+    volumes: [cosmos-data:/data]
+secrets:
+  sql_password:
+    file: ${PP_LOCAL_RUNTIME:?Use scripts/local-development.py}/sql-password
+volumes:
+  sql-data:
+  cosmos-data:

@@ -1,0 +1,121 @@
+{
+  "date": "2026-11-03",
+  "project": "pp-local-check-ec98d2eed5a5",
+  "startedUtc": "2026-11-03T03:58:49.767809+00:00",
+  "passed": true,
+  "images": {
+    "cosmos": "mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:vnext-EN20261019@sha256:db53613dae19d0a3d5ad50688d14aa6e957af082dafea56b52e1bd3a6b3f1406",
+    "sql": "mcr.microsoft.com/mssql/server:2022-CU27-GDR1-ubuntu-22.04@sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718"
+  },
+  "loopbackBindingsVerified": true,
+  "firstRun": {
+    "passed": true,
+    "checks": [
+      {
+        "Name": "sqlDeveloperEdition",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "sqlSeedRepeatable",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "sqlTransactionRollback",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "cosmosPartitionKey",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "cosmosSeedRepeatable",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "cosmosWrongPartitionNotFound",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "cosmosEtagConflict",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "cosmosSamePartitionBatchCommit",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "cosmosSamePartitionBatchRollback",
+        "Passed": true,
+        "Error": null
+      }
+    ],
+    "scope": "Local-only synthetic dependency checks; no Azure access or product-feature claim"
+  },
+  "afterRestart": {
+    "passed": true,
+    "checks": [
+      {
+        "Name": "sqlDeveloperEdition",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "sqlSeedRepeatable",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "sqlTransactionRollback",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "cosmosPartitionKey",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "cosmosSeedRepeatable",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "cosmosWrongPartitionNotFound",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "cosmosEtagConflict",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "cosmosSamePartitionBatchCommit",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "cosmosSamePartitionBatchRollback",
+        "Passed": true,
+        "Error": null
+      }
+    ],
+    "scope": "Local-only synthetic dependency checks; no Azure access or product-feature claim"
+  },
+  "temporaryVolumesRemoved": true,
+  "azureOperationsPerformed": false,
+  "tools": {
+    "docker": "29.9.1",
+    "compose": "5.6.0",
+    "dotnet": "10.0.302"
+  },
+  "status": "Exploratory candidate only; does not verify the approved SPEC-04 image baseline"
+}

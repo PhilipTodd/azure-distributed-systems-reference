@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-03",
+  "project": "pp-local-check-c6a2be3d4257",
+  "image": "sha256:4402d880dd4c34bfa7d8705e56a86cd6c88da80a1f6bbbe741f999e76264a090",
+  "result": {
+    "passed": true,
+    "checks": [
+      {
+        "Name": "sqlDeveloperEdition",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "sqlSeedRepeatable",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "sqlTransactionRollback",
+        "Passed": true,
+        "Error": null
+      }
+    ],
+    "scope": "Approved Local SQL image only; no Cosmos or Azure operation"
+  },
+  "temporaryResourcesRemoved": true
+}
