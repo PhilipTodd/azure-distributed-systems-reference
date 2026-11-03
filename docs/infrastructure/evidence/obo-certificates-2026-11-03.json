@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-03",
+  "tenantId": "0e9365ce-9928-49a0-a455-73c5ad29cf34",
+  "temporaryAssignmentId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-adt-tracking-dev/providers/Microsoft.Authorization/roleAssignments/8452b397-c06d-4e3b-b42b-0945123af068",
+  "temporaryGrantRemoved": true,
+  "development": {
+    "certificateId": "https://kv-adt-tracking-dev.vault.azure.net/certificates/tracking-obo-dev/2abc5764e4ab4d83999be80c5ee5cd17",
+    "secretId": "https://kv-adt-tracking-dev.vault.azure.net/secrets/tracking-obo-dev/2abc5764e4ab4d83999be80c5ee5cd17",
+    "publicCertificate": "MIIEbDCCAtSgAwIBAgIQdE9qqD6rQJKlE8FJCpuuCTANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyhQYXJhbWV0ZXIgUGlsb3QgVHJhY2tpbmcgT0JPIERldmVsb3BtZW50MB4XDTI2MTEwMzAyMzcxOFoXDTI3MTEwMzAyNDcxOFowMzExMC8GA1UEAxMoUGFyYW1ldGVyIFBpbG90IFRyYWNraW5nIE9CTyBEZXZlbG9wbWVudDCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAKCPKhacyyTdjUWMPHi/EPOehRHfPqMlzU7pylqeQJsl6sXRHlYs5dDKE03zCsjZETSBHyU+ITjW0Eu60aA3hENxUrGhIxRTWd22P00+e4OAPCyiWHopoO5kdpxnxdDNaG1l8Y11P5pVsnDTklG3qoYS8cPZYKaidaOCJ/Fio4teph3GyGBXx4ijBmIjJM9spE+rImjSZ0Nt5MPtI+nuLLObcVY61+Ol2pogum6PkA8kYFWdUcJYOlgPsdS98kkpfovsUvsMOWjOfxxHxMA361wzbu0hFyWxRHeid7phUsfgLYZlIbfSReHvitkQcfqAKDk1QnzSokeTYIpB8BKRxMfqwM6gB+KLSdP3LX3G7f0HZxZdWJuKoHkvZc4j34iYdAAZ2gqOoY4pcMjXr+BVzEzwfvqsExeqi2tr2qGcDjXDClygt1VMg8LFAjh0rnhbw6BT5vrOUqoLiPg5WO56FRZCoFGNJNlILzcbPyQMXqlzpD4XDRwDjAvt41oWnv6NkQIDAQABo3wwejAOBgNVHQ8BAf8EBAMCB4AwCQYDVR0TBAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwHwYDVR0jBBgwFoAUrHAMy7+D8A4UCvydAZRWPf3Z9yQwHQYDVR0OBBYEFKxwDMu/g/AOFAr8nQGUVj392fckMA0GCSqGSIb3DQEBCwUAA4IBgQBE1YVNZxfAkyEcHs8xN9owFAR9WyIWEbEiAe6FMkOj185RT5TNr/XjHOkZUpjY4jyT6s0CFrkevmjol/mIUUURf0v8JdQw0oLhNWx22hTF/zEkGkJEeL5Od9hMQsCCUEEhwHrq3wFrQ/t/kRQ9FV6KBVSNHyh97FYLbTRza0Id5JnbpLJG+atV0r3jPmlaspKw45ouMsVpIM505Bf0EhwYYNp+z7PF235cCDL1zJsztvLYIexyLaHN4MyySI4+NQUlFuiqpN0BeKnikgw3m0NE6FpOeBmxYxTvODGkGLTWSeE8onxE32j/y7p+usbMmfWublh3hvXrr5ZaDIuekC95bN3FmZNUjtvGqKQ5C1yYC6zrj2/MxfHUBs7yrkH3hYIbqZeN7psKXkj13w7v9r8rQ6mN+AwbGa+h9BC7Q2YwNM03Z8hVXkknR6jnE3ho6kFctClP9jsPY3WC5OiTrA0u+1Xy6YcbCjCvBRLco1YMODsS2LRxGvHgFeyeDRaHxxM=",
+    "notBefore": "2026-11-03T02:37:18+00:00",
+    "notAfter": "2027-11-03T02:47:18+00:00",
+    "thumbprint": "A443A3B86F0F5989FA45DDDC670B8F24299763D4"
+  },
+  "local": {
+    "store": "CurrentUser/My",
+    "privateKeyExportable": false,
+    "subject": "CN=Parameter Pilot Tracking OBO Local Dev",
+    "notAfter": "2027-11-03T02:51:49.0000000Z",
+    "publicCertificate": "MIIEMjCCApqgAwIBAgIQHYNgXqfg+qFKek1jE7DqXTANBgkqhkiG9w0BAQsFADAxMS8wLQYDVQQDDCZQYXJhbWV0ZXIgUGlsb3QgVHJhY2tpbmcgT0JPIExvY2FsIERldjAeFw0yNjExMDMwMjQxNDlaFw0yNzExMDMwMjUxNDlaMDExLzAtBgNVBAMMJlBhcmFtZXRlciBQaWxvdCBUcmFja2luZyBPQk8gTG9jYWwgRGV2MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAwz1ClIpB1//gAgeUCgrL7earh8fV3VdVDmkZQnDgyuPijkgfaCrgisIM+0n1N4STdRx+vh16cuYokYLNVCFs9Bo6LdtkBmW92jxrlEVx64gB3yeWnzxHQ4um+IRi65wbbe35cId/KP7bwxJEYNw+DDbWO94cbh8bi0zt0+tpzKqC9k5rLWehavYSe89O1V2v0SWM0jLF1AlY6x5iSgna2Nh5GRDmQHchvH3h3UIQK7uborB+db2HxhyXL11JD0znUIHRE67YT0opVJYSzyOjIGcBVH9P+FjwJ+95TbLctR+p+cFWuIF4n3e9RhpuTaIh/EfTD5Ysm7Gx4hH2EsFByq6CsYJOTxUYYuYgaFsik2hihIgtFdE2LQPn+YYRH7aC2+UYGeCaAZbPUwLbPdXcLEtqbOc34YA8Nj2/umW3/nJwUUBO+Ih7kg9VH3zikmE9TG2EbPRF/YuKw4oM9ZixbHO1nPlDnwqPtcO8ssXpgzrwqo84gpvHxrNLOB1k8SrJAgMBAAGjRjBEMA4GA1UdDwEB/wQEAwIHgDATBgNVHSUEDDAKBggrBgEFBQcDAjAdBgNVHQ4EFgQU9gkwBnUEDfphVdxPiHcEQsYiCmEwDQYJKoZIhvcNAQELBQADggGBAFa4pqjGIubXMerlnhymMuHzxhUH0KdTY5U43CTTwsrltfB/AGv3c6ctj4UWMLgrZvvtzxFLCt4tekEjICSSCTyP8Le43iU2gxDiaPaHc45csfL/5WHJyRVPeE+hKwBMwhTJT+qHsgS1PFfkiYmjm6sSaIYh3jsoqC8G25VWQ3WptPuqLN+GyKYxV0f7K8a2QGOwFqFxphiIm3m1MwXnPGnS5cKQ8OaAxFY7PtfdeWkbXhc4kmXnfLbmEvSdx7n/R/GYfXEaAcbYkqzxsrkjl0VDdsNu4gY0D6IUNu0m9kipX2LRJfcmLhgsHXhX4djune1P3p+5g2ZLITpp7cYhpRIsQ9btzX5dYpJQGWOoUYZS1nApVeZVCwCBwOyfbiTJeuRN6GHdfafLyF3OkPU+KpfPLGklPf5N758gtLME5p2rmIqL2G5ca3Qgn6rBeWa2NiDAG0maQiwYMu0GBuH+1CmsSsX6iGfFZzIPCAa354CmMG16r59K2QOBY9wzajOFsg==",
+    "thumbprint": "ED3A568363C4142C292B20AB43D177AAE0BA409B",
+    "notBefore": "2026-11-03T02:41:49.0000000Z"
+  },
+  "registeredPublicCertificates": [
+    {
+      "keyId": "0c7b379b-b864-554c-8c97-1d2a00b54a51",
+      "type": "AsymmetricX509Cert",
+      "usage": "Verify",
+      "customKeyIdentifier": "pEOjuG8PWYn6Rd3cZwuPJCmXY9Q=",
+      "displayName": "Parameter Pilot Tracking OBO Development"
+    },
+    {
+      "keyId": "7de6dcea-7b0c-529e-9a86-c8fac218e210",
+      "type": "AsymmetricX509Cert",
+      "usage": "Verify",
+      "customKeyIdentifier": "7TpWg2PEFCwpKyCrQ9F3quC6QJs=",
+      "displayName": "Parameter Pilot Tracking OBO Local"
+    }
+  ],
+  "credentialReadBackVerified": true
+}

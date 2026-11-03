@@ -1,0 +1,41 @@
+{
+  "mode": "Applied",
+  "principalObjectId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+  "clientId": "2602e7fc-ad33-46fc-b893-de79db7e2ef2",
+  "containedUser": {
+    "sidClientId": "2602E7FC-AD33-46FC-B893-DE79DB7E2EF2",
+    "type": "EXTERNAL_USER"
+  },
+  "permissionChecksUnderExecuteAs": {
+    "objectScopedCrudAllowed": true,
+    "deleteAllowed": true,
+    "noDatabaseOwner": true,
+    "noDatabaseWideReaderWriter": true,
+    "noMigrationRole": true,
+    "migrationProbeReadDenied": true,
+    "migrationProbeWriteDenied": true,
+    "ddlDenied": true,
+    "crossProductDenied:ticketing.Tickets": true,
+    "crossProductDenied:ticketing.__EFMigrationsHistory": true,
+    "crossProductDenied:BlastPlanning.BlastPlanSummary": true,
+    "databaseDenied:ALTER ANY USER": true,
+    "databaseDenied:ALTER ANY ROLE": true,
+    "databaseDenied:ALTER ANY SCHEMA": true,
+    "databaseDenied:CONTROL": true,
+    "databaseDenied:CREATE TABLE": true
+  },
+  "remaining": "No domain tables, production object DML grants or migration principal; actual managed-identity SQL login not tested",
+  "syntheticProbeTransaction": "Rolled back",
+  "runtimeRoles": [
+    "AquariumRuntime"
+  ],
+  "migrationRoleMemberCount": 0,
+  "aquariumSchemaObjectCount": 3,
+  "persistedRuntimeObjectGrantCount": 4,
+  "snapshotPhase": "SID repair while real-identity probe objects were prepared",
+  "finalCleanup": {
+    "aquariumSchemaObjectCount": 0,
+    "persistedRuntimeObjectGrantCount": 0,
+    "evidence": "managed-identity-access-2026-11-03.json"
+  }
+}

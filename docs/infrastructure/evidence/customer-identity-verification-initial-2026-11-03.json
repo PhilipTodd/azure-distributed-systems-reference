@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-03",
+  "tenantId": "0e9365ce-9928-49a0-a455-73c5ad29cf34",
+  "passed": false,
+  "checks": [
+    {
+      "Name": "aquariumSignedTokenAudienceIssuerScope",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "trackingSignedTokenAudienceIssuerScope",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "stableTenantAndObjectIdAcrossApis",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "readOnlyTokenDoesNotPermitTrackingWrite",
+      "Passed": false,
+      "Error": "InvalidOperationException"
+    },
+    {
+      "Name": "wrongServiceAudienceRejected",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "wrongIssuerRejected",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "tamperedSignatureRejected",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "localCertificateAuthenticatedObo",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "wrongAudienceOboAssertionRejected",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "unconsentedDownstreamWriteRejected",
+      "Passed": true,
+      "Error": null
+    }
+  ],
+  "localCertificateThumbprint": "ED3A568363C4142C292B20AB43D177AAE0BA409B",
+  "limitations": "Local verification client; no product API/ownership/APIM or Development private-key loading test. Tokens/auth codes/private keys omitted."
+}

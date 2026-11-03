@@ -4,6 +4,10 @@ Version: 0.2 | Date: 29 October 2026 | Status: Accepted preparation approach; ba
 
 This is the working companion to the public [delivery plan](delivery-plan.md). It consolidates current Stage 1 guidance formerly repeated beneath that page's change history. It does not authorise application implementation, deployment, spending, shared-platform changes or merge.
 
+## Authoritative remaining-work status — 3 November 2026
+
+The owner adopted the [eight-step completion checklist](stage-1-completion-checklist.md) as authoritative. Step 1 actual SQL/Cosmos managed-identity access is verified with 29 passing checks; step 2 configuration/vault isolation is verified with 30. Both have cleanup evidence. Earlier “identity/grants pending” inventories below are historical; they do not override this checklist. Steps 3–8 remain open, and Stage 2 application features are not required merely to close Stage 1.
+
 ## Current completion path
 
 No further high-level design Q&A is required before readiness preparation and read-only evidence gathering. Routine implementation details follow accepted design; escalate material changes to ownership, stores, security, contracts or behaviour. Selective acceptance does not approve unrelated Draft proposals.

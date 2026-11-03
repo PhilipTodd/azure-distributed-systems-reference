@@ -1,0 +1,74 @@
+{
+  "date": "2026-11-02",
+  "deployment": {
+    "correlationId": "4fec7390-e6fe-4377-a518-dd96d0e2fd08",
+    "duration": "PT39.6795504S",
+    "name": "pp-tracking-access-20261102-b31e7904",
+    "state": "Succeeded",
+    "templateHash": "15512168845647646860"
+  },
+  "container": {
+    "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-adt-platform-dev/sqlDatabases/ReferenceProjects/containers/parameterpilot-tracking",
+    "name": "parameterpilot-tracking",
+    "partitionKey": {
+      "kind": "Hash",
+      "paths": [
+        "/tankId"
+      ],
+      "systemKey": null,
+      "version": 2
+    },
+    "defaultTtl": null,
+    "dedicatedThroughputDeclared": false
+  },
+  "roleAssignment": {
+    "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-adt-platform-dev/sqlRoleAssignments/1745528e-4ece-5742-85c2-37c5aa62a385",
+    "name": "1745528e-4ece-5742-85c2-37c5aa62a385",
+    "principalId": "6c046dfa-2416-4706-893d-7cc000afecf0",
+    "resourceGroup": "rg-platform-dev",
+    "roleDefinitionId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-adt-platform-dev/sqlRoleDefinitions/c9f79974-f590-55bc-aef5-6b0450550e85",
+    "scope": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-adt-platform-dev/dbs/ReferenceProjects/colls/parameterpilot-tracking",
+    "type": "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments"
+  },
+  "roleDefinition": {
+    "assignableScopes": [
+      "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-adt-platform-dev"
+    ],
+    "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-adt-platform-dev/sqlRoleDefinitions/c9f79974-f590-55bc-aef5-6b0450550e85",
+    "name": "c9f79974-f590-55bc-aef5-6b0450550e85",
+    "permissions": [
+      {
+        "dataActions": [
+          "Microsoft.DocumentDB/databaseAccounts/readMetadata",
+          "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create",
+          "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read",
+          "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/replace",
+          "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/upsert",
+          "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/delete",
+          "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery",
+          "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed"
+        ],
+        "notDataActions": []
+      }
+    ],
+    "resourceGroup": "rg-platform-dev",
+    "roleName": "Parameter Pilot Tracking Runtime",
+    "type": "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions",
+    "typePropertiesType": "CustomRole"
+  },
+  "checks": {
+    "blastIqContainerDefinitionUnchanged": true,
+    "sharedDatabaseThroughputUnchanged": true,
+    "sharedDatabaseThroughputRU": 400,
+    "trackingRoleContainerScoped": true,
+    "aquariumHasNoCosmosDataAssignment": true,
+    "noWildcardOrStoredProcedureDataActions": true,
+    "effectiveManagedIdentityDataPlaneTests": "Pending; no API execution/image or impersonated workload token used",
+    "domainRecordsReadOrWritten": false
+  },
+  "sourceSha256": {
+    "infra/bicep/environments/dev/main.bicep": "5ecc203dafdcc548a13b9e01616863cf597247f51915fa778f6e1f05fccab390",
+    "infra/bicep/environments/dev/main.dev.bicepparam": "adb8c646077b6d0ae4c521267795ddf4b3ca58ff54c350301d66429ea7a5437a",
+    "infra/bicep/modules/cosmos-container.bicep": "221037330023e28c08b514ad6787b8d9d67456088a1e92711e48055e09a01d37"
+  }
+}

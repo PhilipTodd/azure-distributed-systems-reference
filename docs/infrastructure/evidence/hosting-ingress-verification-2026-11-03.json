@@ -1,0 +1,380 @@
+{
+  "runId": "cbac6e81bf93",
+  "startedUtc": "2026-11-03T03:40:50Z",
+  "image": "acradtplatformdev.azurecr.io/parameterpilot/access-verification@sha256:b391ee8922e5d0901f1ea8a53401241046ab83d26a807ec0f631f91b454d3b3e",
+  "addressing": {
+    "apim": [
+      "4.254.91.56"
+    ],
+    "trackingPossibleOutbound": [
+      "4.147.28.196",
+      "4.147.26.39",
+      "4.147.28.207",
+      "4.147.28.221",
+      "4.147.28.234",
+      "4.147.28.239",
+      "4.147.26.10",
+      "4.147.26.71",
+      "4.147.26.98",
+      "4.147.26.200",
+      "4.147.26.224",
+      "4.147.27.4",
+      "4.147.27.22",
+      "4.147.27.61",
+      "4.147.27.72",
+      "4.147.27.154",
+      "4.147.27.171",
+      "4.147.28.55",
+      "4.147.28.76",
+      "4.147.28.119",
+      "4.147.28.120",
+      "4.147.28.133",
+      "4.147.28.157",
+      "4.147.28.192",
+      "4.147.28.252",
+      "4.147.25.122",
+      "4.147.29.0",
+      "4.147.29.2",
+      "4.147.29.5",
+      "4.147.29.10",
+      "20.211.64.27"
+    ]
+  },
+  "baselineMetrics": {
+    "MemoryPercentage": [
+      {
+        "timeStamp": "2026-11-03T03:25:00Z",
+        "average": 76,
+        "maximum": 76
+      },
+      {
+        "timeStamp": "2026-11-03T03:26:00Z",
+        "average": 77,
+        "maximum": 77
+      },
+      {
+        "timeStamp": "2026-11-03T03:27:00Z",
+        "average": 78,
+        "maximum": 78
+      },
+      {
+        "timeStamp": "2026-11-03T03:28:00Z",
+        "average": 78,
+        "maximum": 78
+      },
+      {
+        "timeStamp": "2026-11-03T03:29:00Z",
+        "average": 78,
+        "maximum": 78
+      },
+      {
+        "timeStamp": "2026-11-03T03:30:00Z",
+        "average": 78,
+        "maximum": 78
+      },
+      {
+        "timeStamp": "2026-11-03T03:31:00Z",
+        "average": 77,
+        "maximum": 77
+      },
+      {
+        "timeStamp": "2026-11-03T03:32:00Z",
+        "average": 78,
+        "maximum": 78
+      },
+      {
+        "timeStamp": "2026-11-03T03:33:00Z",
+        "average": 78,
+        "maximum": 78
+      },
+      {
+        "timeStamp": "2026-11-03T03:34:00Z",
+        "average": 80,
+        "maximum": 80
+      },
+      {
+        "timeStamp": "2026-11-03T03:35:00Z",
+        "average": 80,
+        "maximum": 80
+      },
+      {
+        "timeStamp": "2026-11-03T03:36:00Z",
+        "average": 83,
+        "maximum": 83
+      },
+      {
+        "timeStamp": "2026-11-03T03:37:00Z",
+        "average": 82,
+        "maximum": 82
+      },
+      {
+        "timeStamp": "2026-11-03T03:38:00Z",
+        "average": 78,
+        "maximum": 78
+      },
+      {
+        "timeStamp": "2026-11-03T03:39:00Z",
+        "average": 79,
+        "maximum": 79
+      }
+    ],
+    "CpuPercentage": [
+      {
+        "timeStamp": "2026-11-03T03:25:00Z",
+        "average": 54,
+        "maximum": 54
+      },
+      {
+        "timeStamp": "2026-11-03T03:26:00Z",
+        "average": 14,
+        "maximum": 14
+      },
+      {
+        "timeStamp": "2026-11-03T03:27:00Z",
+        "average": 15,
+        "maximum": 15
+      },
+      {
+        "timeStamp": "2026-11-03T03:28:00Z",
+        "average": 13,
+        "maximum": 13
+      },
+      {
+        "timeStamp": "2026-11-03T03:29:00Z",
+        "average": 30,
+        "maximum": 30
+      },
+      {
+        "timeStamp": "2026-11-03T03:30:00Z",
+        "average": 15,
+        "maximum": 15
+      },
+      {
+        "timeStamp": "2026-11-03T03:31:00Z",
+        "average": 16,
+        "maximum": 16
+      },
+      {
+        "timeStamp": "2026-11-03T03:32:00Z",
+        "average": 10,
+        "maximum": 10
+      },
+      {
+        "timeStamp": "2026-11-03T03:33:00Z",
+        "average": 15,
+        "maximum": 15
+      },
+      {
+        "timeStamp": "2026-11-03T03:34:00Z",
+        "average": 34,
+        "maximum": 34
+      },
+      {
+        "timeStamp": "2026-11-03T03:35:00Z",
+        "average": 19,
+        "maximum": 19
+      },
+      {
+        "timeStamp": "2026-11-03T03:36:00Z",
+        "average": 61,
+        "maximum": 61
+      },
+      {
+        "timeStamp": "2026-11-03T03:37:00Z",
+        "average": 90,
+        "maximum": 90
+      },
+      {
+        "timeStamp": "2026-11-03T03:38:00Z",
+        "average": 42,
+        "maximum": 42
+      },
+      {
+        "timeStamp": "2026-11-03T03:39:00Z",
+        "average": 35,
+        "maximum": 35
+      }
+    ]
+  },
+  "hostingMetrics": {
+    "MemoryPercentage": [
+      {
+        "timeStamp": "2026-11-03T03:40:00Z",
+        "average": 82,
+        "maximum": 82
+      },
+      {
+        "timeStamp": "2026-11-03T03:41:00Z",
+        "average": 78,
+        "maximum": 78
+      },
+      {
+        "timeStamp": "2026-11-03T03:42:00Z",
+        "average": 82,
+        "maximum": 82
+      },
+      {
+        "timeStamp": "2026-11-03T03:43:00Z",
+        "average": 85,
+        "maximum": 85
+      },
+      {
+        "timeStamp": "2026-11-03T03:44:00Z",
+        "average": 82,
+        "maximum": 82
+      },
+      {
+        "timeStamp": "2026-11-03T03:45:00Z",
+        "average": 84,
+        "maximum": 84
+      },
+      {
+        "timeStamp": "2026-11-03T03:46:00Z",
+        "average": 84,
+        "maximum": 84
+      },
+      {
+        "timeStamp": "2026-11-03T03:47:00Z",
+        "average": 84,
+        "maximum": 84
+      },
+      {
+        "timeStamp": "2026-11-03T03:48:00Z",
+        "average": 86,
+        "maximum": 86
+      }
+    ],
+    "CpuPercentage": [
+      {
+        "timeStamp": "2026-11-03T03:40:00Z",
+        "average": 94,
+        "maximum": 94
+      },
+      {
+        "timeStamp": "2026-11-03T03:41:00Z",
+        "average": 29,
+        "maximum": 29
+      },
+      {
+        "timeStamp": "2026-11-03T03:42:00Z",
+        "average": 46,
+        "maximum": 46
+      },
+      {
+        "timeStamp": "2026-11-03T03:43:00Z",
+        "average": 91,
+        "maximum": 91
+      },
+      {
+        "timeStamp": "2026-11-03T03:44:00Z",
+        "average": 91,
+        "maximum": 91
+      },
+      {
+        "timeStamp": "2026-11-03T03:45:00Z",
+        "average": 77,
+        "maximum": 77
+      },
+      {
+        "timeStamp": "2026-11-03T03:46:00Z",
+        "average": 23,
+        "maximum": 23
+      },
+      {
+        "timeStamp": "2026-11-03T03:47:00Z",
+        "average": 25,
+        "maximum": 25
+      },
+      {
+        "timeStamp": "2026-11-03T03:48:00Z",
+        "average": 22,
+        "maximum": 22
+      }
+    ]
+  },
+  "initialNetworkChecks": {
+    "aquarium": {
+      "apimHealth": true,
+      "noTokenDenied": true,
+      "invalidTokenDenied": true,
+      "directHealthDenied": true
+    },
+    "tracking": {
+      "apimHealth": true,
+      "noTokenDenied": true,
+      "invalidTokenDenied": true,
+      "directHealthDenied": true
+    }
+  },
+  "customerChecks": {
+    "date": "2026-11-03",
+    "runId": "cbac6e81bf93",
+    "passed": true,
+    "checks": [
+      {
+        "Name": "aquariumValidTokenThroughApim",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "aquariumDirectBackendValidTokenDenied",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "aquariumWrongAudienceThroughApimDenied",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "aquariumTamperedSignatureThroughApimDenied",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "trackingValidTokenThroughApim",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "trackingDirectBackendValidTokenDenied",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "trackingWrongAudienceThroughApimDenied",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "trackingTamperedSignatureThroughApimDenied",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "deployedTrackingCertificateOboAndAquariumReadOnlyEnforcement",
+        "Passed": true,
+        "Error": null
+      }
+    ],
+    "limitations": "Stateless verification endpoints, no business data or ownership feature implementation. Customer tokens remain in process memory only.",
+    "ownerConfirmation": {
+      "allNineChecksPassed": true,
+      "blastIqFunctionalCheckPassed": true,
+      "source": "Owner confirmation in chat, 3 November 2026"
+    }
+  },
+  "cleaned": true,
+  "sharedSettingsPreserved": true,
+  "cleanupErrors": [],
+  "passed": true,
+  "independentFinalReadback": {
+    "bothPpHostsDisabled": true,
+    "publicNetworkAccessDisabled": true,
+    "remainingApimApis": [
+      "echo-api"
+    ],
+    "localVerifierStopped": true
+  },
+  "verificationScope": "Stage 1 minimal two-host B1 and restricted ingress feasibility; no product-feature, future capacity or GitHub execution claim"
+}

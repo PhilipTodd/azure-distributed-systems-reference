@@ -11,14 +11,21 @@ infra/
         main.dev.bicepparam
         main.json
     modules/
+      cosmos-container.bicep
       static-web-app.bicep
       appservice.bicep
       app-config.bicep
       key-vault.bicep
       role-assignments.bicep
+      deployment-role-definitions.bicep
+      deployment-access.bicep
+      registry-access.bicep
+      developer-cosmos-access.bicep
   pipelines/
     deploy-infra-dev.yml
     deploy-ui-dev.yml
+  sql/
+    001-bootstrap-aquarium-access.sql
 ```
 
 The Development entry point is bicep/environments/dev/main.bicep. main.json is its regenerated compiled template, matching BlastIQ's colocated artifact convention. Shared modules use ../../modules paths. The existing ignored local override was renamed to main.dev.local.bicepparam; its template reference and renamed parameter keys were updated while preserving private values. It remains ignored and is not included in evidence or source hashes. No SQL scripts or application-build pipelines are invented before their implementation exists.
@@ -79,3 +86,10 @@ Bicep formatting, compilation, committed parameters, seven unsafe-mutation check
 The owner authorised deployment, including the reviewed existing website/domain deltas. Deployment `pp-foundations-dev-20261102-1e43f0ac` succeeded. The six foundation resources and four scoped read-role assignments now exist; both API hosts remain disabled with public access disabled. The website and domains returned HTTPS 200; shared B1 and existing apps were preserved. Earlier Draft/not-deployed descriptions above are historical preparation notes. Effective workload data-plane isolation, SQL/Cosmos access, images and activation remain pending.
 
 The deployment used an explicit deployServiceFoundations=true override; the saved Development value remains false. Supply that override when managing the foundations through main.bicep again. Under incremental deployment, leaving it false skips those resources rather than deleting them. See [deployment evidence](../docs/infrastructure/evidence/pp-foundations-deployment-2026-11-02.json) and [authorisation](../docs/engineering/authorised-decisions-2026-11-02.md).
+
+## Scoped data access — 2 November 2026
+
+Resource-type module cosmos-container.bicep now owns the approved Tracking container/custom data role/assignment on the existing shared account/database. Existing entry-point parameters gate this with deployTrackingDataAccess (saved false). SQL security bootstrap is in sql/001-bootstrap-aquarium-access.sql, invoked by scripts/bootstrap-aquarium-access.py; no feature tables are created. See [scoped-data-access runbook](../docs/infrastructure/scoped-data-access.md) for actual deployments, validation and limits. This supersedes the earlier statement that this slice declares no Cosmos container or SQL schema.
+## Controlled Development delivery access
+
+Step 3 delivery/developer permissions use the existing `bicep/environments/dev/main.bicep` entry point and resource-specific modules. `deployDeliveryAccess` remains false in saved parameters; verified Entra principal/group IDs are explicit deployment inputs. `deployStaticWebApp=false` excludes website/domain maintenance during an access-only deployment. Directory/GitHub bootstrap and SQL setup are separate controlled operations; see [delivery access](../docs/infrastructure/delivery-access.md). No shared-platform password parameter is used.

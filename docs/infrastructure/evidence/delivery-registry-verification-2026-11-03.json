@@ -1,0 +1,95 @@
+{
+  "date": "2026-11-03",
+  "runId": "55d2c9e3905f",
+  "mode": "registry",
+  "passed": true,
+  "image": "acradtplatformdev.azurecr.io/parameterpilot/access-verification@sha256:a05391737875ba73ffbfe8d6bcd06844781ca73593e0ebce2ec8fa09b0317bf1",
+  "results": {
+    "aquarium": {
+      "RunId": "55d2c9e3905f",
+      "Role": "aquarium",
+      "Host": "api-adt-aquarium-dev",
+      "ExpectedPrincipalId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+      "ObservedPrincipalId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+      "StartedUtc": "2026-11-03T00:30:29.527382+00:00",
+      "CompletedUtc": "2026-11-03T00:30:39.6822767+00:00",
+      "Passed": true,
+      "Checks": [
+        {
+          "Name": "managedIdentityObjectIdMatchesHost",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "runtimeOwnRepositoryPullAuthorised",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "runtimeOtherServicePullDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "runtimeRepositoryPushDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "runtimeUnapprovedRepositoryPullDenied",
+          "Passed": true,
+          "Error": null
+        }
+      ]
+    },
+    "tracking": {
+      "RunId": "55d2c9e3905f",
+      "Role": "tracking",
+      "Host": "api-adt-tracking-dev",
+      "ExpectedPrincipalId": "6c046dfa-2416-4706-893d-7cc000afecf0",
+      "ObservedPrincipalId": "6c046dfa-2416-4706-893d-7cc000afecf0",
+      "StartedUtc": "2026-11-03T00:33:00.6347234+00:00",
+      "CompletedUtc": "2026-11-03T00:33:14.9847429+00:00",
+      "Passed": true,
+      "Checks": [
+        {
+          "Name": "managedIdentityObjectIdMatchesHost",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "runtimeOwnRepositoryPullAuthorised",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "runtimeOtherServicePullDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "runtimeRepositoryPushDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "runtimeUnapprovedRepositoryPullDenied",
+          "Passed": true,
+          "Error": null
+        }
+      ]
+    }
+  },
+  "cleaned": true,
+  "sqlProbesAndTemporaryGrantsRemoved": true,
+  "temporaryDeveloperIdentityRemoved": null,
+  "developerIdentityRestored": null,
+  "issuedTemporaryRegistryAssignmentIds": [
+    "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/e02ac974-7c30-4128-96bf-cec14484fff3"
+  ],
+  "registryConditionAssignmentsRestored": [
+    "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourcegroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/89fcec5a-739a-59e4-a309-d2399b5410be",
+    "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourcegroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/ef783ba4-7467-534e-a1cf-1ee8dff979a2"
+  ],
+  "limitation": "Developer profile tested through a directly assigned temporary MI, not Entra group login. Registry checks validate issued repository token actions, not a product image deployment. GitHub OIDC execution remains step 7."
+}

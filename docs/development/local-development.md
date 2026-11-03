@@ -1,6 +1,6 @@
 # Hybrid Local development and developer access
 
-Version: 0.3 | Date: 21 October 2026 | Status: Accepted approach; runnable setup/tool inventory pending
+Version: 0.4 | Date: 4 November 2026 | Status: Approved Local dependencies and owner startup verified
 
 Authority: [ADR-029](../architecture/decisions/adr-029.md). Initial environments are [Local/dev](environments.md).
 
@@ -8,13 +8,13 @@ Authority: [ADR-029](../architecture/decisions/adr-029.md). Initial environments
 
 Run service code and practical databases/storage locally; use emulators only for verified supported behaviour. Unit/failure tests use deterministic doubles. Use selected approved dev Azure dependencies for identity or unsupported local features, and run real Azure integration checks before accepting broker/security/transaction behaviour. In-memory substitutes do not establish cloud parity.
 
-Exact emulator images, supported host platforms, endpoints, versions and setup/check commands remain to be selected. No runnable Compose or project commands are invented here.
+The image/port baseline is SPEC-04 in the [readiness specification](../engineering/stage-2-readiness-specification.md). The previous non-vNext Cosmos digest returned registry HTTP 404. On 3 November the owner approved the GA vnext-EN20261019 replacement, retaining the approved SQL image and ports. The combined approved images passed nine checks before and after restart on 4 November; disposable containers, volumes and passwords were removed. See the [setup instructions](../../local/README.md) and [verification evidence](../infrastructure/evidence/local-bootstrap-verification-2026-11-04.json). The owner confirmed startup, all nine checks and shutdown using SQL port 15433.
 
 ## Developer identity
 
 Use each developer's own Microsoft Entra identity and scoped dev permissions via an approved Azure CLI/Visual Studio or equivalent login. Do not copy App Service/worker credentials or share a developer account. Keep migration/administration elevation separate. Aquarium-owner sign-in remains External ID; developer resource access is not that customer flow.
 
-Managed identity is the deployed workload approach, not assumed to exist on a developer machine. Unavoidable local credentials stay in User Secrets/equivalent untracked settings; no production credentials/data. Concrete roles, login selection, tooling and access verification remain pending.
+Managed identity is the deployed workload approach, not assumed to exist on a developer machine. Unavoidable local credentials stay in User Secrets/equivalent untracked settings; no production credentials/data. Concrete scoped roles and effective Azure verification are recorded in the [delivery access runbook](../infrastructure/delivery-access.md). The owner's administrator login is not evidence of ordinary developer access.
 
 ## Acceptance evidence
 

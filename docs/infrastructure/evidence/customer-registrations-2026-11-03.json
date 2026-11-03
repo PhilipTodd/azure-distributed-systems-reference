@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-03",
+  "tenantId": "0e9365ce-9928-49a0-a455-73c5ad29cf34",
+  "applications": {
+    "ui": {
+      "objectId": "7ffa80ee-13aa-4e93-9a4d-b0a9b60e7eea",
+      "clientId": "fc5f67a2-e6a2-4e3f-a49b-2b2410a6060b",
+      "displayName": "Parameter Pilot UI Dev",
+      "principalId": "2fb009ec-921a-4d39-8d13-a58619348215"
+    },
+    "aquarium": {
+      "objectId": "5147a0fc-28c4-463f-abd8-7662b3feca20",
+      "clientId": "bcbab13c-f80e-4dc3-8e12-f94bc2491461",
+      "displayName": "Parameter Pilot Aquarium API Dev",
+      "principalId": "cb0ebf56-fffc-4e2d-a91a-84973977dbfb",
+      "audience": "bcbab13c-f80e-4dc3-8e12-f94bc2491461",
+      "scopeUris": [
+        "api://bcbab13c-f80e-4dc3-8e12-f94bc2491461/Aquarium.Read",
+        "api://bcbab13c-f80e-4dc3-8e12-f94bc2491461/Aquarium.Write"
+      ]
+    },
+    "tracking": {
+      "objectId": "48e2410e-cde4-4c75-b0fc-820cce23920c",
+      "clientId": "df2085cf-7b78-4c21-99fb-70f46b48490a",
+      "displayName": "Parameter Pilot Tracking API Dev",
+      "principalId": "8af6f830-9403-491f-a829-1910c7fcc2c7",
+      "audience": "df2085cf-7b78-4c21-99fb-70f46b48490a",
+      "scopeUris": [
+        "api://df2085cf-7b78-4c21-99fb-70f46b48490a/Tracking.Read",
+        "api://df2085cf-7b78-4c21-99fb-70f46b48490a/Tracking.Write"
+      ]
+    }
+  },
+  "authority": "https://parameterpilotdev.ciamlogin.com/0e9365ce-9928-49a0-a455-73c5ad29cf34",
+  "spaRedirectUris": [
+    "http://localhost:4200",
+    "https://parameterpilot.com",
+    "https://www.parameterpilot.com"
+  ],
+  "registrationsAndConsentConfigured": true,
+  "registrationReadBackVerified": true,
+  "certificateConfigured": true,
+  "interactiveSignInAndOboVerified": true,
+  "userFlow": {
+    "displayName": "PP_Dev_SignUpSignIn",
+    "portalJourneyId": "PP_Dev_SignUpSignIn",
+    "identityProvider": "Email One Time Passcode",
+    "collectedAttributes": [
+      "Email Address"
+    ],
+    "attachedClientIds": [
+      "fc5f67a2-e6a2-4e3f-a49b-2b2410a6060b"
+    ],
+    "verificationMethod": "Portal read-back of identity provider and application association; CLI Graph lacks IdentityProvider delegated permission",
+    "portalVerified": true
+  },
+  "localVerificationEvidence": "customer-identity-verification-2026-11-03.json",
+  "browserSignOutAndAccountSwitchVerified": true
+}

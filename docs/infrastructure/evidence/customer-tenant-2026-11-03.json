@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-03",
+  "resourceId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AzureActiveDirectory/ciamDirectories/parameterpilotdev.onmicrosoft.com",
+  "tenantId": "0e9365ce-9928-49a0-a455-73c5ad29cf34",
+  "domain": "parameterpilotdev.onmicrosoft.com",
+  "location": "Global",
+  "sku": {
+    "name": "Base",
+    "tier": "A0"
+  },
+  "countryCode": "AU",
+  "billingType": "MAU",
+  "provisioningState": "Succeeded",
+  "goLocalDisabledVerifiedBy": "Owner-reviewed portal creation summary showed No; Bicep explicitly sets false",
+  "creation": "Owner portal creation followed by successful main.bicep adoption deployment pp-customer-identity-dev-20261103",
+  "tags": {
+    "application": "parameterpilot",
+    "environment": "dev",
+    "purpose": "customer-identity"
+  }
+}

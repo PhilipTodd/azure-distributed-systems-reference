@@ -61,3 +61,7 @@ Select actual roles/scopes, developer access, sharing rules and concrete impleme
 | Local dev Azure identity | Individual Entra login with approved dev permissions; no shared account/copied workload identity |
 
 Detailed retry limits, restart draining/resumption, actual role scopes, provider credential lifetimes/version selection and renewal/revocation mechanics remain open. No automatic scheduled rotation or continuous configuration refresh is introduced. See ADR-027/029 for authority.
+
+## Effective service isolation verified — 3 November 2026
+
+Authoritative Stage 1 step 2 passed 30 actual managed-identity checks on Aquarium/Tracking’s own and cross-service stores/vaults. Required synthetic reads succeeded; create/update/delete, cross-service reads and administration writes were denied. Permanent runtime read roles were unchanged. Synthetic keys/active secrets and temporary grants were removed; two disposable secrets remain soft-deleted under existing retention, without purge. Hosts are disabled/closed with original settings restored. See [verification runbook](configuration-vault-access.md) and [evidence](evidence/configuration-vault-access-2026-11-03.json). Earlier pending-isolation statements are historical; application refresh/rotation/failure implementation is not established by these access tests.

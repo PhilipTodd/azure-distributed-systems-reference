@@ -42,6 +42,8 @@ Metadata selection does not establish the complete auth/browser/telemetry depend
 
 ### Immutable image candidates
 
+3 November implementation update: the owner approved replacement of the unavailable non-vNext Cosmos digest below with GA `vnext-EN20261019`, digest `sha256:db53613dae19d0a3d5ad50688d14aa6e957af082dafea56b52e1bd3a6b3f1406`. The old manifest returns HTTP 404. Retain the approved SQL digest and Local ports. The replacement passed exploratory Local transaction/ETag/partition checks before/after restart, but does not enforce authentication; Azure security checks remain separate. Final combined bootstrap verification is pending. [Approval and evidence](authorised-decisions-2026-11-03.md).
+
 MCR returned these digests for the named tags on 29 October. Use `mcr.microsoft.com/<repository>@sha256:<digest>` in future authorised manifests; tags below identify the inspected release and must not become floating runtime pins. Image availability is verified; image signatures, OS/CPU compatibility, execution and scans are not.
 
 | Repository | Inspected tag | Digest |

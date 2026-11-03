@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.48.1.52935",
-      "templateHash": "9929638848626807522"
+      "templateHash": "15935247492996136892"
     }
   },
   "parameters": {
@@ -37,6 +37,13 @@
       "defaultValue": false,
       "metadata": {
         "description": "Opt in to the reviewed Development service foundations; does not activate API traffic."
+      }
+    },
+    "deployStaticWebApp": {
+      "type": "bool",
+      "defaultValue": true,
+      "metadata": {
+        "description": "Include the existing website/domain module; set false for access-only maintenance."
       }
     },
     "platformResourceGroupName": {
@@ -116,6 +123,70 @@
       "metadata": {
         "description": "Globally unique name of the Tracking Key Vault."
       }
+    },
+    "deployTrackingDataAccess": {
+      "type": "bool",
+      "defaultValue": false,
+      "metadata": {
+        "description": "Opt in to approved Tracking container and data grants; does not redeploy hosts."
+      }
+    },
+    "cosmosAccountName": {
+      "type": "string",
+      "defaultValue": "cosmos-adt-platform-dev"
+    },
+    "cosmosDatabaseName": {
+      "type": "string",
+      "defaultValue": "ReferenceProjects"
+    },
+    "trackingContainerName": {
+      "type": "string",
+      "defaultValue": "parameterpilot-tracking"
+    },
+    "trackingPrincipalId": {
+      "type": "string",
+      "defaultValue": "6c046dfa-2416-4706-893d-7cc000afecf0",
+      "metadata": {
+        "description": "Actual deployed Tracking managed identity, independently verified before deployment."
+      }
+    },
+    "deployDeliveryAccess": {
+      "type": "bool",
+      "defaultValue": false,
+      "metadata": {
+        "description": "Opt in to approved Step 3 access only; directory/GitHub setup is separate."
+      }
+    },
+    "deploymentPrincipalId": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "developerGroupId": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "aquariumPrincipalId": {
+      "type": "string",
+      "defaultValue": "e43e0132-e184-4669-8431-9f5a3ea5393e"
+    },
+    "containerRegistryName": {
+      "type": "string",
+      "defaultValue": "acradtplatformdev"
+    },
+    "deployCustomerIdentity": {
+      "type": "bool",
+      "defaultValue": false,
+      "metadata": {
+        "description": "Opt in to approved customer tenant creation/link only; does not configure apps or credentials."
+      }
+    },
+    "customerTenantSubdomain": {
+      "type": "string",
+      "defaultValue": "parameterpilotdev"
+    },
+    "customerTenantDisplayName": {
+      "type": "string",
+      "defaultValue": "Parameter Pilot Development Customers"
     }
   },
   "variables": {
@@ -145,6 +216,7 @@
       "location": "[parameters('applicationLocation')]"
     },
     {
+      "condition": "[parameters('deployStaticWebApp')]",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2025-04-01",
       "name": "[format('parameterpilot-static-web-app-{0}', parameters('environment'))]",
@@ -737,16 +809,669 @@
         "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-appservice-{1}', variables('serviceNames')[copyIndex()], parameters('environment')))]",
         "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-{0}-key-vault-{1}', variables('serviceNames')[copyIndex()], parameters('environment')))]"
       ]
+    },
+    {
+      "condition": "[and(parameters('deployTrackingDataAccess'), equals(parameters('environment'), 'dev'))]",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "[format('parameterpilot-tracking-data-access-{0}', parameters('environment'))]",
+      "resourceGroup": "[parameters('platformResourceGroupName')]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "accountName": {
+            "value": "[parameters('cosmosAccountName')]"
+          },
+          "databaseName": {
+            "value": "[parameters('cosmosDatabaseName')]"
+          },
+          "containerName": {
+            "value": "[parameters('trackingContainerName')]"
+          },
+          "trackingPrincipalId": {
+            "value": "[parameters('trackingPrincipalId')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.48.1.52935",
+              "templateHash": "855519007113757211"
+            }
+          },
+          "parameters": {
+            "accountName": {
+              "type": "string"
+            },
+            "databaseName": {
+              "type": "string"
+            },
+            "containerName": {
+              "type": "string"
+            },
+            "trackingPrincipalId": {
+              "type": "string"
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
+              "apiVersion": "2024-11-15",
+              "name": "[format('{0}/{1}/{2}', parameters('accountName'), parameters('databaseName'), parameters('containerName'))]",
+              "properties": {
+                "resource": {
+                  "id": "[parameters('containerName')]",
+                  "partitionKey": {
+                    "paths": [
+                      "/tankId"
+                    ],
+                    "kind": "Hash",
+                    "version": 2
+                  }
+                },
+                "options": {}
+              }
+            },
+            {
+              "type": "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions",
+              "apiVersion": "2024-11-15",
+              "name": "[format('{0}/{1}', parameters('accountName'), guid(resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName')), 'parameterpilot-tracking-runtime'))]",
+              "properties": {
+                "roleName": "Parameter Pilot Tracking Runtime",
+                "type": "CustomRole",
+                "assignableScopes": [
+                  "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName'))]"
+                ],
+                "permissions": [
+                  {
+                    "dataActions": [
+                      "Microsoft.DocumentDB/databaseAccounts/readMetadata",
+                      "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create",
+                      "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read",
+                      "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/replace",
+                      "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/upsert",
+                      "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/delete",
+                      "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery",
+                      "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments",
+              "apiVersion": "2024-11-15",
+              "name": "[format('{0}/{1}', parameters('accountName'), guid(resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName')), parameters('trackingPrincipalId'), parameters('databaseName'), parameters('containerName'), 'runtime'))]",
+              "properties": {
+                "principalId": "[parameters('trackingPrincipalId')]",
+                "roleDefinitionId": "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions', parameters('accountName'), guid(resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName')), 'parameterpilot-tracking-runtime'))]",
+                "scope": "[format('{0}/dbs/{1}/colls/{2}', resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName')), parameters('databaseName'), parameters('containerName'))]"
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers', parameters('accountName'), parameters('databaseName'), parameters('containerName'))]",
+                "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions', parameters('accountName'), guid(resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName')), 'parameterpilot-tracking-runtime'))]"
+              ]
+            }
+          ],
+          "outputs": {
+            "containerId": {
+              "type": "string",
+              "value": "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers', parameters('accountName'), parameters('databaseName'), parameters('containerName'))]"
+            },
+            "dataScope": {
+              "type": "string",
+              "value": "[reference(resourceId('Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments', parameters('accountName'), guid(resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName')), parameters('trackingPrincipalId'), parameters('databaseName'), parameters('containerName'), 'runtime')), '2024-11-15').scope]"
+            },
+            "roleDefinitionId": {
+              "type": "string",
+              "value": "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions', parameters('accountName'), guid(resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName')), 'parameterpilot-tracking-runtime'))]"
+            },
+            "roleAssignmentId": {
+              "type": "string",
+              "value": "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments', parameters('accountName'), guid(resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName')), parameters('trackingPrincipalId'), parameters('databaseName'), parameters('containerName'), 'runtime'))]"
+            }
+          }
+        }
+      }
+    },
+    {
+      "condition": "[and(parameters('deployDeliveryAccess'), equals(parameters('environment'), 'dev'))]",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "parameterpilot-delivery-role-definitions-dev",
+      "location": "[deployment().location]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "applicationResourceGroupName": {
+            "value": "[parameters('applicationResourceGroupName')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.48.1.52935",
+              "templateHash": "871241352837732042"
+            }
+          },
+          "parameters": {
+            "applicationResourceGroupName": {
+              "type": "string"
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Authorization/roleDefinitions",
+              "apiVersion": "2022-04-01",
+              "name": "[guid(subscription().id, 'parameterpilot-api-release-dev')]",
+              "properties": {
+                "roleName": "Parameter Pilot API Release Dev",
+                "description": "Update configuration and restart existing PP API hosts; no host creation, IAM or secret listing.",
+                "type": "CustomRole",
+                "assignableScopes": [
+                  "[subscriptionResourceId('Microsoft.Resources/resourceGroups', parameters('applicationResourceGroupName'))]"
+                ],
+                "permissions": [
+                  {
+                    "actions": [
+                      "Microsoft.Web/sites/read",
+                      "Microsoft.Web/sites/config/read",
+                      "Microsoft.Web/sites/config/write",
+                      "Microsoft.Web/sites/restart/action"
+                    ],
+                    "notActions": [],
+                    "dataActions": [],
+                    "notDataActions": []
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Microsoft.Authorization/roleDefinitions",
+              "apiVersion": "2022-04-01",
+              "name": "[guid(subscription().id, 'parameterpilot-website-release-dev')]",
+              "properties": {
+                "roleName": "Parameter Pilot Website Release Dev",
+                "description": "Read the existing PP static website and its deployment token; no site creation or role administration.",
+                "type": "CustomRole",
+                "assignableScopes": [
+                  "[subscriptionResourceId('Microsoft.Resources/resourceGroups', parameters('applicationResourceGroupName'))]"
+                ],
+                "permissions": [
+                  {
+                    "actions": [
+                      "Microsoft.Web/staticSites/read",
+                      "Microsoft.Web/staticSites/listsecrets/action"
+                    ],
+                    "notActions": [],
+                    "dataActions": [],
+                    "notDataActions": []
+                  }
+                ]
+              }
+            }
+          ],
+          "outputs": {
+            "apiReleaseRoleId": {
+              "type": "string",
+              "value": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', guid(subscription().id, 'parameterpilot-api-release-dev'))]"
+            },
+            "websiteReleaseRoleId": {
+              "type": "string",
+              "value": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', guid(subscription().id, 'parameterpilot-website-release-dev'))]"
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "[subscriptionResourceId('Microsoft.Resources/resourceGroups', parameters('applicationResourceGroupName'))]"
+      ]
+    },
+    {
+      "condition": "[and(parameters('deployDeliveryAccess'), equals(parameters('environment'), 'dev'))]",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "parameterpilot-delivery-access-dev",
+      "resourceGroup": "[parameters('applicationResourceGroupName')]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "deploymentPrincipalId": {
+            "value": "[parameters('deploymentPrincipalId')]"
+          },
+          "developerGroupId": {
+            "value": "[parameters('developerGroupId')]"
+          },
+          "apiReleaseRoleId": {
+            "value": "[reference(subscriptionResourceId('Microsoft.Resources/deployments', 'parameterpilot-delivery-role-definitions-dev'), '2025-04-01').outputs.apiReleaseRoleId.value]"
+          },
+          "websiteReleaseRoleId": {
+            "value": "[reference(subscriptionResourceId('Microsoft.Resources/deployments', 'parameterpilot-delivery-role-definitions-dev'), '2025-04-01').outputs.websiteReleaseRoleId.value]"
+          },
+          "apiAppNames": {
+            "value": [
+              "[parameters('aquariumApiAppName')]",
+              "[parameters('trackingApiAppName')]"
+            ]
+          },
+          "configurationStoreNames": {
+            "value": [
+              "[parameters('aquariumAppConfigurationName')]",
+              "[parameters('trackingAppConfigurationName')]"
+            ]
+          },
+          "staticWebAppName": {
+            "value": "[parameters('staticWebAppName')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.48.1.52935",
+              "templateHash": "8707881484533030023"
+            }
+          },
+          "parameters": {
+            "deploymentPrincipalId": {
+              "type": "string"
+            },
+            "developerGroupId": {
+              "type": "string"
+            },
+            "apiReleaseRoleId": {
+              "type": "string"
+            },
+            "websiteReleaseRoleId": {
+              "type": "string"
+            },
+            "apiAppNames": {
+              "type": "array"
+            },
+            "configurationStoreNames": {
+              "type": "array"
+            },
+            "staticWebAppName": {
+              "type": "string"
+            }
+          },
+          "variables": {
+            "readerRoleId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]",
+            "configurationReaderRoleId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '516239f1-63e1-4d78-a4de-a74fb236a071')]"
+          },
+          "resources": [
+            {
+              "copy": {
+                "name": "apiRelease",
+                "count": "[length(parameters('apiAppNames'))]"
+              },
+              "type": "Microsoft.Authorization/roleAssignments",
+              "apiVersion": "2022-04-01",
+              "scope": "[resourceId('Microsoft.Web/sites', parameters('apiAppNames')[copyIndex()])]",
+              "name": "[guid(resourceId('Microsoft.Web/sites', parameters('apiAppNames')[copyIndex()]), parameters('deploymentPrincipalId'), parameters('apiReleaseRoleId'))]",
+              "properties": {
+                "principalId": "[parameters('deploymentPrincipalId')]",
+                "principalType": "ServicePrincipal",
+                "roleDefinitionId": "[parameters('apiReleaseRoleId')]"
+              }
+            },
+            {
+              "type": "Microsoft.Authorization/roleAssignments",
+              "apiVersion": "2022-04-01",
+              "scope": "[resourceId('Microsoft.Web/staticSites', parameters('staticWebAppName'))]",
+              "name": "[guid(resourceId('Microsoft.Web/staticSites', parameters('staticWebAppName')), parameters('deploymentPrincipalId'), parameters('websiteReleaseRoleId'))]",
+              "properties": {
+                "principalId": "[parameters('deploymentPrincipalId')]",
+                "principalType": "ServicePrincipal",
+                "roleDefinitionId": "[parameters('websiteReleaseRoleId')]"
+              }
+            },
+            {
+              "type": "Microsoft.Authorization/roleAssignments",
+              "apiVersion": "2022-04-01",
+              "name": "[guid(resourceGroup().id, parameters('developerGroupId'), variables('readerRoleId'))]",
+              "properties": {
+                "principalId": "[parameters('developerGroupId')]",
+                "principalType": "Group",
+                "roleDefinitionId": "[variables('readerRoleId')]"
+              }
+            },
+            {
+              "copy": {
+                "name": "developerConfigurationReader",
+                "count": "[length(parameters('configurationStoreNames'))]"
+              },
+              "type": "Microsoft.Authorization/roleAssignments",
+              "apiVersion": "2022-04-01",
+              "scope": "[resourceId('Microsoft.AppConfiguration/configurationStores', parameters('configurationStoreNames')[copyIndex()])]",
+              "name": "[guid(resourceId('Microsoft.AppConfiguration/configurationStores', parameters('configurationStoreNames')[copyIndex()]), parameters('developerGroupId'), variables('configurationReaderRoleId'))]",
+              "properties": {
+                "principalId": "[parameters('developerGroupId')]",
+                "principalType": "Group",
+                "roleDefinitionId": "[variables('configurationReaderRoleId')]"
+              }
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "[subscriptionResourceId('Microsoft.Resources/resourceGroups', parameters('applicationResourceGroupName'))]",
+        "[subscriptionResourceId('Microsoft.Resources/deployments', 'parameterpilot-delivery-role-definitions-dev')]"
+      ]
+    },
+    {
+      "condition": "[and(parameters('deployDeliveryAccess'), equals(parameters('environment'), 'dev'))]",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "parameterpilot-registry-access-dev",
+      "resourceGroup": "[parameters('platformResourceGroupName')]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "registryName": {
+            "value": "[parameters('containerRegistryName')]"
+          },
+          "deploymentPrincipalId": {
+            "value": "[parameters('deploymentPrincipalId')]"
+          },
+          "aquariumPrincipalId": {
+            "value": "[parameters('aquariumPrincipalId')]"
+          },
+          "trackingPrincipalId": {
+            "value": "[parameters('trackingPrincipalId')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.48.1.52935",
+              "templateHash": "18100049482068773009"
+            }
+          },
+          "parameters": {
+            "registryName": {
+              "type": "string"
+            },
+            "deploymentPrincipalId": {
+              "type": "string"
+            },
+            "aquariumPrincipalId": {
+              "type": "string"
+            },
+            "trackingPrincipalId": {
+              "type": "string"
+            }
+          },
+          "variables": {
+            "writerRoleId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '2a1e307c-b015-4ebd-883e-5b7698a07328')]",
+            "readerRoleId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b93aa761-3e63-49ed-ac28-beffa264f7ac')]",
+            "runtimeRepositories": [
+              {
+                "principalId": "[parameters('aquariumPrincipalId')]",
+                "repository": "parameterpilot/aquarium-api"
+              },
+              {
+                "principalId": "[parameters('trackingPrincipalId')]",
+                "repository": "parameterpilot/tracking-api"
+              }
+            ]
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Authorization/roleAssignments",
+              "apiVersion": "2022-04-01",
+              "scope": "[resourceId('Microsoft.ContainerRegistry/registries', parameters('registryName'))]",
+              "name": "[guid(resourceId('Microsoft.ContainerRegistry/registries', parameters('registryName')), parameters('deploymentPrincipalId'), 'pp-api-repository-writer')]",
+              "properties": {
+                "principalId": "[parameters('deploymentPrincipalId')]",
+                "principalType": "ServicePrincipal",
+                "roleDefinitionId": "[variables('writerRoleId')]",
+                "conditionVersion": "2.0",
+                "condition": "((!(ActionMatches{'Microsoft.ContainerRegistry/registries/repositories/content/read'}) AND !(ActionMatches{'Microsoft.ContainerRegistry/registries/repositories/content/write'}) AND !(ActionMatches{'Microsoft.ContainerRegistry/registries/repositories/metadata/read'}) AND !(ActionMatches{'Microsoft.ContainerRegistry/registries/repositories/metadata/write'})) OR (@Request[Microsoft.ContainerRegistry/registries/repositories:name] StringEqualsIgnoreCase 'parameterpilot/aquarium-api') OR (@Request[Microsoft.ContainerRegistry/registries/repositories:name] StringEqualsIgnoreCase 'parameterpilot/tracking-api'))"
+              }
+            },
+            {
+              "copy": {
+                "name": "pull",
+                "count": "[length(variables('runtimeRepositories'))]"
+              },
+              "type": "Microsoft.Authorization/roleAssignments",
+              "apiVersion": "2022-04-01",
+              "scope": "[resourceId('Microsoft.ContainerRegistry/registries', parameters('registryName'))]",
+              "name": "[guid(resourceId('Microsoft.ContainerRegistry/registries', parameters('registryName')), variables('runtimeRepositories')[copyIndex()].principalId, variables('runtimeRepositories')[copyIndex()].repository, 'reader')]",
+              "properties": {
+                "principalId": "[variables('runtimeRepositories')[copyIndex()].principalId]",
+                "principalType": "ServicePrincipal",
+                "roleDefinitionId": "[variables('readerRoleId')]",
+                "conditionVersion": "2.0",
+                "condition": "[format('((!(ActionMatches{{''Microsoft.ContainerRegistry/registries/repositories/content/read''}}) AND !(ActionMatches{{''Microsoft.ContainerRegistry/registries/repositories/metadata/read''}})) OR (@Request[Microsoft.ContainerRegistry/registries/repositories:name] StringEqualsIgnoreCase ''{0}''))', variables('runtimeRepositories')[copyIndex()].repository)]"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "condition": "[and(parameters('deployDeliveryAccess'), equals(parameters('environment'), 'dev'))]",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "parameterpilot-developer-cosmos-access-dev",
+      "resourceGroup": "[parameters('platformResourceGroupName')]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "accountName": {
+            "value": "[parameters('cosmosAccountName')]"
+          },
+          "databaseName": {
+            "value": "[parameters('cosmosDatabaseName')]"
+          },
+          "containerName": {
+            "value": "[parameters('trackingContainerName')]"
+          },
+          "developerGroupId": {
+            "value": "[parameters('developerGroupId')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.48.1.52935",
+              "templateHash": "9476596725730188188"
+            }
+          },
+          "parameters": {
+            "accountName": {
+              "type": "string"
+            },
+            "databaseName": {
+              "type": "string"
+            },
+            "containerName": {
+              "type": "string"
+            },
+            "developerGroupId": {
+              "type": "string"
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions",
+              "apiVersion": "2024-11-15",
+              "name": "[format('{0}/{1}', parameters('accountName'), guid(resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName')), 'parameterpilot-developer-reader'))]",
+              "properties": {
+                "roleName": "Parameter Pilot Developer Reader",
+                "type": "CustomRole",
+                "assignableScopes": [
+                  "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName'))]"
+                ],
+                "permissions": [
+                  {
+                    "dataActions": [
+                      "Microsoft.DocumentDB/databaseAccounts/readMetadata",
+                      "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read",
+                      "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery",
+                      "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments",
+              "apiVersion": "2024-11-15",
+              "name": "[format('{0}/{1}', parameters('accountName'), guid(resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName')), parameters('developerGroupId'), parameters('databaseName'), parameters('containerName'), 'developer-reader'))]",
+              "properties": {
+                "principalId": "[parameters('developerGroupId')]",
+                "roleDefinitionId": "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions', parameters('accountName'), guid(resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName')), 'parameterpilot-developer-reader'))]",
+                "scope": "[format('{0}/dbs/{1}/colls/{2}', resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName')), parameters('databaseName'), parameters('containerName'))]"
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions', parameters('accountName'), guid(resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName')), 'parameterpilot-developer-reader'))]"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "condition": "[and(parameters('deployCustomerIdentity'), equals(parameters('environment'), 'dev'))]",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "parameterpilot-customer-identity-dev",
+      "resourceGroup": "[parameters('applicationResourceGroupName')]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "tenantSubdomain": {
+            "value": "[parameters('customerTenantSubdomain')]"
+          },
+          "displayName": {
+            "value": "[parameters('customerTenantDisplayName')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.48.1.52935",
+              "templateHash": "9438662568020697851"
+            }
+          },
+          "parameters": {
+            "tenantSubdomain": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 26,
+              "metadata": {
+                "description": "Globally unique customer tenant subdomain; no punctuation."
+              }
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "resourceLocation": {
+              "type": "string",
+              "defaultValue": "Global",
+              "allowedValues": [
+                "Global"
+              ]
+            },
+            "countryCode": {
+              "type": "string",
+              "defaultValue": "AU",
+              "allowedValues": [
+                "AU"
+              ]
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.AzureActiveDirectory/ciamDirectories",
+              "apiVersion": "2025-08-01-preview",
+              "name": "[format('{0}.onmicrosoft.com', parameters('tenantSubdomain'))]",
+              "location": "[parameters('resourceLocation')]",
+              "sku": {
+                "name": "Base",
+                "tier": "A0"
+              },
+              "properties": {
+                "createTenantProperties": {
+                  "countryCode": "[parameters('countryCode')]",
+                  "displayName": "[parameters('displayName')]",
+                  "isGoLocalTenant": false
+                }
+              },
+              "tags": {
+                "application": "parameterpilot",
+                "environment": "dev",
+                "purpose": "customer-identity"
+              }
+            }
+          ],
+          "outputs": {
+            "resourceId": {
+              "type": "string",
+              "value": "[resourceId('Microsoft.AzureActiveDirectory/ciamDirectories', format('{0}.onmicrosoft.com', parameters('tenantSubdomain')))]"
+            },
+            "tenantId": {
+              "type": "string",
+              "value": "[reference(resourceId('Microsoft.AzureActiveDirectory/ciamDirectories', format('{0}.onmicrosoft.com', parameters('tenantSubdomain'))), '2025-08-01-preview').tenantId]"
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "[subscriptionResourceId('Microsoft.Resources/resourceGroups', parameters('applicationResourceGroupName'))]"
+      ]
     }
   ],
   "outputs": {
+    "customerTenantId": {
+      "type": "string",
+      "value": "[if(and(parameters('deployCustomerIdentity'), equals(parameters('environment'), 'dev')), reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', 'parameterpilot-customer-identity-dev'), '2025-04-01').outputs.tenantId.value, '')]"
+    },
     "staticWebAppName": {
       "type": "string",
-      "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-static-web-app-{0}', parameters('environment'))), '2025-04-01').outputs.name.value]"
+      "value": "[parameters('staticWebAppName')]"
     },
     "staticWebAppHostname": {
       "type": "string",
-      "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-static-web-app-{0}', parameters('environment'))), '2025-04-01').outputs.defaultHostname.value]"
+      "value": "[if(parameters('deployStaticWebApp'), reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, parameters('applicationResourceGroupName')), 'Microsoft.Resources/deployments', format('parameterpilot-static-web-app-{0}', parameters('environment'))), '2025-04-01').outputs.defaultHostname.value, '')]"
     },
     "serviceFoundationResources": {
       "type": "array",

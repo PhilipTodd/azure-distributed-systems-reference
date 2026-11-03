@@ -1,0 +1,330 @@
+{
+  "date": "2026-11-03",
+  "stage1AuthoritativeStep": 2,
+  "status": "Passed and cleaned; two disposable secrets retained only as soft-deleted objects",
+  "runId": "52b4dd5d34e2",
+  "registryImage": "acradtplatformdev.azurecr.io/parameterpilot/access-verification@sha256:4dafaeb325dcb6787a46107181a344de6a3374051169495d457597fd5a3eaba0",
+  "credentialMode": "Explicit system-assigned managed identities; no developer credential fallback",
+  "checkCount": 30,
+  "results": {
+    "aquarium": {
+      "RunId": "52b4dd5d34e2",
+      "Role": "aquarium",
+      "Host": "api-adt-aquarium-dev",
+      "ExpectedPrincipalId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+      "ObservedPrincipalId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+      "StartedUtc": "2026-11-02T23:00:58.8112089+00:00",
+      "CompletedUtc": "2026-11-02T23:01:10.1164514+00:00",
+      "Passed": true,
+      "Checks": [
+        {
+          "Name": "managedIdentityObjectIdMatchesHost",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "ownConfigurationRead",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "crossServiceConfigurationReadDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "configurationCreateDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "configurationUpdateDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "configurationDeleteDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "ownSecretRead",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "crossServiceSecretReadDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "secretCreateDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "secretUpdateDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "secretDeleteDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "configurationRoleAdministrationDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "vaultRoleAdministrationDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "configurationManagementWriteDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "vaultManagementWriteDenied",
+          "Passed": true,
+          "Error": null
+        }
+      ]
+    },
+    "tracking": {
+      "RunId": "52b4dd5d34e2",
+      "Role": "tracking",
+      "Host": "api-adt-tracking-dev",
+      "ExpectedPrincipalId": "6c046dfa-2416-4706-893d-7cc000afecf0",
+      "ObservedPrincipalId": "6c046dfa-2416-4706-893d-7cc000afecf0",
+      "StartedUtc": "2026-11-02T23:04:00.0709219+00:00",
+      "CompletedUtc": "2026-11-02T23:04:13.1726782+00:00",
+      "Passed": true,
+      "Checks": [
+        {
+          "Name": "managedIdentityObjectIdMatchesHost",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "ownConfigurationRead",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "crossServiceConfigurationReadDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "configurationCreateDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "configurationUpdateDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "configurationDeleteDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "ownSecretRead",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "crossServiceSecretReadDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "secretCreateDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "secretUpdateDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "secretDeleteDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "configurationRoleAdministrationDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "vaultRoleAdministrationDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "configurationManagementWriteDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "vaultManagementWriteDenied",
+          "Passed": true,
+          "Error": null
+        }
+      ]
+    }
+  },
+  "initialAdministrationTestDesignCorrection": "Metadata-listing expectations were replaced with idempotent existing read-role assignment PUTs; final administration write tests all returned denial",
+  "cleanup": {
+    "hosts": {
+      "aquarium": {
+        "enabled": false,
+        "publicNetworkAccess": "Disabled",
+        "originalContainerConfigurationRestored": true,
+        "selectedSettingsRestored": true,
+        "loggingRestoredExactly": true,
+        "restrictions": {
+          "main": "Deny",
+          "scm": "Deny",
+          "scmUsesMain": true
+        },
+        "principalId": "e43e0132-e184-4669-8431-9f5a3ea5393e"
+      },
+      "tracking": {
+        "enabled": false,
+        "publicNetworkAccess": "Disabled",
+        "originalContainerConfigurationRestored": true,
+        "selectedSettingsRestored": true,
+        "loggingRestoredExactly": true,
+        "restrictions": {
+          "main": "Deny",
+          "scm": "Deny",
+          "scmUsesMain": true
+        },
+        "principalId": "6c046dfa-2416-4706-893d-7cc000afecf0"
+      }
+    },
+    "syntheticContent": {
+      "aquarium": {
+        "configurationKeysAbsent": true,
+        "activeTestSecretsAbsent": true,
+        "softDeletedSyntheticSecrets": [
+          {
+            "id": "https://kv-adt-aquarium-dev.vault.azure.net/secrets/pp-step2-52b4dd5d34e2",
+            "recoveryId": "https://kv-adt-aquarium-dev.vault.azure.net/deletedsecrets/pp-step2-52b4dd5d34e2",
+            "deletedDate": 1793660713,
+            "scheduledPurgeDate": 1801436713
+          }
+        ],
+        "purgeAttempted": false
+      },
+      "tracking": {
+        "configurationKeysAbsent": true,
+        "activeTestSecretsAbsent": true,
+        "softDeletedSyntheticSecrets": [
+          {
+            "id": "https://kv-adt-tracking-dev.vault.azure.net/secrets/pp-step2-52b4dd5d34e2",
+            "recoveryId": "https://kv-adt-tracking-dev.vault.azure.net/deletedsecrets/pp-step2-52b4dd5d34e2",
+            "deletedDate": 1793660714,
+            "scheduledPurgeDate": 1801436714
+          }
+        ],
+        "purgeAttempted": false
+      }
+    },
+    "temporaryRoleAssignmentIdsRemoved": [
+      "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-adt-aquarium-dev/providers/Microsoft.Authorization/roleAssignments/c114e5b6-f6e6-483a-8d97-dda34c241ff5",
+      "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-adt-aquarium-dev/providers/Microsoft.Authorization/roleAssignments/99654f45-d0a7-452a-beee-6d0a14e6b8b4",
+      "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-adt-tracking-dev/providers/Microsoft.Authorization/roleAssignments/f8f9c6a3-679b-4a1a-9c84-7b0eb2e9ec7a",
+      "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-adt-tracking-dev/providers/Microsoft.Authorization/roleAssignments/c3e42751-5cdb-48fb-948a-ef3d907f729f",
+      "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/a9c54d40-9d7b-4874-b78c-bbce20490610",
+      "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/e843410b-2ee9-4836-ac8b-4c43daa2f5fc",
+      "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/ba8cb49f-771e-4ca3-8a3a-f2c052442b84",
+      "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-adt-aquarium-dev/providers/Microsoft.Authorization/roleAssignments/aa6d7f74-c63c-4c7e-9074-7ec3a93c759b",
+      "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-adt-tracking-dev/providers/Microsoft.Authorization/roleAssignments/3dba6bca-f40a-4b32-8eff-4d16cd76189a"
+    ],
+    "metadataOnlyCleanupVerificationRolesRemoved": [
+      "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-adt-aquarium-dev/providers/Microsoft.Authorization/roleAssignments/aa6d7f74-c63c-4c7e-9074-7ec3a93c759b",
+      "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-adt-tracking-dev/providers/Microsoft.Authorization/roleAssignments/3dba6bca-f40a-4b32-8eff-4d16cd76189a"
+    ],
+    "temporaryAssignmentsVerifiedAbsent": true,
+    "dockerAuthenticationFileRemoved": true,
+    "secretValuesPersistedInEvidence": false,
+    "purgeAttempted": false
+  },
+  "permanentRuntimeRolesUnchanged": {
+    "aquarium": [
+      {
+        "scope": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourcegroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-adt-aquarium-dev",
+        "roleDefinitionId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/providers/Microsoft.Authorization/roleDefinitions/516239f1-63e1-4d78-a4de-a74fb236a071",
+        "principalId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+        "principalType": "ServicePrincipal"
+      },
+      {
+        "scope": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourcegroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-adt-aquarium-dev",
+        "roleDefinitionId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/providers/Microsoft.Authorization/roleDefinitions/4633458b-17de-408a-b874-0445c86b69e6",
+        "principalId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+        "principalType": "ServicePrincipal"
+      }
+    ],
+    "tracking": [
+      {
+        "scope": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourcegroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-adt-tracking-dev",
+        "roleDefinitionId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/providers/Microsoft.Authorization/roleDefinitions/516239f1-63e1-4d78-a4de-a74fb236a071",
+        "principalId": "6c046dfa-2416-4706-893d-7cc000afecf0",
+        "principalType": "ServicePrincipal"
+      },
+      {
+        "scope": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourcegroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-adt-tracking-dev",
+        "roleDefinitionId": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/providers/Microsoft.Authorization/roleDefinitions/4633458b-17de-408a-b874-0445c86b69e6",
+        "principalId": "6c046dfa-2416-4706-893d-7cc000afecf0",
+        "principalType": "ServicePrincipal"
+      }
+    ]
+  },
+  "resources": {
+    "aquarium:configuration": {
+      "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-adt-aquarium-dev",
+      "managementTagsUnchanged": true,
+      "authenticationAndProtectionUnchanged": true
+    },
+    "aquarium:vault": {
+      "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-adt-aquarium-dev",
+      "managementTagsUnchanged": true,
+      "authenticationAndProtectionUnchanged": true
+    },
+    "tracking:configuration": {
+      "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-adt-tracking-dev",
+      "managementTagsUnchanged": true,
+      "authenticationAndProtectionUnchanged": true
+    },
+    "tracking:vault": {
+      "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.KeyVault/vaults/kv-adt-tracking-dev",
+      "managementTagsUnchanged": true,
+      "authenticationAndProtectionUnchanged": true
+    }
+  },
+  "sourceSha256": {
+    "tests/Stage1.AccessProbe/Program.cs": "4c5d369dbb75896f5a6dffec7b5adf0f0aeef84578ac066ebe26279710541035",
+    "tests/Stage1.AccessProbe/Stage1.AccessProbe.csproj": "78e7a22415f81d5165d9d1d7d0bd72026f682f25ca71be6501d2126e2311e0bb",
+    "tests/Stage1.AccessProbe/packages.lock.json": "337d07328a12be0bcefe18d5b87025a38289db00d75904921a7e0949a741ae50",
+    "tests/Stage1.AccessProbe/Dockerfile": "2d4d97e6dfe21b1c2331cb810fb4ddaeb28939184c9de8c94649b99e66d00372",
+    "scripts/run-workload-access-verification.py": "d430b4a4f5936d008e40dfa572fa446a9a84f2b5cd119bf02b8e312a5a5d6797"
+  },
+  "scopeLimits": [
+    "No real configuration or credential values read",
+    "Only synthetic secrets were read; values/hashes are not included in evidence",
+    "No SQL/Cosmos operations or SQL administrator password changes in configuration mode",
+    "No runtime write or administration grants added",
+    "Configuration provider startup/rotation/failure behaviours remain application implementation work",
+    "Private verification image retained as reproducible artifact"
+  ]
+}

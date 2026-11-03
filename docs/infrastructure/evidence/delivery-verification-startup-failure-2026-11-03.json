@@ -1,0 +1,8 @@
+{
+  "cleanupVerified": true,
+  "runId": "b3901a1fed83",
+  "accessTestsPassed": false,
+  "status": "Probe did not execute: temporary Reader assignment collided with existing principal/role/scope assignment",
+  "remediation": "Coordinator now verifies created assignment IDs and journals/restores temporary read-condition extensions on existing assignments.",
+  "date": "2026-11-03"
+}

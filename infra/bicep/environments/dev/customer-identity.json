@@ -1,0 +1,13 @@
+{
+  "environment": "dev",
+  "tenantSubdomain": "parameterpilotdev",
+  "applications": {
+    "ui": { "displayName": "Parameter Pilot UI Dev" },
+    "aquarium": { "displayName": "Parameter Pilot Aquarium API Dev", "scopes": ["Aquarium.Read", "Aquarium.Write"] },
+    "tracking": { "displayName": "Parameter Pilot Tracking API Dev", "scopes": ["Tracking.Read", "Tracking.Write"] }
+  },
+  "spaRedirectUris": ["http://localhost:4200", "https://parameterpilot.com", "https://www.parameterpilot.com"],
+  "trackingDownstreamScope": "Aquarium.Read",
+  "customerSignIn": "EmailOTP",
+  "userFlowName": "PP_Dev_SignUpSignIn"
+}

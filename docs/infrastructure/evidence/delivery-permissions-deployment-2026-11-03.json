@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-03",
+  "deploymentName": "pp-delivery-access-dev-20261103",
+  "resourcesVerified": [
+    {
+      "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/providers/Microsoft.Authorization/roleDefinitions/01c3473e-8e15-5c5f-977f-cb5e25fdc98e",
+      "propertiesMatchPreview": true
+    },
+    {
+      "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/providers/Microsoft.Authorization/roleDefinitions/074759a5-0cb0-533b-800b-c7aead45414f",
+      "propertiesMatchPreview": true
+    },
+    {
+      "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-adt-aquarium-dev/providers/Microsoft.Authorization/roleAssignments/da2f72ea-7adb-5696-a9a6-97ff640beeb2",
+      "propertiesMatchPreview": true
+    },
+    {
+      "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.AppConfiguration/configurationStores/appcs-adt-tracking-dev/providers/Microsoft.Authorization/roleAssignments/ed2f68e3-2ccc-5fb5-8faf-bd541ed65cb1",
+      "propertiesMatchPreview": true
+    },
+    {
+      "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Authorization/roleAssignments/c75336d7-08da-5be3-8bd2-07e795ebc33f",
+      "propertiesMatchPreview": true
+    },
+    {
+      "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/api-adt-aquarium-dev/providers/Microsoft.Authorization/roleAssignments/9cbe1205-054d-534d-995d-de34cc002348",
+      "propertiesMatchPreview": true
+    },
+    {
+      "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/sites/api-adt-tracking-dev/providers/Microsoft.Authorization/roleAssignments/e7e9999f-25eb-52d8-8b35-e297c86f0c93",
+      "propertiesMatchPreview": true
+    },
+    {
+      "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-parameterpilot-dev/providers/Microsoft.Web/staticSites/stapp-adt-parameterpilot-dev/providers/Microsoft.Authorization/roleAssignments/6c405f7f-c4e7-5f5f-bf6a-b6f650566f14",
+      "propertiesMatchPreview": true
+    },
+    {
+      "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/29bae588-cc03-5ae0-8a9e-d58c91eeefbb",
+      "propertiesMatchPreview": true
+    },
+    {
+      "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/89fcec5a-739a-59e4-a309-d2399b5410be",
+      "propertiesMatchPreview": true
+    },
+    {
+      "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/ef783ba4-7467-534e-a1cf-1ee8dff979a2",
+      "propertiesMatchPreview": true
+    },
+    {
+      "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-adt-platform-dev/sqlRoleAssignments/ddaa2bfc-f351-5f98-b72f-e0e71eb0c275",
+      "propertiesMatchPreview": true
+    },
+    {
+      "id": "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-adt-platform-dev/sqlRoleDefinitions/2b5f52a7-aac1-590f-ba61-86c75bb708b6",
+      "propertiesMatchPreview": true
+    }
+  ],
+  "builtinRegistryRolesVerified": {
+    "reader": {
+      "roleId": "b93aa761-3e63-49ed-ac28-beffa264f7ac",
+      "dataActions": [
+        "Microsoft.ContainerRegistry/registries/repositories/content/read",
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/read"
+      ]
+    },
+    "writer": {
+      "roleId": "2a1e307c-b015-4ebd-883e-5b7698a07328",
+      "dataActions": [
+        "Microsoft.ContainerRegistry/registries/repositories/content/read",
+        "Microsoft.ContainerRegistry/registries/repositories/content/write",
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/read",
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/write"
+      ]
+    }
+  },
+  "unexpectedAzureAssignments": false,
+  "verification": "Read-back equality with approved additions-only preview; not effective identity execution"
+}

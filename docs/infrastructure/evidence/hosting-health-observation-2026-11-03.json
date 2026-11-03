@@ -1,0 +1,23 @@
+{
+  "runId": "cbac6e81bf93",
+  "date": "2026-11-03",
+  "observations": {
+    "aquarium": [
+      200,
+      {
+        "role": "aquarium",
+        "run": "cbac6e81bf93",
+        "started": "2026-11-03T03:42:13.0221404+00:00"
+      }
+    ],
+    "tracking": [
+      200,
+      {
+        "role": "tracking",
+        "run": "cbac6e81bf93",
+        "started": "2026-11-03T03:42:39.7285216+00:00"
+      }
+    ]
+  },
+  "scmDiagnosticExceptionRemoved": true
+}

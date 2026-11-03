@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-03",
+  "hosts": {
+    "aquarium": {
+      "enabled": false,
+      "publicNetworkAccess": "Disabled",
+      "mainAndScmDefaultAction": "Deny",
+      "systemPrincipalId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+      "userAssignedIdentities": [],
+      "selectedConfigurationMatchesOriginal": true
+    },
+    "tracking": {
+      "enabled": false,
+      "publicNetworkAccess": "Disabled",
+      "mainAndScmDefaultAction": "Deny",
+      "systemPrincipalId": "6c046dfa-2416-4706-893d-7cc000afecf0",
+      "userAssignedIdentities": [],
+      "selectedConfigurationMatchesOriginal": true
+    }
+  },
+  "temporaryDeveloperIdentityAbsent": true,
+  "syntheticSqlObjectsAndUsersAbsent": true,
+  "sqlMemberships": {
+    "AquariumMigrations": [
+      "github-parameterpilot-migrations-dev"
+    ],
+    "AquariumDeveloper": [
+      "sg-adt-parameterpilot-developers-dev"
+    ]
+  },
+  "currentVerificationJournalCleaned": true
+}

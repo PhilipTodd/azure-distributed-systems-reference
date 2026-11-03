@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-03",
+  "status": "Read-only inventory; proposed grants not applied",
+  "github": {
+    "repository": {
+      "fullName": "PhilipTodd/azure-distributed-systems-reference",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "callerPermissions": {
+        "admin": true,
+        "maintain": true,
+        "push": true,
+        "triage": true,
+        "pull": true
+      }
+    },
+    "repositorySecretNames": [],
+    "repositoryVariableNames": [],
+    "environments": [
+      {
+        "name": "github-pages",
+        "protectionRules": [
+          {
+            "id": 58471153,
+            "node_id": "GA_kwDORSBcVc4DfDLx",
+            "type": "branch_policy"
+          }
+        ],
+        "deploymentBranchPolicy": {
+          "protected_branches": false,
+          "custom_branch_policies": true
+        },
+        "secretNames": [],
+        "variableNames": [],
+        "readFailures": {}
+      }
+    ],
+    "readFailures": {}
+  },
+  "azure": {
+    "queryScope": "Targeted application/group name searches, PP user-assigned identities, inherited role assignments and principal resolution",
+    "ppUserAssignedIdentities": [],
+    "matchingGroups": [
+      "sg-adt-platform-sql-admins-dev"
+    ],
+    "inheritedContributorPrincipals": [
+      {
+        "name": "github-azure-reference-platform",
+        "objectId": "178b93a5-0613-4665-9584-c82c073f4885"
+      },
+      {
+        "name": "ausdatatech-Public Portfolio-eaee8845-181c-449a-895d-cd0eb56e7e0e",
+        "objectId": "bbac4be8-0d2a-4ae4-8525-3c4f008e40ae"
+      },
+      {
+        "name": "ausdatatech-Public Portfolio-d6cb4328-eb3c-4405-888d-ca93005cec89",
+        "objectId": "0ab80c14-53a9-4011-b832-a51abfa8e42c"
+      }
+    ],
+    "limitations": [
+      "Targeted searches are not an exhaustive directory audit.",
+      "Two legacy service principals have not been mapped to actual service connections.",
+      "Owner privileges cannot prove ordinary developer isolation."
+    ]
+  }
+}

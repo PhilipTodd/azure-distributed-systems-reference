@@ -1,0 +1,34 @@
+{
+  "mode": "Applied",
+  "principalId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+  "containedUser": {
+    "objectId": "E43E0132-E184-4669-8431-9F5A3EA5393E",
+    "type": "EXTERNAL_USER"
+  },
+  "permissionChecksUnderExecuteAs": {
+    "objectScopedCrudAllowed": true,
+    "deleteAllowed": true,
+    "noDatabaseOwner": true,
+    "noDatabaseWideReaderWriter": true,
+    "noMigrationRole": true,
+    "migrationProbeReadDenied": true,
+    "migrationProbeWriteDenied": true,
+    "ddlDenied": true,
+    "crossProductDenied:ticketing.Tickets": true,
+    "crossProductDenied:ticketing.__EFMigrationsHistory": true,
+    "crossProductDenied:BlastPlanning.BlastPlanSummary": true,
+    "databaseDenied:ALTER ANY USER": true,
+    "databaseDenied:ALTER ANY ROLE": true,
+    "databaseDenied:ALTER ANY SCHEMA": true,
+    "databaseDenied:CONTROL": true,
+    "databaseDenied:CREATE TABLE": true
+  },
+  "remaining": "No domain tables, production object DML grants or migration principal; actual managed-identity SQL login not tested",
+  "syntheticProbeTransaction": "Rolled back",
+  "runtimeRoles": [
+    "AquariumRuntime"
+  ],
+  "migrationRoleMemberCount": 0,
+  "aquariumSchemaObjectCount": 0,
+  "persistedRuntimeObjectGrantCount": 0
+}
