@@ -15,12 +15,19 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           persist-credentials: false
       - name: Prepare SQL client
         run: |
           set -euo pipefail
+          repository_package="$RUNNER_TEMP/packages-microsoft-prod.deb"
+          curl --fail --silent --show-error --location \
+            https://packages.microsoft.com/config/ubuntu/24.04/packages-microsoft-prod.deb \
+            --output "$repository_package"
+          sudo dpkg -i "$repository_package"
+          sudo apt-get update
+          sudo env ACCEPT_EULA=Y apt-get install -y --no-install-recommends msodbcsql18 odbcinst
           odbcinst -q -d -n 'ODBC Driver 18 for SQL Server'
           python3 -m venv "$RUNNER_TEMP/sql-client"
           "$RUNNER_TEMP/sql-client/bin/pip" install -r scripts/access-requirements.txt
