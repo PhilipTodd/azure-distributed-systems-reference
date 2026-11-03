@@ -7,6 +7,7 @@ import struct
 import subprocess
 
 SUBSCRIPTION = '9671ac36-9800-451a-b283-35ea87f8b419'
+TENANT = 'f4fcd45c-104f-4dd3-b7bf-3475e83ce097'
 REGISTRY = 'acradtplatformdev'
 IMAGE = REGISTRY + '.azurecr.io/parameterpilot/aquarium-api'
 SITE = (
@@ -96,6 +97,8 @@ if __name__ == '__main__':
         'migration': '83029544-189c-4630-9b9b-d4a23fb3312b',
     }[args.mode]
     account = json.loads(command('az', 'account', 'show'))
-    if account['id'] != SUBSCRIPTION or account['user']['name'] != expected:
-        raise SystemExit('Unexpected Azure subscription or GitHub service principal')
+    if account['tenantId'] != TENANT or account['user']['name'] != expected:
+        raise SystemExit('Unexpected Azure tenant or GitHub service principal')
+    if args.mode == 'release' and account['id'] != SUBSCRIPTION:
+        raise SystemExit('Unexpected Azure release subscription')
     {'release': release, 'migration': migration}[args.mode]()
