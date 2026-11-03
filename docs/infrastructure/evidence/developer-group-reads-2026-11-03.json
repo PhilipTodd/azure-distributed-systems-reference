@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-03",
+  "passed": true,
+  "checks": {
+    "groupConfigurationRead:aquarium": true,
+    "groupConfigurationRead:tracking": true,
+    "groupCosmosAuthorisedMissingItemRead": true,
+    "groupCosmosQuery": true
+  },
+  "developerGroupPresentInTokenClaims": {
+    "configuration:aquarium": true,
+    "configuration:tracking": true,
+    "cosmos": true
+  },
+  "limitation": "Read-only data grant checks under the owner. Not evidence of restricted SQL/ARM access or general ordinary-user isolation."
+}

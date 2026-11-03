@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-03",
+  "tenantId": "f4fcd45c-104f-4dd3-b7bf-3475e83ce097",
+  "subscriptionId": "9671ac36-9800-451a-b283-35ea87f8b419",
+  "applications": {
+    "dev": {
+      "name": "github-parameterpilot-deploy-dev",
+      "applicationObjectId": "d32476cd-279f-4527-b500-dc2db99f11d7",
+      "clientId": "1680b16a-c50a-4691-8c84-e681cfb18813",
+      "principalId": "a733f073-b3b6-45ca-bb28-59f2c6b4c886",
+      "federation": {
+        "name": "github-dev",
+        "issuer": "https://token.actions.githubusercontent.com",
+        "subject": "repo:PhilipTodd/azure-distributed-systems-reference:environment:dev",
+        "audiences": [
+          "api://AzureADTokenExchange"
+        ]
+      }
+    },
+    "dev-migrations": {
+      "name": "github-parameterpilot-migrations-dev",
+      "applicationObjectId": "edb974be-6c79-4d30-857e-3a18c0b1fd21",
+      "clientId": "83029544-189c-4630-9b9b-d4a23fb3312b",
+      "principalId": "396641a1-4a8f-4079-ad6c-eef3aba4a9e0",
+      "federation": {
+        "name": "github-dev-migrations",
+        "issuer": "https://token.actions.githubusercontent.com",
+        "subject": "repo:PhilipTodd/azure-distributed-systems-reference:environment:dev-migrations",
+        "audiences": [
+          "api://AzureADTokenExchange"
+        ]
+      }
+    }
+  },
+  "developerGroup": {
+    "name": "sg-adt-parameterpilot-developers-dev",
+    "objectId": "ae83484d-7648-4b56-8145-b8fff438a61c",
+    "initialMember": "7233cead-7a49-4ab1-80f9-6066a03d193f"
+  },
+  "githubEnvironments": {
+    "dev": {
+      "ownerApprovalRequired": true,
+      "selfApprovalAllowed": true,
+      "adminBypass": false,
+      "branch": "main",
+      "variableNames": [
+        "AZURE_CLIENT_ID",
+        "AZURE_TENANT_ID",
+        "AZURE_SUBSCRIPTION_ID"
+      ]
+    },
+    "dev-migrations": {
+      "ownerApprovalRequired": true,
+      "selfApprovalAllowed": true,
+      "adminBypass": false,
+      "branch": "main",
+      "variableNames": [
+        "AZURE_CLIENT_ID",
+        "AZURE_TENANT_ID",
+        "AZURE_SUBSCRIPTION_ID"
+      ]
+    }
+  }
+}

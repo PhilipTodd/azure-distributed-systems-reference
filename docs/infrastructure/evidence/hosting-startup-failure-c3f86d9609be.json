@@ -1,0 +1,7 @@
+{
+  "runId": "c3f86d9609be",
+  "failure": "TimeoutError",
+  "reason": "Startup HTTP timeout was not treated as retryable by the coordinator; hosts originally required explicit start.",
+  "cleaned": true,
+  "sharedSettingsPreserved": true
+}

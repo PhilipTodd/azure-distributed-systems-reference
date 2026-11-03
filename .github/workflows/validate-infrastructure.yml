@@ -5,12 +5,44 @@ on:
     paths:
       - 'infra/bicep/**'
       - 'scripts/verify-service-foundations.py'
+      - 'scripts/verify-data-access.py'
+      - 'scripts/verify-delivery-access.py'
+      - 'scripts/bootstrap-delivery-access.py'
+      - 'scripts/bootstrap-delivery-sql.py'
+      - 'scripts/bootstrap-customer-identity.py'
+      - 'scripts/verify-customer-identity.py'
+      - 'tests/test_customer_identity_plan.py'
+      - 'scripts/run-hosting-verification.py'
+      - 'scripts/run-workload-access-verification.py'
+      - 'tests/test_hosting_verification.py'
+      - 'scripts/local-development.py'
+      - 'local/**'
+      - 'tests/test_local_development.py'
+      - 'scripts/apply-aquarium-object-grants.py'
+      - 'tests/test_aquarium_object_grants.py'
+      - 'infra/sql/**'
       - '.github/workflows/validate-infrastructure.yml'
   push:
     branches: ['codex/**', main]
     paths:
       - 'infra/bicep/**'
       - 'scripts/verify-service-foundations.py'
+      - 'scripts/verify-data-access.py'
+      - 'scripts/verify-delivery-access.py'
+      - 'scripts/bootstrap-delivery-access.py'
+      - 'scripts/bootstrap-delivery-sql.py'
+      - 'scripts/bootstrap-customer-identity.py'
+      - 'scripts/verify-customer-identity.py'
+      - 'tests/test_customer_identity_plan.py'
+      - 'scripts/run-hosting-verification.py'
+      - 'scripts/run-workload-access-verification.py'
+      - 'tests/test_hosting_verification.py'
+      - 'scripts/local-development.py'
+      - 'local/**'
+      - 'tests/test_local_development.py'
+      - 'scripts/apply-aquarium-object-grants.py'
+      - 'tests/test_aquarium_object_grants.py'
+      - 'infra/sql/**'
       - '.github/workflows/validate-infrastructure.yml'
   workflow_dispatch:
 
@@ -30,3 +62,14 @@ jobs:
           az bicep build --file infra/bicep/environments/dev/main.bicep --outfile "$RUNNER_TEMP/pp-main.json"
           az bicep build-params --file infra/bicep/environments/dev/main.dev.bicepparam --outfile "$RUNNER_TEMP/pp-parameters.json"
           python3 scripts/verify-service-foundations.py "$RUNNER_TEMP/pp-main.json" "$RUNNER_TEMP/pp-parameters.json"
+          python3 scripts/verify-data-access.py "$RUNNER_TEMP/pp-main.json" "$RUNNER_TEMP/pp-parameters.json"
+          python3 scripts/verify-delivery-access.py "$RUNNER_TEMP/pp-main.json" "$RUNNER_TEMP/pp-parameters.json"
+          python3 scripts/verify-customer-identity.py "$RUNNER_TEMP/pp-main.json" "$RUNNER_TEMP/pp-parameters.json"
+          python3 -m py_compile scripts/bootstrap-customer-identity.py scripts/verify-customer-identity.py
+          python3 -m unittest discover -s tests -p 'test_customer_identity_plan.py'
+          python3 -m py_compile scripts/run-hosting-verification.py
+          python3 -m unittest discover -s tests -p 'test_hosting_verification.py'
+          python3 -m py_compile scripts/local-development.py
+          python3 -m unittest discover -s tests -p 'test_local_development.py'
+          python3 -m py_compile scripts/bootstrap-delivery-access.py scripts/bootstrap-delivery-sql.py scripts/verify-delivery-deployment.py scripts/verify-developer-group-reads.py scripts/run-delivery-access-verification.py scripts/run-workload-access-verification.py scripts/apply-aquarium-object-grants.py
+          python3 -m unittest discover -s tests -p 'test_aquarium_object_grants.py'

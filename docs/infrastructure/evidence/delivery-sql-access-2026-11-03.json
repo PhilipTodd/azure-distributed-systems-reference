@@ -1,0 +1,40 @@
+{
+  "applied": true,
+  "principals": [
+    {
+      "name": "github-parameterpilot-migrations-dev",
+      "identityId": "83029544-189c-4630-9b9b-d4a23fb3312b",
+      "type": "E",
+      "role": "AquariumMigrations"
+    },
+    {
+      "name": "sg-adt-parameterpilot-developers-dev",
+      "identityId": "ae83484d-7648-4b56-8145-b8fff438a61c",
+      "type": "X",
+      "role": "AquariumDeveloper"
+    }
+  ],
+  "checks": {
+    "migrationCreateAlterAquarium": true,
+    "migrationNoDbOwner": true,
+    "migrationDeniedDatabase:ALTER ANY USER": true,
+    "migrationDeniedDatabase:ALTER ANY ROLE": true,
+    "migrationDeniedDatabase:ALTER ANY SCHEMA": true,
+    "migrationDeniedDatabase:CONTROL": true,
+    "migrationDeniedDboAlter": true,
+    "migrationDeniedOtherSchema:BlastPlanning": true,
+    "migrationDeniedOtherSchema:ticketing": true,
+    "developerObjectSelect": true,
+    "developerDeniedObject:INSERT": true,
+    "developerDeniedObject:UPDATE": true,
+    "developerDeniedObject:DELETE": true,
+    "developerDeniedObject:ALTER": true,
+    "developerDeniedObject:CONTROL": true,
+    "developerDeniedDatabase:CREATE TABLE": true,
+    "developerDeniedDatabase:ALTER ANY USER": true,
+    "developerDeniedDatabase:ALTER ANY ROLE": true,
+    "developerDeniedDatabase:CONTROL": true,
+    "developerNoMigrationRole": true
+  },
+  "verificationMethod": "SQL EXECUTE AS migration user and disposable developer-role user; group/OIDC authentication not exercised"
+}

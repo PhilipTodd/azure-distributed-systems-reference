@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-03",
+  "runId": "acabfe6c88dc",
+  "mode": "certificate",
+  "passed": true,
+  "image": "acradtplatformdev.azurecr.io/parameterpilot/access-verification@sha256:7aaf82d0c8aa5d7ef232c4c4f7e9c2fc3e7c6951b82556b5b37ff042a73429c9",
+  "results": {
+    "tracking": {
+      "RunId": "acabfe6c88dc",
+      "Role": "tracking",
+      "Host": "api-adt-tracking-dev",
+      "ExpectedPrincipalId": "6c046dfa-2416-4706-893d-7cc000afecf0",
+      "ObservedPrincipalId": "6c046dfa-2416-4706-893d-7cc000afecf0",
+      "StartedUtc": "2026-11-03T03:04:08.8055479+00:00",
+      "CompletedUtc": "2026-11-03T03:04:21.539743+00:00",
+      "Passed": true,
+      "Checks": [
+        {
+          "Name": "managedIdentityObjectIdMatchesHost",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "trackingCertificateSecretRead",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developmentPrivateKeyLoadsEphemerally",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developmentCertificateThumbprintMatchesRegistration",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developmentPrivateKeySignsAndPublicKeyVerifies",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "otherServiceCertificateSecretDenied",
+          "Passed": true,
+          "Error": null
+        }
+      ]
+    }
+  },
+  "cleaned": true,
+  "sqlProbesAndTemporaryGrantsRemoved": null,
+  "temporaryDeveloperIdentityRemoved": null,
+  "developerIdentityRestored": null,
+  "issuedTemporaryRegistryAssignmentIds": [
+    "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/87a3a528-a1ec-47fe-aa69-8c90d64e307f"
+  ],
+  "registryConditionAssignmentsRestored": [
+    "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourcegroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/89fcec5a-739a-59e4-a309-d2399b5410be",
+    "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourcegroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/ef783ba4-7467-534e-a1cf-1ee8dff979a2"
+  ],
+  "limitation": "Actual Tracking identity loaded/signed with Development certificate; not a customer-token OBO exchange.",
+  "sqlOperationsPerformed": false
+}

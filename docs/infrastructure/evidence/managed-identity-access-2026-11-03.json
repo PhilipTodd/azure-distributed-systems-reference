@@ -1,0 +1,310 @@
+{
+  "date": "2026-11-03",
+  "stage1AuthoritativeStep": 1,
+  "status": "Passed; temporary access/data removed and hosts disabled",
+  "runId": "701b1d1e3ab6",
+  "credentialMode": "ManagedIdentityCredential(SystemAssigned) inside existing closed App Service hosts; owner CLI used for setup/cleanup only",
+  "registryImage": "acradtplatformdev.azurecr.io/parameterpilot/access-verification@sha256:ba7bcef7e21ff93fda977ef803ea375c52b7793567aa8200e030a67cbd5fbd5b",
+  "results": {
+    "aquarium": {
+      "RunId": "701b1d1e3ab6",
+      "Role": "aquarium",
+      "Host": "api-adt-aquarium-dev",
+      "ExpectedPrincipalId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+      "ObservedPrincipalId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+      "StartedUtc": "2026-11-02T22:00:45.6813972+00:00",
+      "CompletedUtc": "2026-11-02T22:01:08.3725815+00:00",
+      "Passed": true,
+      "Checks": [
+        {
+          "Name": "managedIdentityObjectIdMatchesHost",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "sqlManagedIdentityLogin",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "sqlObjectScopedCrud",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "sqlMigrationMetadataReadDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "sqlMigrationMetadataWriteDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "sqlDdlDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "sqlCrossProductReadDenied:[ticketing].[Tickets]",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "sqlCrossProductReadDenied:[ticketing].[__EFMigrationsHistory]",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "sqlCrossProductReadDenied:[BlastPlanning].[BlastPlanSummary]",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "sqlAdministrationDenied:CONTROL",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "sqlAdministrationDenied:ALTER ANY USER",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "sqlAdministrationDenied:ALTER ANY ROLE",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "sqlAdministrationDenied:ALTER ANY SCHEMA",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "sqlAdministrationDenied:CREATE TABLE",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "sqlRoleAbsent:db_owner",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "sqlRoleAbsent:db_datareader",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "sqlRoleAbsent:db_datawriter",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "sqlRoleAbsent:AquariumMigrations",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "aquariumCosmosAccessDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "cosmosManagementReadDenied",
+          "Passed": true,
+          "Error": null
+        }
+      ]
+    },
+    "tracking": {
+      "RunId": "701b1d1e3ab6",
+      "Role": "tracking",
+      "Host": "api-adt-tracking-dev",
+      "ExpectedPrincipalId": "6c046dfa-2416-4706-893d-7cc000afecf0",
+      "ObservedPrincipalId": "6c046dfa-2416-4706-893d-7cc000afecf0",
+      "StartedUtc": "2026-11-02T22:03:41.2924434+00:00",
+      "CompletedUtc": "2026-11-02T22:04:02.2019611+00:00",
+      "Passed": true,
+      "Checks": [
+        {
+          "Name": "managedIdentityObjectIdMatchesHost",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "trackingSqlLoginDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "cosmosCreateReadReplaceUpsertDelete",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "cosmosSamePartitionTransactionalBatch",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "cosmosPartitionScopedQuery",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "cosmosFailedBatchAtomicity",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "cosmosBlastIqContainerDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "cosmosSyntheticDataCleanup",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "cosmosManagementReadDenied",
+          "Passed": true,
+          "Error": null
+        }
+      ]
+    }
+  },
+  "checkCount": 29,
+  "cleanup": {
+    "hosts": {
+      "aquarium": {
+        "enabled": false,
+        "publicNetworkAccess": "Disabled",
+        "originalConfigurationRestored": true,
+        "originalSelectedSettingsRestored": true,
+        "loggingBefore": {
+          "enabled": false,
+          "retentionInDays": null,
+          "retentionInMb": 35
+        },
+        "loggingAfter": {
+          "enabled": false,
+          "retentionInDays": 3,
+          "retentionInMb": 35
+        },
+        "loggingRepresentationDifference": {
+          "before": null,
+          "after": 3
+        },
+        "accessRestrictions": {
+          "main": "Deny",
+          "scm": "Deny",
+          "scmUsesMain": true
+        },
+        "principalId": "e43e0132-e184-4669-8431-9f5a3ea5393e"
+      },
+      "tracking": {
+        "enabled": false,
+        "publicNetworkAccess": "Disabled",
+        "originalConfigurationRestored": true,
+        "originalSelectedSettingsRestored": true,
+        "loggingBefore": {
+          "enabled": false,
+          "retentionInDays": null,
+          "retentionInMb": 35
+        },
+        "loggingAfter": {
+          "enabled": false,
+          "retentionInDays": 3,
+          "retentionInMb": 35
+        },
+        "loggingRepresentationDifference": {
+          "before": null,
+          "after": 3
+        },
+        "accessRestrictions": {
+          "main": "Deny",
+          "scm": "Deny",
+          "scmUsesMain": true
+        },
+        "principalId": "6c046dfa-2416-4706-893d-7cc000afecf0"
+      }
+    },
+    "temporaryRegistryRoleAssignmentsRemoved": [
+      "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/98cfdb2f-d134-44dd-94a3-7501573f51a1",
+      "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/00de57b0-e73f-465a-9df6-8b7c72c5efc6",
+      "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/351cc536-0b29-4840-957f-3542b8a2cc05"
+    ],
+    "registryAssignmentsVerifiedAbsent": true,
+    "sqlProbeObjectsRemaining": 0,
+    "temporarySqlObjectGrantsRemaining": 0,
+    "runtimeRolePermissionsRestored": true,
+    "cosmosSyntheticDataCleanupPassed": true,
+    "dockerAuthenticationFileRemoved": true
+  },
+  "sqlMappingCorrection": {
+    "objectId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+    "clientId": "2602E7FC-AD33-46FC-B893-DE79DB7E2EF2",
+    "reason": "SID/TYPE for a managed identity requires its client/application ID; prior object-ID mapping failed first real login",
+    "permissionScopeBroadened": false,
+    "sqlAdministratorPasswordChanged": false
+  },
+  "sharedPlan": {
+    "capacity": 1,
+    "linux": true,
+    "name": "asp-platform-dev",
+    "sku": "B1"
+  },
+  "dependencyAudit": "No known vulnerable packages after explicit System.Security.Cryptography.Pkcs 10.0.14 pin",
+  "sourceSha256": {
+    "tests/Stage1.AccessProbe/Program.cs": "0bafd464072b8f1ae43db9431ab2da6b2a548fb4c805a0527bada5d9433ae64e",
+    "tests/Stage1.AccessProbe/Stage1.AccessProbe.csproj": "78e7a22415f81d5165d9d1d7d0bd72026f682f25ca71be6501d2126e2311e0bb",
+    "tests/Stage1.AccessProbe/packages.lock.json": "337d07328a12be0bcefe18d5b87025a38289db00d75904921a7e0949a741ae50",
+    "tests/Stage1.AccessProbe/Dockerfile": "2d4d97e6dfe21b1c2331cb810fb4ddaeb28939184c9de8c94649b99e66d00372",
+    "scripts/run-workload-access-verification.py": "f1f962ccfbbb34ea7e01de2bdd0b5092be25f488d2b452a653d54bc7b8eb9348",
+    "scripts/bootstrap-aquarium-access.py": "8c4be71d43204d273f384f8d3dc7fc5db0c888ca5a979fc185684f2d56cd63b0",
+    "infra/sql/001-bootstrap-aquarium-access.sql": "82ae9bccec1ee47649e07d0d2c3324c48200a5f9b3fd5ac6f7a6b452e604b393"
+  },
+  "scopeLimits": [
+    "No Stage 2 domain tables/features or production data grants",
+    "Configuration/vault tests remain authoritative step 2",
+    "Migration principal/developer/deployment/registry delivery rights remain step 3",
+    "No public ingress enabled; no SQL password or firewall change",
+    "Private verification image retained as reproducible artifact; temporary access assignments removed",
+    "Logging is disabled at original 35 MB limit; previously unset retention now reports Azure default 3 days"
+  ],
+  "initialSqlMappingFailure": {
+    "RunId": "701b1d1e3ab6",
+    "Role": "aquarium",
+    "Host": "api-adt-aquarium-dev",
+    "ExpectedPrincipalId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+    "ObservedPrincipalId": "e43e0132-e184-4669-8431-9f5a3ea5393e",
+    "StartedUtc": "2026-11-02T21:49:52.1303736+00:00",
+    "CompletedUtc": "2026-11-02T21:50:18.7722808+00:00",
+    "Passed": false,
+    "Checks": [
+      {
+        "Name": "managedIdentityObjectIdMatchesHost",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "sqlManagedIdentityLogin",
+        "Passed": false,
+        "Error": "SqlException:18456:1"
+      },
+      {
+        "Name": "aquariumCosmosAccessDenied",
+        "Passed": true,
+        "Error": null
+      },
+      {
+        "Name": "cosmosManagementReadDenied",
+        "Passed": true,
+        "Error": null
+      }
+    ]
+  }
+}

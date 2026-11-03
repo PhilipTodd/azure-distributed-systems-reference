@@ -1,6 +1,18 @@
 # Stage 1 scoped-access setup
 
+## Controlled delivery/developer setup — 3 November 2026
+
+The owner authorised Step 3. Separate PP release/migration Entra identities, protected GitHub environments/trusts, developer group and scoped Azure/SQL permissions are now configured. Thirteen Azure permission resources matched the access-only preview; 20 SQL role checks passed. [Delivery access](delivery-access.md) records current identities, grant process and the distinction between configuration/read-back, effective probes and pending GitHub execution. This supersedes historical migration-principal/developer-grant prerequisites below without claiming the entire Stage 1 gate complete.
+
 Date: 30 October 2026 | Status: SQL administrator and PP foundations deployed; effective scoped application access pending
+
+## Actual workload access verified — 3 November 2026
+
+Authoritative step 1 is complete: 29 real managed-identity SQL/Cosmos checks passed, including cross-service/cross-product/admin denials. The contained-user SID defect was repaired using Aquarium’s verified client ID without broadening permissions. Both hosts are disabled, temporary SQL/registry grants removed and synthetic data cleaned. [Evidence](evidence/managed-identity-access-2026-11-03.json) and the [authoritative remaining-work checklist](../engineering/stage-1-completion-checklist.md) supersede historical “actual workload tests pending” notes below. Configuration/vault tests are step 2; migration/developer/deployment permissions remain step 3.
+
+## Scoped data access applied — 2 November 2026
+
+The [scoped-data-access runbook](scoped-data-access.md) records the applied SQL schema/user/role bootstrap and deployed parameterpilot-tracking Cosmos container/custom role. SQL EXECUTE AS CRUD/denial probes passed and rolled back; exact Cosmos assignment scope and unchanged BlastIQ/400-RU shared capacity were verified. Actual workload identity authentication/SDK tests, domain-table grants and a migration principal remain pending. Earlier “no schema/container/user” observations below are historical and superseded by this update.
 
 ## Current deployed foundation state — 2 November 2026
 

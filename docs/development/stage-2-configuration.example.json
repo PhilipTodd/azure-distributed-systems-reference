@@ -1,40 +1,42 @@
 {
   "status": "accepted-nonsecret-template-not-runtime-configuration",
   "browser": {
-    "authority": "<development-external-id-authority>",
-    "tenantId": "<development-customer-tenant-guid>",
-    "clientId": "<spa-client-guid>",
+    "authority": "https://parameterpilotdev.ciamlogin.com/0e9365ce-9928-49a0-a455-73c5ad29cf34",
+    "tenantId": "0e9365ce-9928-49a0-a455-73c5ad29cf34",
+    "clientId": "fc5f67a2-e6a2-4e3f-a49b-2b2410a6060b",
     "redirectUri": "http://localhost:4200",
-    "aquariumScope": "<full-aquarium-delegated-scope>",
-    "trackingScope": "<full-tracking-delegated-scope>",
+    "aquariumScope": "api://bcbab13c-f80e-4dc3-8e12-f94bc2491461/Aquarium.Read",
+    "trackingScope": "api://df2085cf-7b78-4c21-99fb-70f46b48490a/Tracking.Read",
     "aquariumBaseUrl": "https://localhost:7101",
     "trackingBaseUrl": "https://localhost:7102"
   },
   "aquariumServer": {
-    "authority": "<development-external-id-authority>",
-    "audience": "<aquarium-api-audience>",
-    "allowedTrackingClientId": "<tracking-client-guid>",
+    "authority": "https://parameterpilotdev.ciamlogin.com/0e9365ce-9928-49a0-a455-73c5ad29cf34",
+    "audience": "bcbab13c-f80e-4dc3-8e12-f94bc2491461",
+    "allowedTrackingClientId": "df2085cf-7b78-4c21-99fb-70f46b48490a",
     "sqlConnectionReference": "<User-Secrets-or-managed-identity-configuration-reference>",
     "sqlSchema": "Aquarium",
-    "appConfigurationEndpoint": "<approved-aquarium-configuration-endpoint>",
-    "keyVaultUri": "<approved-aquarium-vault-uri>"
+    "appConfigurationEndpoint": "https://appcs-adt-aquarium-dev.azconfig.io",
+    "keyVaultUri": "https://kv-adt-aquarium-dev.vault.azure.net/"
   },
   "trackingServer": {
-    "authority": "<development-external-id-authority>",
-    "audience": "<tracking-api-audience>",
-    "clientId": "<tracking-client-guid>",
-    "aquariumScope": "<full-Aquarium.Read-delegated-scope>",
+    "authority": "https://parameterpilotdev.ciamlogin.com/0e9365ce-9928-49a0-a455-73c5ad29cf34",
+    "audience": "df2085cf-7b78-4c21-99fb-70f46b48490a",
+    "clientId": "df2085cf-7b78-4c21-99fb-70f46b48490a",
+    "aquariumScope": "api://bcbab13c-f80e-4dc3-8e12-f94bc2491461/Aquarium.Read",
     "aquariumBaseUrl": "https://localhost:7101",
-    "oboCertificateReference": "<untracked-local-certificate-or-dev-Key-Vault-reference>",
+    "oboCertificateReference": "CurrentUser/My/ED3A568363C4142C292B20AB43D177AAE0BA409B",
     "cosmosEndpoint": "https://localhost:8081",
     "cosmosDatabase": "<approved-local-database-name>",
     "cosmosContainer": "<approved-panel-idempotency-outbox-container-name>",
     "partitionKeyPath": "/tankId",
     "cosmosCredentialReference": "<User-Secrets-emulator-key-or-dev-managed-identity>",
-    "appConfigurationEndpoint": "<approved-tracking-configuration-endpoint>",
-    "keyVaultUri": "<approved-tracking-vault-uri>"
+    "appConfigurationEndpoint": "https://appcs-adt-tracking-dev.azconfig.io",
+    "keyVaultUri": "https://kv-adt-tracking-dev.vault.azure.net/"
   },
-  "localDiagnostics": { "azureExportEnabled": false },
+  "localDiagnostics": {
+    "azureExportEnabled": false
+  },
   "developmentDiagnostics": {
     "applicationInsightsConnectionStringReference": "<approved-nonsecret-configuration-reference>"
   }

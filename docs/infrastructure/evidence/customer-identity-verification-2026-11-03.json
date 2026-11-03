@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-03",
+  "tenantId": "0e9365ce-9928-49a0-a455-73c5ad29cf34",
+  "passed": true,
+  "checks": [
+    {
+      "Name": "aquariumSignedTokenAudienceIssuerScope",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "trackingSignedTokenAudienceIssuerScope",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "stableTenantAndObjectIdAcrossApis",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "trackingTokenContainsOnlyApprovedScopes",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "wrongServiceAudienceRejected",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "wrongIssuerRejected",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "tamperedSignatureRejected",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "localCertificateAuthenticatedObo",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "readOnlyOboTokenWriteRequestDenied",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "consentedUiWriteTokenPassesScopeProbe",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "wrongAudienceOboAssertionRejected",
+      "Passed": true,
+      "Error": null
+    },
+    {
+      "Name": "unconsentedDownstreamWriteRejected",
+      "Passed": true,
+      "Error": null
+    }
+  ],
+  "validatedTrackingScopes": [
+    "Tracking.Read",
+    "Tracking.Write"
+  ],
+  "localCertificateThumbprint": "ED3A568363C4142C292B20AB43D177AAE0BA409B",
+  "readOnlyTest": "Requires HTTP 403 for actual signed Aquarium.Read-only OBO token and HTTP 204 for the consented UI token positive control. Original incorrect request-scope-subset assumption retained in initial evidence.",
+  "limitations": "Local verification client; no product API/ownership/APIM enforcement test. Development private-key loading has separate managed-identity evidence. Tokens/auth codes/private keys omitted.",
+  "ownerBrowserVerification": {
+    "signOutReturnedToNotSignedIn": true,
+    "secondAccountDisplayed": true,
+    "secondAccountVerificationSucceeded": true,
+    "source": "Owner confirmation in chat, 3 November 2026",
+    "personalEmailOrPasscodeRecorded": false
+  }
+}

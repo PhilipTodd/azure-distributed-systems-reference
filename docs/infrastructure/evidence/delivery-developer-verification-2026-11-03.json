@@ -1,0 +1,163 @@
+{
+  "date": "2026-11-03",
+  "runId": "3c65c56366b3",
+  "mode": "developer",
+  "passed": true,
+  "image": "acradtplatformdev.azurecr.io/parameterpilot/access-verification@sha256:10ef9f80678e6631215837cfad587538fe91f0f26df6e9156c9b996f86ff2429",
+  "results": {
+    "aquarium": {
+      "RunId": "3c65c56366b3",
+      "Role": "aquarium",
+      "Host": "api-adt-aquarium-dev",
+      "ExpectedPrincipalId": "a5b89bbe-ad3f-4dcd-87f4-16d08900adb8",
+      "ObservedPrincipalId": "a5b89bbe-ad3f-4dcd-87f4-16d08900adb8",
+      "StartedUtc": "2026-11-03T11:25:19.7166812+11:00",
+      "CompletedUtc": "2026-11-03T11:25:42.8862016+11:00",
+      "Passed": true,
+      "Checks": [
+        {
+          "Name": "managedIdentityObjectIdMatchesHost",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerRealSqlLogin",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerApprovedObjectSelect",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerInsertDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerUpdateDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerDeleteDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerDdlDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerMigrationHistoryReadDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerOtherProductDenied:[ticketing].[Tickets]",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerOtherProductDenied:[ticketing].[__EFMigrationsHistory]",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerOtherProductDenied:[BlastPlanning].[BlastPlanSummary]",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerSqlAdminDenied:CONTROL",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerSqlAdminDenied:ALTER ANY USER",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerSqlAdminDenied:ALTER ANY ROLE",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerConfigurationRead:aquarium",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerConfigurationWriteDenied:aquarium",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerVaultSecretsDenied:aquarium",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerConfigurationRead:tracking",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerConfigurationWriteDenied:tracking",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerVaultSecretsDenied:tracking",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerCosmosPointReadAllowed",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerCosmosQueryAllowed",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerCosmosCreateDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerCosmosOtherProductDenied",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerResourceMetadataRead",
+          "Passed": true,
+          "Error": null
+        },
+        {
+          "Name": "developerHostAdministrationDenied",
+          "Passed": true,
+          "Error": null
+        }
+      ]
+    }
+  },
+  "cleaned": true,
+  "sqlProbesAndTemporaryGrantsRemoved": true,
+  "temporaryDeveloperIdentityRemoved": true,
+  "developerIdentityRestored": true,
+  "issuedTemporaryRegistryAssignmentIds": [
+    "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourceGroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/13c11198-6ab0-4029-916a-d38ab5f69107"
+  ],
+  "limitation": "Developer profile tested through a directly assigned temporary MI, not Entra group login. Registry checks validate issued repository token actions, not a product image deployment. GitHub OIDC execution remains step 7.",
+  "registryConditionAssignmentsRestored": [
+    "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourcegroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/89fcec5a-739a-59e4-a309-d2399b5410be",
+    "/subscriptions/9671ac36-9800-451a-b283-35ea87f8b419/resourcegroups/rg-platform-dev/providers/Microsoft.ContainerRegistry/registries/acradtplatformdev/providers/Microsoft.Authorization/roleAssignments/ef783ba4-7467-534e-a1cf-1ee8dff979a2"
+  ]
+}

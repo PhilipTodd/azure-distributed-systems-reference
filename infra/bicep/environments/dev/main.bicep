@@ -21,6 +21,9 @@ param applicationResourceGroupName string
 @description('Opt in to the reviewed Development service foundations; does not activate API traffic.')
 param deployServiceFoundations bool = false
 
+@description('Include the existing website/domain module; set false for access-only maintenance.')
+param deployStaticWebApp bool = true
+
 // ============================================================================
 // Shared platform resources
 // ============================================================================
@@ -80,6 +83,42 @@ param aquariumKeyVaultName string
 param trackingKeyVaultName string
 
 // ============================================================================
+// Tracking Cosmos access
+// ============================================================================
+
+@description('Opt in to approved Tracking container and data grants; does not redeploy hosts.')
+param deployTrackingDataAccess bool = false
+
+param cosmosAccountName string = 'cosmos-adt-platform-dev'
+param cosmosDatabaseName string = 'ReferenceProjects'
+param trackingContainerName string = 'parameterpilot-tracking'
+
+@description('Actual deployed Tracking managed identity, independently verified before deployment.')
+param trackingPrincipalId string = '6c046dfa-2416-4706-893d-7cc000afecf0'
+
+// ============================================================================
+// Controlled deployment and ordinary developer access
+// ============================================================================
+
+@description('Opt in to approved Step 3 access only; directory/GitHub setup is separate.')
+param deployDeliveryAccess bool = false
+
+param deploymentPrincipalId string = ''
+param developerGroupId string = ''
+param aquariumPrincipalId string = 'e43e0132-e184-4669-8431-9f5a3ea5393e'
+param containerRegistryName string = 'acradtplatformdev'
+
+// ============================================================================
+// Development customer identity
+// ============================================================================
+
+@description('Opt in to approved customer tenant creation/link only; does not configure apps or credentials.')
+param deployCustomerIdentity bool = false
+
+param customerTenantSubdomain string = 'parameterpilotdev'
+param customerTenantDisplayName string = 'Parameter Pilot Development Customers'
+
+// ============================================================================
 // Application resource group
 // ============================================================================
 
@@ -121,7 +160,7 @@ var resourceNames = {
 // Application Static Web App
 // ============================================================================
 
-module web '../../modules/static-web-app.bicep' = {
+module web '../../modules/static-web-app.bicep' = if (deployStaticWebApp) {
   name: 'parameterpilot-static-web-app-${environment}'
   scope: applicationResourceGroup
 
@@ -218,11 +257,90 @@ module runtimeAccess '../../modules/role-assignments.bicep' = [
 ]
 
 // ============================================================================
+// Application-owned Tracking Cosmos container
+// ============================================================================
+
+module trackingDataAccess '../../modules/cosmos-container.bicep' = if (deployTrackingDataAccess && environment == 'dev') {
+  name: 'parameterpilot-tracking-data-access-${environment}'
+  scope: resourceGroup(platformResourceGroupName)
+
+  params: {
+    accountName: cosmosAccountName
+    databaseName: cosmosDatabaseName
+    containerName: trackingContainerName
+    trackingPrincipalId: trackingPrincipalId
+  }
+}
+
+// ============================================================================
+// Controlled delivery access
+// ============================================================================
+
+module deliveryRoles '../../modules/deployment-role-definitions.bicep' = if (deployDeliveryAccess && environment == 'dev') {
+  name: 'parameterpilot-delivery-role-definitions-dev'
+  params: {
+    applicationResourceGroupName: applicationResourceGroupName
+  }
+  dependsOn: [applicationResourceGroup]
+}
+
+module deliveryAccess '../../modules/deployment-access.bicep' = if (deployDeliveryAccess && environment == 'dev') {
+  name: 'parameterpilot-delivery-access-dev'
+  scope: applicationResourceGroup
+  params: {
+    deploymentPrincipalId: deploymentPrincipalId
+    developerGroupId: developerGroupId
+    apiReleaseRoleId: deliveryRoles!.outputs.apiReleaseRoleId
+    websiteReleaseRoleId: deliveryRoles!.outputs.websiteReleaseRoleId
+    apiAppNames: [aquariumApiAppName, trackingApiAppName]
+    configurationStoreNames: [aquariumAppConfigurationName, trackingAppConfigurationName]
+    staticWebAppName: staticWebAppName
+  }
+}
+
+module registryAccess '../../modules/registry-access.bicep' = if (deployDeliveryAccess && environment == 'dev') {
+  name: 'parameterpilot-registry-access-dev'
+  scope: resourceGroup(platformResourceGroupName)
+  params: {
+    registryName: containerRegistryName
+    deploymentPrincipalId: deploymentPrincipalId
+    aquariumPrincipalId: aquariumPrincipalId
+    trackingPrincipalId: trackingPrincipalId
+  }
+}
+
+module developerCosmosAccess '../../modules/developer-cosmos-access.bicep' = if (deployDeliveryAccess && environment == 'dev') {
+  name: 'parameterpilot-developer-cosmos-access-dev'
+  scope: resourceGroup(platformResourceGroupName)
+  params: {
+    accountName: cosmosAccountName
+    databaseName: cosmosDatabaseName
+    containerName: trackingContainerName
+    developerGroupId: developerGroupId
+  }
+}
+
+// ============================================================================
+// Development customer identity
+// ============================================================================
+
+module customerIdentity '../../modules/external-id.bicep' = if (deployCustomerIdentity && environment == 'dev') {
+  name: 'parameterpilot-customer-identity-dev'
+  scope: applicationResourceGroup
+  params: {
+    tenantSubdomain: customerTenantSubdomain
+    displayName: customerTenantDisplayName
+  }
+}
+
+output customerTenantId string = deployCustomerIdentity && environment == 'dev' ? customerIdentity!.outputs.tenantId : ''
+
+// ============================================================================
 // Outputs
 // ============================================================================
 
-output staticWebAppName string = web.outputs.name
-output staticWebAppHostname string = web.outputs.defaultHostname
+output staticWebAppName string = staticWebAppName
+output staticWebAppHostname string = deployStaticWebApp ? web!.outputs.defaultHostname : ''
 
 output serviceFoundationResources array = includeServiceFoundations
   ? [

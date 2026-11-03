@@ -1,0 +1,8 @@
+{
+  "database": "ReferenceProjectsDb",
+  "schema": "Aquarium",
+  "excludedObjects": ["__EFMigrationsHistory"],
+  "runtimeRole": "AquariumRuntime",
+  "developerRole": "AquariumDeveloper",
+  "objects": []
+}

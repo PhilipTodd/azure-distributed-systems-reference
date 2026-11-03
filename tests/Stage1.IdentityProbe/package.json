@@ -1,0 +1,7 @@
+{
+  "name": "pp-stage1-identity-probe",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Local-only External ID verification, not product application code",
+  "dependencies": { "@azure/msal-browser": "5.27.0" }
+}
