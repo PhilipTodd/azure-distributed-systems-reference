@@ -1,0 +1,33 @@
+name: Verify Development migration
+on: workflow_dispatch
+permissions:
+  contents: read
+concurrency:
+  group: parameterpilot-dev-delivery
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/main' && github.repository == 'PhilipTodd/azure-distributed-systems-reference'
+    environment: dev-migrations
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Prepare SQL client
+        run: |
+          set -euo pipefail
+          odbcinst -q -d -n 'ODBC Driver 18 for SQL Server'
+          python3 -m venv "$RUNNER_TEMP/sql-client"
+          "$RUNNER_TEMP/sql-client/bin/pip" install -r scripts/access-requirements.txt
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Execute the rollback-only migration check
+        run: '"$RUNNER_TEMP/sql-client/bin/python" scripts/verify-github-dev-delivery.py migration'

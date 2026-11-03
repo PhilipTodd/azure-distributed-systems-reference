@@ -1,0 +1,38 @@
+name: Verify Development release
+on: workflow_dispatch
+permissions:
+  contents: read
+concurrency:
+  group: parameterpilot-dev-delivery
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/main' && github.repository == 'PhilipTodd/azure-distributed-systems-reference'
+    environment: dev
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.403'
+      - name: Build the verification container
+        run: |
+          set -euo pipefail
+          probe=tests/Stage1.HostingProbe
+          dotnet restore "$probe" --locked-mode
+          dotnet publish "$probe" --no-restore -c Release -o "$RUNNER_TEMP/probe/publish"
+          printf '{"RunId":"github-%s-%s","AquariumUrl":"https://api-adt-aquarium-dev.azurewebsites.net"}\n' "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > "$RUNNER_TEMP/probe/publish/probe-settings.json"
+          docker build --file "$probe/Dockerfile" --tag "acradtplatformdev.azurecr.io/parameterpilot/aquarium-api:stage1-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" "$RUNNER_TEMP/probe"
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Publish and verify closed-host configuration
+        run: python3 scripts/verify-github-dev-delivery.py release
