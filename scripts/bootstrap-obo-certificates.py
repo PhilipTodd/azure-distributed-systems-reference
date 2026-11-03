@@ -6,7 +6,6 @@ non-exportable in the current Windows user's certificate store. --apply required
 import argparse
 import base64
 from datetime import datetime, timezone
-import hashlib
 import importlib.util
 import json
 from pathlib import Path
@@ -102,9 +101,18 @@ def main():
             save(state)
         keys = []
         for name, certificate in [('Development', state['development']), ('Local', state['local'])]:
-            raw = base64.b64decode(certificate['publicCertificate'])
-            thumb = hashlib.sha1(raw).digest()  # X.509 thumbprint identifier, not a signature algorithm.
-            certificate['thumbprint'] = thumb.hex().upper()
+            # Read the platform X.509 identifier to preserve existing Entra credential IDs.
+            result = subprocess.run(
+                ['powershell.exe', '-NoProfile', '-NonInteractive', '-Command',
+                 '$der = [Convert]::FromBase64String([Console]::In.ReadToEnd()); '
+                 '[System.Security.Cryptography.X509Certificates.X509Certificate2]::new($der).Thumbprint'],
+                input=certificate['publicCertificate'], capture_output=True, text=True, timeout=30,
+            )
+            thumbprint = result.stdout.strip().upper()
+            if result.returncode or len(thumbprint) != 40:
+                raise RuntimeError('Could not read the X.509 certificate thumbprint')
+            thumb = bytes.fromhex(thumbprint)
+            certificate['thumbprint'] = thumbprint
             keys.append({'keyId': str(uuid.uuid5(uuid.UUID(identities['tenantId']), 'tracking-obo:' + certificate['thumbprint'])), 'type': 'AsymmetricX509Cert', 'usage': 'Verify', 'key': certificate['publicCertificate'], 'customKeyIdentifier': base64.b64encode(thumb).decode(), 'displayName': 'Parameter Pilot Tracking OBO ' + name, 'startDateTime': certificate['notBefore'], 'endDateTime': certificate['notAfter']})
         if app.get('keyCredentials') and not customer.contains(app['keyCredentials'], keys):
             raise RuntimeError('Existing unrecorded Tracking certificate credentials require reconciliation')

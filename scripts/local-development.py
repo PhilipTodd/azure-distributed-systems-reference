@@ -96,6 +96,7 @@ def up(project, env):
     else: raise RuntimeError('Local Cosmos readiness timed out')
     # Pin this emulator instance's public certificate; no global trust-store change.
     context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+    context.minimum_version = ssl.TLSVersion.TLSv1_2
     context.check_hostname = False
     context.verify_mode = ssl.CERT_NONE  # Bootstrap only, fixed loopback socket; never used for SDK calls.
     with socket.create_connection(('127.0.0.1', int(env['PP_COSMOS_PORT'])), timeout=10) as sock:
