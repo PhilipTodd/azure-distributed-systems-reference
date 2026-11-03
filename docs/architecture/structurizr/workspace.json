@@ -1069,6 +1069,7 @@
     "structurizr.inspection.error" : "65",
     "structurizr.inspection.info" : "0",
     "structurizr.inspection.ignore" : "0",
+    "structurizr.inspection.error" : "65",
     "structurizr.inspection.warning" : "0"
   },
   "views" : {
@@ -2801,7 +2802,7 @@
     } ],
     "systemContextViews" : [ {
       "automaticLayout" : {
-        "applied" : false,
+        "applied" : true,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
@@ -2809,26 +2810,30 @@
         "rankSeparation" : 300,
         "vertices" : false
       },
+      "dimensions" : {
+        "height" : 1500,
+        "width" : 2300
+      },
       "elements" : [ {
         "id" : "1",
-        "x" : 0,
-        "y" : 0
+        "x" : 200,
+        "y" : 159
       }, {
         "id" : "2",
-        "x" : 0,
-        "y" : 0
+        "x" : 200,
+        "y" : 859
       }, {
         "id" : "3",
-        "x" : 0,
-        "y" : 0
+        "x" : 900,
+        "y" : 559
       }, {
         "id" : "19",
-        "x" : 0,
-        "y" : 0
+        "x" : 1650,
+        "y" : 259
       }, {
         "id" : "20",
-        "x" : 0,
-        "y" : 0
+        "x" : 1650,
+        "y" : 859
       } ],
       "enterpriseBoundaryVisible" : true,
       "key" : "SystemContext",
