@@ -72,6 +72,8 @@ Proposed cutover for owner approval: recheck that IDs 13 and 14 still point at t
 
 The owner approved the queue cutover. Both definitions passed the scope and queue preflight. Azure DevOps readback confirmed `disabled` at revision 3 for both definitions. The service connection remains available for the documented rollback.
 
-A late Log Analytics query at 01:58 UTC returned zero Aquarium platform events for the original activation window. Owner query access passed. Startup-event ingestion remains open.
+A late Log Analytics query at 01:58 UTC returned zero Aquarium platform events for the original activation window. Owner query access passed. Central Log Analytics ingestion remains unverified.
+
+The owner approved a temporary single-address SCM exception. After shortening the rule name to meet Azure's 32-character limit, the owner Entra session read the retained startup record for the earlier APIM verification deployment. The log named the exact GitHub-published image digest and recorded successful warm-up at 23:56:59 UTC on 3 November, which was 4 November in Sydney. Direct API access returned 403 and unauthenticated SCM access returned 401. The SCM exception was removed and the original disabled host, image, app settings and rules were verified. For Stage 1, the protected startup-log read supplies the diagnostics evidence. Centralised log collection remains a follow-up. [Startup log readback](evidence/step-7-aquarium-startup-log-readback-2026-11-04.json)
 
 References: [GitHub OIDC setup](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure-openid-connect), [App Service configuration API](https://learn.microsoft.com/en-us/rest/api/appservice/web-apps/update-configuration).

@@ -56,11 +56,14 @@ def main():
     (p.RUNTIME / 'step7-startup-log-snapshot.json').write_text(
         json.dumps({'configuration': config, 'selectedSettings': before}, indent=2), encoding='utf-8')
     evidence = {'image': a.IMAGE, 'startupVerified': False, 'restored': False}
+    apim_evidence = json.loads((ROOT / 'docs/infrastructure/evidence/step-7-aquarium-apim-health-2026-11-04.json').read_text(encoding='utf-8'))
+    retained_start = (datetime.fromisoformat(apim_evidence['started'])
+                      if apim_evidence['image'] == a.IMAGE and apim_evidence['healthPassed'] else None)
     try:
         p.rest('patch', a.SITE + '/config/web' + a.API, {'properties': {
             'linuxFxVersion': 'DOCKER|' + a.IMAGE,
             'scmIpSecurityRestrictionsUseMain': False,
-            'scmIpSecurityRestrictions': [{'name': 'temporary-owner-startup-diagnostics',
+            'scmIpSecurityRestrictions': [{'name': 'pp-owner-startup-logs',
                                            'ipAddress': f'{ip}/32', 'priority': 100, 'action': 'Allow'}],
         }})
         p.quiet('webapp', 'config', 'appsettings', 'set', *a.APP, '--settings',
@@ -80,10 +83,14 @@ def main():
         while time.monotonic() < deadline:
             try:
                 timestamp = startup_verified(start)
+                source = 'current activation'
+                if not timestamp and retained_start:
+                    timestamp = startup_verified(retained_start)
+                    source = 'retained APIM verification deployment'
             except RuntimeError:
                 timestamp = None
             if timestamp:
-                evidence.update(startupVerified=True, warmupSucceededUtc=timestamp, ownerReadVerified=True)
+                evidence.update(startupVerified=True, warmupSucceededUtc=timestamp, ownerReadVerified=True, source=source)
                 print('Owner read the approved image digest and successful warm-up in the startup log.', flush=True)
                 break
             time.sleep(15)
