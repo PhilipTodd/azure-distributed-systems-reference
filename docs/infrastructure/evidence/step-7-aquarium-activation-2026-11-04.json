@@ -1,0 +1,7 @@
+{
+  "date": "2026-11-04",
+  "image": "acradtplatformdev.azurecr.io/parameterpilot/aquarium-api@sha256:ac70bc6440656be94d273835bc14894bcbf873a43ba064e84cef9ade0e12e28f",
+  "healthPassed": false,
+  "restored": true,
+  "loggingRestored": true
+}

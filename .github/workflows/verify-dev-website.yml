@@ -1,0 +1,56 @@
+name: Verify Development website publication
+on: workflow_dispatch
+permissions:
+  contents: read
+concurrency:
+  group: parameterpilot-dev-delivery
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/main' && github.repository == 'PhilipTodd/azure-distributed-systems-reference'
+    environment: dev
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22.22.0'
+      - name: Prepare the pinned Static Web Apps CLI
+        run: npm install --prefix "$RUNNER_TEMP/swa-cli" --ignore-scripts --no-audit --no-fund @azure/static-web-apps-cli@2.0.8
+      - name: Check that source matches the live website
+        run: |
+          set -euo pipefail
+          mkdir "$RUNNER_TEMP/live-website"
+          curl --fail --silent --show-error --max-time 20 https://parameterpilot.com/ --output "$RUNNER_TEMP/live-website/index.html"
+          asset=dmytro-bukhantsov-IBrZ-TXYWY8-unsplash.webp
+          curl --fail --silent --show-error --max-time 20 "https://parameterpilot.com/$asset" --output "$RUNNER_TEMP/live-website/$asset"
+          diff --strip-trailing-cr "$RUNNER_TEMP/live-website/index.html" src/web/coming-soon/index.html >/dev/null
+          cmp "$RUNNER_TEMP/live-website/$asset" "src/web/coming-soon/$asset"
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Republish the coming-soon content
+        run: |
+          set -euo pipefail
+          token="$(az staticwebapp secrets list --name stapp-adt-parameterpilot-dev --resource-group rg-parameterpilot-dev --query properties.apiKey --output tsv --only-show-errors)"
+          test -n "$token"
+          printf '::add-mask::%s\n' "$token"
+          SWA_CLI_DEPLOYMENT_TOKEN="$token" "$RUNNER_TEMP/swa-cli/node_modules/.bin/swa" deploy src/web/coming-soon --env production
+      - name: Verify website content after publication
+        run: |
+          set -euo pipefail
+          asset=dmytro-bukhantsov-IBrZ-TXYWY8-unsplash.webp
+          for site in parameterpilot.com www.parameterpilot.com; do
+            curl --fail --silent --show-error --location --max-time 20 "https://$site/" --output "$RUNNER_TEMP/website.html"
+            diff --strip-trailing-cr "$RUNNER_TEMP/website.html" src/web/coming-soon/index.html >/dev/null
+            curl --fail --silent --show-error --location --max-time 20 "https://$site/$asset" --output "$RUNNER_TEMP/website.webp"
+            cmp "$RUNNER_TEMP/website.webp" "src/web/coming-soon/$asset"
+          done
