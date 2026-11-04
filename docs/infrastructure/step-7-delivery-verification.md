@@ -1,5 +1,29 @@
 # Development delivery verification
 
+## GitHub results on 4 November 2026
+
+- The release verification passed. GitHub built and published the image, signed in to Azure with OIDC, and verified setting and restoring the image configuration on the disabled Aquarium host. [Release run](https://github.com/PhilipTodd/azure-distributed-systems-reference/actions/runs/41735129057)
+- The migration verification passed. GitHub installed the SQL client, signed in to the tenant with OIDC, connected to SQL, verified the Aquarium migration role, and created and read back the probe table before rolling back the transaction. [Migration run](https://github.com/PhilipTodd/azure-distributed-systems-reference/actions/runs/41739099738)
+
+The running deployment check passed through the temporary APIM route described below. Diagnostics verification and legacy pipeline cutover remain open.
+
+## Proposed Aquarium activation window
+
+Use the exact image published by the successful release run. Its digest is `acradtplatformdev.azurecr.io/parameterpilot/aquarium-api@sha256:ac70bc6440656be94d273835bc14894bcbf873a43ba064e84cef9ade0e12e28f`. Readback on 4 November showed Aquarium disabled, an empty image setting, public access disabled, both main and SCM default deny, and managed identity registry pull enabled.
+
+1. Recheck the baseline and snapshot the image, port, warm-up, health and logging settings before making changes. Use the owner-controlled Azure session for activation. Abort on unexpected baseline drift.
+2. Set the digest, container port 8080, and platform warm-up path `/health` with HTTP 200 required. Temporarily enable the Aquarium host while retaining disabled public network access and default-deny main and SCM rules. The platform warm-up probe runs inside App Service. Bound the startup window to ten minutes.
+3. Read platform container startup diagnostics via Azure Resource Manager. Record the image digest and successful warm-up or the failure category. The verification image tests startup and health. The existing managed identity configuration and vault tests are separate evidence of data access. Confirm the owner can read the diagnostic output and review logging categories and retention before any permanent logging change.
+4. In cleanup, stop and disable Aquarium and restore the original image, app settings, health and logging configuration. Read back disabled public access, the main and SCM rules, and the original image. If automatic cleanup fails, use the saved snapshot to complete owner recovery before closing the window.
+
+Approval covers only temporary Aquarium activation and restoration with this digest. Track any APIM or legacy cutover changes separately.
+
+## Activation result on 4 November 2026
+
+The owner approved the closed-host window. The first attempt stopped when Azure rejected the one-minute HealthCheckStatus interval. The retry used five-minute samples and temporary container logging. Azure reported the host running with the approved digest, but no current successful health sample arrived and the management logs contained no startup success tied to that digest. The runtime result is inconclusive. Aquarium was disabled and the original image, selected settings, logging and access rules were verified after cleanup. [Initial attempt](evidence/step-7-aquarium-activation-initial-2026-11-04.json) · [Retry](evidence/step-7-aquarium-activation-2026-11-04.json)
+
+The owner approved the temporary PP-only APIM route. The same published image returned HTTP 200 through APIM with role Aquarium and run marker `github-41735129057-1`. A direct backend request returned 403. The temporary API was removed, the shared APIM policy matched its original value, and Aquarium was disabled with its original settings and access rules restored. Owner diagnostics review remains open. [APIM health evidence](evidence/step-7-aquarium-apim-health-2026-11-04.json)
+
 The two manual GitHub workflows are prepared locally for review. Run them from the reviewed main revision and check the existing environment protections before dispatch. Both share one concurrency group and use the environment's individual OIDC identity. Review the image and SQL together with the workflows before approval.
 
 The owner approved both verification tests in chat. The approved scope is publishing the verification image and testing image configuration on the disabled Aquarium host, plus executing the rollback-only Aquarium SQL probe. Each live run still goes through its protected GitHub environment after the workflows reach the reviewed main revision.
@@ -15,8 +39,21 @@ The release probe leaves Aquarium disabled. Its configuration readback verifies 
 
 ## Diagnostics and cutover
 
-Review the diagnostic policy during the activation window. Record the workflow run ID, image digest, target, health status and rollback result. Verify the owner's access to application and deployment diagnostics with an actual read. Keep bearer tokens, credentials, private keys and customer payloads out of logs. Review diagnostic categories and retention before changing collection settings.
+Aquarium currently has no Azure Monitor diagnostic export. The owner session could read App Service detector metadata and metrics. The ARM container-log request timed out during the successful APIM test, so startup-log retrieval remains unverified.
 
-The legacy Development definitions are `infra/pipelines/deploy-infra-dev.yml` and `infra/pipelines/deploy-ui-dev.yml`. The GitHub probe covers API image publication and a bounded SQL check. The inventory must map each active legacy trigger and credential to its replacement before retirement. In particular, infrastructure maintenance remains an owner operation and the website publishing path needs its own verification. After successful replacement runs, agree a cutover window with the owner, pause the superseded triggers and verify the new path. Re-enable the prior trigger if rollback is needed. Review credential retirement separately once rollback is no longer required.
+Proposed diagnostic verification for owner approval: create the Aquarium-only diagnostic setting `pp-step7-aquarium-platform`, exporting only `AppServicePlatformLogs` to the existing `log-platform-dev` workspace in `rg-platform-dev` using resource-specific tables. The workspace default retention is 30 days. Check the effective table retention before approving ongoing collection. This creates a log ingestion path that may incur Azure Monitor charges. Exclude HTTP, application and console logs from this test. In a separately approved startup window, query the resource-specific table for that time range and confirm the owner can read startup events. Remove the test setting after verification. Already-ingested entries remain subject to workspace retention. Keep tokens, credentials, private keys and customer payloads out of logs.
+
+### Build verification
+
+`build-stage1-verifiers.yml` builds the four existing .NET verification projects with locked packages and SDK 10.0.403. Its runner-local SDK configuration disables roll-forward and checks the resolved version. The GitHub release run already built and published the Aquarium probe using the digest-pinned ASP.NET runtime image. The repository currently contains verification projects and a static coming-soon page. Add the product build gates as product projects are introduced.
+
+### Legacy delivery inventory and replacements
+
+| Legacy path | Replacement and acceptance |
+| --- | --- |
+| `infra/pipelines/deploy-ui-dev.yml` | `verify-dev-website.yml` uses the protected `dev` identity and an exact CLI version to republish `src/web/coming-soon` to the existing Static Web App production slot. It compares the live page and asset before publication and checks both custom domains afterward. Owner approval is required for the live publication. |
+| `infra/pipelines/deploy-infra-dev.yml` | GitHub validates the Bicep and security boundaries. For infrastructure changes, the owner runs subscription validation, reviews what-if, then applies the reviewed PP Bicep revision and parameters in the owner-controlled session. Preserve an independent review gate between preview and apply. |
+
+Both checked-in definitions have `trigger: none` and `pr: none` and refer to `sc-parameterpilot-dev`. Confirm Azure DevOps pipeline settings, schedules, queued runs and service connection consumers in the owner's organisation before retirement. Once the website replacement and owner infrastructure procedure are verified, agree a cutover window, disable the superseded manual pipelines, and preserve their settings for rollback. If a replacement fails, re-enable only the applicable legacy definition. Review service connection retirement separately after verifying all consumers and the rollback window.
 
 References: [GitHub OIDC setup](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure-openid-connect), [App Service configuration API](https://learn.microsoft.com/en-us/rest/api/appservice/web-apps/update-configuration).
