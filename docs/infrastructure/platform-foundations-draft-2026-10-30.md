@@ -1,5 +1,7 @@
 # Platform APIM/ACR deployment evidence — 30 October 2026
 
+**Closeout update, 4 November 2026.** Stage 1 is complete and owner-accepted. The deployment notes below preserve the status at the time of each verification. [Stage 1 completion checklist](../engineering/stage-1-completion-checklist.md)
+
 Status: Successfully deployed through main.bicep; infrastructure checks passed; Stage 1 remains open.
 
 The owner explicitly approved the full deployment including the three pre-existing Cosmos/Insights what-if Modify entries. Deployment platform-dev-20261030-apim-acr-020536 used azure-reference-platform's established main.bicep and actual main.dev.local.bicepparam. It completed at 13:32:31 Sydney time on 30 October (02:32:31 UTC), taking 26 minutes 50.8 seconds. Correlation ID: 68290fd5-2ad9-4bd1-9c5c-d88446ee0074; Azure template hash: 12008029426972160106. No Git commit, merge, push or PR occurred.

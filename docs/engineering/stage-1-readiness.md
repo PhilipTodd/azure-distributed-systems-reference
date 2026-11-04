@@ -1,12 +1,12 @@
 # Stage 1 readiness and agent guidance
 
-Version: 0.2 | Date: 29 October 2026 | Status: Accepted preparation approach; baseline accepted; completion evidence pending
+Version: 0.3 | Date: 4 November 2026 | Status: Stage 1 complete and accepted
 
 This is the working companion to the public [delivery plan](delivery-plan.md). It consolidates current Stage 1 guidance formerly repeated beneath that page's change history. It does not authorise application implementation, deployment, spending, shared-platform changes or merge.
 
-## Authoritative remaining-work status — 3 November 2026
+## Stage 1 closeout — 4 November 2026
 
-The owner adopted the [eight-step completion checklist](stage-1-completion-checklist.md) as authoritative. Step 1 actual SQL/Cosmos managed-identity access is verified with 29 passing checks; step 2 configuration/vault isolation is verified with 30. Both have cleanup evidence. Earlier “identity/grants pending” inventories below are historical; they do not override this checklist. Steps 3–8 remain open, and Stage 2 application features are not required merely to close Stage 1.
+The owner accepted all eight Stage 1 items and merged the handover through [PR #47](https://github.com/PhilipTodd/azure-distributed-systems-reference/pull/47). The [Stage 1 completion checklist](stage-1-completion-checklist.md) records the verification and follow-ups. The preparation and deployment notes below describe the path to acceptance. Stage 2 implementation requires separate owner authorisation.
 
 ## Current completion path
 
@@ -51,7 +51,7 @@ Do not block Stage 2 on unused Advisor/PostgreSQL/photo dependencies, full later
 
 Current next step: [scoped-access setup](../infrastructure/scoped-access-readiness.md). The owner accepted PP ownership of its exclusive App Configuration stores/Key Vaults and deferred provisioning to PP Bicep changes (ADR-031); the earlier platform-owned-instance proposal is superseded. A dedicated platform SQL administrator group is selected. Group/server setup, actual service identities/grants and access verification remain pending; deferral does not waive final readiness checks.
 
-Deployed 30 October: [APIM/ACR evidence](../infrastructure/platform-foundations-draft-2026-10-30.md) records successful main.bicep deployment after explicit existing-resource approval. APIM Developer and ACR Basic infrastructure checks passed; B1 and selected shared settings/app states remained unchanged. Prior draft/not-deployed paragraphs below are historical. Configuration/vault decisions, scoped grants, application/Local bootstrap, ingress/identity and final Stage 1 handover remain open.
+Deployed 30 October: [APIM/ACR evidence](../infrastructure/platform-foundations-draft-2026-10-30.md) records successful main.bicep deployment after explicit existing-resource approval. APIM Developer and ACR Basic infrastructure checks passed; B1 and selected shared settings/app states remained unchanged. Prior draft/not-deployed paragraphs below are historical. Later access, Local bootstrap, ingress, identity and delivery verification are recorded in the completion checklist.
 
 30 October consolidated APIM/ACR draft: [platform verification](../infrastructure/platform-foundations-draft-2026-10-30.md) records main.bicep integration, local/GitHub parameter updates and successful subscription validation. Full-template what-if shows APIM/policy/ACR additions plus three existing Cosmos/Insights Modify entries also present in the unmodified baseline; review those differences before deployment. No resources were deployed. B1 is NoChange; operational verification and the configuration/vault decision remain outstanding.
 
@@ -63,6 +63,6 @@ The [30 October platform change proposal](../infrastructure/platform-change-prop
 
 30 October: [live platform inventory and gap report](../infrastructure/platform-readiness-2026-10-30.md) now verifies core resource metadata and identifies PLATFORM-READY-01–06. Missing prerequisites, shared-plan headroom, identity/scoped access, configuration isolation, retention and operational handover remain open. No resource creation or configuration change was performed.
 
-The [candidate Stage 2 readiness specification](stage-2-readiness-specification.md) now supplies dependency/image candidates, executable JSON Schemas, scientific seed proposals, configuration placeholders and a Local bootstrap specification. The owner accepted SPEC-01–04 on 29 October, including the 12 initial scientific definitions; see the [acceptance record](authorised-decisions-2026-10-29.md). Baseline preparation/review is closed; no application or resource installation is implied. Structural schema checks are distinct from application/environment evidence. Runnable application bootstrap, dependency restore/build, platform handover and Stage 1 completion evidence remain outstanding. This document does not establish resources exist or Stage 1 is complete. If compatibility, scientific review or platform verification reveals a material conflict, raise that specific decision before affected implementation.
+The [candidate Stage 2 readiness specification](stage-2-readiness-specification.md) now supplies dependency/image candidates, executable JSON Schemas, scientific seed proposals, configuration placeholders and a Local bootstrap specification. The owner accepted SPEC-01–04 on 29 October, including the 12 initial scientific definitions; see the [acceptance record](authorised-decisions-2026-10-29.md). Baseline preparation/review is closed; no application or resource installation is implied. Structural schema checks are distinct from application/environment evidence. Local dependency setup, verifier builds and platform handover are recorded in the Stage 1 completion checklist. Product application builds and feature verification follow Stage 2 implementation. If compatibility, scientific review or platform verification reveals a material conflict, raise that specific decision before affected implementation.
 
 Decision chronology remains in approval records and ADRs. Repeated historical summaries from the delivery page were removed rather than copied here; linked source documents retain the accepted rules.

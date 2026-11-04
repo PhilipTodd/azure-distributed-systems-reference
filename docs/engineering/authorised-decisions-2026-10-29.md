@@ -1,5 +1,7 @@
 # Authorised decisions — 29 October 2026
 
+**Closeout update, 4 November 2026.** The owner accepted Stage 1 and merged the handover in [PR #47](https://github.com/PhilipTodd/azure-distributed-systems-reference/pull/47). The dated entries below preserve the decisions and status at the time. [Stage 1 completion checklist](stage-1-completion-checklist.md)
+
 ## Stage 2 readiness baseline — SPEC-01–04
 
 Status: Accepted by the human owner in this chat.

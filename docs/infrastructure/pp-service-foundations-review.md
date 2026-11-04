@@ -1,5 +1,7 @@
 # Aquarium and Tracking foundation review
 
+**Closeout update, 4 November 2026.** Stage 1 is complete and owner-accepted. The deployment notes below preserve the status at the time of each verification. [Stage 1 completion checklist](../engineering/stage-1-completion-checklist.md)
+
 Date: 30 October 2026; layout/naming revised 2 November 2026 | Status: Foundations deployed and management controls verified on 2 November 2026
 
 Authority: the owner requested preparation of PP Bicep changes for review. This authorises source preparation and validation, not deployment, traffic activation, spend, feature implementation or a shared-platform update. Existing Structurizr deployment sources and accepted ADR-009/011/024/026/027/031 were consulted; no new topology or C4 view is introduced.

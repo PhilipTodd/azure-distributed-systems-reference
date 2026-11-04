@@ -16,7 +16,7 @@
 
 A practical reference for designing and building distributed systems on Microsoft Azure. **Parameter Pilot**, an AI-assisted aquarium management platform, provides the real-world context for exploring service boundaries, event-driven integration, security, and infrastructure as code.
 
-**Current stage: architecture and design.** The repository contains requirements, architecture decisions, Structurizr models, a Jekyll documentation site, initial Azure Bicep infrastructure, and a static coming-soon page. Application services and their automated test suites are yet to be implemented.
+**Stage 1 foundations were completed and accepted on 4 November 2026.** See the [completion checklist](docs/engineering/stage-1-completion-checklist.md). The repository contains requirements, architecture decisions, Structurizr models, a Jekyll documentation site, initial Azure Bicep infrastructure, and a static coming-soon page. Application services and their automated test suites are yet to be implemented.
 
 ## 🛠️ Technologies
 

@@ -1,5 +1,7 @@
 # Development delivery verification
 
+**Stage 1 closeout, 4 November 2026.** The owner accepted the handover and merged [PR #47](https://github.com/PhilipTodd/azure-distributed-systems-reference/pull/47). Startup diagnostics passed through the protected SCM read. Central Log Analytics ingestion remains a follow-up. [Stage 1 completion checklist](../engineering/stage-1-completion-checklist.md)
+
 ## GitHub results on 4 November 2026
 
 - The release verification passed. GitHub built and published the image, signed in to Azure with OIDC, and verified setting and restoring the image configuration on the disabled Aquarium host. [Release run](https://github.com/PhilipTodd/azure-distributed-systems-reference/actions/runs/41735129057)
