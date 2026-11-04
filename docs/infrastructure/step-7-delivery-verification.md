@@ -43,11 +43,17 @@ Aquarium currently has no Azure Monitor diagnostic export. The owner session cou
 
 Proposed diagnostic verification for owner approval: create the Aquarium-only diagnostic setting `pp-step7-aquarium-platform`, exporting only `AppServicePlatformLogs` to the existing `log-platform-dev` workspace in `rg-platform-dev` using resource-specific tables. The workspace default retention is 30 days. Check the effective table retention before approving ongoing collection. This creates a log ingestion path that may incur Azure Monitor charges. Exclude HTTP, application and console logs from this test. In a separately approved startup window, query the resource-specific table for that time range and confirm the owner can read startup events. Remove the test setting after verification. Already-ingested entries remain subject to workspace retention. Keep tokens, credentials, private keys and customer payloads out of logs.
 
+The owner approved the temporary test on 4 November. The target table had 30-day effective retention and the owner session could query it. Aquarium was activated for two minutes and restored to its disabled baseline. The five-minute ingestion wait returned zero Aquarium events for the test window. The temporary export was removed and its absence verified. Ingestion remains unverified. Requery the original time window before considering another export. [Test evidence](evidence/step-7-aquarium-platform-diagnostics-2026-11-04.json) · [Azure Monitor diagnostic settings](https://learn.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-settings)
+
 ### Build verification
+
+The build passed on the merged revision using SDK 10.0.403 and locked packages for all four verification projects. [GitHub build](https://github.com/PhilipTodd/azure-distributed-systems-reference/actions/runs/41744290569)
 
 `build-stage1-verifiers.yml` builds the four existing .NET verification projects with locked packages and SDK 10.0.403. Its runner-local SDK configuration disables roll-forward and checks the resolved version. The GitHub release run already built and published the Aquarium probe using the digest-pinned ASP.NET runtime image. The repository currently contains verification projects and a static coming-soon page. Add the product build gates as product projects are introduced.
 
 ### Legacy delivery inventory and replacements
+
+The owner-approved website run passed. The preflight matched the live content, the protected identity published it, and both custom domains served the expected page and image afterward. [Website verification](https://github.com/PhilipTodd/azure-distributed-systems-reference/actions/runs/41744447102)
 
 | Legacy path | Replacement and acceptance |
 | --- | --- |
@@ -55,5 +61,17 @@ Proposed diagnostic verification for owner approval: create the Aquarium-only di
 | `infra/pipelines/deploy-infra-dev.yml` | GitHub validates the Bicep and security boundaries. For infrastructure changes, the owner runs subscription validation, reviews what-if, then applies the reviewed PP Bicep revision and parameters in the owner-controlled session. Preserve an independent review gate between preview and apply. |
 
 Both checked-in definitions have `trigger: none` and `pr: none` and refer to `sc-parameterpilot-dev`. Confirm Azure DevOps pipeline settings, schedules, queued runs and service connection consumers in the owner's organisation before retirement. Once the website replacement and owner infrastructure procedure are verified, agree a cutover window, disable the superseded manual pipelines, and preserve their settings for rollback. If a replacement fails, re-enable only the applicable legacy definition. Review service connection retirement separately after verifying all consumers and the rollback window.
+
+### Verified cutover inventory on 4 November
+
+Azure DevOps project `ausdatatech / Public Portfolio` has two Parameter Pilot definitions. Pipeline 13 is `pp - infra - dev` and pipeline 14 is `web - pp - dev`. Both queues are enabled and both definitions point at former YAML paths absent from main. Neither reported a configured schedule or active or queued run. The connection returned explicit permissions for IDs 13 and 14. Its 22 available execution records only named those definitions when a pipeline definition ID was present. [Inventory](evidence/step-7-legacy-inventory-2026-11-04.json)
+
+The owner-run infrastructure replacement passed subscription validation. What-if reported `NoChange` for the resource group and `Modify` for the website and both custom domains. The preview includes deployment authentication, provider, inbound IP, traffic splitting, build properties and domain validation metadata. Treat these as preview differences requiring review before a future apply. The infrastructure test ended at what-if.
+
+Proposed cutover for owner approval: recheck that IDs 13 and 14 still point at the expected Parameter Pilot repository and have no active or queued runs. Set only their queue status to `disabled` and verify both readbacks. Preserve the definitions and service connection. Roll back by setting the affected queue to its previous `enabled` status after rechecking the intended YAML path. The current legacy paths are missing, so enabling a queue alone would not restore a working run.
+
+The owner approved the queue cutover. Both definitions passed the scope and queue preflight. Azure DevOps readback confirmed `disabled` at revision 3 for both definitions. The service connection remains available for the documented rollback.
+
+A late Log Analytics query at 01:58 UTC returned zero Aquarium platform events for the original activation window. Owner query access passed. Startup-event ingestion remains open.
 
 References: [GitHub OIDC setup](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure-openid-connect), [App Service configuration API](https://learn.microsoft.com/en-us/rest/api/appservice/web-apps/update-configuration).

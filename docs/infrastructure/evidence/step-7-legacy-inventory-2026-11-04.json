@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-04",
+  "organisation": "ausdatatech",
+  "project": "Public Portfolio",
+  "repository": "PhilipTodd/azure-distributed-systems-reference",
+  "pipelines": [
+    {
+      "id": 13,
+      "name": "pp - infra - dev",
+      "revision": 2,
+      "queueStatus": "enabled",
+      "yamlPath": "infra/pipelines/deploy-infrastructure.yml",
+      "pathPresentOnMain": false,
+      "configuredSchedules": 0,
+      "activeOrQueuedRuns": 0,
+      "latestCompletedRunResult": "succeeded",
+      "latestCompletedRunUtc": "2026-09-25T03:17:00.9883206Z"
+    },
+    {
+      "id": 14,
+      "name": "web - pp - dev",
+      "revision": 2,
+      "queueStatus": "enabled",
+      "yamlPath": "infra/pipelines/deploy-web.yml",
+      "pathPresentOnMain": false,
+      "configuredSchedules": 0,
+      "activeOrQueuedRuns": 0,
+      "latestCompletedRunResult": "succeeded",
+      "latestCompletedRunUtc": "2026-09-29T02:07:59.646225Z"
+    }
+  ],
+  "serviceConnection": {
+    "name": "sc-parameterpilot-dev",
+    "shared": false,
+    "explicitlyAuthorisedPipelineIds": [13, 14],
+    "executionRecordsReturned": 22,
+    "pipelineDefinitionIdsInReturnedHistory": [13, 14]
+  },
+  "cutover": {
+    "ownerApproved": true,
+    "verifiedQueueStatus": {"13": "disabled", "14": "disabled"},
+    "verifiedRevision": {"13": 3, "14": 3},
+    "rollbackQueueStatus": "enabled"
+  },
+  "replacement": {
+    "websiteRunId": 41744447102,
+    "websitePassed": true,
+    "ownerInfrastructureValidation": "Succeeded",
+    "whatIf": {
+      "resourceGroup": "NoChange",
+      "staticWebApp": "Modify",
+      "customDomains": "Modify",
+      "staticWebAppPropertyPaths": [
+        "properties.deploymentAuthPolicy",
+        "properties.provider",
+        "properties.stableInboundIP",
+        "properties.trafficSplitting",
+        "properties.buildProperties"
+      ],
+      "customDomainPropertyPaths": [
+        "properties.expiresOn",
+        "properties.isDefault",
+        "properties.validationMethod"
+      ]
+    },
+    "infrastructureApplied": false
+  }
+}
