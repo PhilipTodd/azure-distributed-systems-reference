@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-04",
+  "source": "Retained startup record from the successful APIM verification deployment",
+  "image": "acradtplatformdev.azurecr.io/parameterpilot/aquarium-api@sha256:ac70bc6440656be94d273835bc14894bcbf873a43ba064e84cef9ade0e12e28f",
+  "startupVerified": true,
+  "warmupSucceededUtc": "2026-11-03T23:56:59.3706927+00:00",
+  "ownerEntraReadVerified": true,
+  "temporaryScmRuleSingleOwnerAddress": true,
+  "mainHealthStatus": 403,
+  "unauthenticatedScmStatus": 401,
+  "passwordPublishingDisabled": true,
+  "restored": true,
+  "temporaryScmRuleRemoved": true,
+  "firstAttempt": "Azure rejected a rule name longer than 32 characters. Baseline restoration passed before retry.",
+  "logAnalyticsExportVerified": false
+}

@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-04",
+  "image": "acradtplatformdev.azurecr.io/parameterpilot/aquarium-api@sha256:ac70bc6440656be94d273835bc14894bcbf873a43ba064e84cef9ade0e12e28f",
+  "startUtc": "2026-11-04T00:14:07.040185+00:00",
+  "workspace": "log-platform-dev",
+  "category": "AppServicePlatformLogs",
+  "effectiveRetentionDays": 30,
+  "hostRestored": true,
+  "diagnosticSettingRemoved": true,
+  "platformEvents": 0,
+  "startupEvents": 0,
+  "latestEventUtc": null,
+  "lateRecheck": {
+    "queriedUtc": "2026-11-04T01:58:40Z",
+    "windowEndUtc": "2026-11-04T00:23:00Z",
+    "platformEvents": 0,
+    "startupEvents": 0
+  }
+}
