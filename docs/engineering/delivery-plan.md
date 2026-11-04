@@ -24,6 +24,8 @@ The first public release contains tracking, maintenance and charts. Paid AI and 
 
 ## Stage 1 — Foundations
 
+Completed and accepted on 4 November 2026. The eight-step checklist records the verification evidence and handover. Stage 2 implementation requires separate owner authorisation. [Stage 1 completion checklist](stage-1-completion-checklist.md)
+
 ### Deliverables
 
 - Prepare and review the Stage 2 readiness specification: compatible versions, executable contracts, parameter definitions and reproducible setup instructions.

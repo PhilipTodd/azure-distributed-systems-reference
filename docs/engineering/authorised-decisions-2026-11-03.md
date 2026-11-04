@@ -1,5 +1,7 @@
 # Authorised decisions — 3 November 2026
 
+**Closeout update, 4 November 2026.** The owner accepted Stage 1 and merged the handover in [PR #47](https://github.com/PhilipTodd/azure-distributed-systems-reference/pull/47). The dated entries below preserve the decisions and status at the time. [Stage 1 completion checklist](stage-1-completion-checklist.md)
+
 ## Step 6 Local setup preparation
 
 The owner instructed “Proceed” after the Local dependency/bootstrap/synthetic-data work split. Scope includes Compose for SQL Developer/Cosmos, safe Local credential handling, isolated fresh-volume tests and documentation; no Azure mutation, product schema/feature implementation or Git publication is implied.

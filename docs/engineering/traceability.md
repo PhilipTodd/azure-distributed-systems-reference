@@ -2,7 +2,7 @@
 
 Version: 0.34 | Date: 29 October 2026 | Status: Draft
 
-READY-01 preparation -> [29 October candidate specification](stage-2-readiness-specification.md) -> [executable schema bundle](../api/schemas/stage-2.schema.json), [scientific seed proposal](../api/schemas/stage-2-seed-proposal.json), [nonsecret configuration template](../development/stage-2-configuration.example.json) -> [structural verification](../../scripts/verify-readiness-contracts.py). SPEC-01–04 and the initial scientific baseline were accepted in the [29 October record](authorised-decisions-2026-10-29.md). Runtime/cloud verification and Stage 1 completion acceptance remain open. No implementation/deployment evidence is implied.
+READY-01 preparation -> [29 October candidate specification](stage-2-readiness-specification.md) -> [executable schema bundle](../api/schemas/stage-2.schema.json), [scientific seed proposal](../api/schemas/stage-2-seed-proposal.json), [nonsecret configuration template](../development/stage-2-configuration.example.json) -> [structural verification](../../scripts/verify-readiness-contracts.py). SPEC-01–04 and the initial scientific baseline were accepted in the [29 October record](authorised-decisions-2026-10-29.md). Stage 1 foundation verification and owner acceptance are recorded in the [Stage 1 completion checklist](stage-1-completion-checklist.md). Product implementation and feature tests follow their respective stages.
 
 Requirement -> story -> design/ADR -> API/event/data contract -> issue -> implementation -> tests/evaluations -> PR -> human approval.
 

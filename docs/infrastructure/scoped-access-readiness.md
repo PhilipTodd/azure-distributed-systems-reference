@@ -1,5 +1,7 @@
 # Stage 1 scoped-access setup
 
+**Closeout update, 4 November 2026.** Stage 1 is complete and owner-accepted. The deployment notes below preserve the status at the time of each verification. [Stage 1 completion checklist](../engineering/stage-1-completion-checklist.md)
+
 ## Controlled delivery/developer setup — 3 November 2026
 
 The owner authorised Step 3. Separate PP release/migration Entra identities, protected GitHub environments/trusts, developer group and scoped Azure/SQL permissions are now configured. Thirteen Azure permission resources matched the access-only preview; 20 SQL role checks passed. [Delivery access](delivery-access.md) records current identities, grant process and the distinction between configuration/read-back, effective probes and pending GitHub execution. This supersedes historical migration-principal/developer-grant prerequisites below without claiming the entire Stage 1 gate complete.

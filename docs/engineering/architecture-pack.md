@@ -6,6 +6,8 @@ title: Parameter Pilot Engineering & Architecture Pack
 
 Version: 0.14 | Date: 21 October 2026 | Status: Draft for architectural review
 
+Stage 1 foundations were completed and accepted on 4 November 2026. The checklist records the verified scope and handover. Stage 2 implementation requires separate owner authorisation. [Stage 1 completion checklist](stage-1-completion-checklist.md)
+
 Decision authority: human owner/architect. This pack is a design baseline, not implementation, deployment, spending or merge approval. Selected decisions are now accepted in the [19 October 2026 authorisation record](authorised-decisions-2026-10-19.md); all other recommendations retain their existing status.
 
 ## Confirmed direction

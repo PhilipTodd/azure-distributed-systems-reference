@@ -1,5 +1,7 @@
 # Decision and risk register
 
+**Closeout update, 4 November 2026.** The owner accepted Stage 1 and merged the handover in [PR #47](https://github.com/PhilipTodd/azure-distributed-systems-reference/pull/47). The dated entries below preserve the decisions and status at the time. [Stage 1 completion checklist](stage-1-completion-checklist.md)
+
 Version: 0.35 | Date: 30 October 2026 | Status: Draft
 
 ## Stage 2 accepted baseline — 29 October 2026
@@ -182,7 +184,7 @@ MEAS-09: Aquarium validation is the definition-consistency point for a new panel
 
 No second Aquarium validation call or distributed SQL/Cosmos transaction is introduced. This consistency rule is limited to definition changes; it does not waive token validation or tank-ownership checks. Existing fail-closed dependency behaviour and same-container/partition local atomicity remain. Timing/retirement scenarios must be verified; no executable behaviour changed.
 
-## Current Stage 1 decision closure — READY-01
+## Historical Stage 1 preparation — READY-01
 
 [READY-01](authorised-decisions-2026-10-21.md) accepts preparing one reviewable Stage 2 readiness specification rather than continuing routine detail-by-detail Q&A. No further high-level decision is currently identified as a prerequisite to that preparation or read-only readiness evidence. Exact dependency versions, schemas/precision/seed variants and setup values remain specification outputs requiring compatibility validation and appropriate review, not fabricated approvals.
 
