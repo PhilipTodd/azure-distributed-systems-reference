@@ -5,7 +5,7 @@
 - The release verification passed. GitHub built and published the image, signed in to Azure with OIDC, and verified setting and restoring the image configuration on the disabled Aquarium host. [Release run](https://github.com/PhilipTodd/azure-distributed-systems-reference/actions/runs/41735129057)
 - The migration verification passed. GitHub installed the SQL client, signed in to the tenant with OIDC, connected to SQL, verified the Aquarium migration role, and created and read back the probe table before rolling back the transaction. [Migration run](https://github.com/PhilipTodd/azure-distributed-systems-reference/actions/runs/41739099738)
 
-The running deployment check passed through the temporary APIM route described below. Diagnostics verification and legacy pipeline cutover remain open.
+The running deployment, protected startup-log read and legacy queue cutover passed. The results and rollback details are recorded below.
 
 ## Proposed Aquarium activation window
 
@@ -22,9 +22,9 @@ Approval covers only temporary Aquarium activation and restoration with this dig
 
 The owner approved the closed-host window. The first attempt stopped when Azure rejected the one-minute HealthCheckStatus interval. The retry used five-minute samples and temporary container logging. Azure reported the host running with the approved digest, but no current successful health sample arrived and the management logs contained no startup success tied to that digest. The runtime result is inconclusive. Aquarium was disabled and the original image, selected settings, logging and access rules were verified after cleanup. [Initial attempt](evidence/step-7-aquarium-activation-initial-2026-11-04.json) · [Retry](evidence/step-7-aquarium-activation-2026-11-04.json)
 
-The owner approved the temporary PP-only APIM route. The same published image returned HTTP 200 through APIM with role Aquarium and run marker `github-41735129057-1`. A direct backend request returned 403. The temporary API was removed, the shared APIM policy matched its original value, and Aquarium was disabled with its original settings and access rules restored. Owner diagnostics review remains open. [APIM health evidence](evidence/step-7-aquarium-apim-health-2026-11-04.json)
+The owner approved the temporary PP-only APIM route. The same published image returned HTTP 200 through APIM with role Aquarium and run marker `github-41735129057-1`. A direct backend request returned 403. The temporary API was removed, the shared APIM policy matched its original value, and Aquarium was disabled with its original settings and access rules restored. [APIM health evidence](evidence/step-7-aquarium-apim-health-2026-11-04.json)
 
-The two manual GitHub workflows are prepared locally for review. Run them from the reviewed main revision and check the existing environment protections before dispatch. Both share one concurrency group and use the environment's individual OIDC identity. Review the image and SQL together with the workflows before approval.
+The manual GitHub release and migration workflows run from the reviewed main revision. Both share one concurrency group and use their environment's OIDC identity. Check the environment protections before dispatch and review the image and SQL together with the workflows before approval.
 
 The owner approved both verification tests in chat. The approved scope is publishing the verification image and testing image configuration on the disabled Aquarium host, plus executing the rollback-only Aquarium SQL probe. Each live run still goes through its protected GitHub environment after the workflows reach the reviewed main revision.
 
@@ -39,7 +39,7 @@ The release probe leaves Aquarium disabled. Its configuration readback verifies 
 
 ## Diagnostics and cutover
 
-Aquarium currently has no Azure Monitor diagnostic export. The owner session could read App Service detector metadata and metrics. The ARM container-log request timed out during the successful APIM test, so startup-log retrieval remains unverified.
+Aquarium currently has no Azure Monitor diagnostic export. The owner session could read App Service detector metadata and metrics. The ARM container-log request timed out during the APIM test. The later Entra-authenticated SCM read verified the retained startup log.
 
 Proposed diagnostic verification for owner approval: create the Aquarium-only diagnostic setting `pp-step7-aquarium-platform`, exporting only `AppServicePlatformLogs` to the existing `log-platform-dev` workspace in `rg-platform-dev` using resource-specific tables. The workspace default retention is 30 days. Check the effective table retention before approving ongoing collection. This creates a log ingestion path that may incur Azure Monitor charges. Exclude HTTP, application and console logs from this test. In a separately approved startup window, query the resource-specific table for that time range and confirm the owner can read startup events. Remove the test setting after verification. Already-ingested entries remain subject to workspace retention. Keep tokens, credentials, private keys and customer payloads out of logs.
 
