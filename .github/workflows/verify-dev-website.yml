@@ -32,7 +32,7 @@ jobs:
           curl --fail --silent --show-error --max-time 20 "https://parameterpilot.com/$asset" --output "$RUNNER_TEMP/live-website/$asset"
           diff --strip-trailing-cr "$RUNNER_TEMP/live-website/index.html" src/web/coming-soon/index.html >/dev/null
           cmp "$RUNNER_TEMP/live-website/$asset" "src/web/coming-soon/$asset"
-      - uses: azure/login@v2
+      - uses: azure/login@v3
         with:
           client-id: ${{ vars.AZURE_CLIENT_ID }}
           tenant-id: ${{ vars.AZURE_TENANT_ID }}
