@@ -31,7 +31,7 @@ jobs:
           odbcinst -q -d -n 'ODBC Driver 18 for SQL Server'
           python3 -m venv "$RUNNER_TEMP/sql-client"
           "$RUNNER_TEMP/sql-client/bin/pip" install -r scripts/access-requirements.txt
-      - uses: azure/login@v2
+      - uses: azure/login@v3
         with:
           client-id: ${{ vars.AZURE_CLIENT_ID }}
           tenant-id: ${{ vars.AZURE_TENANT_ID }}
